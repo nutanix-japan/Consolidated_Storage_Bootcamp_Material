@@ -26,7 +26,7 @@
    :name: _objects_labs
    :hidden:
 
-   objects_buckets_users/objects_buckets_users
+   objects_buckets_users\objects_buckets_users_access_control
    objects_versioning_access_control/objects_versioning_access_control
    objects_cli_scripts/objects_cli_scripts
 

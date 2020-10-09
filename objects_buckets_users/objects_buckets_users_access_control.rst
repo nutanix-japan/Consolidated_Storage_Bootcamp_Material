@@ -1,4 +1,4 @@
-.. _objects_buckets_users:
+.. _objects_buckets_users_access_control:
 
 --------------------------------------------------
 Objects: Creating Buckets, Users, & Access Control
@@ -22,7 +22,7 @@ A bucket is a sub-repository within an object store which can have policies appl
    - **Name**  - *your-name*-my-bucket
    - **Enable Versioning** - Checked
 
-   .. figure:: images/buckets_05.png
+   .. figure:: images/objects_05.png
 
 #. Click **Create**.
 
@@ -40,9 +40,13 @@ A bucket is a sub-repository within an object store which can have policies appl
 
      Note that if WORM is enabled on the bucket, this will supersede any lifecycle policy.
 
-#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Configure WORM**. Note you have the ability to define a WORM data retention period on a per bucket basis.
+#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Configure WORM** from the **Actions** dropdown.
 
-#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Share**.
+#. Check the box next to **Enable WORM** bucket, and click **Enable WORM**.
+
+   .. Note:: you have the ability to define a WORM data retention period on a per bucket basis.
+
+#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Share** from the **Actions** dropdown.
 
    This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis. Since we haven't created any users yet, just click **Cancel**.
 
@@ -53,17 +57,21 @@ User Management
 
 In this exercise you will create generate access and secret keys to access the object store, that will be used throughout the lab.
 
-#. From the Buckets UI, click on **Access Keys** and click **Add People**.
+#. From the Objects UI, click on **Access Keys** and click **Add People**.
 
-   .. figure:: images/buckets_add_people.png
+   .. figure:: images/objects_add_people.png
 
 #. Select **Add people not in Active Directory** and enter your e-mail address.
 
-   .. figure:: images/buckets_add_people2.png
+   .. figure:: images/objects_add_people_02.png
 
 #. Click **Next**.
 
-#. Click **Download Keys** to download a .csv file containing the **Access Key** and **Secret Key**.
+#. Click **Generate Keys** to generate a ket.
+
+   .. figure:: images/objects_add_people_04.png
+
+#. Click **Download Keys** to download a .txt file containing the **Access Key** and **Secret Key**.
 
    .. figure:: images/buckets_add_people3.png
 
@@ -88,8 +96,6 @@ Takeaways
 What are the key things you should know about **Nutanix Objects**?
 
 - Nutanix Objects provides a simple and scalable S3-compatible object storage solution, optimized for DevOps, Long Term Retention and Backup Target use cases.
-
-- A 2TiB Objects license is included with every AOS cluster. After that, it is licensed by used capacity (as opposed to number of nodes).
 
 - Nutanix Objects can be deployed on an AHV cluster, with ESXi support on the roadmap.
 
