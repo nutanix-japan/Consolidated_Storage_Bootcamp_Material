@@ -9,120 +9,83 @@ Objects: Versioning & Access Controls
 Overview
 ++++++++
 
+Accessing & Creating Buckets With Objects Browser
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Enabling Object Versioning
-++++++++++++++++++++++++++
+In this exercise you will use Objects Browser to create and use buckets in the object store using your generated access key.
+
+Download the Sample Images
+..........................
+
+#. Login to *Initials*\ **-Windows-ToolsVM** via RDP using the following credentials:
+
+   - **Username** - NTNXLAB\\Administrator
+   - **password** - nutanix/4u
+
+#. `Click here <https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip>`_ to download the sample images to your Windows-ToolsVM. Once the download is complete, extract the contents of the .zip file.
+
+Use Object Browser to Create A Bucket
+.....................................
+
+#. From the Objects UI, Locate the **Objects Public IPs**.
+
+   .. figure:: images/objects_06.png
+
+#. In a new browser tab paste the **Objects Public IP**, and add port **7200**.
+
+   .. figure:: images/objects_06b.png
+
+#. Enter the following fields for the user created earlier, and click **Login** button:
+
+   - **Access Key**  - *Generated When User Created*
+   - **Secret Key** - *Generated When User Created*
+
+   .. figure:: images/objects_08.png
+
+#. Click the **+** and **Create bucket**.
+
+   .. figure:: images/objects_08b.png
+
+#. Enter the following name for your bucket, and click **Create**:
+
+   - **Bucket Name** - *intials*-**Test-Bucket**
+
+   .. note::
+
+     Bucket names must be lower case and only contain letters, numbers, periods and hyphens.
+
+     Additionally, all bucket names must be unique within a given Object Store. Note that if you try to create a folder with an existing bucket name (e.g. *your-name*-my-bucket), creation of the folder will not succeed.
+
+   Creating a bucket in this fashion allows for self-service for entitled users, and is no different than a bucket created via the Prism Buckets UI.
+
+#. Click into your *your-name*-**my-bucket** bucket, and Click the **+** and ***Upload file**.
+
+#. Navigate to your downloads directory and find the Sample Pictures folder. Upload one or more pictures to your bucket.
+
+#. That is how easy it is to use the Objects Browser.
+
+
+Object Versioning
++++++++++++++++++
 
 Object versioning allows the upload of new versions of the same object for required changes, without losing the original data. Versioning can be used to preserve, retrieve and restore every version of every object stored within a bucket, allowing for easy recovery from unintended user action and application failures.
 
-#. Return to Cyberduck and re-connect using your user's access and secret keys. If you are already connected, make sure you are on the bucket listing page (the root folder in Cyberduck).
-
-   .. figure:: images/root_folder.png
-
-#. Select your bucket and and click **Get Info**.
-
-   .. figure:: images/buckets_12.png
-
-#. Under the **S3** tab, select **Bucket Versioning** and then close the window. This is equivalent to enabling versioning through Prism.
-
-   .. figure:: images/buckets_13.png
-
-#. Leave the Cyberduck connection open, and open Notepad in *Initials*\ **-Windows-ToolsVM**.
+#. Open Notepad in *Initials*\ **-Windows-ToolsVM**.
 
 #. Type “version 1.0” in Notepad, then save the file.
 
-#. In Cyberduck, upload the text file to your bucket.
+#. In Objects Browser, upload the text file to your *your-name*-**my-bucket** bucket.
 
 #. Make changes to the text file in Notepad and save it with the same name, overwriting the original file.
 
-#. Upload the modified file to your bucket. Click **Continue** when prompted to overwrite the existing file.
+#. Upload the modified file to your bucket. If desired, you can update and upload the file multiple times.
 
-   If desired, you can update and upload the file multiple times.
+#. Back in Prism, in the Objects UI, click on **Object Stores**.
 
-#. In Cyberduck, click **View > Show Hidden Files**.
+#. look at the **Num. Objects** for your *your-name*-**my-bucket** bucket.
 
-   .. figure:: images/buckets_14.png
+   .. note:: You will see that there is an Object counted for every version of your test file.
 
-#. Notice that all versions are shown with their individual timestamps. Toggle **View > Column > Version** to view the version number associated with each object.
-
-   .. figure:: images/buckets_15.png
-
-User Access Control
-+++++++++++++++++++
-
-In this exercise we will demonstrate user access controls and how to apply permissions so that other users or applications can access your bucket. For programmatic access to object storage, it is common for each application or service accessing the bucket to have its own access/secret key pair, so that access can be controlled granularly.
-
-.. note::
-
-  You should have two pairs of credentals for this exercise. If you need to generate a key pair, please refer to the **User Management** exercise.
-
-Read Permissions
-................
-
-In this exercise we will attempt to list a directory that we don’t have read access to. By default, a new user only has permission to create and view their own buckets, unless given explicit access.
-
-#. Return to Cyberduck and re-connect to the same server using the first set of access and secret keys you used to create a bucket.
-
-.. note::
-
-  Note that you will not see the bucket created using your first user's credentials, even if you had read access to the bucket. This is because the LIST operation to list buckets only shows buckets owned by the authenticated user.
-
-#. Click **Go > Go To Folder** (or Ctrl + G)
-
-#. Enter in the name of the bucket you created in the last exercise. You should receive an Access Denied error.
-
-.. figure:: images/objects_19.png
-
-#. In Prism, within the Objects UI, make sure you are on the Object Stores tab.
-
-#. Click on the name of the object store to view the buckets.
-
-#. Select the bucket you created in the previous exercise by checking the box next to it, then click Share.
-
-.. figure:: images/objects_20.png
-
-#. Click **+ Add User**
-
-#. Enter in the second user’s e-mail you created, and assign it **Read** access.
-
-#. Click Save.
-
-.. figure:: images/objects_21.png
-
-#. Try the operation in Cyberduck again. You should now be able to list the objects in the directory.
-
-.. figure:: images/objects_22.png
-
-Write Permissions
-.................
-
-#. Within the same Cyberduck session, right click anywhere in the pane and select **Upload**.
-
-.. figure:: images/objects_23.png
-
-#. Select a different set of images than what has already been uploaded.
-
-#. Click Choose to upload them. You should receive an **Access Denied** error.
-
-.. figure:: images/objects_24.png
-
-#. Click **Cancel**.
-
-#. In Prism, within the Objects UI, make sure you are on the **Object Stores** tab.
-
-#. Click on the name of the object store to view the buckets.
-
-#. Select the bucket you created in the previous exercise by checking the box next to it, then click **Share**.
-
-#. Next to your second user’s name, add the **Write** permission.
-
-.. figure:: images/objects_25.png
-
-#. Click **Save**.
-
-#. Try the operation in Cyberduck again. You should now be able to upload the objects.
-
-.. figure:: images/objects_26.png
 
 Takeaways
 +++++++++
@@ -130,8 +93,6 @@ Takeaways
 What are the key things you should know about **Nutanix Objects**?
 
 - Nutanix Objects provides a simple and scalable S3-compatible object storage solution, optimized for DevOps, Long Term Retention and Backup Target use cases.
-
-- A 2TiB Objects license is included with every AOS cluster. After that, it is licensed by used capacity (as opposed to number of nodes).
 
 - Nutanix Objects can be deployed on an AHV cluster, with ESXi support on the roadmap.
 

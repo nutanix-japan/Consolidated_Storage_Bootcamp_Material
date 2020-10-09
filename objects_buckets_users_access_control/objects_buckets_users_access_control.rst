@@ -46,12 +46,6 @@ A bucket is a sub-repository within an object store which can have policies appl
 
    .. Note:: you have the ability to define a WORM data retention period on a per bucket basis.
 
-#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Share** from the **Actions** dropdown.
-
-   This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis. Since we haven't created any users yet, just click **Cancel**.
-
-   .. figure:: images/buckets_share.png
-
 User Management
 +++++++++++++++
 
@@ -87,6 +81,18 @@ In this exercise you will create generate access and secret keys to access the o
 
      Keep the text files open so that you have the access and secret keys readily available for future labs.
 
+Adding Users to buckets_share
++++++++++++++++++++++++++++++
+
+#. From the Objects UI, click on **Object Stores**.
+
+#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Share** from the **Actions** dropdown.
+
+   This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis. Since we haven't created any users yet, just click **Cancel**.
+
+   .. figure:: images/buckets_share.png
+
+#. Add the user you created earlier, with *Read* and *Write* permissions.
 
 
 
