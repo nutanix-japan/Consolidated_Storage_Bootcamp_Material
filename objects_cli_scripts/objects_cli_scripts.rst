@@ -12,7 +12,7 @@ Overview
 Accessing Objects from the CLI
 ++++++++++++++++++++++++++++++
 
-While tools like Cyberduck help to visualize how data is access within an object store, Buckets is primarily an object store service that is designed to be accessed and consumed over S3 APIs.
+While tools like the Object Browser help to visualize how data is access within an object store, Buckets is primarily an object store service that is designed to be accessed and consumed over S3 APIs.
 
 Amazon's S3 (Simple Storage Service) is the largest public cloud storage service, and has subsequently become the de-facto standard object storage API due to developer and ISV adoption. Buckets provides an S3 compliant interface to allow for maximum portability, as well as support for existing "cloud native" applications.
 
@@ -144,7 +144,7 @@ Create A Bucket And Add Objects To It Using s3cmd (CLI)
 Creating and Using Buckets From Scripts
 +++++++++++++++++++++++++++++++++++++++
 
-While tools like Cyberduck help to visualize how data is access within an object store, Nutanix Objects is primarily an object store service that is designed to be accessed and consumed over S3 APIs.
+While tools like the Objects Browser help to visualize how data is access within an object store, Nutanix Objects is primarily an object store service that is designed to be accessed and consumed over S3 APIs.
 
 Amazon Web Services's S3 (Simple Storage Service) is the largest public cloud storage service, and has subsequently become the de-facto standard object storage API due to developer and ISV adoption. Objects provides an S3 compliant interface to allow for maximum portability, as well as support for existing "cloud native" applications.
 
@@ -265,8 +265,6 @@ Takeaways
 What are the key things you should know about **Nutanix Objects**?
 
 - Nutanix Objects provides a simple and scalable S3-compatible object storage solution, optimized for DevOps, Long Term Retention and Backup Target use cases.
-
-- A 2TiB Objects license is included with every AOS cluster. After that, it is licensed by used capacity (as opposed to number of nodes).
 
 - Nutanix Objects can be deployed on an AHV cluster, with ESXi support on the roadmap.
 
