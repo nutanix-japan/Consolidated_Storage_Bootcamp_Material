@@ -109,7 +109,12 @@ View the Object Storage Services
 Walk Through the Object Store Deployment
 ........................................
 
-In this exercise you will walk through the steps of creating an Object Store. **You will not actually deploy the Object Store, but you will be able to see the workflow and how simple it is for users to deploy an Object Store.**
+In this exercise you will walk through the steps of creating an Object Store.
+
+.. raw:: html
+
+  <strong><font color="red">You will not actually deploy the Object Store, but you will be able to see the workflow and how simple it is for users to deploy an Object Store.</font></strong>
+
 
 .. note::
 
@@ -140,9 +145,9 @@ In this exercise you will walk through the steps of creating an Object Store. **
 
    Select the different options (Small, Medium, Large) and notice how the Resource numbers change. These are the resources that will be applied across the K8s worker VMs. For example, specifying 30vCPU and 72GB of RAM across 3 workers, comes to 10 vCPU and 24 GB of RAM per worker. Custom values are also allowed.
 
-#. Select Small (50TiB), and click **Next**.
+#. Select **Light**, **50TiB** for Capacity, and click **Next**.
 
-   .. figure:: images/buckets_03.png
+   .. figure:: images/objects_03.png
 
    On the final screen, you will see the clusters managed by Prism Central.
 
@@ -164,7 +169,7 @@ In this exercise you will walk through the steps of creating an Object Store. **
 
   <strong><font color="red">Close the Create Object Store wizard, do NOT click Deploy.</font></strong>
 
-.. figure:: images/buckets_04.png
+.. figure:: images/objects_04.png
 
 #. On the main Objects UI, take a note of the IP address in the **Client Used IPs** column for the existing object store, as it will be used in a future lab.
 
@@ -175,8 +180,6 @@ Takeaways
 What are the key things you should know about **Nutanix Objects**?
 
 - Nutanix Objects provides a simple and scalable S3-compatible object storage solution, optimized for DevOps, Long Term Retention and Backup Target use cases.
-
-- A 2TiB Objects license is included with every AOS cluster. After that, it is licensed by used capacity (as opposed to number of nodes).
 
 - Nutanix Objects can be deployed on an AHV cluster, with ESXi support on the roadmap.
 
