@@ -1,8 +1,8 @@
 .. _objects_buckets_users:
 
---------------------------------
-Objects: Creating Bukets & Users
---------------------------------
+--------------------------------------------------
+Objects: Creating Buckets, Users, & Access Control
+--------------------------------------------------
 
 *The estimated time to complete this lab is 60 minutes.*
 
@@ -79,71 +79,7 @@ In this exercise you will create generate access and secret keys to access the o
 
      Keep the text files open so that you have the access and secret keys readily available for future labs.
 
-Accessing & Creating Buckets With Cyberduck
-+++++++++++++++++++++++++++++++++++++++++++
 
-In this exercise you will use `Cyberduck <https://cyberduck.io/>`_ to create and use buckets in the object store using your generated access key. Cyberduck is a multi-platform GUI application that supports multiple protocols including FTP, SFTP, WebDAV, and S3.
-
-.. note::
-
-  Cyberduck ver 7.1.0 is already installed on the Windows Tools VM you deployed earlier. If it is not already pinned to the taskbar, you can find it in the Windows menu.
-
-
-Download the Sample Images
-..........................
-
-#. Login to *Initials*\ **-Windows-ToolsVM** via RDP using the following credentials:
-
-   - **Username** - NTNXLAB\\Administrator
-   - **password** - nutanix/4u
-
-#. `Click here <https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip>`_ to download the sample images to your Windows-ToolsVM. Once the download is complete, extract the contents of the .zip file.
-
-Use Cyberduck to Create A Bucket
-................................
-
-#. Launch **Cyberduck** (Click the Window icon > Down Arrow > Cyberduck).
-
-   If you are prompted to update Cyberduck, click **Skip This Version**.
-
-#. Click on **Open Connection**.
-
-   .. figure:: images/buckets_06.png
-
-#. Select **Amazon S3** from the dropdown list.
-
-#. Enter the following fields for the user created earlier, and click **Connect**:
-
-   - **Server**  - *Objects Client Used IP*
-   - **Port**  - 443
-   - **Access Key ID**  - *Generated When User Created*
-   - **Password (Secret Key)** - *Generated When User Created*
-
-   .. figure:: images/buckets_08.png
-
-#. Check the box **Always Trust** and then click **Continue** on the **The certificate is not valid** dialog box.
-
-   .. figure:: images/invalid_certificate.png
-
-#. Click **Yes** to continue installing the self-signed certificate.
-
-#. Once connected, right-click anywhere inside the pane and select **New Folder**.
-
-#. Enter the following name for your bucket, and click **Create**:
-
-   - **Bucket Name** - *your-name*-bucket
-
-   .. note::
-
-     Bucket names must be lower case and only contain letters, numbers, periods and hyphens.
-
-     Additionally, all bucket names must be unique within a given Object Store. Note that if you try to create a folder with an existing bucket name (e.g. *your-name*-my-bucket), creation of the folder will not succeed.
-
-   Creating a bucket in this fashion allows for self-service for entitled users, and is no different than a bucket created via the Prism Buckets UI.
-
-#. Double-click into the bucket, and right click and select **Upload**.
-
-#. Navigate to your downloads directory and find the Sample Pictures folder. Upload one or more pictures to your bucket.
 
 
 Takeaways

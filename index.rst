@@ -26,7 +26,6 @@
    :name: _objects_labs
    :hidden:
 
-   objects_deploy/objects_deploy
    objects_buckets_users/objects_buckets_users
    objects_versioning_access_control/objects_versioning_access_control
    objects_cli_scripts/objects_cli_scripts
@@ -48,6 +47,7 @@
   files_deploy/files_deploy
   file_analytics_deploy/file_analytics_deploy
   files_expand_cluster/files_expand_cluster
+  objects_deploy/objects_deploy
 
 .. toctree::
   :maxdepth: 2
