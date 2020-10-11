@@ -146,14 +146,14 @@ Three/Four node HPOC clusters
 Three or four node Hosted POC clusters follow a standard naming convention:
 
 - **Cluster Name** - POC\ *XYZ*
-- **Subnet** - 10.\ **21**\ .\ *XYZ*\ .0
-- **Cluster IP** - 10.\ **21**\ .\ *XYZ*\ .37
+- **Subnet** - 10.\ **38**\ .\ *XYZ*\ .0
+- **Cluster IP** - 10.\ **38**\ .\ *XYZ*\ .37
 
 For example:
 
 - **Cluster Name** - POC055
 - **Subnet** - 10.38.55.0
-- **Cluster IP** - 10.21.55.37 for the VIP of the Cluster
+- **Cluster IP** - 10.38.55.37 for the VIP of the Cluster
 
 
 Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
@@ -184,11 +184,11 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
   * - Primary
     - 10.38.\ *XYZ*\ .1/25
     - 0
-    - 10.38.\ *XYZ*\ .50-10.21.\ *XYZ*\ .124
+    - 10.38.\ *XYZ*\ .50-10.38.\ *XYZ*\ .124
   * - Secondary
     - 10.38.\ *XYZ*\ .129/25
     - *XYZ1*
-    - 10.38.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
+    - 10.38.\ *XYZ*\ .132-10.38.\ *XYZ*\ .253
 
 Single Node HPOC Clusters
 -------------------------
