@@ -26,7 +26,7 @@
    :name: _objects_labs
    :hidden:
 
-   objects_buckets_users_access_control\objects_buckets_users_access_control
+   objects_buckets_users_access_control/objects_buckets_users_access_control
    objects_versioning_access_control/objects_versioning_access_control
    objects_cli_scripts/objects_cli_scripts
 
@@ -97,7 +97,6 @@ Agenda
     - File Analytics: Anomaly Rules
 
 - Nutanix Objects Labs
-    - Objects: Deploy
     - Objects: Creating Bukets & Users
     - Objects: Versioning & Access Controls
     - Objects: Using From CLI & Scripts
@@ -109,6 +108,7 @@ Agenda
     - Files: Deploy
     - Files: Expand Cluster
     - File Analytics: Deploy
+    - Objects: Deploy
 
 Introductions
 +++++++++++++
