@@ -1,7 +1,7 @@
 .. _objects_buckets_users_access_control:
 
 --------------------------------------------------
-Objects: Creating Buckets, Users, & Access Control
+Objects: Creating Buckets, Users, and Access Control
 --------------------------------------------------
 
 *The estimated time to complete this lab is 60 minutes.*
