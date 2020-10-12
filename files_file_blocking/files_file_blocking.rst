@@ -21,7 +21,7 @@ In this exercise you will configure Files to block specific file extensions for 
 
    .. code-block:: bash
 
-	 new-item \\xyz-files.ntnxlab.local\marketing\MyMovie.flv
+	 new-item \\BootcampFS.ntnxlab.local\marketing\MyMovie.flv
 
    .. figure:: images/49.png
 
