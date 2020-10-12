@@ -97,7 +97,6 @@ Agenda
     - File Analytics: Anomaly Rules
 
 - Nutanix Objects Labs
-    - Objects: Deploy
     - Objects: Creating Bukets & Users
     - Objects: Versioning & Access Controls
     - Objects: Using From CLI & Scripts
@@ -109,6 +108,7 @@ Agenda
     - Files: Deploy
     - Files: Expand Cluster
     - File Analytics: Deploy
+    - Objects: Deploy
 
 Introductions
 +++++++++++++
