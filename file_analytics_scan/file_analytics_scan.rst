@@ -12,6 +12,10 @@ Overview
 File Analytics Scan
 +++++++++++++++++++++
 
+#. In **Prism** > **File Server** > click **File Analytics**
+
+   .. figure:: images/35b.png
+
 #. Analytics will perform an initial scan of the existing shares which will take just a couple minutes.  You can see the scan by going to the gear icon within the Analytics UI and selecting **Scan File System**
 
    .. figure:: images/35.png
