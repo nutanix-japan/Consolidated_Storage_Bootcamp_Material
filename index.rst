@@ -65,9 +65,9 @@
 Getting Started
 ---------------
 
-Welcome to the Nutanix Files Bootcamp!
+Welcome to the Nutanix Consolidated Storage Bootcamp!
 
-This workbook accompanies an instructor-led session that introduces Nutanix Files and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+This workbook accompanies an instructor-led session that introduces Nutanix Files, File Analytics, Objects, and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 Traditionally, file storage has been yet another silo within IT, introducing unnecessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files  delivers high performance, scalability, and rapid innovation through One Click management.
 
