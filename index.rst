@@ -321,7 +321,7 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
      - user01-user25
      - nutanix/4u
 
-AAccess Instructions
+Access Instructions
 +++++++++++++++++++
 
 The Nutanix Hosted POC environment can be accessed a number of different ways:
