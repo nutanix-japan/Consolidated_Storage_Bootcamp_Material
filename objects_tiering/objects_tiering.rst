@@ -147,3 +147,33 @@ Configuring Lifecycle Policies
 Lifecycle policies allows to schedule tiering from source bucket to target bucket irrespective of the location.
 
 In this section we will create a lifecycle policy to tier data from Nutanix Object's bucket that you created in :ref:`objects_versioning_access_control` to the AWS bucket you created earlier.
+
+#. In Prism Central, select :fa:`bars` **> Services > Objects**
+
+#. Choose your Objects Store
+
+#. Click your source bucket *intials*-**Test-Bucket** (the one you created in here :ref:`objects_versioning_access_control`)
+
+   .. figure:: images/tiering11.png
+
+#. Click on **Lifecycle** and click on **Create Rule**
+
+   .. figure:: images/tiering12.png
+
+#. Enter a meaningful name that you can identify, for example **tier-to-aws-ap-southeast-2.amazonaws.com** which specifies the region of tiered data
+
+#. Choose **All Objects**
+
+   .. note::
+
+   	Note that you are also able to use **tags** as an option to select the objects to replicate. Make sure to explain this selection feature to a end-user.
+
+   .. figure:: images/tiering13.png
+
+#. Click on **Next**
+
+#. Select **AWS Tiering Endpoint**
+
+#. Set tiering to **1** days after objects creation date in the source bucket
+
+#. You can select expiration as well. But in this exercise we will leav
