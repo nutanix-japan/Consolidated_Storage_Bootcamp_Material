@@ -176,4 +176,8 @@ In this section we will create a lifecycle policy to tier data from Nutanix Obje
 
 #. Set tiering to **1** days after objects creation date in the source bucket
 
-#. You can select expiration as well. But in this exercise we will leav
+#. You can select expiration to 1 day as well in the destination storage as an example. Just to make sure you don't run into a huge bill in the public cloud.
+
+#. Click on **Add Action** and choose another expire Action
+
+#. Choose **Multipart Uploads** and **1** days after last creation date on destination bucket
