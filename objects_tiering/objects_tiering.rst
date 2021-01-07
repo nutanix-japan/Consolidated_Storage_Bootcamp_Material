@@ -143,3 +143,7 @@ You have successfully setup a tiering endpoint which resides in AWS.
 
 Configuring Lifecycle Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lifecycle policies allows to schedule tiering from source bucket to target bucket irrespective of the location.
+
+In this section we will create a lifecycle policy to tier data from Nutanix Object's bucket that you created in :ref:`objects_versioning_access_control` to the AWS bucket you created earlier.
