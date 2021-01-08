@@ -246,8 +246,6 @@ In this section we will verify the tiering status in the source and destination 
 
    .. figure:: images/tiering16.png
 
-Now let's verify the tiered data on the destination AWS side.
-
 #. On the destination AWS **lnb-bucket** you will see data as follows: note that this may be different for your bucket.
 
    .. figure:: images/tiering17.png
