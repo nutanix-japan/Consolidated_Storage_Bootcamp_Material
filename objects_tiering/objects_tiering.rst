@@ -75,7 +75,7 @@ Creating AWS S3 Bucket as Tiering Destination
 
 In this section you will configure AWS S3 bucket, set up access permissions and get access and secret keys.
 
-You can quick setup an AWS account or use your existing and do all these activities in Free Tier program.
+You can quick setup an AWS account or use your existing and do all these activities in Free Tier program if the amount of data is less than 50 MB.
 
 Create an AWS S3 Bucket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
