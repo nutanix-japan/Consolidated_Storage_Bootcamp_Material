@@ -11,22 +11,56 @@ Overview
 
 Data storage is for your applications can get quite expensive for applications using Objects store.
 
-To enable applications to have data that is infrequently used to be tiered to another Objects stores which may be cheaper and in a different region, Nutanix Objects provides Tiering feature.
+To enable applications to have data that is infrequently used to be tiered to another Objects stores which may be cheaper and in a different region, Nutanix Objects (version 3.1 onwards) provides Tiering feature.
 
 This will enable customers to do the following:
 
 - Tier to third-party objects based cloud storage
 - Reduce storage consumption and cost for storing data that are old and infrequently used
-- Take advantage of Nutanix Objects' features to reduce cost on PUT and GET requests by grouping Objects by application in a big chunk
+- Take advantage of Nutanix Objects' features to reduce cost on destination S3 (AWS) PUT requests by grouping objects by application in a big chunk
 - Decouple the application from managing storage and have Nutanix's proven HCI Storage features to effectively manage data
 - Use industry standards for Objects like storage
 
 **In this lab, you will walk through a Nutanix Objects Tiering feature to AWS S3 bucket. The configuration procedure remains the same for any S3 based storage tiering**
 
+
+Possible Tiering Configurations
++++++++++++++++++++++++++++++++
+
+Nutanix Objects is capable of tiering to any S3 compatible objects store provider (AWS for now).
+
+.. figure:: images/tieringdesign1.png
+
+
+To accomplish this tiering we need the following:
+
+- **Source S3 Storage**
+  - Source S3 access URL
+  - Source Access key
+  - Source Secret key
+
+- **Destination S3 Storage**
+  - Destination S3 access URL
+  - Destination Access key
+  - Destination Secret key
+
+- **Networking between source and destination**
+  - Physical connectivity
+  - Firewall and security allowing for this connection
+
+Here is an example of tiering between several Nutanix Objects sites: The application writes to the bucket in an all-flash Nutanix Cluster Object store and then it is tiered to a Nutanix cluster in a secondary site.
+
+.. figure:: images/tieringdesign2.png
+
+
 Lab Setup
 ++++++++++
 
-At high level we will go through the following:
+In this lab we will implement tiering from Nutanix Objects to AWS S3 only.
+
+.. figure:: images/tieringdesign3.png
+
+At high level we will implement the following:
 
 - Create AWS bucket as tiering destination
 - Setup Endpoint in Object Store configuration
@@ -41,11 +75,15 @@ Creating AWS S3 Bucket as Tiering Destination
 
 In this section you will configure AWS S3 bucket, set up access permissions and get access and secret keys.
 
-To Create an AWS S3 Bucket
+You can quick setup an AWS account or use your existing and do all these activities in Free Tier program.
+
+Create an AWS S3 Bucket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/
+
 #. Choose **Create bucket**
+
 #. In Bucket name, enter your initials (**lnb** here is an example) **lnb-bucket** DNS-compliant name for your bucket name
 
    .. figure:: images/tiering1.png
@@ -58,7 +96,7 @@ To Create an AWS S3 Bucket
 
    .. figure:: images/tiering2.png
 
-To Setup Access for AWS S3 Bucket
+Setup Access for AWS S3 Bucket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Go to your AWS IAM Management Console https://console.aws.amazon.com/iam/
@@ -105,7 +143,7 @@ Setup Endpoint in Object Store configuration
 
 In this section you will setup endpoints for tiering from Nutanix Objects that you created in :ref:`objects_deploy` to AWS S3.
 
-Configuring Endpoint
+Configure Endpoint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Login into your Prism Central instance.
@@ -141,7 +179,7 @@ Configuring Endpoint
 You have successfully setup a tiering endpoint which resides in AWS.
 
 
-Configuring Lifecycle Policies
+Configure Lifecycle Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Lifecycle policies allows to schedule tiering from source bucket to target bucket irrespective of the location.
@@ -152,7 +190,7 @@ In this section we will create a lifecycle policy to tier data from Nutanix Obje
 
 #. Choose your Objects Store
 
-#. Click your source bucket *intials*-**Test-Bucket** (the one you created in here :ref:`objects_versioning_access_control`)
+#. Click your source bucket *your-name*-**my-bucket** (the one you created in here :ref:`objects_buckets_users_access_control`)
 
    .. figure:: images/tiering11.png
 
@@ -176,8 +214,41 @@ In this section we will create a lifecycle policy to tier data from Nutanix Obje
 
 #. Set tiering to **1** days after objects creation date in the source bucket
 
-#. You can select expiration to 1 day as well in the destination storage as an example. Just to make sure you don't run into a huge bill in the public cloud.
+#. You can select expiration to **2** days as well in the destination storage as an example. This is to make sure you don't run into a huge bill in the public cloud for testing purposes.
 
 #. Click on **Add Action** and choose another expire Action
 
-#. Choose **Multipart Uploads** and **1** days after last creation date on destination bucket
+#. Choose **Multipart Uploads** and **2** days after last creation date on destination bucket
+
+   .. figure:: images/tiering14.png
+
+#. Click on **Next**
+
+#. Review your configuration and click on **Done**
+
+   .. figure:: images/tiering15.png
+
+Verify Tiering
+^^^^^^^^^^^^^^^^^^
+
+In this section we will verify the tiering status in the source and destination side.
+
+#. Since your source bucket is already populated with data the tiering will start after one day
+
+   .. note::
+
+   	If you are only doing this Tiering lab
+    - Create your source bucket using the procedure in *Create Bucket In Prism* section in :ref:`objects_versioning_access_control`
+    - Populate your source bucket with objects (data) using procedure *Uploading Multiple Files to Buckets with Python)* in :ref:`objects_cli_scripts`
+
+#. Once tiering is successful, you will see Tiering status on you source bucket **your-name-my-bucket > Summary**
+
+   .. figure:: images/tiering16.png
+
+Now let's verify the tiered data on the destination AWS side.
+
+#. On the destination AWS **lnb-bucket** you will see data as follows: note that this may be different for your bucket.
+
+   .. figure:: images/tiering17.png
+
+You have successfully tiered from Nutanix Object to AWS environment
