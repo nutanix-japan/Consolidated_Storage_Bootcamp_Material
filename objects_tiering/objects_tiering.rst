@@ -21,9 +21,6 @@ This will enable customers to do the following:
 - Decouple the application from managing storage and have Nutanix's proven HCI Storage features to effectively manage data
 - Use industry standards for Objects like storage
 
-**In this lab, you will walk through a Nutanix Objects Tiering feature to AWS S3 bucket. The configuration procedure remains the same for any S3 based storage tiering**
-
-
 Possible Tiering Configurations
 +++++++++++++++++++++++++++++++
 
@@ -56,7 +53,7 @@ Here is an example of tiering between several Nutanix Objects sites: The applica
 Lab Setup
 ++++++++++
 
-In this lab we will implement tiering from Nutanix Objects to AWS S3 only.
+**In this lab, you will walk through a Nutanix Objects Tiering feature to AWS S3 bucket only. The configuration procedure remains the same for any S3 based storage tiering**.
 
 .. figure:: images/tieringdesign3.png
 
