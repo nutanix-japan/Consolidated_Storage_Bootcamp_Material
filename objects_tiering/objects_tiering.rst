@@ -237,7 +237,8 @@ In this section we will verify the tiering status in the source and destination 
 
    .. note::
 
-   	If you are only doing this Tiering lab
+    If you are only doing Objects Tiering lab:
+
     - Create your source bucket using the procedure in *Create Bucket In Prism* section in :ref:`objects_versioning_access_control`
     - Populate your source bucket with objects (data) using procedure *Uploading Multiple Files to Buckets with Python)* in :ref:`objects_cli_scripts`
 
