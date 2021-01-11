@@ -248,3 +248,16 @@ In this section we will verify the tiering status in the source and destination 
    .. figure:: images/tiering17.png
 
 You have successfully tiered from Nutanix Object to AWS environment
+
+
+Takeaways
+++++++++++
+
+What are the key things you should know about **Nutanix Objects Tiering(Lifecycle Policies)**?
+
+- Nutanix Objects allows easy configuration for tiering data to other object stores (cloud and on-premises)
+- Tiering policies needs to configured at the source (provider) of the bucket
+  - for example: Tiering from Nutanix Objects to AWS needs to be configured at Nutanix PC
+  - for example: Tiering from AWS S3 to AWS Glacier needs to be configured at AWS Console
+- Nutanix enables applications to store and tier data to any S3-based object storage without lock-in
+- 
