@@ -260,4 +260,4 @@ What are the key things you should know about **Nutanix Objects Tiering(Lifecycl
   - for example: Tiering from Nutanix Objects to AWS needs to be configured at Nutanix PC
   - for example: Tiering from AWS S3 to AWS Glacier needs to be configured at AWS Console
 - Nutanix enables applications to store and tier data to any S3-based object storage without lock-in
-- 
+- Nutanix Object tiering feature groups objects together in a bigger data chunk to save costs on PUT request in S3
