@@ -16,15 +16,14 @@ Deploy File Analytics
 
    .. figure:: images/31.png
 
-#. Select **Deploy**
+#. Select 3.0.0 from the **Available Versions** then click **Next**
 
-   For the purpose of saving time, the File Analytics 2.0.0 package has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
-
-#. After the upload completes select **Install**
+   For the purpose of saving time, the File Analytics 3.0.0 package has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
 
 #. Fill out the details
 
    - **Name** - Initials
+   - **Server Size** - Small
    - **Storage Container** – Will automatically select the container used by your file server instance
    - **Network List** – Primary - Managed
 
