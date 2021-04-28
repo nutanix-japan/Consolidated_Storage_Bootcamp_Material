@@ -39,13 +39,15 @@ The following flowchart illustrates the decision making process for a share repl
 Lab Setup
 +++++++++++++++++++++++++++++++
 
-In this lab we will configure replication between of shares between two Files servers.
+In this lab we will configure replication between of shares between two Files servers on the same HPOC cluster.
 
-Since we are doing this lab on a single HPOC cluster, we will have a single AD domain. We will do the following:
+Since we are doing this lab on a single HPOC cluster, we will have a single AD domain.
 
-1. Create a PROD Files server *intials*-fs-prod
-2. Create a SMB Files share in your PROD Files server and populate the share with sample files
-3. Create a DR Files server *intials*-fs-dr
+We will do the following:
+
+1. Create a PROD Files server *intials*-fs-prod (1-VM Files Server)
+2. Create a DR Files server *intials*-fs-dr (1-VM Files Server)
+3. Create a SMB Files share in your PROD Files server and populate the share with sample files
 4. Configure Files Protection Policy in Prism Central and replicate
-5. Failover and reverse-replicate
-6. Failback
+5. Failover, create new files in share and reverse-replicate
+6. Failback and check contents
