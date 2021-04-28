@@ -9,9 +9,9 @@ Objects: Multi-Cluster
 Overview
 ++++++++
 
-Data Storage can be expensive and often object stores can scale to very large deployments well into the PetaBytes. Customers need the ability to deploy large scale clusters that can scale across multiple AOS clusters. Nutanix Objects enables customers to do that using the Multi-Cluster feature. 
+Data Storage can be expensive and often object stores can scale to very large deployments well into the PetaBytes. Customers need the ability to deploy large scale clusters that can scale across multiple AOS clusters. Nutanix Objects enables customers to do that using the Multi-Cluster feature.
 
-Objects Multi-Cluster 
+Objects Multi-Cluster
 +++++++++++++++++++++
 
 Nutanix Objects Multi-Cluster is able to scale across any AHV or vSphere cluster that meets the following criteria:
@@ -26,7 +26,7 @@ Nutanix Objects Multi-Cluster is able to scale across any AHV or vSphere cluster
 Lab Setup
 ++++++++++
 
-**In this lab, you will walk through a Nutanix Objects Multi-Cluster feature.**.
+**In this lab, you will walk through a Nutanix Objects Multi-Cluster feature.**
 
 .. figure:: images/mc-07.png
 
@@ -67,7 +67,7 @@ In the following section you will see how easily you can add additional storage 
 
 #. Configure storage limitations for Nutanix Objects on secondary cluster and click **Done**
 
-   .. note:: 
+   .. note::
 
       Storage will be utilized in a round-robin fashion across all of the clusters registered to Objects Multi-Cluster. Once a cluster nears it's storage hard limit, it will be placed into a secondary pool, receiving no further writes until all clusters registered are placed in that secondary pool. This ensures no cluster runs out of storage.
 
