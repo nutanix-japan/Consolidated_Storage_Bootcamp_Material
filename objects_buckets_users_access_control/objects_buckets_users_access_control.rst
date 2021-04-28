@@ -94,8 +94,6 @@ Adding Users to buckets_share
 
 #. Add the user you created earlier, with *Read* and *Write* permissions.
 
-
-
 Takeaways
 +++++++++
 
