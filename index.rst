@@ -30,6 +30,7 @@
    objects_versioning_access_control/objects_versioning_access_control
    objects_cli_scripts/objects_cli_scripts
    objects_tiering/objects_tiering
+   objects_multi_cluster/objects_multi_cluster
 
 .. toctree::
    :maxdepth: 2
