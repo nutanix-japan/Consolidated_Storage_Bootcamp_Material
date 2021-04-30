@@ -66,7 +66,7 @@ Creating the Share
 Testing the Share
 .................
 
-#. Connect to your *Initials*\ **-ToolsVM** via RDP or console.
+#. Connect to your *Initials*\ **-ToolsVM** via RDP or console using **NTNXLAB\\Administrator** user
 
    .. note::
 

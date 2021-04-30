@@ -72,6 +72,8 @@ Setting up s3cmd (CLI)
 
 #. Type **Y** and press **Return** to save the configuration.
 
+#. Type on Linux Tools VM ``nano .s3cfg`` then edit the value *signature_v2 = True*
+
 Create A Bucket And Add Objects To It Using s3cmd (CLI)
 .......................................................
 
