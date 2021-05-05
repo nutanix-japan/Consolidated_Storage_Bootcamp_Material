@@ -36,8 +36,8 @@ Setting up s3cmd (CLI)
      - **Access Key**  - *Access Key*
      - **Secret Key**  - *Secret Key*
      - **Default Region [US]**  - us-east-1
-     - **S3 Endpoint [s3.amazonaws.com]**  - *OBJECT-STORE-IP*\ :80
-     - **DNS-style bucket+hostname:port template for accessing a bucket [%(bucket)s.s3.amazonaws.com]**  - *OBJECT-STORE-IP*
+     - **S3 Endpoint [s3.amazonaws.com]**  - *OBJECT-STORE-IP*
+     - **DNS-style bucket+hostname:port template for accessing a bucket [%(bucket)s.s3.amazonaws.com]**  - *OBJECT-STORE-IP*\ :80
      - **Encryption password** - Leave Blank
      - **Path to GPG program [/usr/bin/gpg]**  - Leave Blank
      - **Use HTTPS protocol [Yes]**  - No
@@ -52,8 +52,8 @@ Setting up s3cmd (CLI)
        Access Key: Ke2hEtehmOZoXYCrQnzUn_2EDD9Eqf0L
        Secret Key: p6sxh_FhxEyIteslQJKfDlezKrtJro9C
        Default Region: us-east-1
-       S3 Endpoint: 10.20.95.51:80
-       DNS-style bucket+hostname:port template for accessing a bucket: 10.20.95.51
+       S3 Endpoint: 10.20.95.51
+       DNS-style bucket+hostname:port template for accessing a bucket: 10.20.95.51:80
        Encryption password:
        Path to GPG program: /usr/bin/gpg
        Use HTTPS protocol: False
@@ -71,6 +71,8 @@ Setting up s3cmd (CLI)
      Configuration saved to '/root/.s3cfg'
 
 #. Type **Y** and press **Return** to save the configuration.
+
+#. Type on Linux Tools VM ``nano .s3cfg`` then edit the value *signature_v2 = True*
 
 Create A Bucket And Add Objects To It Using s3cmd (CLI)
 .......................................................
@@ -109,13 +111,24 @@ Create A Bucket And Add Objects To It Using s3cmd (CLI)
 
    .. code-block:: bash
 
-     curl https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip -o sample-pictures
+   curl https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip [s3.amazonaws.com] -O -J -L
+   unzip sample-pictures.zip
 
-#. Run the following command to upload one of the images to your bucket:
+#. List images in sample-pictures folder
 
    .. code-block:: bash
 
-     s3cmd put --acl-public --guess-mime-type image01.jpg s3://<your-bucket-name>/image01.jpg
+   ls sample-pictures
+
+#. Run the following command to upload one of the images to your bucket:
+
+   .. note::
+
+      Make sure to replace $IMAGENAME with an image name listed from the previous step
+
+   .. code-block:: bash
+
+     s3cmd put --acl-public --guess-mime-type $IMAGENAME s3://<your-bucket-name>/$IMAGENAME.jpg
 
 #. You should see the following output:
 
