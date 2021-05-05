@@ -24,7 +24,7 @@ This will enable customers to do the following:
 Possible Tiering Configurations
 +++++++++++++++++++++++++++++++
 
-Nutanix Objects is capable of tiering to any S3 compatible objects store provider (AWS for now).
+Nutanix Objects is capable of tiering to any S3 compatible objects store provider.
 
 .. figure:: images/tieringdesign1.png
 
