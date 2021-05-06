@@ -80,11 +80,15 @@ Create PROD Files Server
 
 #. Click on **Save**
 
-#. Select the **Secondary - Managed** VLAN for the **Client Network**.
+#. Select the **Primary - Managed** VLAN for the **Client Network**.
 
 #. Click **Next**.
 
 #. Select the **Primary - Managed** VLAN for the **Storage Network**.
+
+   .. note::
+
+   	Ideally, two different networks should be selected for Client and Storage network in production environments. But since this is a lab, we will be only using one network.
 
 #. Click **Next**.
 
@@ -171,7 +175,9 @@ In this section we will create a source files shares to serve as a source and th
 
 	 	You can find your PROD share location by selecting the Files Share in Prism Element and checking Share/Export details.
 
-#. Download the following `Sample Zip file <http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip>`_ and unzip it in your PROD share
+#. Download the following `Sample Zip File <http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip>`_ and unzip it in your PROD share
+
+   .. figure:: images/createshare_explorer.png
 
 
 Configure Files Protection Policy in Prism Central and Replicate
@@ -183,7 +189,7 @@ Smart DR feature for Files share replication is activated and maintained in Pris
 
 #. Click on :fa:`bars` > Services > Files
 
-   .. figure:: images\pc_files.png
+   .. figure:: images/pc_files.png
 
 #. Click on **Data Protection > Pilices > + New Policy**
 
@@ -216,13 +222,21 @@ Smart DR feature for Files share replication is activated and maintained in Pris
 
 #. Click on **Create**
 
-#. Monitor the Events and the policy should show in the **Data Protection > Pilices > + New Policy** in a few minutes
+#. Monitor the Events and the policy should show in the **Data Protection > Polices > + New Policy** in a few minutes
 
-   .. figure:: images\smartdr_policyrpo.png
+   .. figure:: images/smartdr_policyrpo.png
 
 	 .. note::
 
 	 	Wait a few minutes until all the files are replicated and **RPO Compliant** will have a green-dot to indicate intial synchronization
+
+#. Go to **Data Protection > Replication Jobs** and observe the replication jobs and duration. The intial replication will take time based on the amount of data and network speeds. But the subsequent replications will be based on incremental changes only.
+
+   .. figure:: images/smartdr_repjobs.png
+
+#. Go to **Data Protection > Protected File Servers** to check the Active and Standby File servers. (Active indicated by a green A)
+
+	 .. figure:: images/smartdr_activefs.png
 
 #. Now return to **Prism Element > Files > Shares/Export** and verify that a replicated share shows in the list
 
@@ -236,3 +250,74 @@ Smart DR feature for Files share replication is activated and maintained in Pris
 
 Failover Share
 ...............
+
+We have set up replication of a share between two Files servers. Now we are able to test failover of the share to the DR File server.
+
+There are two failover methods:
+
+- Planned Failover - allows a reverse-replication to the source File Server
+- Unplanned Failover - no reverse-replication (as an admin doesn't know when the primary site will be operational again)
+
+Both these methods are manually triggered by an administrator.
+
+In this lab we will test a Planned Failover
+
+#. Go to **Prism Central > Services > Files** (if you are note already on that page)
+
+#. Go to **Data Protection > Protected File Servers**
+
+#. Click on **Failover** as shown here
+
+   .. figure:: images/smartdr_failover.png
+
+#. Select **Planned Failover**
+
+#. Select **Create a Reverse-Replication Policy** and fill in the following:
+
+   - **Recovery Point Objective (RPO)** - 10 minutes
+	 - **Policy Name** - Reverse-*initials*-files-repl-policy (e.g. Reverse-xyz-files-repl-policy)
+
+   .. figure:: images/failover_settings.png
+
+#. Click **Next**
+
+#. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover):
+
+   - **Username**	- administrator@ntnxlab.local
+	 - **Password**	- nutanix/4u
+	 - **Preferred Domain Controller** - ntnxlab.local
+	 - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+
+#. Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
+
+#. Click on **Failover**
+
+#. Monitor the Events in Prism Central
+
+#. Once Faiover is completed, return to **Files > Data Protection > Protected File Servers** in Prism Central and check the Active and Standby File servers. (Active indicated by a green A)
+
+#. Confirm that *initials*-files-dr (e.g. xyz-files-dr) server is now the active server
+
+   .. figure:: images/failover_confirm.png
+
+#. Return to your Windows Tools VM and access the failed over share in Windows Explorer
+
+#. Login to the Windows Tools VM with the following credentials:
+
+   - **Username** - administrator@ntnxlab.local
+	 - **Password** - nutanix/4u
+
+#. Browse to the location of your source share now hosted on DR Files server (e.g. ``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``)
+
+   .. figure:: images/failover_repshare.png
+
+#. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now *intials*-files-dr (e.g. xyz-files-dr) server
+
+   .. figure:: images/failover_repjobs.png
+
+#. Go to **Data Protection > Policie** and verify a reverse replication policy is present
+
+   .. figure:: images/failover_reppolicy.png
+
+
+#. The replication is now setup successfully
