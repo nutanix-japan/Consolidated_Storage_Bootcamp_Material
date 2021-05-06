@@ -160,18 +160,18 @@ In this section we will create a source files shares to serve as a source and th
    .. figure:: images/createshare_confirm.png
 
 
-#. Login to the Windows Tools VM
-
-#. Access your source SMB share *intials*-fs-prod (e.g. XYZ-fs-prod)
-
-#. Open Windows Expolorer with the following credentials:
+#. Login to the Windows Tools VM with the following credentials:
 
    - **Username** - administrator@ntnxlab.local
 	 - **Password** - nutanix/4u
 
-#. Browse to the location of your 
+#. Browse to the location of your PROD (Source) share (e.g. ``\\xyz-files-prod.ntnxlab.local\xyz-prod-share``)
 
-#. Download the following `Sample Zip file <http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip>`_ and unzip it in your share's Throughout
+	 .. note::
+
+	 	You can find your PROD share location by selecting the Files Share in Prism Element and checking Share/Export details.
+
+#. Download the following `Sample Zip file <http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip>`_ and unzip it in your PROD share
 
 
 Configure Files Protection Policy in Prism Central and Replicate
@@ -203,7 +203,6 @@ Smart DR feature for Files share replication is activated and maintained in Pris
 
 		 **xyz-files-dr is on the same AOS cluster as the source. It is recommended to have target file servers on a different AOS cluster.**
 
-
 #. Make sure your selection looks as follows:
 
    .. figure:: images/smartdr_policysetup.png
@@ -234,3 +233,6 @@ Smart DR feature for Files share replication is activated and maintained in Pris
    .. figure:: images/smartdr_rep_mountpath.png
 
 #. Verify it shows the DR Files Server with the source PROD share (e.g. ``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``)
+
+Failover Share
+...............
