@@ -164,7 +164,7 @@ In this section we will create a source files shares to serve as a source and th
    .. figure:: images/createshare_confirm.png
 
 
-#. Login to the Windows Tools VM with the following credentials:
+#. Login to your Windows Tools VM with the following credentials:
 
    - **Username** - administrator@ntnxlab.local
 	 - **Password** - nutanix/4u
@@ -302,7 +302,7 @@ In this lab we will test a Planned Failover
 
 #. Return to your Windows Tools VM and access the failed over share in Windows Explorer
 
-#. Login to the Windows Tools VM with the following credentials:
+#. Login to your Windows Tools VM with the following credentials:
 
    - **Username** - administrator@ntnxlab.local
 	 - **Password** - nutanix/4u
