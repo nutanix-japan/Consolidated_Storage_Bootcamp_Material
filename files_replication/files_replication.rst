@@ -183,15 +183,23 @@ In this section we will create a source files shares to serve as a source and th
 Configure Files Protection Policy in Prism Central and Replicate
 ...................................................................
 
-Smart DR feature for Files share replication is activated and maintained in Prism Central. In this section we will configure Smart DR requirements in Prism Central.
+Smart DR feature for Files share replication is activated and maintained in Prism Central using Files Manager. In this section we will configure Smart DR requirements in Prism Central.
+
+The Files Manager lets you view and control all of your file servers from a single control plane. Clicking a file server directs you to Nutanix Files in Prism Element (PE) where you can manage the shares, exports, and configurations of the file server. File server alerts for all registered file servers appear in a single pane for consolidated viewing, as do file server events.
+
+The Files Manager provides the Smart DR service for Nutanix Files, which lets you protect file servers at the share-level.
 
 #. Logon to Prism Central
 
 #. Click on :fa:`bars` > Services > Files
 
-   .. figure:: images/pc_files.png
+.. note::
 
-#. Click on **Data Protection > Pilices > + New Policy**
+ If Files Manager is not enabled, you will need to Enable Files manager by reading the information on enabling the Files Manager and click Enable Files
+
+.. figure:: images/pc_files.png
+
+#. In Files Manager, click on **Data Protection > Pilices > + New Policy**
 
 #. Select your *intials*-fs-prod (e.g. XYZ-fs-prod) as the **Primary Location (Source File Server)**
 
