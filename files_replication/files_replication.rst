@@ -315,9 +315,67 @@ In this lab we will test a Planned Failover
 
    .. figure:: images/failover_repjobs.png
 
-#. Go to **Data Protection > Policie** and verify a reverse replication policy is present
+#. Go to **Data Protection > Policies** and verify a reverse replication policy is present
 
    .. figure:: images/failover_reppolicy.png
 
 
 #. The replication is now setup successfully
+
+#. Create some sample files in your share as shown here so Failback can be tested
+
+   .. figure:: images/failback_samplefiles.png
+
+#. Wait for at least 10 minutes for the reverse replication schedule to start
+
+#. Confirm at least one reverse replication schedule to PROD Files server has successfully completed by going **Data Protection > Replication Jobs**
+
+Failback Share
+...............
+
+In this section we will see how to failback a share to the Source site after the environment is recovered.
+
+In this lab we will test a Planned Failover
+
+#. Go to **Prism Central > Services > Files** (if you are note already on that page)
+
+#. Go to **Data Protection > Protected File Servers**
+
+#. Click on **Failback** as shown here
+
+   .. figure:: images/failback_initial.png
+
+#. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover):
+
+  - **Username**	- administrator@ntnxlab.local
+	 - **Password**	- nutanix/4u
+	 - **Preferred Domain Controller** - ntnxlab.local
+	 - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+
+#. Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
+
+#. Click on **Next**
+
+#. Files now gives you a visual of the failed-back environment and informs you that the Reverse Replciation policy will be delted
+
+   .. figure:: images/failback_confirm.png
+
+#. Click on **Failback**
+
+#. Monitor the Events in Prism Central
+
+#. Once the failover is done, go to your Windows Tools VM and logon to the share hosted on PROD files server (e.g ``\\xyz-files-prod\XYZ-prod-share\SampleData_Small\Sample Data`` )
+
+#. Note that the new files that were created when the share was on DR server are now present on the PROD server as well
+
+   .. figure:: images/failback_confirm_files.png
+
+#. We have successfully failed back the share to the PROD site. Now users can connect to the share as usual.
+
+Conclusion
+...........
+
+Nutanix Files Smart DR makes it easy for administrators to configure replication of shares between Nutanix Files servers without needing third-party integrations.
+
+One-to-one and
+One-to-many configurations are also possible.
