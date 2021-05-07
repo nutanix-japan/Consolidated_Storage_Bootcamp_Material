@@ -355,7 +355,7 @@ In this lab we will test a Planned Failover
 
 #. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover):
 
-  - **Username**	- administrator@ntnxlab.local
+   - **Username**	- administrator@ntnxlab.local
 	 - **Password**	- nutanix/4u
 	 - **Preferred Domain Controller** - ntnxlab.local
 	 - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
@@ -385,4 +385,4 @@ Conclusion
 
 Nutanix Files Smart DR makes it easy for administrators to configure replication of shares between Nutanix Files servers without needing third-party integrations.
 
-For information about Files Manager and Smart DR features, refer to this Documentation `URL. <https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v2_0:fil-fm-dr-c.html>`_
+For information about Files Manager and Smart DR features, refer to this documentation `URL. <https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v2_0:fil-fm-dr-c.html>`_
