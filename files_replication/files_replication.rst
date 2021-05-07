@@ -384,3 +384,5 @@ Conclusion
 ...........
 
 Nutanix Files Smart DR makes it easy for administrators to configure replication of shares between Nutanix Files servers without needing third-party integrations.
+
+For information about Files Manager and Smart DR features, refer to this Documentation `URL. <https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v2_0:fil-fm-dr-c.html>`_
