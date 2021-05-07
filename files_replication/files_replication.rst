@@ -195,7 +195,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 .. note::
 
- If Files Manager is not enabled, you will need to Enable Files manager by reading the information on enabling the Files Manager and click Enable Files
+ If Files Manager is not enabledin your Prism Central, you will need to Enable Files manager by reading the information on enabling the Files Manager and clicking **Enable Files**
 
 .. figure:: images/pc_files.png
 
