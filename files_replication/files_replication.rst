@@ -54,20 +54,11 @@ We will do the following:
 
 Files version include new feature updates. At the time of writing this labs these were the required versions of the following software components:
 
-.. list-table::
-  :widths: 25 75
-  :header-rows: 1
+:AOS: 5.19.0.5
+:Prism Central: pc.2021.3.0.1
+:Files: 3.8.0.1
+:Files Manager: 2.0.0 (upgraded through LCM)
 
-  * - Software Component
-    - Version
-	* - AOS
-    - 5.19.0.5
-	* - Prism Central
-    - pc.2021.3.0.1
-	* - Files
-    - 3.8.0.1
-	* - Files Manager
-    - 2.0.0 (upgraded through LCM)
 
 Create PROD Files Server
 ..........................
