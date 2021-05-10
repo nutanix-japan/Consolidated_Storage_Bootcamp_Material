@@ -167,7 +167,7 @@ In this section we will create a source files shares to serve as a source and th
 
 #. In **Settings** section, select the following:
 
-   - Enable Self Service Restore
+	- Enable Self Service Restore
 	- Enable File System Compression
 	- Enable Access Based Enumeration (ABE)
 
@@ -181,7 +181,7 @@ In this section we will create a source files shares to serve as a source and th
 
 #. Login to your Windows Tools VM with the following credentials
 
-   - **Username** - administrator@ntnxlab.local
+	- **Username** - administrator@ntnxlab.local
 	- **Password** - nutanix/4u
 
 #. Browse to the location of your PROD (Source) share (e.g. ``\\xyz-files-prod.ntnxlab.local\xyz-prod-share``)
@@ -238,9 +238,9 @@ If Files Manager is not enabledin your Prism Central, you will need to Enable Fi
 
 #. Click on **Next** at the bottom of the screen
 
-#. Fill in the following details in **Settings** section
+#. Fill in the following details in **Settings** section:
 
-   - **Name** - *intials*-files-repl-policy (e.g. xyz-files-repl-policy)
+	- **Name** - *intials*-files-repl-policy (e.g. xyz-files-repl-policy)
 	- **Description** - Protection Policy for XYZ Prod to DR Replication (Optional)
 
 #. Click on **Create**
@@ -306,10 +306,10 @@ In this lab we will test a Planned Failover
 
 #. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
-   - **Username**	- administrator@ntnxlab.local
-	- **Password**	- nutanix/4u
-	- **Preferred Domain Controller** - ntnxlab.local
-	- **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+   - **Username** - administrator@ntnxlab.local
+   - **Password** - nutanix/4u
+   - **Preferred Domain Controller** - ntnxlab.local
+   - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
 
 #. Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
 
@@ -328,7 +328,7 @@ In this lab we will test a Planned Failover
 #. Login to your Windows Tools VM with the following credentials
 
    - **Username** - administrator@ntnxlab.local
-	- **Password** - nutanix/4u
+   - **Password** - nutanix/4u
 
 #. Browse to the location of your source share now hosted on DR Files server (e.g. ``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``)
 
@@ -370,10 +370,10 @@ In this lab we will test a Planned Failover
 
 #. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
-   - **Username**	- administrator@ntnxlab.local
-	- **Password**	- nutanix/4u
-	- **Preferred Domain Controller** - ntnxlab.local
-	- **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+   - **Username** - administrator@ntnxlab.local
+   - **Password** - nutanix/4u
+   - **Preferred Domain Controller** - ntnxlab.local
+   - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
 
 #. Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
 
