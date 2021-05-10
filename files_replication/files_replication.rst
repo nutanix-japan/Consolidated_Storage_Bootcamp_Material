@@ -146,7 +146,6 @@ Create DR Files Server
 
    .. figure:: images/createfs_twofs.png
 
-
 Create a SMB Files Share in your PROD Files Server
 ....................................................
 
@@ -160,8 +159,8 @@ In this section we will create a source files shares to serve as a source and th
 
    - **Name** - *intials*-prod-share （e.g. XYZ-prod-share）
    - **Select Protocol** - SMB
-
-	.. figure:: images/createshare_smb.png
+   
+   .. figure:: images/createshare_smb.png
 
 #. Click on **Next**
 
@@ -170,8 +169,8 @@ In this section we will create a source files shares to serve as a source and th
 	- Enable Self Service Restore
 	- Enable File System Compression
 	- Enable Access Based Enumeration (ABE)
-
-	.. figure:: images/createshare_settings.png
+   
+   .. figure:: images/createshare_settings.png
 
 #. Click **Next**
 
