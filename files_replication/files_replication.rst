@@ -156,16 +156,16 @@ In this section we will create a source files shares to serve as a source and th
 
 #. Click on **+ Share/Export**
 
-#. Fill in the following details:
+#. Fill in the following details
 
-   - **Name** - *intials*-prod-share (e.g. XYZ-prod-share)
+   - **Name** - *intials*-prod-share （e.g. XYZ-prod-share）
 	 - **Select Protocol** - SMB
 
 	 .. figure:: images/createshare_smb.png
 
 #. Click on **Next**
 
-#. In **Settings** section, select the following:
+#. In **Settings** section, select the following
 
    - Enable Self Service Restore
 	 - Enable File System Compression
@@ -180,7 +180,7 @@ In this section we will create a source files shares to serve as a source and th
    .. figure:: images/createshare_confirm.png
 
 
-#. Login to your Windows Tools VM with the following credentials:
+#. Login to your Windows Tools VM with the following credentials
 
    - **Username** - administrator@ntnxlab.local
 	 - **Password** - nutanix/4u
@@ -296,7 +296,7 @@ In this lab we will test a Planned Failover
 
 #. Select **Planned Failover**
 
-#. Select **Create a Reverse-Replication Policy** and fill in the following:
+#. Select **Create a Reverse-Replication Policy** and fill in the following
 
    - **Recovery Point Objective (RPO)** - 10 minutes
 	 - **Policy Name** - Reverse-*initials*-files-repl-policy (e.g. Reverse-xyz-files-repl-policy)
@@ -305,7 +305,7 @@ In this lab we will test a Planned Failover
 
 #. Click **Next**
 
-#. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover):
+#. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
    - **Username**	- administrator@ntnxlab.local
 	 - **Password**	- nutanix/4u
@@ -326,7 +326,7 @@ In this lab we will test a Planned Failover
 
 #. Return to your Windows Tools VM and access the failed over share in Windows Explorer
 
-#. Login to your Windows Tools VM with the following credentials:
+#. Login to your Windows Tools VM with the following credentials
 
    - **Username** - administrator@ntnxlab.local
 	 - **Password** - nutanix/4u
@@ -369,7 +369,7 @@ In this lab we will test a Planned Failover
 
    .. figure:: images/failback_initial.png
 
-#. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover):
+#. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
    - **Username**	- administrator@ntnxlab.local
 	 - **Password**	- nutanix/4u
