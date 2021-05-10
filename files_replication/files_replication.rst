@@ -84,7 +84,7 @@ Create PROD Files Server
 
 #. Click on **Customize**
 
-	.. figure:: images/customize.png
+   .. figure:: images/customize.png
 
 #. Click **Configure manually**
 
