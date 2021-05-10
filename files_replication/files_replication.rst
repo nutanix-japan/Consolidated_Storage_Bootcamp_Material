@@ -84,7 +84,7 @@ Create PROD Files Server
 
 #. Click on **Customize**
 
-	 .. figure:: images/customize.png
+	.. figure:: images/customize.png
 
 #. Click **Configure manually**
 
@@ -138,9 +138,9 @@ Create DR Files Server
 
 #. Fill out the following fields(make sure to manually configure Files server to 1 VM):
 
-	 - **Name** - *intials*-fs-dr (e.g. XYZ-fs-dr)
-	 - **Domain** - ntnxlab.local
-	 - **File Server Size** - 1 TiB
+	- **Name** - *intials*-fs-dr (e.g. XYZ-fs-dr)
+	- **Domain** - ntnxlab.local
+	- **File Server Size** - 1 TiB
 
 #. Now you should have two Files Servers showing in Prism Element **Prism > File Server**
 
@@ -156,22 +156,22 @@ In this section we will create a source files shares to serve as a source and th
 
 #. Click on **+ Share/Export**
 
-#. Fill in the following details
+#. Fill in the following details:
 
    - **Name** - *intials*-prod-share （e.g. XYZ-prod-share）
-	 - **Select Protocol** - SMB
+   - **Select Protocol** - SMB
 
-	 .. figure:: images/createshare_smb.png
+	.. figure:: images/createshare_smb.png
 
 #. Click on **Next**
 
-#. In **Settings** section, select the following
+#. In **Settings** section, select the following:
 
    - Enable Self Service Restore
-	 - Enable File System Compression
-	 - Enable Access Based Enumeration (ABE)
+	- Enable File System Compression
+	- Enable Access Based Enumeration (ABE)
 
-	 .. figure:: images/createshare_settings.png
+	.. figure:: images/createshare_settings.png
 
 #. Click **Next**
 
@@ -179,15 +179,14 @@ In this section we will create a source files shares to serve as a source and th
 
    .. figure:: images/createshare_confirm.png
 
-
 #. Login to your Windows Tools VM with the following credentials
 
    - **Username** - administrator@ntnxlab.local
-	 - **Password** - nutanix/4u
+	- **Password** - nutanix/4u
 
 #. Browse to the location of your PROD (Source) share (e.g. ``\\xyz-files-prod.ntnxlab.local\xyz-prod-share``)
 
-	 .. note::
+	.. note::
 
 	 	You can find your PROD share location by selecting the Files Share in Prism Element and checking Share/Export details.
 
@@ -211,7 +210,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 .. note::
 
- If Files Manager is not enabledin your Prism Central, you will need to Enable Files manager by reading the information on enabling the Files Manager and clicking **Enable Files**
+If Files Manager is not enabledin your Prism Central, you will need to Enable Files manager by reading the information on enabling the Files Manager and clicking **Enable Files**
 
 .. figure:: images/pc_files.png
 
@@ -242,7 +241,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 #. Fill in the following details in **Settings** section
 
    - **Name** - *intials*-files-repl-policy (e.g. xyz-files-repl-policy)
-	 - **Description** - Protection Policy for XYZ Prod to DR Replication (Optional)
+	- **Description** - Protection Policy for XYZ Prod to DR Replication (Optional)
 
 #. Click on **Create**
 
@@ -250,7 +249,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
    .. figure:: images/smartdr_policyrpo.png
 
-	 .. note::
+	.. note::
 
 	 	Wait a few minutes until all the files are replicated and **RPO Compliant** will have a green-dot to indicate intial synchronization
 
@@ -260,11 +259,11 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 #. Go to **Data Protection > Protected File Servers** to check the Active and Standby File servers. (Active indicated by a green A)
 
-	 .. figure:: images/smartdr_activefs.png
+	.. figure:: images/smartdr_activefs.png
 
 #. Now return to **Prism Element > Files > Shares/Export** and verify that a replicated share shows in the list
 
-	 .. figure:: images/smartdr_repshare.png
+	.. figure:: images/smartdr_repshare.png
 
 #. Select the replicated share and observe the **Mount Path** in the properties
 
@@ -299,7 +298,7 @@ In this lab we will test a Planned Failover
 #. Select **Create a Reverse-Replication Policy** and fill in the following
 
    - **Recovery Point Objective (RPO)** - 10 minutes
-	 - **Policy Name** - Reverse-*initials*-files-repl-policy (e.g. Reverse-xyz-files-repl-policy)
+	- **Policy Name** - Reverse-*initials*-files-repl-policy (e.g. Reverse-xyz-files-repl-policy)
 
    .. figure:: images/failover_settings.png
 
@@ -308,9 +307,9 @@ In this lab we will test a Planned Failover
 #. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
    - **Username**	- administrator@ntnxlab.local
-	 - **Password**	- nutanix/4u
-	 - **Preferred Domain Controller** - ntnxlab.local
-	 - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+	- **Password**	- nutanix/4u
+	- **Preferred Domain Controller** - ntnxlab.local
+	- **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
 
 #. Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
 
@@ -329,7 +328,7 @@ In this lab we will test a Planned Failover
 #. Login to your Windows Tools VM with the following credentials
 
    - **Username** - administrator@ntnxlab.local
-	 - **Password** - nutanix/4u
+	- **Password** - nutanix/4u
 
 #. Browse to the location of your source share now hosted on DR Files server (e.g. ``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``)
 
@@ -372,9 +371,9 @@ In this lab we will test a Planned Failover
 #. In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
    - **Username**	- administrator@ntnxlab.local
-	 - **Password**	- nutanix/4u
-	 - **Preferred Domain Controller** - ntnxlab.local
-	 - **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+	- **Password**	- nutanix/4u
+	- **Preferred Domain Controller** - ntnxlab.local
+	- **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
 
 #. Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
 
