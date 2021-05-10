@@ -52,7 +52,7 @@ We will do the following:
 5. Failover, create new files in share and reverse-replicate
 6. Failback and check contents
 
-Minimum software versions required for the lab:
+Files version include new feature updates. At the time of writing this labs these were the required versions of the following software components:
 
 .. list-table::
   :widths: 25 75
