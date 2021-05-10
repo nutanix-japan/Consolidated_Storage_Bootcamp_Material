@@ -52,6 +52,22 @@ We will do the following:
 5. Failover, create new files in share and reverse-replicate
 6. Failback and check contents
 
+Minimum software versions required for the lab:
+
+.. list-table::
+  :widths: 25 75
+  :header-rows: 1
+
+  * - Software Component
+    - Version
+	* - AOS
+    - 5.19.0.5
+	* - Prism Central
+    - pc.2021.3.0.1
+	* - Files
+    - 3.8.0.1
+	* - Files Manager
+    - 2.0.0 (upgraded through LCM)
 
 Create PROD Files Server
 ..........................
@@ -199,7 +215,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 .. figure:: images/pc_files.png
 
-#. In Files Manager, click on **Data Protection > Pilices > + New Policy**
+#. In Files Manager, click on **Data Protection > Polices > + New Policy**
 
 #. Select your *intials*-fs-prod (e.g. XYZ-fs-prod) as the **Primary Location (Source File Server)**
 
