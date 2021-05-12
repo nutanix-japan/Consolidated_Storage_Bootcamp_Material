@@ -90,21 +90,21 @@ View the Object Storage Services
    |  envoy-0       |  Load Balancer / Endpoint     |  2      |  4 GiB    |
    +----------------+-------------------------------+---------------------+
 
-  These VMs are deployed by the Microservices Platform (MSP), the Kubernetes-based platform on which multiple future Nutanix services will be run. The service that controls the MSP runs on Prism Central.
+These VMs are deployed by the Microservices Platform (MSP), the Kubernetes-based platform on which multiple future Nutanix services will be run. The service that controls the MSP runs on Prism Central.
 
-   The **default** VMs run the Kubernetes cluster. The Kubernetes cluster consists of one or more master nodes, which provides the control plane for the Kubernetes cluster, as well as worker nodes. Kubernetes runs in multi-master mode, which allows for any node to become the master if needed.
+The **default** VMs run the Kubernetes cluster. The Kubernetes cluster consists of one or more master nodes, which provides the control plane for the Kubernetes cluster, as well as worker nodes. Kubernetes runs in multi-master mode, which allows for any node to become the master if needed.
 
-   These nodes run etcd, which is a Kubernetes-level distributed key-value store for storing and replicating the Kubernetes-cluster level metadata. The nodes also run the object store components. This includes:
+These nodes run etcd, which is a Kubernetes-level distributed key-value store for storing and replicating the Kubernetes-cluster level metadata. The nodes also run the object store components. This includes:
 
-   - S3 adapter - Translates the S3 language into the internal system language
-   - Object controller - Handles all the I/O
-   - Metadata service - Distributed key-value store to provide consistency across a massive object store deployment
-   - Atlas service - Handles garbage collection and enforces policies such as life cycle management, versioning, and WORM
-   - UI gateway - this is the endpoint for all UI requests, handles bucket management, stats display, user management interface, etc
-   - Zookeeper - Manages the configuration for the object storage cluster
-   - IAM service - Handles user authentication for accessing buckets and objects
+- S3 adapter - Translates the S3 language into the internal system language
+- Object controller - Handles all the I/O
+- Metadata service - Distributed key-value store to provide consistency across a massive object store deployment
+- Atlas service - Handles garbage collection and enforces policies such as life cycle management, versioning, and WORM
+- UI gateway - this is the endpoint for all UI requests, handles bucket management, stats display, user management interface, etc
+- Zookeeper - Manages the configuration for the object storage cluster
+- IAM service - Handles user authentication for accessing buckets and objects
 
-   The envoy VMs provide load balancing across the object controller components. The IP address of these VMs are the IP that can be used by clients to access the object store. It is the first point of entry for an object request (for example, an S3 GET or PUT). It then forwards this request to one of the worker VMs (specifically, the S3 adapter service running as part of the object-controller pod).
+The envoy VMs provide load balancing across the object controller components. The IP address of these VMs are the IP that can be used by clients to access the object store. It is the first point of entry for an object request (for example, an S3 GET or PUT). It then forwards this request to one of the worker VMs (specifically, the S3 adapter service running as part of the object-controller pod).
 
 Walk Through the Object Store Deployment
 ........................................
@@ -128,7 +128,7 @@ In this exercise you will walk through the steps of creating an Object Store.
 
 #. Fill out the following fields:
 
-   - **Object Store Name** - *initials*-oss
+   - **Object Store Name** - oss-*initials*
    - **Domain**  - ntnxlab.com
 
    .. figure:: images/buckets_02.png
@@ -165,14 +165,13 @@ In this exercise you will walk through the steps of creating an Object Store.
 
    **Client Access IPs:** These are the endpoint IPs that the external applications will connect to. 4 static IPs are required.
 
-.. raw:: html
+   .. raw:: html
 
-  <strong><font color="red">Close the Create Object Store wizard, do NOT click Deploy.</font></strong>
+   <strong><font color="red">Close the Create Object Store wizard, do NOT click Deploy.</font></strong>
 
-.. figure:: images/objects_04.png
+   .. figure:: images/objects_04.png
 
 #. On the main Objects UI, take a note of the IP address in the **Client Used IPs** column for the existing object store, as it will be used in a future lab.
-
 
 Takeaways
 +++++++++

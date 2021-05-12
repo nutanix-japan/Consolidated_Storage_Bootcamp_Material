@@ -13,7 +13,7 @@ Deploy Files
 
    .. figure:: images/1.png
 
-   For the purpose of saving time, the Files has already been uploaded to your cluster. Files binaries can be downloaded directly through Prism or uploaded manually.
+   For the purpose of saving time, the Files has already been uploaded to your cluster. Files binaries can be downloaded directly through Prism Element > :fa:`cog` > Upgrade Software menu (option to uploaded manually is present as well).
 
    .. figure:: images/2.png
 
@@ -25,7 +25,7 @@ Deploy Files
 
    Lastly Files will ensure that at least 1 network has been configured on the cluster. A minimum of 2 networks are recommended to have segmentation between the client side and storage side networks.
 
-#. Click **Continue**.
+#. Click **Continue** on Pre-Check window if it appears
 
    .. figure:: images/3.png
 
@@ -36,12 +36,6 @@ Deploy Files
    - **File Server Size** - 1 TiB
 
    .. figure:: images/4.png
-
-   .. note::
-
-     Clicking **Custom Configuration** will allow you to alter the scale up and scale out sizing of the Files VMs based on User and Throughput targets. It also allows for manual sizing of the Files cluster.
-
-     .. figure:: images/5.png
 
 #. Click **Next**.
 

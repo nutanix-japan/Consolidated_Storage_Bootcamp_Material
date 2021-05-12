@@ -7,14 +7,24 @@ Files: Expand Cluster
 Overview
 ++++++++
 
+.. note::
+
+ This lab can only be done on a HPOC with more than 1 node. Single Node HPOC clusters cannot be used to run this lab.
+
+ Note that the number of Files Server VMs is limited to number of physical nodes in a Nutanix cluster. Most HPOCs will have 3 to 4 nodes. 
+
+ At the time of Files Server 3.8.x release, a Files Server with just 1 FSVM can not be scaled out. 
+
 Files offers the ability to scale up and scale out a deployment. Scaling up the CPU and memory of Files VMs allows an environment to support higher storage throughput and number of concurrent sessions. Currently, Files VMs can be scaled up to a maximum of 12 vCPU and 96GB of RAM each.
 
 The true power of Files scalability is the ability to simply add more Files VMs, scaling out much like the underlying Nutanix distributed storage fabric. An individual Files cluster can scale out up to the number of physical nodes in the Nutanix cluster, ensuring that no more than 1 Files VM runs on a single node during normal operation.
 
+
+
 Expanding a Files Cluster
 ++++++++++++++++++++++++++++++++++++
 
-#. Return to **Prism > File Server** and select **BootcampFS**.
+#. Return to **Prism > File Server** and select your **Intials-Files** Files Server (e.g. XYZ-Files).
 
 #. Click **Update > Number of File Server VMs**.
 
