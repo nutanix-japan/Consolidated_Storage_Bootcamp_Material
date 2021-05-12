@@ -7,14 +7,20 @@ File Analytics: File System Scan
 Overview
 ++++++++
 
-
-
 File Analytics Scan
 +++++++++++++++++++++
 
 #. In **Prism** > **File Server** > click **File Analytics**
 
    .. figure:: images/35b.png
+
+#. If an option appears to enable Files Analytics appears, enter your AD details as shown below and click on **Enable**
+
+   - **Active Directory Realm Name** - ntnxlab.local
+   - **Username** - administrator@ntnxlab.local
+   - **Password** - nutanix/4u
+
+   .. figure:: images/35a.png
 
 #. Analytics will perform an initial scan of the existing shares which will take just a couple minutes.  You can see the scan by going to the gear icon within the Analytics UI and selecting **Scan File System**
 
