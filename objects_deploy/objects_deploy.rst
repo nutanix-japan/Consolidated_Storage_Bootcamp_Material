@@ -166,8 +166,8 @@ In this exercise you will walk through the steps of creating an Object Store.
    **Client Access IPs:** These are the endpoint IPs that the external applications will connect to. 4 static IPs are required.
 
    .. raw:: html
-
-   <strong><font color="red">Close the Create Object Store wizard, do NOT click Deploy.</font></strong>
+   
+     <strong><font color="red">Close the Create Object Store wizard, do NOT click Deploy.</font></strong>
 
    .. figure:: images/objects_04.png
 
