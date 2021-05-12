@@ -1,5 +1,7 @@
 .. _files_deploy:
 
+.. title:: Nutanix Files Deploy
+
 -------------
 Files: Deploy
 -------------

@@ -19,7 +19,7 @@ Files offers the ability to scale up and scale out a deployment. Scaling up the 
 
 The true power of Files scalability is the ability to simply add more Files VMs, scaling out much like the underlying Nutanix distributed storage fabric. An individual Files cluster can scale out up to the number of physical nodes in the Nutanix cluster, ensuring that no more than 1 Files VM runs on a single node during normal operation.
 
-
+In this exercise we will scale out the **Intials-Files** Files Server (e.g. XYZ-Files) server we deployed in optional lab :ref:`files_deploy`
 
 Expanding a Files Cluster
 ++++++++++++++++++++++++++++++++++++
