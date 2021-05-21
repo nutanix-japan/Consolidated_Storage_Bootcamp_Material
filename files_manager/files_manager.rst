@@ -22,7 +22,7 @@ Enable the Files Manager service on PC
 
 #. Click the collapsed menu icon
 
-#. In the **Services** option, click **Files**
+#. In the **Services** > **Files**
 
    .. figure:: images/files_manager.png 
 
