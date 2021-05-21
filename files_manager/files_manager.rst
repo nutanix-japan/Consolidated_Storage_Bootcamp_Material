@@ -12,7 +12,6 @@ The Files Manager lets you view and control all of your file servers from a sing
 
 The Files Manager provides the Smart DR service for Nutanix Files, which lets you protect file servers at the share-level.
 
-
 Enabling the Files Manager
 ---------------------------
 
