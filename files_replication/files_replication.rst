@@ -71,6 +71,7 @@ Files version include new feature updates. At the time of writing this labs thes
   * - Files Manager
     - 2.0.0 (upgraded through LCM)
 
+Click here to enable or update :ref:`files_manager` 
 
 Create PROD Files Server
 ..........................
