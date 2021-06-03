@@ -80,7 +80,7 @@ Object versioning allows the upload of new versions of the same object for requi
 
 #. Upload the modified file to your bucket. If desired, you can update and upload the file multiple times.
 
-#. Back in Prism, in the Objects UI, click on **Object Stores**.
+#. Back in Prism Cental > Services > Objects, click on **Object Stores**.
 
 #. look at the **Num. Objects** for your *your-name*-**my-bucket** bucket.
 
@@ -94,6 +94,6 @@ What are the key things you should know about **Nutanix Objects**?
 
 - Nutanix Objects provides a simple and scalable S3-compatible object storage solution, optimized for DevOps, Long Term Retention and Backup Target use cases.
 
-- Nutanix Objects can be deployed on an AHV or ESXi cluster.
+- Nutanix Objects can be deployed on an AHV cluster, with ESXi support on the roadmap.
 
 - Nutanix Objects will be enabled and deployed from Prism Central.

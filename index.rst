@@ -10,6 +10,7 @@
   files_nfs_export/files_nfs_export
   files_file_blocking/files_file_blocking
   files_multiprotocol/files_multiprotocol
+  files_replication/files_replication
 
 .. toctree::
   :maxdepth: 2

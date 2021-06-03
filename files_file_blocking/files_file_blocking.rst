@@ -19,9 +19,9 @@ In this exercise you will configure Files to block specific file extensions for 
 
 #. Open a PowerShell window by clicking on the **PowerShell icon** on the taskbar. Enter the following command where you will see an access denied error message:
 
-   .. code-block:: bash
+   .. code-block:: PowerShell
 
-	 new-item \\BootcampFS.ntnxlab.local\marketing\MyMovie.flv
+	   new-item \\BootcampFS.ntnxlab.local\marketing\MyMovie.flv -ItemType file
 
    .. figure:: images/49.png
 

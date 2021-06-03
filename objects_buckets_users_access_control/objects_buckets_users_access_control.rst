@@ -15,6 +15,14 @@ Create Bucket In Prism
 
 A bucket is a sub-repository within an object store which can have policies applied to it, such as versioning, WORM, etc. By default a newly created bucket is a private resource to the creator. The creator of the bucket by default has read/write permissions, and can grant permissions to other users.
 
+#. Go to Prism Central
+
+#. Go to :fa:`bars` > Services > Objects 
+
+#. Click on **ntnx-objects** Objects Store
+
+#. The Objects Store management will open in a new browser tab 
+
 #. Click the **Name** of the existing Object Store (**NAME?**) to manage it.
 
 #. Click **Create Bucket**, and fill out the following fields:
@@ -40,16 +48,22 @@ A bucket is a sub-repository within an object store which can have policies appl
 
      Note that if WORM is enabled on the bucket, this will supersede any lifecycle policy.
 
-#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Configure WORM** from the **Actions** dropdown.
+#. Check the box next to your *your-name*-**my-bucket** bucket, and click on **Actions** dropdown and choose **Configure WORM**
 
-#. Check the box next to **Enable WORM** bucket, and click **Enable WORM**.
+#. Check the box next to **Enable WORM** bucket, 
 
-   .. Note:: you have the ability to define a WORM data retention period on a per bucket basis.
+#. Enter **1** month as the retention periodand click **Enable WORM**. 
+
+   .. Note:: You have the ability to define a WORM data retention period on a per bucket basis.
 
 User Management
 +++++++++++++++
 
 In this exercise you will create generate access and secret keys to access the object store, that will be used throughout the lab.
+
+#. Go to Prism Central
+
+#. Go to :fa:`bars` > Services > Objects 
 
 #. From the Objects UI, click on **Access Keys** and click **Add People**.
 
@@ -84,17 +98,25 @@ In this exercise you will create generate access and secret keys to access the o
 Adding Users to buckets_share
 +++++++++++++++++++++++++++++
 
-#. From the Objects UI, click on **Object Stores**.
+#. Go to Prism Central
 
-#. Check the box next to your *your-name*-**my-bucket** bucket, and click **Share** from the **Actions** dropdown.
+#. Go to :fa:`bars` > Services > Objects 
 
-   This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis. Since we haven't created any users yet, just click **Cancel**.
+#. Click on **ntnx-objects** Objects Store
+
+#. The Objects Store management will open in a new browser tab (if it not already open)
+
+#. Click on *your-name*-**my-bucket** bucket, and click on **User Access** 
+
+#. Click on **Edit User Access** button
+
+   This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis.
+
+#. Add the user you created earlier, with *Read* and *Write* permissions
 
    .. figure:: images/buckets_share.png
 
-#. Add the user you created earlier, with *Read* and *Write* permissions.
-
-
+#. Click on **Save**
 
 Takeaways
 +++++++++
