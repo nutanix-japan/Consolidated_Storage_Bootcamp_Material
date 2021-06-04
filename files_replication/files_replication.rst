@@ -1,5 +1,7 @@
 .. _files_replication:
 
+.. title:: Smart DR:Files Replication
+
 ------------------------
 Files: Smart DR
 ------------------------
@@ -48,7 +50,7 @@ We will do the following:
 1. Create a PROD Files server *intials*-fs-prod (1-VM Files Server)
 2. Create a DR Files server *intials*-fs-dr (1-VM Files Server)
 3. Create a SMB Files share in your PROD Files server and populate the share with sample files
-4. Configure Files Protection Policy in Prism Central and replicate
+4. Configure Files Protection Policy in Prism Central's :ref:`files_manager` and replicate
 5. Failover, create new files in share and reverse-replicate
 6. Failback and check contents
 
@@ -68,6 +70,8 @@ Files version include new feature updates. At the time of writing this labs thes
     - 3.8.0.1
   * - Files Manager
     - 2.0.0 (upgraded through LCM)
+
+Click here  for instructions to enable and update :ref:`files_manager` 
 
 Create PROD Files Server
 ..........................
