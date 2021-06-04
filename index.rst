@@ -51,8 +51,9 @@
   files_deploy/files_deploy
   file_analytics_deploy/file_analytics_deploy
   objects_deploy/objects_deploy
-  files_expand_cluster/files_expand_cluster
   files_manager/files_manager
+  files_expand_cluster/files_expand_cluster
+  
 
 .. toctree::
   :maxdepth: 2
