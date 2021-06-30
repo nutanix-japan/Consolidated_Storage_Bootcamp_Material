@@ -20,6 +20,7 @@
 
   file_analytics_scan/file_analytics_scan
   file_analytics_anomaly/file_analytics_anomaly
+  file_analytics_ransomware/file_analytics_ransomware
 
 .. toctree::
    :maxdepth: 2
@@ -31,7 +32,7 @@
    objects_versioning_access_control/objects_versioning_access_control
    objects_cli_scripts/objects_cli_scripts
    objects_tiering/objects_tiering
-   objects_multi_cluster/objects_multi_cluster
+..   objects_multi_cluster/objects_multi_cluster
 
 .. toctree::
    :maxdepth: 2
@@ -48,10 +49,11 @@
   :hidden:
 
   files_deploy/files_deploy
-  files_expand_cluster/files_expand_cluster
-  files_manager/files_manager
   file_analytics_deploy/file_analytics_deploy
   objects_deploy/objects_deploy
+  files_manager/files_manager
+  files_expand_cluster/files_expand_cluster
+  
 
 .. toctree::
   :maxdepth: 2
@@ -99,20 +101,23 @@ Agenda
 - Nutanix File Analytics Labs
     - File Analytics: Review Initial Scan
     - File Analytics: Anomaly Rules
+    - File Analytics: Ransomware
 
 - Nutanix Objects Labs
     - Objects: Creating Bukets & Users
     - Objects: Versioning & Access Controls
     - Objects: Using From CLI & Scripts
+    - Objects: Tiering 
 
 - Bonus Labs
     - Peer
 
 - Optional Labs
     - Files: Deploy
-    - Files: Expand Cluster
     - File Analytics: Deploy
     - Objects: Deploy
+    - Files Manager Enable
+    - Files: Expand Cluster
 
 Introductions
 +++++++++++++
