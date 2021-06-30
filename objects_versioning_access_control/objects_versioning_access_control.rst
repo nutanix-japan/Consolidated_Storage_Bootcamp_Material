@@ -80,7 +80,7 @@ Object versioning allows the upload of new versions of the same object for requi
 
 #. Upload the modified file to your bucket. If desired, you can update and upload the file multiple times.
 
-#. Back in Prism, in the Objects UI, click on **Object Stores**.
+#. Back in Prism Cental > Services > Objects, click on **Object Stores**.
 
 #. look at the **Num. Objects** for your *your-name*-**my-bucket** bucket.
 

@@ -34,7 +34,7 @@ There are several ways to apply user and group mappings including rule based, ex
 
    .. figure:: images/55.png
 
-#. Click **Next** then from the **Settings* page check **Simultaneous access to the same files from both protocols**.
+#. Click **Next** then from the **Settings** page check **Simultaneous access to the same files from both protocols**.
 
    .. figure:: images/56.png
 
@@ -65,9 +65,13 @@ We will need to get the user ID (UID) to create the explicit mapping.
        uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
        [root@CentOS ~]#
 
-#. In **Prism** > **File Server** > Select your file server and click **Protocol Management** > then click **User Mapping**
+#. In **Prism** > **File Server** > Select your **BootcampFS** file server
+
+#. Click **Protocol Management** > then click **User Mapping**
 
 #. Click **Next** until you are on the **Explicit Mapping** page
+
+#. Click on **Add Manually**
 
 #. Click **+ Add one-to-one mapping**
 

@@ -111,14 +111,14 @@ Create A Bucket And Add Objects To It Using s3cmd (CLI)
 
    .. code-block:: bash
 
-   curl https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip [s3.amazonaws.com] -O -J -L
-   unzip sample-pictures.zip
+    curl https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip [s3.amazonaws.com] -O -J -L
+    unzip sample-pictures.zip
 
 #. List images in sample-pictures folder
 
    .. code-block:: bash
 
-   ls sample-pictures
+    ls sample-pictures
 
 #. Run the following command to upload one of the images to your bucket:
 

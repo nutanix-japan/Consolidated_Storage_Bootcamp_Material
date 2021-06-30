@@ -10,6 +10,7 @@
   files_nfs_export/files_nfs_export
   files_file_blocking/files_file_blocking
   files_multiprotocol/files_multiprotocol
+  files_replication/files_replication
 
 .. toctree::
   :maxdepth: 2
@@ -47,8 +48,9 @@
   :hidden:
 
   files_deploy/files_deploy
-  file_analytics_deploy/file_analytics_deploy
   files_expand_cluster/files_expand_cluster
+  files_manager/files_manager
+  file_analytics_deploy/file_analytics_deploy
   objects_deploy/objects_deploy
 
 .. toctree::
