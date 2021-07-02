@@ -34,7 +34,7 @@ Creating the Share
 
 #. Fill out the following fields:
 
-   - **Name** - Marketing
+   - **Name** - *Initials*-Marketing  (e.g. XYZ-Marketing)
    - **Description (Optional)** - Departmental share for marketing team
    - **File Server** - BootcampFS
    - **Share Path (Optional)** - Leave blank. This field allows you to specify an existing path in which to create the nested share.
