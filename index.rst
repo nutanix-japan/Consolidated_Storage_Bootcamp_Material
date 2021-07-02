@@ -95,10 +95,12 @@ Agenda
     - Files: Create SMB Share
     - Files: Create NFS Export
     - Files: Selective File Blocking
+    - Files: Smart DR
 
 - Nutanix File Analytics Labs
     - File Analytics: Review Initial Scan
     - File Analytics: Anomaly Rules
+    - File Analytics: Ransomware
 
 - Nutanix Objects Labs
     - Objects: Creating Bukets & Users
