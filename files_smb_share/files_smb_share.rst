@@ -9,6 +9,14 @@ Overview
 
 In this exercise you will create and test a SMB share, used to support home directories, user profiles, and other unstructured file data such as departmental shares commonly accessed by Windows clients.
 
+.. note::
+   If you accidentally did not configure Files to use the Active Directory domain controller (AutoAD or customer-provided) as the DNS server, after deploying the File Server you will get the following errors.
+      - DNS 'NS' records not found for *domain*
+      - Failed to lookup IP address of *domain*. Please verify the domain name, DNS configuration and network connectivity.
+   This can easily be corrected after deployment, without having to delete and redeploy the Files Server.
+      - Within the **File Server** dropdown, select the file server you deployed, and click **Update > Network Configuration**. Modify the entry for *DNS Resolver IP*, and click **Next > Save**.
+      - Click **DNS**. Update this page with the AutoAD FQDN **dc.ntnxlab.local** (or customer-provided), Username and Password of an Active Directory user with administrator privileges, and click **Submit**.
+      
 Lab Setup
 +++++++++
 
