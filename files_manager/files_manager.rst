@@ -29,12 +29,14 @@ Enable the Files Manager service on PC
 
 #. In the Enable Service dialog box, click **Enable**
 
+Unable to see any new features (Data Protection)? Upgrading Files Manager in LCM might help. See the section below to upgrade Files Manager in LCM. 
+
 Upgrading Files Manager
 ------------------------
 
 Files Manger introduces new features and bug fixes with updates. For example, Files Manager version 2.0.0 inroduced Smart DR (Disaster Recover) feature.
 
-You can perform Files Manager upgdates using the Life-Cycle Manager (LCM).
+You can perform Files Manager updates using the Life-Cycle Manager (LCM).
 
 We  will verify the current version of Files Manager in Life Cycle Management.
 

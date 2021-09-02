@@ -103,9 +103,14 @@ Deploy Files
    .. figure:: images/11.png
 
    .. note::
-
-     If you receive a warning regarding DNS record validation failure, this can be safely ignored. The shared cluster does not use the same DNS servers as your Files cluster, and as a result is unable to resolve the DNS entries created when deploying Files.
-
+      
+      If you accidentally did not configure Files to use the Active Directory domain controller (AutoAD or customer-provided) as the DNS server, after deploying the File Server you will get the following errors.
+         - DNS 'NS' records not found for *domain*
+         - Failed to lookup IP address of *domain*. Please verify the domain name, DNS configuration and network connectivity.
+      This can easily be corrected after deployment, without having to delete and redeploy the Files Server.
+         - Within the **File Server** dropdown, select the file server you deployed, and click **Update > Network Configuration**. Modify the entry for *DNS Resolver IP*, and click **Next > Save**.
+         - Click **DNS**. Update this page with the AutoAD FQDN **dc.ntnxlab.local** (or customer-provided), Username and Password of an Active Directory user with administrator privileges, and click **Submit**.
+         
 #. Go to **Prism > File Server** and select the *Initials*\ **-Files** server and click **Protect**.
 
    .. figure:: images/12.png
