@@ -26,7 +26,7 @@ Expanding a Files Cluster
 
 #. Return to **Prism > File Server** and select your **Intials-Files** Files Server (e.g. XYZ-Files).
 
-#. Click **Update > Number of File Server VMs**.
+#. Click **Update > Scale in/out FSVMs**.
 
    .. figure:: images/25.png
 

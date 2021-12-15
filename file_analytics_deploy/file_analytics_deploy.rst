@@ -42,9 +42,9 @@ Deploy File Analytics
 
 #. On the Enable File Analytics page enter your domain administrator which is also your file server administrator.
 
-   - **Username**: administrator
+   - **Username**: ntnxlab/administrator
    - **Password**: nutanix/4u
 
    .. figure:: images/34.png
 
-#. Select **Enable**
+#. Click on **Enable**
