@@ -81,10 +81,10 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS 5.15.x | 5.16.x | 5.17.x | 5.18.x
-    - Prism 2020.9
-    - Files 3.7
-    - File Analytics 2.2
+  - AOS 5.20.2
+  - Prism Central pc.2021.9.0.2
+  - Files 4.0.0.2
+  - File Analytics 3.0.0
 
 - Optional Lab Updates:
 
@@ -391,6 +391,7 @@ For RTP:
 Nutanix Version Info
 ++++++++++++++++++++
 
-- **AHV Version** - AHV 20170830.337 (AOS 5.11+)
-- **AOS Version** - 5.15.x | 5.16.x | 5.17.x | 5.18.x
-- **PC Version** - Prism 2020.9
+- AOS 5.20.2
+- Prism Central pc.2021.9.0.2
+- Files 4.0.0.2
+- File Analytics 3.0.0
