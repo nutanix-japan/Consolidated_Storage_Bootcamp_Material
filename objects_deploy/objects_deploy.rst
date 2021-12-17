@@ -39,6 +39,8 @@ For more information on Objects, please visit our website at http://www.nutanix.
 Lab Setup
 +++++++++
 
+This lab requires applications provisioned as part of the :ref:`windows_tools_vm`.
+
 **Google Chrome is recommended for this lab.**
 
 Getting Familiar with Object Storage
