@@ -115,7 +115,6 @@ In this exercise you will walk through the steps of creating an Object Store.
 
   <strong><font color="red">You will not actually deploy the Object Store, but you will be able to see the workflow and how simple it is for users to deploy an Object Store.</font></strong>
 
-
 .. note::
 
   In many use cases only a single object store is required. If global namespace isolation is required, for example if a Service Provider is providing object storage to multiple customers from the same cluster, then multiple object stores can be created.
@@ -129,49 +128,42 @@ In this exercise you will walk through the steps of creating an Object Store.
 #. Fill out the following fields:
 
    - **Object Store Name** - oss-*initials*
+   - **Cluster** - your cluster (e.g. PHX-POCXXX)
+   - **Worker nodes** - 1
    - **Domain**  - ntnxlab.com
 
    .. figure:: images/buckets_02.png
 
 #. Click **Next**.
+ 
+#. In Storage network settings choose **Primary Network**
 
-   Next you will be able to configure the capacity of your object store.
+#. Provide two available IP addresses for Object Store Storage Network static IPs (2 IPs required)
 
-   The chosen option determines how many nodes will be deployed and the size of each.
+   Select two available IPs in your network (just ping a few IPs to check if they are avaialable or use a port scanner to determine this)
 
-   .. note::
+   .. figure:: images/buckets_03.png
 
-     Note that although a storage capacity is defined here, it is not a hard limit. Storage capacity is limited only by the license and the available storage capacity of the cluster.
+#. Click **Next**
 
-   Select the different options (Small, Medium, Large) and notice how the Resource numbers change. These are the resources that will be applied across the K8s worker VMs. For example, specifying 30vCPU and 72GB of RAM across 3 workers, comes to 10 vCPU and 24 GB of RAM per worker. Custom values are also allowed.
+#. In Public network settings choose **Primary Network**
 
-#. Select **Light**, **50TiB** for Capacity, and click **Next**.
+#. Provide four available consecutive IP addresses in a range, for Object Store Storage Network static IPs (4 IPs required)
 
-   .. figure:: images/objects_03.png
+   Select four available IPs in your network (just ping a few IPs to check if they are avaialable or use a port scanner to determine this)
 
-   On the final screen, you will see the clusters managed by Prism Central.
+   .. figure:: images/buckets_04.png
 
-   .. note::
+#. Click on **Save and Continue**
 
-     To help validate that the Object Store is being deployed in the proper cluster, administrators can easily see the CPU, Memory, and Storage runways for each of the clusters.
+#. The wizard will run through all System Requirements Validation to validate resources for Objects store deployment
 
-#. Select the assigned cluster and note the expanded Network dialog.
+#. You will see a confirmation screen once all the validation checks are run 
 
-   **Internal Access Network:** This is the network where the MSP VMs will communicate, which requires 18 IP addresses to be reserved (for scale out). Select the **Primary** Network.
+   .. figure:: images/buckets_05.png
 
-   **Internal Access IPs:** These are additional IPs for internal communication and are required to be static. Two static IPs are required.
+#. **Do not** click on the Create Object Store button. The HPOC doesn't have enough resources to be able to host another Objects Store.
 
-   **Client Access Network:** This is the network for client access. This network can be the same as the Infrastructure Network.
-
-   **Client Access IPs:** These are the endpoint IPs that the external applications will connect to. 4 static IPs are required.
-
-   .. raw:: html
-   
-     <strong><font color="red">Close the Create Object Store wizard, do NOT click Deploy.</font></strong>
-
-   .. figure:: images/objects_04.png
-
-#. On the main Objects UI, take a note of the IP address in the **Client Used IPs** column for the existing object store, as it will be used in a future lab.
 
 Takeaways
 +++++++++
