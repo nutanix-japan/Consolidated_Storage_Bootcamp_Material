@@ -76,7 +76,7 @@ Click here  for instructions to enable and update :ref:`files_manager`
 Create PROD Files Server
 ..........................
 
-#. In **Prism > File Server**, click **+ File Server** to open the **New File Server Pre-Check** dialogue.
+#. In **Prism > File Server**, click **+ File Server**
 
 #. Click **Continue** on *New File Server: Pre-check* window (if it appeares)
 
@@ -98,7 +98,7 @@ Create PROD Files Server
 
    .. figure:: images/no_file_server.png
 
-#. Click on **Save**
+#. Click on **Save** and **Next**
 
 #. Select the **Primary - Managed** VLAN for the **Client Network**.
 
@@ -131,7 +131,7 @@ Create PROD Files Server
 
 #. Monitor deployment progress in **Prism > Tasks**.
 
-   Deployment should take approximately 10 minutes.
+   Deployment should take approximately 10 minutes. While it is deploying please proceed to next section.
 
    .. figure:: images/createfs_progress.png
 
@@ -155,23 +155,26 @@ Create a SMB Files Share in your PROD Files Server
 
 In this section we will create a source files shares to serve as a source and then we will replicate this share subsequently.
 
-#. Click on your Prod Files Server *intials*-fs-prod (e.g. XYZ-fs-prod)
+#. In **Prism Element > File Server**, click on your *intials*-fs-prod (e.g. XYZ-fs-prod) File Server
 
-#. Click on **+ Share/Export**
+#. Click on **Launch Files Console** (this will open in a new tab)
+
+#. Click on **Create a New Share**
 
 #. Fill in the following details:
 
    - **Name** - *intials*-prod-share （e.g. XYZ-prod-share）
-   - **Select Protocol** - SMB
+   - **Primary Protocol Access** - SMB (confirm this to be SMB) 
+   - Leave everything else as blank
    
    .. figure:: images/createshare_smb.png
 
-#. Click on **Next**
+#. Click **Next**
 
 #. In **Settings** section, select the following:
 
 	- Enable Self Service Restore
-	- Enable File System Compression
+	- Enable Compression
 	- Enable Access Based Enumeration (ABE)
    
    .. figure:: images/createshare_settings.png
@@ -211,23 +214,27 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 #. Click on :fa:`bars` > Services > Files
 
-.. note::
+   .. note::
 
-If Files Manager is not enabledin your Prism Central, you will need to Enable Files manager by reading the information on enabling the Files Manager and clicking **Enable Files**
+    If Files Manager is not enabled in your Prism Central, you will need to Enable Files using instruction in :ref:`files_manager`
 
-.. figure:: images/pc_files.png
+   .. figure:: images/pc_files.png
 
 #. In Files Manager, click on **Data Protection > Polices > + New Policy**
+
+   .. note::
+
+     If you are unable to see Data Protection option, you will need to upgrade Files Manager version to 2.x or above. Follow the instructions in :ref:`files_manager_upgrade` by using Nutanix LCM in Prism Central.
 
 #. Select your *intials*-fs-prod (e.g. XYZ-fs-prod) as the **Primary Location (Source File Server)**
 
    .. note::
 
-   	Selecting the source Files server will automaticall select all the shares within this files server to be protected
+   	Selecting the source Files server will automatically select all the shares within this files server to be protected
 
 #. Select your *intials*-fs-dr (e.g. XYZ-fs-dr) as the **Recovery Location (Target File Server)**
 
-#. Select the **Recovery Point Objective (RPO)** as **10** minutes. (this is the lowest you can set as of now)
+#. Select the **Recovery Point Objective (RPO)** as **10** minutes and **Start Immediately**. (this is the lowest you can set as of now)
 
    .. note::
 

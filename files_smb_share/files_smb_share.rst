@@ -34,7 +34,7 @@ Creating the Share
 
    .. figure:: images/13.png
 
-#. Click on **Create a New Share**
+#. Select **Shares** and click on **Next**
 
 #. Fill out the following fields:
 

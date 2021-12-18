@@ -9,9 +9,11 @@ Selective File Blocking
 
 In this exercise you will configure Files to block specific file extensions for the file server and the Marketing share.
 
-#. In **Prism** > **File Server** > Select your file server and click **Update** > then click **Blocked File Types**
+#. In **Prism Element > File Server**, select your file server and click **Launch Files Console**.
 
-   .. figure:: images/47.png
+#. The **Files Console** will open in a new browser tab
+
+#. Click on **Configuration > Authentication**
 
 #. Under **Blocked File Types** enter a comma separated list of extensions like .flv,.mov and click **Save**
 

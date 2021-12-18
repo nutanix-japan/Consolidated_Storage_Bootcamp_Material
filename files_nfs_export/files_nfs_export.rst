@@ -25,8 +25,6 @@ Enabling NFS Protocol
 
 #. Click on **Configuration > Authentication**
 
-#. Click on 
-
    .. figure:: images/29b.png
 
 #. Select **Use NFS Protocol** with **Unmanaged** User Management and Authentication, and click **Update**.

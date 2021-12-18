@@ -33,6 +33,10 @@ Unable to see any new features (Data Protection)?
 
 Upgrading Files Manager in LCM might help. See the section below to upgrade Files Manager in LCM. 
 
+.. _files_manager_upgrade:
+
+.. title:: Files: Files Manager Upgrade
+
 Upgrading Files Manager
 ------------------------
 
