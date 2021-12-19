@@ -255,7 +255,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 #. Click on **Create**
 
-#. Monitor the Events and the policy should show in the **Data Protection > Polices > + New Policy** in a few minutes
+#. Monitor the Tasks until the policy is created and the policy should show in the **Data Protection > Polices > + New Policy** in a few minutes
 
    .. figure:: images/smartdr_policyrpo.png
 
