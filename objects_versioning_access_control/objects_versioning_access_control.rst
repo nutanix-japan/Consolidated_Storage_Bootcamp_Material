@@ -22,27 +22,25 @@ Download the Sample Images
    - **Username** - NTNXLAB\\Administrator
    - **password** - nutanix/4u
 
-#. `Click here <https://s3.amazonaws.com/get-ahv-images/sample-pictures.zip>`_ to download the sample images to your Windows-ToolsVM. Once the download is complete, extract the contents of the .zip file.
+#. Use this `link <http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip>`_ to download the sample files to your Windows-ToolsVM. Once the download is complete, extract the contents of the .zip file.
 
 Use Object Browser to Create A Bucket
 .....................................
 
-#. From the Objects UI, Locate the **Objects Public IPs**.
+#. From the Objects UI, Locate the **ntnx-objects** object store.
 
    .. figure:: images/objects_06.png
 
-#. In a new browser tab paste the **Objects Public IP**, and add port **7200**.
+#. The objects browser will open in a new tab
 
-   .. figure:: images/objects_06b.png
-
-#. Enter the following fields for the user created earlier, and click **Login** button:
+#. Enter the following fields from the downloaded key file (while you created user access) and click **Login** button:
 
    - **Access Key**  - *Generated When User Created*
    - **Secret Key** - *Generated When User Created*
 
    .. figure:: images/objects_08.png
 
-#. Click the **+** and **Create bucket**.
+#. Click the **+ Create bucket**.
 
    .. figure:: images/objects_08b.png
 
@@ -58,7 +56,9 @@ Use Object Browser to Create A Bucket
 
    Creating a bucket in this fashion allows for self-service for entitled users, and is no different than a bucket created via the Prism Buckets UI.
 
-#. Click into your *your-name*-**my-bucket** bucket, and Click the **+** and ***Upload file**.
+#. Click into your *your-name*-**my-bucket** bucket, and Click the **+** and **Upload Objects**.
+
+   .. figure:: images/objects_08c.png
 
 #. Navigate to your downloads directory and find the Sample Pictures folder. Upload one or more pictures to your bucket.
 

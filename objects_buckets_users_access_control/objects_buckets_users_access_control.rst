@@ -23,8 +23,6 @@ A bucket is a sub-repository within an object store which can have policies appl
 
 #. The Objects Store management will open in a new browser tab 
 
-#. Click the **Name** of the existing Object Store (**NAME?**) to manage it.
-
 #. Click **Create Bucket**, and fill out the following fields:
 
    - **Name**  - *your-name*-my-bucket
@@ -112,7 +110,7 @@ Adding Users to buckets_share
 
    This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis.
 
-#. Add the user you created earlier, with *Read* and *Write* permissions
+#. Add the user (email address)you created earlier, with *Read* and *Write* permissions
 
    .. figure:: images/buckets_share.png
 
