@@ -13,7 +13,7 @@ Overview
 
  Note that the number of Files Server VMs is limited to number of physical nodes in a Nutanix cluster. Most HPOCs will have 3 to 4 nodes. 
 
- At the time of Files Server 3.8.x release, a Files Server with just 1 FSVM can not be scaled out. 
+ At the time of Files Server 4.0.0.2 release, a Files Server with just 1 FSVM can not be scaled out. 
 
 Files offers the ability to scale up and scale out a deployment. Scaling up the CPU and memory of Files VMs allows an environment to support higher storage throughput and number of concurrent sessions. Currently, Files VMs can be scaled up to a maximum of 12 vCPU and 96GB of RAM each.
 

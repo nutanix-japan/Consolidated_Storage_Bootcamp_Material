@@ -99,7 +99,7 @@ Setup Access for AWS S3 Bucket
 #. Go to your AWS IAM Management Console https://console.aws.amazon.com/iam/
 #. Select **Users > Add User**
 #. Enter **lnb-bucket-user** as the user name
-#. Select **Programmatic access**
+#. Select **Access key - Programmatic access**
 #. In the next window, select **Add user to group**
 #. Since we don't have group yet, click on **Create group**
 
