@@ -136,7 +136,9 @@ Adding Share Level Quota
 
 #. This will open the share details
 
-#. Click **New Quota Policy**
+#. Click on **Quota Policies** > **New Quota Policy**
+ 
+   .. figure:: images/21-3.png
 
 #. Fill out the following fields and click **Save**:
 
@@ -149,7 +151,7 @@ Adding Share Level Quota
 
 #. Click **Add**.
 
-#. This will enforce quota limits on the shares for AD user group **SSP Developers** to stary within limit
+#. This will enforce quota limits on the shares for AD user group **SSP Developers** to stay within limit
 
 #. With the *Initials*-Marketing > **Summary** selected, review the **Capacity Summary**, **Performance Summary** and **Share Properties** tabs to understand the available on a per share basis, including the number of files & connections, storage utilization over time, latency, throughput, and IOPS.
 

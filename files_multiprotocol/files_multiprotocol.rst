@@ -48,7 +48,7 @@ There are several ways to apply user and group mappings including rule based, ex
 
 #. Click **Next** and then **Update** from the **Summary** page.
 
-This concludes the multiprotocol configurate for your *Initials*-Marketing share
+This concludes the multiprotocol configuration for your *Initials*-Marketing share
 
 Now we will try accessing the share to test multiprotocol configuration
 
@@ -84,9 +84,9 @@ We will need to get the user ID (UID) to create the explicit mapping.
        uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
        [root@CentOS ~]#
 
-#. In **Prism Element > File Server**, select your file server and click **Launch Files Console**.
+#. In **Prism Element > File Server**, select your file server (*Initials*-Marketing)and click **Launch Files Console**.
 
-#. The **Files Console** will open in a new browser tab
+#. The **Files Console** for your share will open in a new browser tab
 
 #. Click on **Configuration > Authentication**
 

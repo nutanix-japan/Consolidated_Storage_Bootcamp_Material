@@ -76,7 +76,7 @@ Cause Error Condition
 
    .. figure:: images/43.png
 
-#. Choose **OK**,**OK** and **OK**  again
+#. Choose **OK**, **OK** and **OK**  again
 
 #. Open a PowerShell window as a specific user
 

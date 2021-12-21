@@ -113,7 +113,7 @@ In this exercise you will walk through the steps of creating an Object Store.
 
   In many use cases only a single object store is required. If global namespace isolation is required, for example if a Service Provider is providing object storage to multiple customers from the same cluster, then multiple object stores can be created.
 
-#. In :fa:`bars` **> Services > Objects**, click **Create Object Store**.
+#. In Prism Central, select :fa:`bars` **> Services > Objects**, click **Create Object Store**.
 
    .. figure:: images/buckets_01.png
 
@@ -134,7 +134,7 @@ In this exercise you will walk through the steps of creating an Object Store.
 
 #. Provide two available IP addresses for Object Store Storage Network static IPs (2 IPs required)
 
-   Select two available IPs in your network (just ping a few IPs to check if they are avaialable or use a port scanner to determine this)
+   Select two available IPs in your network (just ping a few IPs in your cluster's subnet to check if they are avaialable or use a port scanner to determine this)
 
    .. figure:: images/buckets_03.png
 
@@ -144,7 +144,7 @@ In this exercise you will walk through the steps of creating an Object Store.
 
 #. Provide four available consecutive IP addresses in a range, for Object Store Storage Network static IPs (4 IPs required)
 
-   Select four available IPs in your network (just ping a few IPs to check if they are avaialable or use a port scanner to determine this)
+   Select four available IPs in your network (just ping a few IPs in your cluster's subnet to check if they are avaialable or use a port scanner to determine this)
 
    .. figure:: images/buckets_04.png
 

@@ -63,11 +63,11 @@ Files version include new feature updates. At the time of writing this labs thes
   * - Software
     - Version
   * - AOS
-    - 5.19.0.5
+    - 5.20.2
   * - Prism Central
-    - pc.2021.3.0.1
+    - pc.2021.9.0.2
   * - Files
-    - 3.8.0.1
+    - 4.0.0.2
   * - Files Manager
     - 2.0.0 (upgraded through LCM)
 
