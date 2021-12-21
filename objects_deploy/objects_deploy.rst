@@ -96,7 +96,7 @@ These nodes run etcd, which is a Kubernetes-level distributed key-value store fo
 - Atlas service - Handles garbage collection and enforces policies such as life cycle management, versioning, and WORM
 - UI gateway - this is the endpoint for all UI requests, handles bucket management, stats display, user management interface, etc
 - Zookeeper - Manages the configuration for the object storage cluster
-- IAM service - Handles user authentication for accessing buckets and objects
+- IAM service - Handles user authentication for accessing buckets and objectsd
 
 The envoy VMs provide load balancing across the object controller components. The IP address of these VMs are the IP that can be used by clients to access the object store. It is the first point of entry for an object request (for example, an S3 GET or PUT). It then forwards this request to one of the worker VMs (specifically, the S3 adapter service running as part of the object-controller pod).
 
