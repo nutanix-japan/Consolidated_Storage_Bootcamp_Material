@@ -20,6 +20,7 @@
 
   file_analytics_scan/file_analytics_scan
   file_analytics_anomaly/file_analytics_anomaly
+  file_analytics_ransomware/file_analytics_ransomware
 
 .. toctree::
    :maxdepth: 2
