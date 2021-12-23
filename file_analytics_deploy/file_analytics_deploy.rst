@@ -31,9 +31,11 @@ Deploy File Analytics
 #. Input the following details:
 
    - **Name** - *Intials*-FA 
-   - **Server Size** - Small
+   - **Server Size** - Small (can be Small or Large based on the number of files) 
    - **Storage Container** - Self Service Container
    - **Network** - Primary-Managed
+
+   .. figure:: images/31-2.png
 
 #. Select **Show Advanced Settings**
 
@@ -43,14 +45,24 @@ Deploy File Analytics
 
 #. You can monitor the deployment from the **Tasks** page.  The Analytics VM deployment should take ~5 minutes.
 
-#. In **Prism** > **File Server** > click **File Analytics**
+#. Once deployed, In **Prism** > **File Server** 
+
+#. Select your file server *Initials*-Files (e.g. XYZ-Files) for which you would like enable analytics and click **File Analytics**
 
    .. figure:: images/33.png
 
    This will open in a new tab.
 
-#. On the Enable File Analytic, choose the audit data retention period and click on **Enable**
+#. On the Enable File Analytic, choose the audit data retention period and the following credentials
+   
+   - Active Directory Realm Name  - ntnxlab.local
+   - User Name - administrator@ntnxlab.local
+   - Password - nutanix/4u
+
+#. Click on **Enable**
    
    .. figure:: images/34.png
+
+You have now successfully deployed Files Analytics VM and setup analytics for your files server *Initials*-Files.
 
 
