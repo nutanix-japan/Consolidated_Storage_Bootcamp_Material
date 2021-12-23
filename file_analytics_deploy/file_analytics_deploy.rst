@@ -7,7 +7,11 @@ File Analytics: Deploy
 Overview
 ++++++++
 
-In this exercise you will deploy the File Analytics VM and scan the existing shares to build out the dashboard.  You will also create anomaly alerts and view the audit details for your file server instance.
+In this exercise you will walk through deploying the File Analytics VM and scan the existing shares to build out the dashboard.  You will also create anomaly alerts and view the audit details for your file server instance.
+
+.. note:: 
+
+ If you are using HPOC/Single Node POC cluster, Files Analytics VM is already deployed for you based on the staging. 
 
 Deploy File Analytics
 +++++++++++++++++++++
@@ -16,17 +20,20 @@ Deploy File Analytics
 
    .. figure:: images/31.png
 
-#. Select **Deploy**
+#. Choose the Files Analytics latest software. 
+   
+   For the purpose of saving time, the File Analytics 3.0 (or latest) package has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
+   
+   .. figure:: images/31-1.png
 
-   For the purpose of saving time, the File Analytics 2.0.0 package has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
+#. Click **Next**
 
-#. After the upload completes select **Install**
+#. Input the following details:
 
-#. Fill out the details
-
-   - **Name** - Initials
-   - **Storage Container** – Will automatically select the container used by your file server instance
-   - **Network List** – Primary - Managed
+   - **Name** - *Intials*-FA 
+   - **Server Size** - Small
+   - **Storage Container** - Self Service Container
+   - **Network** - Primary-Managed
 
 #. Select **Show Advanced Settings**
 
@@ -40,11 +47,10 @@ Deploy File Analytics
 
    .. figure:: images/33.png
 
-#. On the Enable File Analytics page enter your domain administrator which is also your file server administrator.
+   This will open in a new tab.
 
-   - **Username**: ntnxlab/administrator
-   - **Password**: nutanix/4u
-
+#. On the Enable File Analytic, choose the audit data retention period and click on **Enable**
+   
    .. figure:: images/34.png
 
-#. Click on **Enable**
+
