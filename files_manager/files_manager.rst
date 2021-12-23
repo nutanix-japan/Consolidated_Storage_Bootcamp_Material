@@ -50,7 +50,7 @@ We  will verify the current version of Files Manager in Life Cycle Management.
 
 #. Select **Lcm** from the search result 
 
-#. In **Lcmr**, click on **Inventory**
+#. In **Lcm**, click on **Inventory**
 
 #. If **Inventory** doesn't show any existing software versions, click on **Perform Inventory** 
 
@@ -98,7 +98,7 @@ We  will verify the current version of Files Manager in Life Cycle Management.
  
    .. figure:: images/files_manager_data_protection.png
 
-#. You can now proceed with the :ref:`files_replication` lab
+#. You can now proceed with the :ref:`files_replication` lab if required
 
     
 
