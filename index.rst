@@ -88,7 +88,7 @@ What's New
   - File Analytics 3.0.0
   - Objects 3.3.1
 
-- Optional Lab Updates:
+- Optional Lab Updates
 
 Agenda
 ++++++
