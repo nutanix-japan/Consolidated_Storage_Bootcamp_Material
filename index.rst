@@ -82,6 +82,7 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
+
   - AOS 5.20.2
   - Prism Central pc.2021.9.0.2
   - Files 4.0.0.2
