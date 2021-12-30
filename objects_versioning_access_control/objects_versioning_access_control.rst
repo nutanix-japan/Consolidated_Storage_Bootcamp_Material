@@ -72,20 +72,19 @@ Object versioning allows the upload of new versions of the same object for requi
 
 #. Open Notepad in *Initials*\ **-Windows-ToolsVM**.
 
-#. Type “version 1.0” in Notepad, then save the file.
+#. Type “version 1.0” in Notepad, then save the file with a name (e.g. A.txt)
 
 #. In Objects Browser, upload the text file to your *your-name*-**my-bucket** bucket.
 
-#. Make changes to the text file in Notepad and save it with the same name, overwriting the original file.
+#. Make changes to the text file (e.g. A.txt) in Notepad and save it with the same name, overwriting the original file.
 
 #. Upload the modified file to your bucket. If desired, you can update and upload the file multiple times.
 
 #. Back in Prism Cental > Services > Objects, click on **Object Stores**.
 
-#. look at the **Num. Objects** for your *your-name*-**my-bucket** bucket.
+#. In Objects Browser of your *your-name*-**my-bucket** bucket, you should be able to see the different versions of the file A.txt
 
-   .. note:: You will see that there is an Object counted for every version of your test file.
-
+   .. figure:: images/objects_09.png
 
 Takeaways
 +++++++++
