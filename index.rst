@@ -106,7 +106,7 @@ Agenda
     - File Analytics: Ransomware
 
 - Nutanix Objects Labs
-    - Objects: Creating Bukets & Users
+    - Objects: Creating Buckets & Users
     - Objects: Versioning & Access Controls
     - Objects: Using From CLI & Scripts
 

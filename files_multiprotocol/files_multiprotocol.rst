@@ -66,7 +66,7 @@ You will use a Linux Tools VM as a client for your NFS Files export.
      .. code-block:: bash
 
        [root@CentOS ~]# mkdir /filesmulti
-       [root@CentOS ~]# mount.nfs4 BootcampFS.ntnxlab.local:/Intials-Marketing/filesmulti
+       [root@CentOS ~]# mount.nfs4 BootcampFS.ntnxlab.local:/Intials-Marketing /filesmulti
        [root@CentOS ~]# dir /filesmulti
        dir: cannot open directory /filesmulti: Permission denied
        [root@CentOS ~]#

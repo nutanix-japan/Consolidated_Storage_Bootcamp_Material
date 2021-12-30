@@ -46,7 +46,7 @@ Use Object Browser to Create A Bucket
 
 #. Enter the following name for your bucket, and click **Create**:
 
-   - **Bucket Name** - *intials*-**Test-Bucket**
+   - **Bucket Name** - *intials*-**test-buckets**
 
    .. note::
 
