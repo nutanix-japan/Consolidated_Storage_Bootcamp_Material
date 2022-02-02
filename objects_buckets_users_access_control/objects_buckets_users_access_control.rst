@@ -67,7 +67,7 @@ In this exercise you will create generate access and secret keys to access the o
 
    .. figure:: images/objects_add_people.png
 
-#. Select **Add people not in Active Directory** and enter your e-mail address.
+#. Select **Add people not in a directory service** and enter your e-mail address.
 
    .. figure:: images/objects_add_people_02.png
 

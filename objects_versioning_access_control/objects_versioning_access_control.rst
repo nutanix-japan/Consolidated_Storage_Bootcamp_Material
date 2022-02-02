@@ -82,7 +82,13 @@ Object versioning allows the upload of new versions of the same object for requi
 
 #. Back in Prism Cental > Services > Objects, click on **Object Stores**.
 
-#. In Objects Browser of your *your-name*-**my-bucket** bucket, you should be able to see the different versions of the file A.txt
+#. In Objects Browser of your *your-name*-**my-bucket** bucket
+
+#. Select your  **A.txt** file 
+
+#. Under the **Actions** menu, scroll down to select **Versions**
+
+#. You should be able to see the different versions of the file A.txt
 
    .. figure:: images/objects_09.png
 
