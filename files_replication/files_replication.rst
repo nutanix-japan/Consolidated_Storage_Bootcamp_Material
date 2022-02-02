@@ -47,8 +47,8 @@ Since we are doing this lab on a single HPOC cluster, we will have a single AD d
 
 We will do the following:
 
-1. Create a PROD Files server *intials*-fs-prod (1-VM Files Server)
-2. Create a DR Files server *intials*-fs-dr (1-VM Files Server)
+1. Create a PROD Files server *intials*-filess-prod (1-VM Files Server)
+2. Create a DR Files server *intials*-files-dr (1-VM Files Server)
 3. Create a SMB Files share in your PROD Files server and populate the share with sample files
 4. Configure Files Protection Policy in Prism Central's :ref:`files_manager` and replicate
 5. Failover, create new files in share and reverse-replicate
@@ -142,7 +142,7 @@ Create DR Files Server
 
 #. Fill out the following fields(make sure to manually configure Files server to 1 VM):
 
-	- **Name** - *intials*-fs-dr (e.g. XYZ-files-dr)
+	- **Name** - *intials*-files-dr (e.g. XYZ-files-dr)
 	- **Domain** - ntnxlab.local
 	- **File Server Size** - 1 TiB
 
@@ -226,7 +226,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
      If you are unable to see Data Protection option, you will need to upgrade Files Manager version to 2.x or above. Follow the instructions in :ref:`files_manager_upgrade` by using Nutanix LCM in Prism Central.
 
-#. Select your *intials*-fs-prod (e.g. XYZ-files-prod) as the **Primary Location (Source File Server)**
+#. Select your *intials*-files-prod (e.g. XYZ-files-prod) as the **Primary Location (Source File Server)**
 
    .. note::
 
