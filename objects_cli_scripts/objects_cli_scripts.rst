@@ -23,6 +23,10 @@ You will need the **Access Key** and **Secret Key** for the user created earlier
 Setting up s3cmd (CLI)
 ......................
 
+This section of the lab is done on using Linux Tools VM.
+
+If it is not already present in your HPOC, create Linux Tools VM using instructions in :ref:`linux_tools_vm`
+
 #. Login to the *initials*-**Linux-ToolsVM**, with the following credentials
 
    - **Username** - root
@@ -202,7 +206,7 @@ In this exercise, you will modify a sample script to match your environment, whi
       endpoint_ip= "OBJECT-STORE-IP" #Replace this value
       access_key_id="ACCESS-KEY" #Replace this value
       secret_access_key="SECRET-KEY" #Replace this value
-      endpoint_url= "https://"+endpoint_ip+":443"
+      endpoint_url= "https://"+"endpoint_ip"+":443"
 
       session = boto3.session.Session()
       s3client = session.client(service_name="s3", aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key, endpoint_url=endpoint_url, verify=False)

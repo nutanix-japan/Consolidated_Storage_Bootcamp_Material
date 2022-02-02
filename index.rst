@@ -87,7 +87,8 @@ What's New
   - Prism Central pc.2021.9.0.2
   - Files 4.0.0.2
   - File Analytics 3.0.0
-  - Objects 3.3.1
+  - Objects Manager - 3.2.1.1
+  - Objects Service - 3.2.1
 
 - Optional Lab Updates
 
@@ -398,4 +399,5 @@ Nutanix Version Info
 - Prism Central pc.2021.9.0.2
 - Files 4.0.0.2
 - File Analytics 3.0.0
-- Objects 3.3.1
+- Objects Manager - 3.2.1.1
+- Objects Service - 3.2.1
