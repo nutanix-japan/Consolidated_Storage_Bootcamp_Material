@@ -33,7 +33,7 @@ Deploy Files
 
 #. Fill out the following fields:
 
-   - **Name** - *Intials*-Files (e.g. XYZ-Files)
+   - **Name** - *initials*-Files (e.g. XYZ-Files)
    - **Domain** - ntnxlab.local
    - **File Server Size** - 1 TiB
 
