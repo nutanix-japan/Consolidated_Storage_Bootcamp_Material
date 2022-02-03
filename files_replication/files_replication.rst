@@ -47,8 +47,8 @@ Since we are doing this lab on a single HPOC cluster, we will have a single AD d
 
 We will do the following:
 
-1. Create a PROD Files server *intials*-filess-prod (1-VM Files Server)
-2. Create a DR Files server *intials*-files-dr (1-VM Files Server)
+1. Create a PROD Files server *initials*-filess-prod (1-VM Files Server)
+2. Create a DR Files server *initials*-files-dr (1-VM Files Server)
 3. Create a SMB Files share in your PROD Files server and populate the share with sample files
 4. Configure Files Protection Policy in Prism Central's :ref:`files_manager` and replicate
 5. Failover, create new files in share and reverse-replicate
@@ -82,7 +82,7 @@ Create PROD Files Server
 
 #. Fill out the following fields:
 
-   - **Name** - *intials*-files-prod (e.g. XYZ-files-prod)
+   - **Name** - *initials*-files-prod (e.g. XYZ-files-prod)
    - **Domain** - ntnxlab.local
    - **File Server Size** - 1 TiB
 
@@ -142,7 +142,7 @@ Create DR Files Server
 
 #. Fill out the following fields(make sure to manually configure Files server to 1 VM):
 
-	- **Name** - *intials*-files-dr (e.g. XYZ-files-dr)
+	- **Name** - *initials*-files-dr (e.g. XYZ-files-dr)
 	- **Domain** - ntnxlab.local
 	- **File Server Size** - 1 TiB
 
@@ -155,7 +155,7 @@ Create a SMB Files Share in your PROD Files Server
 
 In this section we will create a source files shares to serve as a source and then we will replicate this share subsequently.
 
-#. In **Prism Element > File Server**, click on your *intials*-files-prod (e.g. XYZ-files-prod) File Server
+#. In **Prism Element > File Server**, click on your *initials*-files-prod (e.g. XYZ-files-prod) File Server
 
 #. Click on **Launch Files Console** (this will open in a new tab)
 
@@ -163,7 +163,7 @@ In this section we will create a source files shares to serve as a source and th
 
 #. Fill in the following details:
 
-   - **Name** - *intials*-prod-share （e.g. XYZ-prod-share）
+   - **Name** - *initials*-prod-share （e.g. XYZ-prod-share）
    - **Primary Protocol Access** - SMB (confirm this to be SMB) 
    - Leave everything else as blank
    
@@ -226,13 +226,13 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
      If you are unable to see Data Protection option, you will need to upgrade Files Manager version to 2.x or above. Follow the instructions in :ref:`files_manager_upgrade` by using Nutanix LCM in Prism Central.
 
-#. Select your *intials*-files-prod (e.g. XYZ-files-prod) as the **Primary Location (Source File Server)**
+#. Select your *initials*-files-prod (e.g. XYZ-files-prod) as the **Primary Location (Source File Server)**
 
    .. note::
 
    	Selecting the source Files server will automatically select all the shares within this files server to be protected
 
-#. Select your *intials*-files-dr (e.g. XYZ-files-dr) as the **Recovery Location (Target File Server)**
+#. Select your *initials*-files-dr (e.g. XYZ-files-dr) as the **Recovery Location (Target File Server)**
 
 #. Select the **Recovery Point Objective (RPO)** as **10** minutes and **Start Immediately**. (this is the lowest you can set as of now)
 
@@ -250,7 +250,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 #. Fill in the following details in **Settings** section:
 
-	- **Name** - *intials*-files-repl-policy (e.g. xyz-files-repl-policy)
+	- **Name** - *initials*-files-repl-policy (e.g. xyz-files-repl-policy)
 	- **Description** - Protection Policy for XYZ Prod to DR Replication (Optional)
 
 #. Click on **Create**
@@ -347,7 +347,7 @@ In this lab we will test a Planned Failover
 
    You can notice that both PROD and DR file servers have the same IP address 
 
-#. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now *intials*-files-dr (e.g. xyz-files-dr) server
+#. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now *initials*-files-dr (e.g. xyz-files-dr) server
 
    .. figure:: images/failover_repjobs.png
 
