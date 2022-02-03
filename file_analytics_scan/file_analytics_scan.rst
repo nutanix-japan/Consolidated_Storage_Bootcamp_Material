@@ -10,7 +10,9 @@ Overview
 File Analytics Scan
 +++++++++++++++++++++
 
-#. In **Prism** > **File Server** > click **File Analytics**
+#. In **Prism** > **File Server** > select your BootcampFS files server
+
+#. Click **File Analytics**
 
    .. figure:: images/35b.png
 
@@ -22,7 +24,7 @@ File Analytics Scan
 
    .. figure:: images/35a.png
 
-#. Analytics will perform an initial scan of the existing shares which will take just a couple minutes.  You can see the scan by going to the gear icon within the Analytics UI and selecting **Scan File System**
+#. Analytics will perform an initial scan of the existing shares which will take just a couple minutes.  You can see the scan by going to the :fa:`cog` icon within the Analytics UI and selecting **Scan File System**
 
    .. figure:: images/35.png
 
@@ -42,7 +44,7 @@ File Analytics Scan
 
 #. Click on your user under **Top 5 active users**.  This will take you to the audit trail of the user.
 
-#. You can also click on the **Audit Trails** menu and search for either your user or a given file.  You can use wildcards for your search, for example **.doc**
+#. You can also click on the :fa:`bars` > **Audit Trails** menu and search for either your user or a given file.  You can use wildcards for your search, for example **.doc**
 
    .. figure:: images/38.png
 

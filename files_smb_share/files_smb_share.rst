@@ -14,9 +14,7 @@ Lab Setup
 
 This lab requires applications provisioned as part of the :ref:`windows_tools_vm`.
 
-If you have not yet deployed this VM, see the linked steps before proceeding with the lab.
-
-#. While waiting for the file server deployment, if you have not already done so deploy the Windows Tools VM.
+If you have not yet deployed this VM, see the steps in :ref:`windows_tools_vm` to deploy Windows Tools VM before proceeding with the lab.
 
 #. Connect to the Windows Tools VM via RDP or console
 
@@ -30,22 +28,31 @@ Using SMB Shares
 Creating the Share
 ..................
 
-#. In **Prism > File Server**, click **+ Share/Export**.
+#. In **Prism Element > File Server**, click on your BootcampFS File Server
+
+#. Click on **Launch Files Console**
+
+   .. figure:: images/13.png
+
+#. Select **Shares** and click on **Next**
 
 #. Fill out the following fields:
 
    - **Name** - *Initials*-Marketing  (e.g. XYZ-Marketing)
    - **Description (Optional)** - Departmental share for marketing team
-   - **File Server** - BootcampFS
    - **Share Path (Optional)** - Leave blank. This field allows you to specify an existing path in which to create the nested share.
    - **Max Size (Optional)** - Leave blank. This field allows you to set a hard quota for the individual share.
-   - **Select Protocol** - SMB
+   - **Primary Protocol Access** - SMB
 
    .. figure:: images/14.png
 
 #. Click **Next**.
 
-#. Select **Enable Access Based Enumeration** and **Self Service Restore**.
+#. Select the following options:
+  
+   - **Enable Self Service Restore**, 
+   - **Enable Compression** and
+   - **Enable Access Based Enumeration** 
 
    .. figure:: images/15.png
 
@@ -114,19 +121,38 @@ Testing the Share
 
    It is common for shares utilized by many people to leverage quotas to ensure fair use of resources. Files offers the ability to set either soft or hard quotas on a per share basis for either individual users within Active Directory, or specific Active Directory Security Groups.
 
-#. In **Prism > File Server > Share > Marketing**, click **+ Add Quota Policy**.
+Adding Share Level Quota
+..........................
+
+#. In **Prism Element > File Server**, click on your BootcampFS File Server
+
+#. Click on **Launch Files Console**
+
+   .. figure:: images/13.png
+
+#. Select **Shares** > **Initials-Marketing** share
+ 
+   .. figure:: images/21-1.png
+
+#. This will open the share details
+
+#. Click on **Quota Policies** > **New Quota Policy**
+ 
+   .. figure:: images/21-3.png
 
 #. Fill out the following fields and click **Save**:
 
-   - Select **Group**
+   - Select **User Group**
    - **User or Group** - SSP Developers
    - **Quota** - 10 GiB
    - **Enforcement Type** - Hard Limit
 
    .. figure:: images/22.png
 
-#. Click **Save**.
+#. Click **Add**.
 
-#. With the Marketing share still selected, review the **Share Details**, **Usage** and **Performance** tabs to understand the available on a per share basis, including the number of files & connections, storage utilization over time, latency, throughput, and IOPS.
+#. This will enforce quota limits on the shares for AD user group **SSP Developers** to stay within limit
+
+#. With the *Initials*-Marketing > **Summary** selected, review the **Capacity Summary**, **Performance Summary** and **Share Properties** tabs to understand the available on a per share basis, including the number of files & connections, storage utilization over time, latency, throughput, and IOPS.
 
    .. figure:: images/23.png

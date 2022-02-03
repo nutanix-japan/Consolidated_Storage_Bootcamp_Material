@@ -33,7 +33,7 @@ Deploy Files
 
 #. Fill out the following fields:
 
-   - **Name** - *Intials*-Files (e.g. XYZ-Files)
+   - **Name** - *initials*-Files (e.g. XYZ-Files)
    - **Domain** - ntnxlab.local
    - **File Server Size** - 1 TiB
 
@@ -42,6 +42,10 @@ Deploy Files
 #. Click **Next**.
 
 #. Select the **Secondary - Managed** VLAN for the **Client Network**.
+
+   .. note:: 
+    
+    If you are using a Single Node HPOC, use the **Primary - Managed** VLAN for the **Client Network**.
 
    Each Files VM will consume a single IP on the client network.
 
@@ -57,7 +61,7 @@ Deploy Files
 
      .. figure:: images/6.png
 
-#. Specify your cluster's **Domain Controller** VM IP (found in :ref:`stagingdetails`) as the **DNS Resolver IP** (e.g. 10.XX.YY.40). Leave the default (cluster) NTP Server.
+#. Specify your cluster's **Domain Controller** VM IP (look for **AutoAD** VM IP address in Prism Element) as the **DNS Resolver IP** (e.g. 10.XX.YY.41)). Leave the default (cluster) NTP Server.
 
    .. raw:: html
 

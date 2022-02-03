@@ -27,9 +27,15 @@ Enable the Files Manager service on PC
 
 #. Read the information on enabling the Files Manager and click **Enable Files**
 
-#. In the Enable Service dialog box, click **Enable**
+#. In the Enable Service dialog box, click **Enable** (if not already enabled)
 
-Unable to see any new features (Data Protection)? Upgrading Files Manager in LCM might help. See the section below to upgrade Files Manager in LCM. 
+Unable to see any new features (Data Protection)? 
+
+Upgrading Files Manager in LCM might help. See the section below to upgrade Files Manager in LCM. 
+
+.. _files_manager_upgrade:
+
+.. title:: Files: Files Manager Upgrade
 
 Upgrading Files Manager
 ------------------------
@@ -40,13 +46,11 @@ You can perform Files Manager updates using the Life-Cycle Manager (LCM).
 
 We  will verify the current version of Files Manager in Life Cycle Management.
 
-#. In Prism Central, use the search window to search for **Life Cycle Manager** 
+#. In Prism Central, use the search window to search for **Lcm** 
 
-   .. figure:: images/lcm_search.png 
+#. Select **Lcm** from the search result 
 
-#. Select **Life Cycle Manager** from the search result 
-
-#. In **Life Cycle Manager**, click on **Inventory**
+#. In **Lcm**, click on **Inventory**
 
 #. If **Inventory** doesn't show any existing software versions, click on **Perform Inventory** 
 
@@ -94,7 +98,7 @@ We  will verify the current version of Files Manager in Life Cycle Management.
  
    .. figure:: images/files_manager_data_protection.png
 
-#. You can now proceed with the :ref:`files_replication` lab
+#. You can now proceed with the :ref:`files_replication` lab if required
 
     
 

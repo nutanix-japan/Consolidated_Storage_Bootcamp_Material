@@ -24,7 +24,7 @@ deploy_peer_mgmt_server() {
   echo "${VMNAME} - Prepping image..."
 
   # MTM TODO Get image locally OR download from Azure Blob storage
-  IMAGENAME="Windows2016-PeerMgmt-08Apr21.qcow2"
+  IMAGENAME="Windows2016-PeerMgmt-18feb20.qcow2"
 
   ### Get sysyprep config file ready ###
 
@@ -32,8 +32,8 @@ deploy_peer_mgmt_server() {
   # MTM Create a temp folder for sysprep file work as to not clutter up nutanix home
   #mkdir /home/nutanix/peer_staging/
 
-  #MTM unattend-pmc.xml from GitHub
-  wget https://raw.githubusercontent.com/nutanixworkshops/Consolidated_Storage_Bootcamp/master/peer/staging_scripts/unattend-pmc.xml -P /home/nutanix/peer_staging/
+  #MTM todo have unattend-pmc.xml staged somewhere else
+  wget https://peerresources.blob.core.windows.net/ntnx-gts-2020-images/peer_lab/unattend-pmc.xml -P /home/nutanix/peer_staging/
   mv /home/nutanix/peer_staging/unattend-pmc.xml /home/nutanix/peer_staging/unattend_${VMNAME}.xml
   chmod 777 /home/nutanix/peer_staging/unattend_${VMNAME}.xml
   sed -i "s/<ComputerName>.*<\/ComputerName>/<ComputerName>${VMNAME}<\/ComputerName>/g" /home/nutanix/peer_staging/unattend_${VMNAME}.xml
@@ -66,7 +66,7 @@ deploy_peer_agent_server() {
   echo "${VMNAME} - Prepping image..."
 
   # MTM TODO Get image locally OR download from Azure Blob storage
-  IMAGENAME="Windows2016-PeerAgent-08Apr21.qcow2"
+  IMAGENAME="Windows2016-PeerAgent-18feb20.qcow2"
 
   ### Get sysyprep config file ready ###
 
@@ -74,8 +74,8 @@ deploy_peer_agent_server() {
   # MTM Create a temp folder for sysprep file work as to not clutter up nutanix home
   #mkdir /home/nutanix/peer_staging/
 
-  #MTM unattend-agent.xml from GitHub
-  wget https://raw.githubusercontent.com/nutanixworkshops/Consolidated_Storage_Bootcamp/master/peer/staging_scripts/unattend-agent.xml -P /home/nutanix/peer_staging/
+  #MTM todo have unattend-agent.xml staged somewhere else
+  wget https://peerresources.blob.core.windows.net/ntnx-gts-2020-images/peer_lab/unattend-agent.xml -P /home/nutanix/peer_staging/
   mv /home/nutanix/peer_staging/unattend-agent.xml /home/nutanix/peer_staging/unattend_${VMNAME}.xml
   chmod 777 /home/nutanix/peer_staging/unattend_${VMNAME}.xml
   sed -i "s/<ComputerName>.*<\/ComputerName>/<ComputerName>${VMNAME}<\/ComputerName>/g" /home/nutanix/peer_staging/unattend_${VMNAME}.xml

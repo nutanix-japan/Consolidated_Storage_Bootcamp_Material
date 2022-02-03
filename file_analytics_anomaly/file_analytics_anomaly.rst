@@ -12,7 +12,7 @@ Overview
 Define Anomaly Rules
 +++++++++++++++++++++
 
-#. Create two anomaly rules by going to **Define Anomaly Rules** from under the gear icon
+#. Create two anomaly rules by going to **Define Anomaly Rules** from under the :fa:`cog` gear icon 
 
    .. figure:: images/39.png
 
@@ -76,7 +76,7 @@ Cause Error Condition
 
    .. figure:: images/43.png
 
-#. Choose **OK** then **OK** again
+#. Choose **OK**, **OK** and **OK**  again
 
 #. Open a PowerShell window as a specific user
 

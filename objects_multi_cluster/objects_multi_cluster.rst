@@ -26,7 +26,7 @@ Nutanix Objects Multi-Cluster is able to scale across any AHV or vSphere cluster
 Lab Setup
 ++++++++++
 
-**In this lab, you will walk through a Nutanix Objects Multi-Cluster feature.**
+**In this lab, you will only walk through a Nutanix Objects Multi-Cluster feature assuming your Prism Central has two registered Prism Element clusters**
 
 .. figure:: images/mc-07.png
 

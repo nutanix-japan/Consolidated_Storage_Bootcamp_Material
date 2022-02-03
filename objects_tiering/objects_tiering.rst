@@ -99,7 +99,7 @@ Setup Access for AWS S3 Bucket
 #. Go to your AWS IAM Management Console https://console.aws.amazon.com/iam/
 #. Select **Users > Add User**
 #. Enter **lnb-bucket-user** as the user name
-#. Select **Programmatic access**
+#. Select **Access key - Programmatic access**
 #. In the next window, select **Add user to group**
 #. Since we don't have group yet, click on **Create group**
 
@@ -162,7 +162,7 @@ Configure Endpoint
    - Name of the Endpoint - **AWS Tiering Endpoint** (give an easily identifiable name)
    - Service Host - **s3.ap-southeast-2.amazonaws.com**  (this will change depending on your AWS region)
    - Bucket Name - **lnb-bucket** (this is the name of the bucket you created in previous section in AWS)
-   - Access Key - **AKIAWQKDDII6SHOQGYMV**
+   - Access Key - **access key from CSV you downloaded** in the previous section
    - Secret Key - **secret key from CSV you downloaded** in the previous section
 
    .. figure:: images/tiering9.png

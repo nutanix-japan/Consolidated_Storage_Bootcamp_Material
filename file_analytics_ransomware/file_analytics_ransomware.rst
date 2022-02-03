@@ -9,6 +9,14 @@ Ransomware Protection
 
 In this exercise you will enable File Analytics ransomware protection and trigger a ransomware event.
 
+#. In Prism Element, go File Server
+
+#. Select your BootcampFS file server and click on File Analytics 
+
+   .. figure:: images/ransomware_connect.png
+
+   This will open in a new tab
+
 #. Go to **Files Analytics** > **Main Menu Bar** > **Ransomware**
 
    .. figure:: images/ransomware_menu.png
@@ -17,11 +25,11 @@ In this exercise you will enable File Analytics ransomware protection and trigge
 
    .. figure:: images/ransomware_enable.png
 
-#. Open a PowerShell window by clicking on the **PowerShell icon** on the taskbar. Enter the following command where you will see an access denied error message:
+#. In your Windows Tools VM, open a PowerShell window by clicking on the **PowerShell icon** on the taskbar. Enter the following command where you will see an access denied error message:
 
    .. code-block:: PowerShell
 
-	   new-item \\BootcampFS.ntnxlab.local\marketing\ransomware.aaa -ItemType file
+	   new-item \\BootcampFS.ntnxlab.local\xyz-marketing\ransomware.aaa -ItemType file
 
 #. In **File Analytics** review the **Vulnerabilities** table to see the blocked operation.  Note you may need to refresh the **Ransomware** page. 
 

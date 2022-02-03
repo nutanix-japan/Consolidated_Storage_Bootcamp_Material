@@ -19,7 +19,11 @@ Enabling NFS Protocol
 
    Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Creating the Export`_.
 
-#. In **Prism Element > File Server**, select your file server and click **Protocol Management > Directory Services**.
+#. In **Prism Element > File Server**, select your file server and click **Launch Files Console**.
+
+#. The **Files Console** will open in a new browser tab
+
+#. Click on **Configuration > Authentication**
 
    .. figure:: images/29b.png
 
@@ -30,13 +34,12 @@ Enabling NFS Protocol
 Creating the Export
 ...................
 
-#. In **Prism > File Server**, click **+ Share/Export**.
+#. In **Files Console**, click **Create a New Share**.
 
 #. Fill out the following fields:
 
    - **Name** - logs
    - **Description (Optional)** - File share for system logs
-   - **File Server** - BootcampFS
    - **Share Path (Optional)** - Leave blank
    - **Max Size (Optional)** - Leave blank
    - **Select Protocol** - NFS
@@ -51,8 +54,7 @@ Creating the Export
       - These snapshots appear as a .snapshot directory for NFS clients.
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
-   - Select **+ Add exceptions**
-   - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.1.\*)
+   - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.188.\*)
 
    .. figure:: images/25b.png
 
@@ -65,30 +67,9 @@ Creating the Export
 Testing the Export
 ..................
 
-You will first provision a CentOS VM to use as a client for your Files export.
+You will use a Linux Tools VM as a client for your NFS Files export.
 
-.. note:: If you have already deployed the :ref:`linux_tools_vm` as part of another lab, you may use this VM as your NFS client instead.
-
-#. In **Prism > VM > Table**, click **+ Create VM**.
-
-#. Fill out the following fields:
-
-   - **Name** - *Initials*\ -NFS-Client
-   - **Description** - CentOS VM for testing Files NFS export
-   - **vCPU(s)** - 2
-   - **Number of Cores per vCPU** - 1
-   - **Memory** - 2 GiB
-   - Select **+ Add New Disk**
-      - **Operation** - Clone from Image Service
-      - **Image** - CentOS
-      - Select **Add**
-   - Select **Add New NIC**
-      - **VLAN Name** - Secondary
-      - Select **Add**
-
-#. Click **Save**.
-
-#. Select the *Initials*\ **-NFS-Client** VM and click **Power on**.
+.. note:: If you haven't created a Linux Tools VM  as part of another lab, you may use these instructions here :ref:`linux_tools_vm` to create one. 
 
 #. Note the IP address of the VM in Prism, and connect via SSH using the following credentials:
 
@@ -131,6 +112,12 @@ You will first provision a CentOS VM to use as a client for your Files export.
        mkdir /filesmnt/logs/host1
        for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/logs/host1/file$i; done
 
-#. Return to **Prism > File Server > Share > logs** to monitor performance and usage.
+#. Return to **Files Console**
 
-   Note that the utilization data is updated every 10 minutes.
+#. Click on  **Shares > logs** to monitor performance and usage of you NFS export.
+
+   .. note::
+    
+     Note that the utilization data is updated every 10 minutes.
+
+   .. figure:: images/26b.png
