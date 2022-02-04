@@ -21,7 +21,7 @@ In this exercise you will enable File Analytics ransomware protection and trigge
 
    .. figure:: images/ransomware_menu.png
 
-#. Select **Enable Ransomware Protection** then click **Enable**
+#. Select **Enable Ransomware Protection** then click **Enable** in the pop-up window
 
    .. figure:: images/ransomware_enable.png
 

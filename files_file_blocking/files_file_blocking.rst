@@ -13,7 +13,7 @@ In this exercise you will configure Files to block specific file extensions for 
 
 #. The **Files Console** will open in a new browser tab
 
-#. Click on **Configuration > Authentication**
+#. Click on **Configuration**
 
 #. Under **Blocked File Types** enter a comma separated list of extensions like .flv,.mov and click **Save**
 
