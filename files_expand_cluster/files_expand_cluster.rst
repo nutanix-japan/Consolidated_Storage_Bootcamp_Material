@@ -24,7 +24,7 @@ In this exercise we will scale out the **Intials-Files** Files Server (e.g. XYZ-
 Expanding a Files Cluster
 ++++++++++++++++++++++++++++++++++++
 
-#. Return to **Prism > File Server** and select your **Intials-Files** Files Server (e.g. XYZ-Files).
+#. Return to **Prism > File Server** and select your **Intials-Files** Files Server (e.g. xyz-Files).
 
 #. Click **Update > Scale in/out FSVMs**.
 
