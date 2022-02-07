@@ -54,6 +54,11 @@ Creating the Export
       - These snapshots appear as a .snapshot directory for NFS clients.
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
+
+#. Click on **Add Exceptions** and to be able enter data for the **Read-Write** access field:
+
+   .. figure:: images/31-3.png 
+
    - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.188.\*)
 
    .. figure:: images/25b.png
