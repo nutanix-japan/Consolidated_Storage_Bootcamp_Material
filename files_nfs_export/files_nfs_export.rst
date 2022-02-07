@@ -102,7 +102,7 @@ You will use a Linux Tools VM as a client for your NFS Files export.
        total 1
        drwxrwxrwx. 2 root root 2 Mar  9 18:53 logs
 
-#. Observe that the **logs** directory is mounted in ``/filesmnt/logs``.
+#. Observe that the **logs** NFS share is mounted in ``/filesmnt``.
 
 #. Reboot the VM and observe the export is no longer mounted. To persist the mount, add it to ``/etc/fstab`` by executing the following:
 
