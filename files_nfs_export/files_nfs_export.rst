@@ -19,17 +19,24 @@ Enabling NFS Protocol
 
    Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Creating the Export`_.
 
+
 #. In **Prism Element > File Server**, select your file server and click **Launch Files Console**.
-
-#. The **Files Console** will open in a new browser tab
-
-#. Click on **Configuration > Authentication**
 
    .. figure:: images/29b.png
 
+#. The **Files Console** will open in a new browser tab
+
+#. Go to **Configuration** > **Authentication** > **Directory Services**
+
 #. Select **Use NFS Protocol** with **Unmanaged** User Management and Authentication, and click **Update**.
 
+#. Uncheck **Enable NFSv3 by default for all exports**
+
+#. Check **Enable NFSv4 by default for all exports** as we will only test NFS4 exports in this lab
+
    .. figure:: images/30b.png
+
+#. Click on **Update** 
 
 Creating the Export
 ...................
