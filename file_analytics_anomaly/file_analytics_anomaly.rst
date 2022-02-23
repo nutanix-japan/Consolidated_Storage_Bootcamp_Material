@@ -12,11 +12,15 @@ Overview
 Define Anomaly Rules
 +++++++++++++++++++++
 
+<<<<<<< HEAD
 #. Create two anomaly rules by going to **Define Anomaly Rules** from under the :fa:`cog` gear icon 
+=======
+#. Create two anomaly rules by going to **+ Define Anomaly Rules** from under the :fa:`cog` gear icon 
+>>>>>>> b23cc582509d585d2494088d27d4525f79667e48
 
    .. figure:: images/39.png
 
-#. Choose **Define Anomaly Rules** and create a rule with the following settings
+#. Create the first rule with the following settings:
 
    - **Events:** Delete
    - **Minimum Operation %:** 1

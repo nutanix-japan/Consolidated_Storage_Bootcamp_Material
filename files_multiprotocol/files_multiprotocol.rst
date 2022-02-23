@@ -34,7 +34,11 @@ There are several ways to apply user and group mappings including rule based, ex
 
 #. Complete the initial mapping by clicking on **Save**
 
+<<<<<<< HEAD
 #. In your BootcampFS' Files Console, click on **Shares** > *Initials*-Marketing share
+=======
+#. In your BootcampFS file server's Files Console, click on **Shares** > *Initials*-Marketing share
+>>>>>>> b23cc582509d585d2494088d27d4525f79667e48
 
 #. Click on three dots on the right hand corner of the *Initials*-Marketing share and select **Edit**
 
@@ -94,7 +98,7 @@ We will need to get the user ID (UID) to create the explicit mapping.
 
 #. Click on **Configure** on the **Explicit Mapping** pop out
 
-#. Click on **Add Manually**
+#. Click on **+ Add Manually**
 
 #. Click **+ Add one-to-one mapping**
 
@@ -110,7 +114,7 @@ We will need to get the user ID (UID) to create the explicit mapping.
 
 #. Click on **Save** in the **Explicit Mapping** pop out
 
-#. Click **Close**
+#. Click **Close** if any pop-ups are left
 
 #. Go back to your Linux Tools VM and execute the following:
 

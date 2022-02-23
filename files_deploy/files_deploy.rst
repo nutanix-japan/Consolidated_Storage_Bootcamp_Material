@@ -87,8 +87,11 @@ Deploy Files
    - Select **Make this user a File Server admin**
    - Select **Use NFS Protocol**
    - **User Management and Authentication** - Unmanaged
+   - Select **Show NFS Advanced Options** 
+   - **NFS protocol version** - Enable NFSv4 by default for all exports
 
    .. figure:: images/9.png
+   .. figure:: images/9-1.png
 
    .. note:: In unmanaged mode, users are only identified by UID/GID. In Files 3.5, Files supports both NFSv3 and NFSv4
 
