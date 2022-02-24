@@ -68,7 +68,7 @@ In this exercise, you will be using three shared VMs, all of which should alread
      - This Windows File Server will be used as a target for replication.
 
 Configuring Nutanix Files
-............
+.........................
 
 Peer Global File Service requires both a File Server Admin account as well as REST API access to orchestrate replication to or from Nutanix Files.
 
@@ -118,7 +118,7 @@ Peer Global File Service requires both a File Server Admin account as well as RE
 #. Click **Close**.
 
 Staging Test Data on PeerAgent-Win
-...................
+..................................
 
 The final step of staging the lab is creating some sample data on PeerAgent-Win, which will be acting as a Windows File Server. Peer is capable of replicating between multiple Files clusters, as well as between a mix of Files and other NAS platforms. For this lab, you will be replicating between your Nutanix Files cluster and a Windows File Server.
 
@@ -135,7 +135,7 @@ The final step of staging the lab is creating some sample data on PeerAgent-Win,
 
 
 Connecting to the Peer Management Center Web Interface
-...................
+......................................................
 
 The Peer Management Center (PMC) serves as the centralized management component for Peer Global File Service. It does not store any file data but does facilitate communication between locations, so it should be deployed at a location with the best connectivity. A single deployment of PMC can manage 100 or more Agents/file servers.
 
@@ -157,7 +157,7 @@ For this lab, you will be accessing a shared PMC deployment via a web interface.
    .. figure:: images/pmc.png
 
 Introduction to Peer Global File Service
-++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++
 
 Peer Global File Service utilizes a job-based configuration engine. Several different job types are available to help tackle different file management challenges. A job represents a combination of:
 
@@ -177,7 +177,7 @@ Available job types include:
 - **File Synchronization** - Multi-directional real-time synchronization powering high availability of user and application data across enterprise NAS platforms, locations, cloud infrastructures, and organizations.
 
 Creating a New File Collaboration Job
-++++++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 In this section, we will focus on **File Collaboration**.
 
@@ -192,7 +192,7 @@ In this section, we will focus on **File Collaboration**.
    .. figure:: images/18.png
 
 Files and PeerAgent-Files
-....................
+.........................
 
 #. Click **Add** to begin pairing a Peer Agent with your Nutanix Files cluster.
 
@@ -257,7 +257,7 @@ Files and PeerAgent-Files
    .. figure:: images/24.png
 
 PeerAgent-Win
-..........
+.............
 
 To simplify this lab exercise, a second Peer Agent server running on the same cluster will function as a standard Windows File Server. While Peer can be used to replicate shares between Nutanix Files clusters, one of its key advantages is the ability to work with a mix of NAS platforms. This can help drive adoption of Nutanix Files when only a single site has been refreshed with Nutanix Files, but replication is still required to support collaboration or disaster recovery.
 
@@ -272,7 +272,7 @@ To simplify this lab exercise, a second Peer Agent server running on the same cl
 #. Click **Next**.
 
 Completing Collaboration Job Configuration
-............................
+..........................................
 
 Peer offers robust functionality for handling the synchronization of NTFS permissions between shares:
 
@@ -317,7 +317,7 @@ Peer offers robust functionality for handling the synchronization of NTFS permis
 #. Click **Finish** to complete the job setup.
 
 Starting a Collaboration Job
-++++++++++++++
+++++++++++++++++++++++++++++
 
 Once a job has been created, it must be started to initiate synchronization and file locking.
 
@@ -340,7 +340,7 @@ Once a job has been created, it must be started to initiate synchronization and 
    .. figure:: images/29.png
 
 Testing Collaboration
-+++++++++++++++++
++++++++++++++++++++++
 
 The easiest way to verify synchronization is functioning properly is to open separate File Explorer windows for the Nutanix Files and Windows File Server paths.
 
@@ -390,14 +390,14 @@ The easiest way to verify synchronization is functioning properly is to open sep
    **Congratulations!** You have successfully deployed an Active-Active file share replicated across two file servers. Using Peer, this same approach can be leveraged to support file collaboration across sites, migrations from legacy solutions to Nutanix Files, or disaster recovery for use cases such as VDI, where user data and profiles need to be accessible from multiple sites for business continuity.
 
 Working with Nutanix Objects
-++++++++++++++
+++++++++++++++++++++++++++++
 
 Peer Global File Service includes the ability to push data from NAS devices into object storage. The same real-time replication technology used to power the collaboration scenario above can also be used to replicate data into Nutanix Objects with optional snapshot capabilities for point-in-time recovery. All objects are replicated in a transparent format that can be immediately used by other apps and services.
 
 This lab section will walk you through the necessary steps to replicate data from Nutanix Files into Nutanix Objects.
 
 Getting Client IP and Credentials for Nutanix Objects
-............
+.....................................................
 
 In order to replicate data into Objects, you need the Client IP of the object store and need to generate access and secret keys. If you already have this information from a prior lab, you can skip this section and re-use that existing information.
 
@@ -432,7 +432,7 @@ In order to replicate data into Objects, you need the Client IP of the object st
      Keep the text file open so that you have the access and secret keys readily available for the sections below.
 
 Creating a New Cloud Replication Job
-............
+....................................
 
 In this section, we will focus on creating a **Cloud Backup and Replication** job to replicate data from Nutanix Files into Nutanix Objects.
 
@@ -555,7 +555,7 @@ In this section, we will focus on creating a **Cloud Backup and Replication** jo
    .. figure:: images/cloud14.png
 
 Starting a Cloud Replication Job
-............
+................................
 
 Once a job has been created, it must be started to initiate replication.
 
@@ -572,7 +572,7 @@ Once a job has been created, it must be started to initiate replication.
      Click **Auto-Update** to have the console regularly refresh as files begin replicating.
 
 Verifying Replication
-............
+.....................
 
    .. note::
 
@@ -623,7 +623,7 @@ The easiest way to verify that files have been replicated into Nutanix Objects i
    **Congratulations!** You have successfully setup replication between Nutanix Files and Nutanix Objects! Using Peer, this same approach can be leveraged to support scenarios including coexistence of file data with object-based apps and services as well as point-in-time recovery of enterprise NAS data backed by Objects.
 
 Analyzing Existing Environments
-++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
    .. note::
 
@@ -636,7 +636,7 @@ The File System Analyzer performs a very fast scan of one or more specified path
 As this tool is primarily for our partners, we would love to hear any feedback you have on it. Reach out to us on Slack via the **#_peer_software_ext** channel with comments and suggestions.
 
 Installing and Running the File System Analyzer
-............
+...............................................
 
 #. Connect to your *Initials*\ **-Windows-ToolsVM** via RDP using the following credentials:
 
@@ -709,7 +709,8 @@ Installing and Running the File System Analyzer
    If you see this message at the top of Excel, click **Enable Editing** to fully open the workbook. If you do not do this, the pivot tables and charts will not load properly.
 
 Summary Reports
-............
+...............
+
 Summary reports contain overall statistical and historical information across all paths that have been selected to be scanned.  When you open a summary report, you are greeted with a worksheet like this:
 
    .. figure:: images/fsa7.png
@@ -727,7 +728,8 @@ Summary reports contain overall statistical and historical information across al
      History worksheets will only appear after running multiple scans.
 
 Volume Reports
-............
+..............
+
 Volume reports give more detailed information about a specific path that has been scanned. When you open a volume report, you are greeted with a worksheet like this:
 
    .. figure:: images/fsa7a.png

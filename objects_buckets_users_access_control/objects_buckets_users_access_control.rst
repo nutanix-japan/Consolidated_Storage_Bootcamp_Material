@@ -1,14 +1,13 @@
 .. _objects_buckets_users_access_control:
 
---------------------------------------------------
+----------------------------------------------------
 Objects: Creating Buckets, Users, and Access Control
---------------------------------------------------
+----------------------------------------------------
 
 *The estimated time to complete this lab is 60 minutes.*
 
 Overview
 ++++++++
-
 
 Create Bucket In Prism
 +++++++++++++++++++++++
@@ -54,8 +53,8 @@ A bucket is a sub-repository within an object store which can have policies appl
 
    .. Note:: You have the ability to define a WORM data retention period on a per bucket basis.
 
-User Management
-+++++++++++++++
+Buckets User Management
++++++++++++++++++++++++
 
 In this exercise you will create generate access and secret keys to access the object store, that will be used throughout the lab.
 
@@ -93,7 +92,7 @@ In this exercise you will create generate access and secret keys to access the o
 
      Keep the text files open so that you have the access and secret keys readily available for future labs.
 
-Adding Users to buckets_share
+Adding Users to Buckets Share
 +++++++++++++++++++++++++++++
 
 #. Go to Prism Central
@@ -104,7 +103,7 @@ Adding Users to buckets_share
 
 #. The Objects Store management will open in a new browser tab (if it not already open)
 
-#. Click on *your-name*-**my-bucket** bucket, and click on **User Access** 
+#. Click on *your-name*-**my-bucket** bucket, and click on **Share** 
 
 #. Click on **Edit User Access** button
 

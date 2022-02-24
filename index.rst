@@ -23,24 +23,25 @@
   file_analytics_ransomware/file_analytics_ransomware
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Objects Labs
-   :name: _objects_labs
-   :hidden:
+  :maxdepth: 2
+  :caption: Objects Labs
+  :name: _objects_labs
+  :hidden:
 
-   objects_buckets_users_access_control/objects_buckets_users_access_control
-   objects_versioning_access_control/objects_versioning_access_control
-   objects_cli_scripts/objects_cli_scripts
-   objects_tiering/objects_tiering
-   objects_multi_cluster/objects_multi_cluster
+  objects_buckets_users_access_control/objects_buckets_users_access_control
+  objects_versioning_access_control/objects_versioning_access_control
+  objects_cli_scripts/objects_cli_scripts
+  objects_tiering/objects_tiering
+  objects_multiprotocol/objects_multiprotocol 
+  objects_multi_cluster/objects_multi_cluster
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Bonus Labs
-   :name: _bonus
-   :hidden:
+  :maxdepth: 2
+  :caption: Bonus Labs
+  :name: _bonus
+  :hidden:
 
-   peer/peer
+  peer/peer
 
 .. toctree::
   :maxdepth: 2
@@ -60,7 +61,6 @@
   :name: _appendix
   :hidden:
 
-  appendix/glossary
   tools_vms/windows_tools_vm
   tools_vms/linux_tools_vm
 
@@ -89,8 +89,7 @@ What's New
   - File Analytics 3.0.0
   - Objects Manager 3.2.1.1
   - Objects Service 3.2.1
-
-- Optional Lab Updates
+  - Optional Lab Updates
 
 Agenda
 ++++++

@@ -1,8 +1,8 @@
 .. _file_analytics_ransomware:
 
-------------------------
+--------------------------
 File Analytics: Ransomware
-------------------------
+--------------------------
 
 Ransomware Protection
 +++++++++++++++++++++++

@@ -1,8 +1,8 @@
 .. _objects_versioning_access_control:
 
--------------------------------------
+---------------------------------------
 Objects: Versioning and Access Controls
--------------------------------------
+---------------------------------------
 
 *The estimated time to complete this lab is 60 minutes.*
 
