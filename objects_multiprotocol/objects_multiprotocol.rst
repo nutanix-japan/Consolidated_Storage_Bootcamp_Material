@@ -33,9 +33,9 @@ Create Objects Store
 
 Make sure your objects store **ntnx-objects** is of version 3.3.x or newer.
 
-If your **ntnx-objects** is not of version 3.3.x or newer,
+If your **ntnx-objects** is **not** of version 3.3.x or newer,
 
-- Update LCM by running an inventory
+- Update Objects Manager in LCM by running an inventory
 - Deploy a new two node (1 node loadbalancer and 1 node worker) objects store **initials-objects** using the instructions here :ref:`objects_deploy`
 - Use the **initials-objects** as the the object store for the rest of the lab
 
