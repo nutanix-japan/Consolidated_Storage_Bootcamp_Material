@@ -1,6 +1,5 @@
 .. _objects_multiprotocol:
 
-<<<<<<< HEAD
 ------------------------
 Objects: Multi-Protocol
 ------------------------
@@ -146,6 +145,9 @@ In this exercise you will create generate access and secret keys to access the o
 
    .. figure:: images/buckets_csv_file.png
 
+
+.. _buckets_sharing:
+
 Adding Users to Buckets Share
 +++++++++++++++++++++++++++++
 
@@ -180,13 +182,123 @@ In this section we will mount the *Intials*-multi bucket as a NFSv3 share on the
 
 If it is not already present in your HPOC, create Linux Tools VM using instructions in :ref:`linux_tools_vm`
 
-#. Login to the *initials*-**Linux-ToolsVM**, with the following credentials
+#. Login to the *Initials*-**Linux-ToolsVM**, with the following credentials
 
    - **Username** - root
    - **Password** - default nutanix password
 
-=======
-----------------------------------------------
-Objects: Multiprotocol Access with NFS Clients
-----------------------------------------------
->>>>>>> 28726e0f0ccd6f06fdeebbcf8e9735f6d8b40fb8
+#. Change user to centos 
+ 
+   .. code-block:: bash
+    
+    sudo su - centos
+
+#. Edit the ``/etc/fstab`` file to include the following nfs mount
+
+   .. code-block:: bash
+    
+    sudo vi /etc/fstab
+    sudo mkdir -p /mnt/buckets
+
+    # Add this line to the end of the file
+    
+    <object-store-IP>:/xyz-multi /mnt/buckets	nfs rw,noauto,user 0 0
+    # example below
+    # 10.42.32.136:/xyz-multi /mnt/buckets	nfs rw,noauto,user 0 0
+
+#. Mount the bucket as a NFS share
+
+   .. code-block:: bash
+   
+     mount /mnt/buckets
+
+#. Create a directory and some files under the new directory
+  
+   .. code-block:: bash
+
+     cd /mnt/buckets
+     mkdir mydir1
+     cd mydir1
+     #
+     for i in {1..10}; do echo "writing file$i .."; touch file$i.txt; done
+     
+     # list your files
+     ll
+
+     [centos@centos mydir1]$ ll
+     # output here
+     # total 0
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file10.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file1.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file2.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file3.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file4.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file5.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file6.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file7.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file8.txt
+     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file9.txt
+ 
+#. Now go to the Objects browser GUI by going back to Prism Central
+
+#. Go to :fa:`bars` > Services > Objects 
+
+#. Click on **ntnx-objects** Objects Store
+
+#. The Objects Store management will open in a new browser tab 
+
+#. Click on *Intials*-multi bucket and **Launch Objects Browser**
+
+   This will open in a new browser tab
+
+   .. figure:: images/objects_browser_multi_bucket.png
+
+#. Provide the access key and secret key you downloaded before in the :ref:`buckets_sharing` section
+  
+   .. figure:: images/objects_browser_login.png
+
+#. Click on **Login**
+
+#. Check if your folder and files are present in the *Intials*-multi bucket
+
+   .. figure:: images/objects_list_multi_bucket.png
+
+   .. note::
+
+    Although you see directories, these are mere objects. It is a mere representation of a folder like structure in Objects Browser. 
+
+#. Now create a new directory through Object Browser by clicking on **+ New Folder** and entering the name **mysubdir1** 
+
+#. Click on **Save**
+
+   .. figure:: images/objects_browser_subdir1.png
+
+#. Return to your *Initials*-**Linux-ToolsVM** and list the share to see if newly created subdir1 is present
+   
+   .. code-block:: bash
+
+      [centos@centos mydir]$ ll
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file10.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file1.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file2.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file3.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file4.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file5.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file6.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file7.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file8.txt
+      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file9.txt
+      drwxrwxrwx 2   8888   8888 4096 Feb 23 23:01 mysubdir1  # << this is the sub directory you created in Objects Browser
+      
+      # Note the the UID and GID for the directory created from Objects Browser side
+      
+#. Add a few more folders and files from the Objects browser side and check if it shows on the NFS client side.
+
+You have successfully completed this lab.
+
+Takeaways
++++++++++
+
+- Objects 3.3.x onwards allows multi-protocol access for objects 
+- This is recommended for read-heavy workloads with sequential accesses, E.g. Backup targets, log archives, large media files, etc. Access cannot be enabled or disabled once the bucket is created.
+- Administrators can easliy switch between access patterns (s3 or NFSv3) to suit their requirements with managing objects
