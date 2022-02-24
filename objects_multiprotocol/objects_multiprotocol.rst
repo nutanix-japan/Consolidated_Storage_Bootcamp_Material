@@ -220,24 +220,23 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
      mkdir mydir1
      cd mydir1
      #
-     for i in {1..10}; do echo "writing file$i .."; touch file$i.txt; done
+     for i in {1..10}; do echo "writing file$i .."; touch file$i.txt; echo "this is file$i" > file$i.txt; done
      
      # list your files
      ll
 
      [centos@centos mydir1]$ ll
      # output here
-     # total 0
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file10.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file1.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file2.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file3.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file4.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file5.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file6.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file7.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file8.txt
-     # -rw-rw-r-- 1 centos centos 0 Feb 23 22:36 file9.txt
+      -rw-rw-r-- 1 centos centos   15 Feb 23 23:25 file10.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file1.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file2.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file3.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file4.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file5.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file6.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file7.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file8.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file9.txt
  
 #. Now go to the Objects browser GUI by going back to Prism Central
 
@@ -259,7 +258,7 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
 
 #. Click on **Login**
 
-#. Check if your folder and files are present in the *Intials*-multi bucket
+#. Check if your files are present in the *Intials*-multi bucket
 
    .. figure:: images/objects_list_multi_bucket.png
 
@@ -267,9 +266,17 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
 
     Although you see directories, these are mere objects. It is a mere representation of a folder like structure in Objects Browser. 
 
+#. Download one of the files, by selecting the file and selecting Download from the drop down menu.
+
+   .. figure:: images/objects_download_file.png
+
+#. Verify the contents of the file 
+   
+   .. figure:: images/file1_content.png
+
 #. Now create a new directory through Object Browser by clicking on **+ New Folder** and entering the name **mysubdir1** 
 
-#. Click on **Save**
+#. Click on **Create**
 
    .. figure:: images/objects_browser_subdir1.png
 
@@ -278,23 +285,23 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
    .. code-block:: bash
 
       [centos@centos mydir]$ ll
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file10.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file1.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file2.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file3.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file4.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file5.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file6.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file7.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file8.txt
-      -rw-rw-r-- 1 centos centos    0 Feb 23 22:50 file9.txt
+      -rw-rw-r-- 1 centos centos   15 Feb 23 23:25 file10.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file1.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file2.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file3.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file4.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file5.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file6.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file7.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file8.txt
+      -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file9.txt
       drwxrwxrwx 2   8888   8888 4096 Feb 23 23:01 mysubdir1  # << this is the sub directory you created in Objects Browser
       
       # Note the the UID and GID for the directory created from Objects Browser side
       
 #. Add a few more folders and files from the Objects browser side and check if it shows on the NFS client side.
 
-You have successfully completed this lab.
+You have successfully completed this lab and tested multi-protocol access to a bucket. 
 
 Takeaways
 +++++++++
