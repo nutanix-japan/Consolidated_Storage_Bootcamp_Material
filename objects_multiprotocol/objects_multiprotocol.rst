@@ -1,5 +1,6 @@
 .. _objects_multiprotocol:
 
+<<<<<<< HEAD
 ------------------------
 Objects: Multi-Protocol
 ------------------------
@@ -184,3 +185,8 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
    - **Username** - root
    - **Password** - default nutanix password
 
+=======
+----------------------------------------------
+Objects: Multiprotocol Access with NFS Clients
+----------------------------------------------
+>>>>>>> 28726e0f0ccd6f06fdeebbcf8e9735f6d8b40fb8

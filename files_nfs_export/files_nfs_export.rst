@@ -19,6 +19,10 @@ Enabling NFS Protocol
 
    Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Creating the Export`_.
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> b23cc582509d585d2494088d27d4525f79667e48
 #. In **Prism Element > File Server**, select your file server and click **Launch Files Console**.
 
    .. figure:: images/29b.png
@@ -60,11 +64,14 @@ Creating the Export
       - These snapshots appear as a .snapshot directory for NFS clients.
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
+<<<<<<< HEAD
+=======
 
 #. Click on **Add Exceptions** and to be able enter data for the **Read-Write** access field:
 
    .. figure:: images/31-3.png 
 
+>>>>>>> b23cc582509d585d2494088d27d4525f79667e48
    - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.188.\*)
 
    .. figure:: images/25b.png
