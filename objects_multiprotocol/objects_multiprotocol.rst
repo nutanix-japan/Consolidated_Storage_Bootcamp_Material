@@ -8,10 +8,11 @@ In this section, we will see how to create a bucket and let a NFS client access 
 
 - Objects multi-protocol is a new feature with Objects 3.3.1
 - Multi-protocol feature only works with a fresh install of Object 3.3.1 onwards
-- Upgrade Objects 3.2.1 and below to 3.3.1 doesn't allow for this functionality
+- Multi-protocol enabled bucket doesn't support versioning of objects that it hosts
+- Upgrading existing Objects 3.2.1 to 3.3.1 or above doesn't allow for this functionality (this is due to a MSP integration issue. Might be resolved in future)
 - Depending on your lab environment you may need to do the following:
   
-  - Upgrade Objects version to 3.3.1 or above using LCM
+  - Upgrade Objects Manager version to 3.3.1 or above using LCM
   - Deploy new Objects store version 3.3.1 or above  
   - Implement multi-protocol functionality with Objects and NFSv3 clients 
 
@@ -36,8 +37,9 @@ Make sure your objects store **ntnx-objects** is of version 3.3.x or newer.
 If your **ntnx-objects** is **not** of version 3.3.x or newer,
 
 - Update Objects Manager to 3.3.x or newer in LCM by running an inventory
-- Deploy a new two node (1 node loadbalancer and 1 node worker) objects store **initials-objects** using the instructions here :ref:`objects_deploy`
-- Use the **initials-objects** as the the object store for the rest of the lab
+- Deploy a new two node (1 node loadbalancer and 1 node worker) Objects store **initials-objects** using the instructions here :ref:`objects_deploy`
+
+  - Use the **initials-objects** as the the object store for the rest of the lab
 
 Configure NFS Allow Client 
 ++++++++++++++++++++++++++
@@ -61,6 +63,12 @@ In this section we will allow your *LinuxToolsVM* to be able to access buckets u
 #. Enter your *Initials*-**Linux-ToolsVM** IP address followed by ``/32`` to specify access only to this client 
 
    .. figure:: images/objects_nfs_client.png
+
+   .. note:: 
+
+     You are also able to allow a range of clients by denoting the a CIDR block
+
+     E.g. 10.42.32.192/``26`` 10.42.4.128/``25``
 
 #. Click on **+ Add** and **Save** at the bottom of the pop-up window
 
@@ -274,7 +282,7 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
    
    .. figure:: images/file1_content.png
 
-#. Now create a new directory through Object Browser by clicking on **+ New Folder** and entering the name **mysubdir1** 
+#. Create a new sub-directory through Object Browser by clicking on **+ New Folder** and entering the name **mysubdir1** 
 
 #. Click on **Create**
 
