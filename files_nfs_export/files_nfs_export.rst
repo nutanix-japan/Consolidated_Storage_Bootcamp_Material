@@ -19,10 +19,6 @@ Enabling NFS Protocol
 
    Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Creating the Export`_.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b23cc582509d585d2494088d27d4525f79667e48
 #. In **Prism Element > File Server**, select your file server and click **Launch Files Console**.
 
    .. figure:: images/29b.png
@@ -48,7 +44,7 @@ Creating the Export
 
 #. Fill out the following fields:
 
-   - **Name** - logs
+   - **Name** - *Initials*-logs
    - **Description (Optional)** - File share for system logs
    - **Share Path (Optional)** - Leave blank
    - **Max Size (Optional)** - Leave blank
@@ -61,17 +57,11 @@ Creating the Export
 #. Fill out the following fields:
 
    - Select **Enable Self Service Restore**
-      - These snapshots appear as a .snapshot directory for NFS clients.
+
+     - These snapshots appear as a .snapshot directory for NFS clients.
+
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
-<<<<<<< HEAD
-=======
-
-#. Click on **Add Exceptions** and to be able enter data for the **Read-Write** access field:
-
-   .. figure:: images/31-3.png 
-
->>>>>>> b23cc582509d585d2494088d27d4525f79667e48
    - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.188.\*)
 
    .. figure:: images/25b.png
@@ -110,10 +100,11 @@ You will use a Linux Tools VM as a client for your NFS Files export.
        tmpfs                           1.9G     0  1.9G   0% /sys/fs/cgroup
        /dev/sda1                       494M  141M  353M  29% /boot
        tmpfs                           377M     0  377M   0% /run/user/0
-       BootcampFS.ntnxlab.local:/             1.0T  7.0M  1.0T   1% /afsmnt
+       BootcampFS.ntnxlab.local:/      1.0T  7.0M  1.0T   1% /filesmnt
+
        [root@CentOS ~]# ls -l /filesmnt/
        total 1
-       drwxrwxrwx. 2 root root 2 Mar  9 18:53 logs
+       drwxrwxrwx. 2 root root 2 Mar  9 18:53 xyz-logs
 
 #. Observe that the **logs** NFS share is mounted in ``/filesmnt``.
 
@@ -127,8 +118,8 @@ You will use a Linux Tools VM as a client for your NFS Files export.
 
      .. code-block:: bash
 
-       mkdir /filesmnt/logs/host1
-       for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/logs/host1/file$i; done
+       mkdir /filesmnt/xyz-logs/host1
+       for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/xyz-logs/host1/file$i; done
 
 #. Return to **Files Console**
 
