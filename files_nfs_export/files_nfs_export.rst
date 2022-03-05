@@ -113,7 +113,7 @@ You will use a Linux Tools VM as a client for your NFS Files export.
 #. Reboot the VM and observe the export is no longer mounted. To persist the mount, add it to ``/etc/fstab`` by executing the following:
 
    .. code-block:: bash
-
+   
     echo 'BootcampFS.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
 
 #. Once an mount entry is added to ``/etc/fstab``, reboot the VM again. This is required in some cases where mounts don't persist.
