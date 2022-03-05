@@ -32,9 +32,11 @@ Creating the Share
 
 #. Click on **Launch Files Console**
 
+   This will open in a new browser tab
+
    .. figure:: images/13.png
 
-#. Select **Shares** and click on **Next**
+#. Select **Shares** and click on **Create a New Share**
 
 #. Fill out the following fields:
 

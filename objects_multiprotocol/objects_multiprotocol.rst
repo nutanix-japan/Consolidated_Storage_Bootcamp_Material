@@ -153,7 +153,6 @@ In this exercise you will create generate access and secret keys to access the o
 
    .. figure:: images/buckets_csv_file.png
 
-
 .. _buckets_sharing:
 
 Adding Users to Buckets Share
@@ -195,6 +194,12 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
    - **Username** - root
    - **Password** - default nutanix password
 
+#. **Optional step** - make sure nfs-utils package is installed if not already done so.
+
+   .. code-block:: bash
+    
+    yum install -y nfs-utils
+   
 #. Change user to centos 
  
    .. code-block:: bash

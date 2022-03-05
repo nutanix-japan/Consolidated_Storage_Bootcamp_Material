@@ -40,7 +40,9 @@ Enabling NFS Protocol
 Creating the Export
 ...................
 
-#. In **Files Console**, click **Create a New Share**.
+#. In **Files Console**
+
+#. Select **Shares** and click on **Create a New Share**
 
 #. Fill out the following fields:
 
