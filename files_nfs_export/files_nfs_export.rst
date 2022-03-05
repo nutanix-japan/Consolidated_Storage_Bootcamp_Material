@@ -120,7 +120,7 @@ You will use a Linux Tools VM as a client for your NFS Files export.
 
 #. The following command will add 100 2MB files filled with random data to ``/filesmnt/logs``:
 
-     .. code-block:: bash
+   .. code-block:: bash
 
        mkdir /filesmnt/xyz-logs/host1
        for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/xyz-logs/host1/file$i; done
