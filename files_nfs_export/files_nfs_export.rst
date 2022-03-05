@@ -114,9 +114,9 @@ You will use a Linux Tools VM as a client for your NFS Files export.
 
    .. code-block:: bash
 
-   echo 'BootcampFS.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
+    echo 'BootcampFS.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
 
-   
+#. Once an mount entry is added to ``/etc/fstab``, reboot the VM again. This is required in some cases where mounts don't persist.
 
 #. The following command will add 100 2MB files filled with random data to ``/filesmnt/logs``:
 
