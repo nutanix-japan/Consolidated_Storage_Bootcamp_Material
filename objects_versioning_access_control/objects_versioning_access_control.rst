@@ -40,13 +40,14 @@ Use Object Browser to Create A Bucket
 
    .. figure:: images/objects_08.png
 
-#. Click the **+ Create bucket**.
-
-   .. figure:: images/objects_08b.png
+#. Click the **+ Create Bucket**.
 
 #. Enter the following name for your bucket, and click **Create**:
 
-   - **Bucket Name** - *intials*-**test-buckets**
+   - **Bucket Name** - *intials*-**test-bucket**
+   - **Enable versioning** - checked
+
+   .. figure:: images/objects_08b.png
 
    .. note::
 
@@ -56,7 +57,9 @@ Use Object Browser to Create A Bucket
 
    Creating a bucket in this fashion allows for self-service for entitled users, and is no different than a bucket created via the Prism Buckets UI.
 
-#. Click into your *your-name*-**my-bucket** bucket, and Click the **+** and **Upload Objects**.
+#. Click into your *intials*-**test-bucket** bucket, and Click the **+** and **Upload Objects**.
+
+#. Click on **Select Folder**
 
    .. figure:: images/objects_08c.png
 
@@ -74,7 +77,7 @@ Object versioning allows the upload of new versions of the same object for requi
 
 #. Type “version 1.0” in Notepad, then save the file with a name (e.g. A.txt)
 
-#. In Objects Browser, upload the text file to your *your-name*-**my-bucket** bucket.
+#. In Objects Browser, upload the text file to your *intials*-**test-bucket** bucket.
 
 #. Make changes to the text file (e.g. A.txt) in Notepad and save it with the same name, overwriting the original file.
 
@@ -82,7 +85,7 @@ Object versioning allows the upload of new versions of the same object for requi
 
 #. Back in Prism Cental > Services > Objects, click on **Object Stores**.
 
-#. In Objects Browser of your *your-name*-**my-bucket** bucket
+#. In Objects Browser of your *intials*-**test-bucket** bucket
 
 #. Select your  **A.txt** file 
 

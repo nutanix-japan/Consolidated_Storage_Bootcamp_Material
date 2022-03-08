@@ -26,6 +26,7 @@ A bucket is a sub-repository within an object store which can have policies appl
 
    - **Name**  - *your-name*-my-bucket
    - **Enable Versioning** - Checked
+   - **Multiprotocol Access** - disabled (selecting **Enable versioning** will disable this)
 
    .. figure:: images/objects_05.png
 
@@ -103,11 +104,13 @@ Adding Users to Buckets Share
 
 #. The Objects Store management will open in a new browser tab (if it not already open)
 
-#. Click on *your-name*-**my-bucket** bucket, and click on **Share** 
+#. Click on *your-name*-**my-bucket** bucket, and click on **User Access** 
 
 #. Click on **Edit User Access** button
 
    This is where you will be able to share your bucket with other users. You can configure read access (download), write access (upload), or both, on a per user basis.
+
+   .. figure:: images/  
 
 #. Add the user (email address)you created earlier, with *Read* and *Write* permissions
 
