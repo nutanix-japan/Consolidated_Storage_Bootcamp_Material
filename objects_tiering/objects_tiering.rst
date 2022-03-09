@@ -68,14 +68,14 @@ This lab requires applications provisioned as part of the :ref:`windows_tools_vm
 **Google Chrome is recommended for this lab.**
 
 Creating AWS S3 Bucket as Tiering Destination
-................................................................
+.............................................
 
 In this section you will configure AWS S3 bucket, set up access permissions and get access and secret keys.
 
 You can quick setup an AWS account or use your existing and do all these activities in Free Tier program if the amount of data is less than 50 MB.
 
 Create an AWS S3 Bucket
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/
 
@@ -94,9 +94,9 @@ Create an AWS S3 Bucket
    .. figure:: images/tiering2.png
 
 Setup Access for AWS S3 Bucket
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Go to your AWS IAM Management Console https://console.aws.amazon.com/iam/
+#. Go to your AWS IAM Management Console https://console.aws.amazon.com/iamv2
 #. Select **Users > Add User**
 #. Enter **lnb-bucket-user** as the user name
 #. Select **Access key - Programmatic access**
@@ -135,13 +135,13 @@ Setup Access for AWS S3 Bucket
 
 You have successfully setup access to your AWS S3 bucket
 
-Setup Endpoint in Object Store configuration
-................................................................
+Setup Endpoint in Object Store Configuration
+.............................................
 
 In this section you will setup endpoints for tiering from Nutanix Objects that you created in :ref:`objects_deploy` to AWS S3.
 
 Configure Endpoint
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 #. Login into your Prism Central instance.
 
@@ -155,15 +155,19 @@ Configure Endpoint
 
 #. Select **Tiering Endpoint** and click on **Create**
 
+   If you are first person to create a tiering endpoint, click on **+ Add**
+
    .. figure:: images/tiering8.png
 
 #. In the add enpoint wizard, enter the following details
 
    - Name of the Endpoint - **AWS Tiering Endpoint** (give an easily identifiable name)
+   - Endpoint Type - **Nutanix Objects**
    - Service Host - **s3.ap-southeast-2.amazonaws.com**  (this will change depending on your AWS region)
    - Bucket Name - **lnb-bucket** (this is the name of the bucket you created in previous section in AWS)
    - Access Key - **access key from CSV you downloaded** in the previous section
    - Secret Key - **secret key from CSV you downloaded** in the previous section
+   - Skip SSL certificate validation - **Checked**
 
    .. figure:: images/tiering9.png
 

@@ -528,7 +528,7 @@ In this section, we will focus on creating a **Cloud Backup and Replication** jo
 
       .. note::
 
-     Refer to the `Getting Client IP and Credentials for Nutanix Objects`_ section above for the appropriate access and secret keys, as well as the Client IP of the object store.
+       Refer to the `Getting Client IP and Credentials for Nutanix Objects`_ section above for the appropriate access and secret keys, as well as the Client IP of the object store.
 
 #. Click **Validate** to confirm Objects can be accessed using the provided configuration.
 
@@ -542,7 +542,7 @@ In this section, we will focus on creating a **Cloud Backup and Replication** jo
 
       .. note::
 
-     The bucket name MUST be in all lower case.
+        The bucket name MUST be in all lower case.
 
 #. On the **Replication and Retention Policy** page, select **Existing Policy**, **Continuous Data Protection**, and then click **Next**.
 

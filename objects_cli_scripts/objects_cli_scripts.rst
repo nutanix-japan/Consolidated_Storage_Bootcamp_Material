@@ -203,10 +203,10 @@ In this exercise, you will modify a sample script to match your environment, whi
       import warnings
       warnings.filterwarnings("ignore")
 
-      endpoint_ip= "OBJECT-STORE-IP" #Replace this value
+      endpoint_ip="OBJECT-STORE-IP" #Replace this value
       access_key_id="ACCESS-KEY" #Replace this value
       secret_access_key="SECRET-KEY" #Replace this value
-      endpoint_url= "https://"+"endpoint_ip"+":443"
+      endpoint_url= "https://"+ endpoint_ip +":443"
 
       session = boto3.session.Session()
       s3client = session.client(service_name="s3", aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key, endpoint_url=endpoint_url, verify=False)

@@ -22,19 +22,19 @@ Lab Agenda
 
 We will do the following in this lab:
 
-- Create Objects store version 3.3.1 if not already present
+- Create Objects store version 3.3.1 (or newer) if not already present
 - Configure NFS access to a specific NFS client (your *Initials*-**Linux-ToolsVM**)
 - Create bucket
 - Mount the share in the NFS client
 - Perform file and folder level operation in the NFS client 
 - Perform file and folder level operation in the objects browser
 
-Create Objects Store 
-++++++++++++++++++++
+Create Objects Store (Optional)
++++++++++++++++++++++++++++++++
 
-Make sure your objects store **ntnx-objects** is of version 3.3.x or newer.
+Create an objects store only if pre-deployed **ntnx-objects** store is less than version 3.3.x.
 
-If your **ntnx-objects** is **not** of version 3.3.x or newer,
+If your **ntnx-objects** is **not** of version 3.3.x or newer:
 
 - Update Objects Manager to 3.3.x or newer in LCM by running an inventory
 - Deploy a new two node (1 node loadbalancer and 1 node worker) Objects store **initials-objects** using the instructions here :ref:`objects_deploy`
