@@ -64,6 +64,9 @@ Creating the Export
 
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
+
+     - Click on **Add Exceptions**
+     
    - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.188.\*)
 
    .. figure:: images/25b.png
