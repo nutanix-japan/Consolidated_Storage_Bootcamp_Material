@@ -7,39 +7,23 @@ Objects: Multi-Protocol
 In this section, we will see how to create a bucket and let a NFS client access this to be able to do regular folder and files operations.
 
 - Objects multi-protocol is a new feature with Objects 3.3.1
-- Multi-protocol feature only works with a fresh install of Object 3.3.1 onwards
-- Multi-protocol enabled bucket doesn't support versioning of objects that it hosts
-- Upgrading existing Objects 3.2.1 to 3.3.1 or above doesn't allow for this functionality (this is due to a MSP integration issue. Might be resolved in future)
-- Depending on your lab environment you may need to do the following:
-  
-  - Upgrade Objects Manager version to 3.3.1 or above using LCM
-  - Deploy new Objects store version 3.3.1 or above  
-  - Implement multi-protocol functionality with Objects and NFSv3 clients 
+- Multi-protocol feature only works with a fresh install of Object 3.3.1 onwards 
 
+  - Upgrading existing Objects 3.2.1 to 3.3.1 or above doesn't allow for this functionality (this is due to a MSP integration issue. Might be resolved in future)
+
+- Multi-protocol enabled bucket doesn't support versioning of objects that it hosts
+- This lab uses a fresh install of Objects 3.4.0.2 - Objects multiprotocol feature is available as is
 
 Lab Agenda
 ++++++++++
 
 We will do the following in this lab:
 
-- Create Objects store version 3.3.1 (or newer) if not already present
-- Configure NFS access to a specific NFS client (your *Initials*-**Linux-ToolsVM**)
-- Create bucket
-- Mount the share in the NFS client
+- Configure NFS access to a specific NFS client (your *Initials*-**Linux-ToolsVM**) for the objects store
+- Create bucket and specify NFS multiprotocol access
+- Mount the bucket as a NFS share in the NFS client (your *Initials*-**Linux-ToolsVM**) 
 - Perform file and folder level operation in the NFS client 
 - Perform file and folder level operation in the objects browser
-
-Create Objects Store (Optional)
-+++++++++++++++++++++++++++++++
-
-Create an objects store only if pre-deployed **ntnx-objects** store is less than version 3.3.x.
-
-If your **ntnx-objects** is **not** of version 3.3.x or newer:
-
-- Update Objects Manager to 3.3.x or newer in LCM by running an inventory
-- Deploy a new two node (1 node loadbalancer and 1 node worker) Objects store **initials-objects** using the instructions here :ref:`objects_deploy`
-
-  - Use the **initials-objects** as the the object store for the rest of the lab
 
 Configure NFS Allow Client 
 ++++++++++++++++++++++++++
