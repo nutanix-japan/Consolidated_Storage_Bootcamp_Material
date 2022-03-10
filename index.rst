@@ -83,13 +83,13 @@ What's New
 
 - Workshop updated for the following software versions:
 
-  - AOS 5.20.2
-  - Prism Central pc.2021.9.0.2
+  - AOS 5.20.3
+  - Prism Central pc.2021.9.0.4
   - Files 4.0.0.2
   - File Analytics 3.0.0
-  - Objects Manager 3.2.1.1
-  - Objects Service 3.2.1
-  - Optional Lab Updates
+  - Objects Manager 3.4.0.2
+  - Objects Service 3.4.0.2
+  - Optional lab updates
 
 Agenda
 ++++++
@@ -394,9 +394,10 @@ For RTP:
 Nutanix Version Info
 ++++++++++++++++++++
 
-- AOS 5.20.2
-- Prism Central pc.2021.9.0.2
+- AOS 5.20.3
+- Prism Central pc.2021.9.0.4
 - Files 4.0.0.2
 - File Analytics 3.0.0
-- Objects Manager 3.2.1.1
-- Objects Service 3.2.1
+- Objects Manager 3.4.0.2
+- Objects Service 3.4.0.2
+- Optional lab updates
