@@ -86,7 +86,7 @@ What's New
   - AOS 5.20.3
   - Prism Central pc.2021.9.0.4
   - Files 4.0.0.2
-  - File Analytics 3.0.0
+  - File Analytics 3.0.2
   - Objects Manager 3.4.0.2
   - Objects Service 3.4.0.2
   - Optional lab updates
@@ -397,7 +397,7 @@ Nutanix Version Info
 - AOS 5.20.3
 - Prism Central pc.2021.9.0.4
 - Files 4.0.0.2
-- File Analytics 3.0.0
+- File Analytics 3.0.2
 - Objects Manager 3.4.0.2
 - Objects Service 3.4.0.2
 - Optional lab updates
