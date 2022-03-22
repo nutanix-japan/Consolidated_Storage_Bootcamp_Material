@@ -109,6 +109,9 @@ Agenda
     - Objects: Creating Buckets & Users
     - Objects: Versioning & Access Controls
     - Objects: Using From CLI & Scripts
+    - Objects: Tiering
+    - Objects: Multi-protocol
+    - Objects: Multi-cluster
 
 - Bonus Labs
     - Peer
