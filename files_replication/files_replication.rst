@@ -115,7 +115,7 @@ Create PROD Files Server
 #. Fill out the following fields:
 
    - Select **Use SMB Protocol**
-   - **Username** - Administrator@ntnxlab.local
+   - **Username** - administrator@ntnxlab.local
    - **Password** - nutanix/4u
    - Select **Make this user a File Server admin**
 
