@@ -156,6 +156,11 @@ For this lab, you will be accessing a shared PMC deployment via a web interface.
 
    .. figure:: images/pmc.png
 
+.. note::
+
+  If the two Agent servers are not appearing in the bottom left of the PMC web interface, go into Prism and reboot the VMs named **PeerAgent-Files** and **PeerAgent-Win**.
+
+
 Introduction to Peer Global File Service
 ++++++++++++++++++++++++++++++++++++++++
 
