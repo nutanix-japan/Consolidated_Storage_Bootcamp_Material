@@ -91,12 +91,13 @@ You will use a Linux Tools VM as a client for your NFS Files export.
 
 #. Execute the following:
 
-     .. code-block:: bash
+   .. code-block:: bash
 
-       [root@CentOS ~]# yum install -y nfs-utils #This installs the NFSv4 client
-       [root@CentOS ~]# mkdir /filesmnt
-       [root@CentOS ~]# mount.nfs4 BootcampFS.ntnxlab.local:/ /filesmnt/
-       [root@CentOS ~]# df -kh
+       [root@centos ~]# sudo su - centos
+       [centos@centos ~]# sudo yum install -y nfs-utils #This installs the NFSv4 client
+       [centos@centos ~]# mkdir /home/centos/filesmnt
+       [centos@centos ~]# sudo mount.nfs4 BootcampFS.ntnxlab.local:/xyz-logs /home/centos/filesmnt
+       [centos@centos ~]# df -kh
        Filesystem                      Size  Used Avail Use% Mounted on
        /dev/mapper/centos_centos-root  8.5G  1.7G  6.8G  20% /
        devtmpfs                        1.9G     0  1.9G   0% /dev
@@ -105,28 +106,41 @@ You will use a Linux Tools VM as a client for your NFS Files export.
        tmpfs                           1.9G     0  1.9G   0% /sys/fs/cgroup
        /dev/sda1                       494M  141M  353M  29% /boot
        tmpfs                           377M     0  377M   0% /run/user/0
-       BootcampFS.ntnxlab.local:/      1.0T  7.0M  1.0T   1% /filesmnt
+       BootcampFS.ntnxlab.local:/      1.0T  7.0M  1.0T   1% /home/centos/filesmnt
 
-       [root@CentOS ~]# ls -l /filesmnt/
-       total 1
-       drwxrwxrwx. 2 root root 2 Mar  9 18:53 xyz-logs
+       [centos@centos ~]# ll /home/centos/filesmnt/
+       total 0
 
-#. Observe that the **logs** NFS share is mounted in ``/filesmnt``.
+
+#. Observe that the **logs** NFS share is mounted in ``/home/centos/filesmnt``.
 
 #. Reboot the VM and observe the export is no longer mounted. To persist the mount, add it to ``/etc/fstab`` by executing the following:
 
    .. code-block:: bash
+
+      [root@centos ~]# exit # centos user logout 
+      [root@centos ~]# reboot 
+
+   .. code-block:: bash
+      
+      # Login to your LinuxToolsVM again
+      [yourdesktop ~]# ssh -l root <LinuxToolsVMIPAddress> 
+
+   .. code-block:: bash
    
-    echo 'BootcampFS.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
+      [root@centos ~]# echo 'BootcampFS.ntnxlab.local:/xyz-logs /home/centos/filesmnt nfs4' >> /etc/fstab
+      [root@centos ~]# mount /home/centos/filesmnt
 
 #. Once an mount entry is added to ``/etc/fstab``, reboot the VM again. This is required in some cases where mounts don't persist.
 
 #. The following command will add 100 2MB files filled with random data to ``/filesmnt/logs``:
 
    .. code-block:: bash
+       
+       [root@centos ~]# sudo su - centos
 
-       mkdir /filesmnt/xyz-logs/host1
-       for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/xyz-logs/host1/file$i; done
+       [centos@centos ~]# mkdir /home/centos/filesmnt/host1
+       [centos@centos ~]# for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/home/centos/filesmnt/host1/file$i; done
 
 #. Return to **Files Console**
 
