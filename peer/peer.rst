@@ -38,9 +38,9 @@ Working from left to right, users interact with the SMB shares on the Nutanix Fi
 Lab Setup
 +++++++++
 
-   .. note::
+.. note::
 
-    This lab requires the :ref:`windows_tools_vm`.
+ This lab requires the :ref:`windows_tools_vm`.
 
 
 Files
@@ -349,9 +349,9 @@ Testing Collaboration
 
 The easiest way to verify synchronization is functioning properly is to open separate File Explorer windows for the Nutanix Files and Windows File Server paths.
 
-   .. note::
+.. note::
 
-     Do **not** test using an Agent server VM. All activity from these servers are automatically filtered to reduce overhead on the Nutanix Files cluster.
+   Do **not** test using an Agent server VM. All activity from these servers are automatically filtered to reduce overhead on the Nutanix Files cluster.
 
 #. Connect to your *Initials*\ **-Windows-ToolsVM** via RDP using the following credentials:
 
@@ -579,9 +579,9 @@ Once a job has been created, it must be started to initiate replication.
 Verifying Replication
 .....................
 
-   .. note::
+.. note::
 
-    This exercise requires the :ref:`windows_tools_vm`.
+   This exercise requires the :ref:`windows_tools_vm`.
 
 The easiest way to verify that files have been replicated into Nutanix Objects is to use the Cyberduck tool on your *Initials*\ **-Windows-ToolsVM**
 
@@ -630,9 +630,9 @@ The easiest way to verify that files have been replicated into Nutanix Objects i
 Analyzing Existing Environments
 +++++++++++++++++++++++++++++++
 
-   .. note::
+.. note::
 
-     This exercise requires the :ref:`windows_tools_vm`.
+   This exercise requires the :ref:`windows_tools_vm`.
 
 As the capacity of file server environments increase at a record pace, storage admins often do not know how users and applications are leveraging these file server environments. This fact becomes most evident when it is time to migrate to a new storage platform. The File System Analyzer is a tool from Peer Software that is designed to help partners discover and analyze existing file and folder structures for the purpose of planning and optimization.
 
@@ -718,65 +718,65 @@ Summary Reports
 
 Summary reports contain overall statistical and historical information across all paths that have been selected to be scanned.  When you open a summary report, you are greeted with a worksheet like this:
 
-   .. figure:: images/fsa7.png
+.. figure:: images/fsa7.png
 
-   Each summary report may contain some or all of the following worksheets:
+Each summary report may contain some or all of the following worksheets:
 
-   - **InfoSheet** – Details about this specific run. This page will also show Total Bytes formatted in both decimal (1 KB is 1,000 bytes) and binary (1 KiB is 1,024 bytes) forms.
-   - **CollectiveResults** – A list of all paths scanned along with high-level statistics for each.
-   - **History-Bytes** – Contains historical changes in bytes for each time each path is scanned.
-   - **History-Files** – Contains historical changes in total number of files for each time each path is scanned.
-   - **History-Folders** – Contains historical changes in total numbers of folders for each time each path is scanned.
+- **InfoSheet** – Details about this specific run. This page will also show Total Bytes formatted in both decimal (1 KB is 1,000 bytes) and binary (1 KiB is 1,024 bytes) forms.
+- **CollectiveResults** – A list of all paths scanned along with high-level statistics for each.
+- **History-Bytes** – Contains historical changes in bytes for each time each path is scanned.
+- **History-Files** – Contains historical changes in total number of files for each time each path is scanned.
+- **History-Folders** – Contains historical changes in total numbers of folders for each time each path is scanned.
 
-   .. note::
+.. note::
 
-     History worksheets will only appear after running multiple scans.
+   History worksheets will only appear after running multiple scans.
 
 Volume Reports
 ..............
 
 Volume reports give more detailed information about a specific path that has been scanned. When you open a volume report, you are greeted with a worksheet like this:
 
-   .. figure:: images/fsa7a.png
+.. figure:: images/fsa7a.png
 
-   Each volume report may contain some or all of the following worksheets:
+Each volume report may contain some or all of the following worksheets:
 
-   - **Overview** – A series of pivot tables and charts showing high-level statistics about the path that was scanned.
-   - **InfoSheet** – Details about this specific scan. This page will also show Total Bytes formatted in both decimal (1 KB is 1,000 bytes) and binary (1 KiB is 1,024 bytes) forms.
-   - **OverallStats** – Overall statistics for the folder that was scanned. This includes total bytes, files, folders, etc.
-   - **Analysis** – Includes a pivot table and a pair of charts highlighting additional statistics about the path that was scanned.
-   - **History** – Shows statistics from each scan of this volume.
-   - **HistoryCharts** – Contains charts showing historical changes in files, folders, and bytes for this volume.
-   - **HighSubFolderCounts** – A list of all folders containing more than 100 child directories.
-   - **HighByteCounts** – A list of all folders containing more than 10GB of child file data.
-   - **HighFileCounts** – A list of all folders containing more than 10,000 child files.
-   - **LargeFiles** – A list of all discovered files that are 10GB or larger.
-   - **DeepPaths** – A list of all discovered folder paths that are 15 levels deep or deeper.
-   - **LongPaths** – A list of all discovered folder paths that are 256 characters or longer.
-   - **ReparsePointsSummary** – A summary of all reparse points discovered, regardless of file or folder.
-   - **ReparsePoints** – A list of all folder reparse points discovered.
-   - **TimeAnalysis** – A breakdown of total files, folders, and bytes by age.
-   - **LastModifiedAnalysis** – A view of all files, folders, and bytes modified each hour for the past year. These numbers are then totaled and averaged to show files, folders, and bytes modified by: day of week; month; hour of the day; day of month; and day of year.
-   - **CreatedAnalysis** – A view of all files, folders, and bytes created each hour for the past year. These numbers are then totaled and averaged to show files, folders, and bytes created by day of week, month, hour of the day, day of month, and day of year.
-   - **LastAccessedAnalysis** – A view of all files, folders, and bytes accessed each hour for the past year. These numbers are then totaled and averaged to show files, folders, and bytes accessed by: day of week; month; hour of the day; day of month; and day of year.
-   - **TLDAnalysis** - A list of each folder immediately under a specified path with statistics for each of these subfolders. In a user home directory environment, each of these subfolders should represent a different user.
-   - **TopTLDsByTotals** – A series of pivot tables and charts showing the top ten top-level directories based on total bytes used, total files, and total folders.
-   - **TopTLDsByLastModBytes** – A pivot table and chart showing top 10 top-level directories based on most bytes modified in the past year.
-   - **TopTLDsByLastModFiles** – A pivot table and chart showing top 10 top-level directories based on most files modified in the past year.
-   - **LegacyTLDs** – A list of all top-level directories that do not contain any files modified in the past 365 days.
-   - **TreeDepth** – A tally of bytes, folders, and files found at each depth level of the folder structure. For customers doing a pre-migration analysis, depths that appear as green are good candidates for PeerSync Migration’s tree depth setting.
-   - **FileExtInfo** – A list of all discovered extensions, including pivot tables sorted by total bytes and total files.
-   - **FileAttributes** – A summary of all file and folder attributes found.
-   - **SmallFileAnalysis** – A list of all files discovered below a certain size. This page is useful for estimating the storage impact of small files on storage platforms that have large minimum file sizes on disk.
-   - **SIDCache** – A list of all the owners and SID strings that have been discovered.
+- **Overview** – A series of pivot tables and charts showing high-level statistics about the path that was scanned.
+- **InfoSheet** – Details about this specific scan. This page will also show Total Bytes formatted in both decimal (1 KB is 1,000 bytes) and binary (1 KiB is 1,024 bytes) forms.
+- **OverallStats** – Overall statistics for the folder that was scanned. This includes total bytes, files, folders, etc.
+- **Analysis** – Includes a pivot table and a pair of charts highlighting additional statistics about the path that was scanned.
+- **History** – Shows statistics from each scan of this volume.
+- **HistoryCharts** – Contains charts showing historical changes in files, folders, and bytes for this volume.
+- **HighSubFolderCounts** – A list of all folders containing more than 100 child directories.
+- **HighByteCounts** – A list of all folders containing more than 10GB of child file data.
+- **HighFileCounts** – A list of all folders containing more than 10,000 child files.
+- **LargeFiles** – A list of all discovered files that are 10GB or larger.
+- **DeepPaths** – A list of all discovered folder paths that are 15 levels deep or deeper.
+- **LongPaths** – A list of all discovered folder paths that are 256 characters or longer.
+- **ReparsePointsSummary** – A summary of all reparse points discovered, regardless of file or folder.
+- **ReparsePoints** – A list of all folder reparse points discovered.
+- **TimeAnalysis** – A breakdown of total files, folders, and bytes by age.
+- **LastModifiedAnalysis** – A view of all files, folders, and bytes modified each hour for the past year. These numbers are then totaled and averaged to show files, folders, and bytes modified by: day of week; month; hour of the day; day of month; and day of year.
+- **CreatedAnalysis** – A view of all files, folders, and bytes created each hour for the past year. These numbers are then totaled and averaged to show files, folders, and bytes created by day of week, month, hour of the day, day of month, and day of year.
+- **LastAccessedAnalysis** – A view of all files, folders, and bytes accessed each hour for the past year. These numbers are then totaled and averaged to show files, folders, and bytes accessed by: day of week; month; hour of the day; day of month; and day of year.
+- **TLDAnalysis** - A list of each folder immediately under a specified path with statistics for each of these subfolders. In a user home directory environment, each of these subfolders should represent a different user.
+- **TopTLDsByTotals** – A series of pivot tables and charts showing the top ten top-level directories based on total bytes used, total files, and total folders.
+- **TopTLDsByLastModBytes** – A pivot table and chart showing top 10 top-level directories based on most bytes modified in the past year.
+- **TopTLDsByLastModFiles** – A pivot table and chart showing top 10 top-level directories based on most files modified in the past year.
+- **LegacyTLDs** – A list of all top-level directories that do not contain any files modified in the past 365 days.
+- **TreeDepth** – A tally of bytes, folders, and files found at each depth level of the folder structure. For customers doing a pre-migration analysis, depths that appear as green are good candidates for PeerSync Migration’s tree depth setting.
+- **FileExtInfo** – A list of all discovered extensions, including pivot tables sorted by total bytes and total files.
+- **FileAttributes** – A summary of all file and folder attributes found.
+- **SmallFileAnalysis** – A list of all files discovered below a certain size. This page is useful for estimating the storage impact of small files on storage platforms that have large minimum file sizes on disk.
+- **SIDCache** – A list of all the owners and SID strings that have been discovered.
 
-   .. note::
+.. note::
 
-     History worksheets will only appear after running multiple scans.
+   History worksheets will only appear after running multiple scans.
 
 Here is a sample of the **LastModifiedAnalysis** page mentioned above:
 
-   .. figure:: images/fsa7b.png
+.. figure:: images/fsa7b.png
 
 Integrating with Microsoft DFS Namespace
 ++++++++++++++++++++++++++++++++++++++++
