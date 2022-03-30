@@ -156,6 +156,11 @@ For this lab, you will be accessing a shared PMC deployment via a web interface.
 
    .. figure:: images/pmc.png
 
+   .. note::
+
+     If the two Agent servers are not appearing in the bottom left of the PMC web interface, go into Prism and reboot the VMs named **PeerAgent-Files** and **PeerAgent-Win**.
+
+
 Introduction to Peer Global File Service
 ++++++++++++++++++++++++++++++++++++++++
 
@@ -344,9 +349,9 @@ Testing Collaboration
 
 The easiest way to verify synchronization is functioning properly is to open separate File Explorer windows for the Nutanix Files and Windows File Server paths.
 
-.. note::
+   .. note::
 
-  Do **not** test using an Agent server VM. All activity from these servers are automatically filtered to reduce overhead on the Nutanix Files cluster.
+     Do **not** test using an Agent server VM. All activity from these servers are automatically filtered to reduce overhead on the Nutanix Files cluster.
 
 #. Connect to your *Initials*\ **-Windows-ToolsVM** via RDP using the following credentials:
 
@@ -526,9 +531,9 @@ In this section, we will focus on creating a **Cloud Backup and Replication** jo
 
    .. figure:: images/cloud10.png
 
-      .. note::
+   .. note::
 
-       Refer to the `Getting Client IP and Credentials for Nutanix Objects`_ section above for the appropriate access and secret keys, as well as the Client IP of the object store.
+     Refer to the `Getting Client IP and Credentials for Nutanix Objects`_ section above for the appropriate access and secret keys, as well as the Client IP of the object store.
 
 #. Click **Validate** to confirm Objects can be accessed using the provided configuration.
 
@@ -540,9 +545,9 @@ In this section, we will focus on creating a **Cloud Backup and Replication** jo
 
    .. figure:: images/cloud12.png
 
-      .. note::
+   .. note::
 
-        The bucket name MUST be in all lower case.
+     The bucket name MUST be in all lower case.
 
 #. On the **Replication and Retention Policy** page, select **Existing Policy**, **Continuous Data Protection**, and then click **Next**.
 
@@ -604,7 +609,7 @@ The easiest way to verify that files have been replicated into Nutanix Objects i
    - **Access Key ID**  - *Generated When User Created*
    - **Password (Secret Key)** - *Generated When User Created*
 
-      .. note::
+   .. note::
 
      See the `Getting Client IP and Credentials for Nutanix Objects`_ section above for the appropriate access and secret keys, as well as the Client IP of the object store.
 
@@ -627,7 +632,7 @@ Analyzing Existing Environments
 
    .. note::
 
-   This exercise requires the :ref:`windows_tools_vm`.
+     This exercise requires the :ref:`windows_tools_vm`.
 
 As the capacity of file server environments increase at a record pace, storage admins often do not know how users and applications are leveraging these file server environments. This fact becomes most evident when it is time to migrate to a new storage platform. The File System Analyzer is a tool from Peer Software that is designed to help partners discover and analyze existing file and folder structures for the purpose of planning and optimization.
 
@@ -723,7 +728,7 @@ Summary reports contain overall statistical and historical information across al
    - **History-Files** – Contains historical changes in total number of files for each time each path is scanned.
    - **History-Folders** – Contains historical changes in total numbers of folders for each time each path is scanned.
 
-    .. note::
+   .. note::
 
      History worksheets will only appear after running multiple scans.
 
@@ -765,7 +770,7 @@ Volume reports give more detailed information about a specific path that has bee
    - **SmallFileAnalysis** – A list of all files discovered below a certain size. This page is useful for estimating the storage impact of small files on storage platforms that have large minimum file sizes on disk.
    - **SIDCache** – A list of all the owners and SID strings that have been discovered.
 
-    .. note::
+   .. note::
 
      History worksheets will only appear after running multiple scans.
 
