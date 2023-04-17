@@ -1,4 +1,4 @@
-# Files: Create NFS Export {#files_nfs_export}
+# Files: Create NFS Export
 
 ## Overview
 
@@ -11,24 +11,21 @@ clients.
 
 ### Enabling NFS Protocol
 
-::: note
-::: title
-Note
-:::
+!!!note
 
-Enabling NFS protocol only needs to be performed once per Files server,
-and may have already been completed in your environment. If NFS is
-already enabled, proceed to [Creating the Export](#creating-the-export).
-:::
+       Enabling NFS protocol only needs to be performed once per Files server,
+       and may have already been completed in your environment. If NFS is
+       already enabled, proceed to [Creating the Export](#creating-the-export).
 
-1.  In **Prism Element \> File Server**, select your file server and
+
+1.  In **Prism Element > File Server**, select your file server and
     click **Launch Files Console**.
 
     ![](images/29b.png)
 
 2.  The **Files Console** will open in a new browser tab
 
-3.  Go to **Configuration** \> **Authentication** \> **Directory
+3.  Go to **Configuration** > **Authentication** > **Directory
     Services**
 
 4.  Select **Use NFS Protocol** with **Unmanaged** User Management and
@@ -69,8 +66,8 @@ already enabled, proceed to [Creating the Export](#creating-the-export).
     -   **Authentication** - System
     -   **Default Access (For All Clients)** - No Access
         -   Click on **Add Exceptions**
-    -   **Clients with Read-Write Access** - *The first 3 octets of your
-        cluster network*.\* (e.g. 10.38.188.\*)
+    -   **Clients with Read-Write Access** - The first 3 octets of your
+        cluster network. (e.g. ``10.38.188.*``)
 
     ![](images/25b.png)
 
@@ -85,17 +82,7 @@ already enabled, proceed to [Creating the Export](#creating-the-export).
 ### Testing the Export
 
 You will use a Linux Tools VM as a client for your NFS Files export.
-
-::: note
-::: title
-Note
-:::
-
-If you haven\'t created a Linux Tools VM as part of another lab, you may
-use these instructions here `linux_tools_vm`{.interpreted-text
-role="ref"} to create one.
-:::
-
+    
 1.  Note the IP address of the VM in Prism, and connect via SSH using
     the following credentials:
 
@@ -124,8 +111,7 @@ role="ref"} to create one.
     total 0
     ```
 
-3.  Observe that the **logs** NFS share is mounted in
-    `/home/centos/filesmnt`.
+3.  Observe that the **logs** NFS share is mounted in ``/home/centos/filesmnt``.
 
 4.  Reboot the VM and observe the export is no longer mounted. To
     persist the mount, add it to `/etc/fstab` by executing the
@@ -146,11 +132,11 @@ role="ref"} to create one.
     [root@centos ~]# mount /home/centos/filesmnt
     ```
 
-5.  Once an mount entry is added to `/etc/fstab`, reboot the VM again.
+5.  Once an mount entry is added to ``/etc/fstab``, reboot the VM again.
     This is required in some cases where mounts don\'t persist.
 
 6.  The following command will add 100 2MB files filled with random data
-    to `/filesmnt/logs`:
+    to ``/filesmnt/logs``:
 
     ``` bash
     [root@centos ~]# sudo su - centos
@@ -161,15 +147,12 @@ role="ref"} to create one.
 
 7.  Return to **Files Console**
 
-8.  Click on **Shares \> logs** to monitor performance and usage of you
+8.  Click on **Shares > logs** to monitor performance and usage of you
     NFS export.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Note that the utilization data is updated every 10 minutes.
-    :::
-
-    ![](images/26b.png)
+    !!!note 
+           
+            The utilization data is updated every 10 minutes.
+ 
+            ![](images/26b.png)
+ 

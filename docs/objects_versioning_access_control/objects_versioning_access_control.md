@@ -1,9 +1,9 @@
-# Objects: Versioning and Access Controls {#objects_versioning_access_control}
+# Objects: Versioning and Access Controls
 
-*The estimated time to complete this lab is 60 minutes.*
+!!!info
+       The estimated time to complete this lab is 60 minutes.*
 
 ## Overview
-
 ## Accessing & Creating Buckets With Objects Browser
 
 In this exercise you will use Objects Browser to create and use buckets
@@ -11,10 +11,10 @@ in the object store using your generated access key.
 
 ### Download the Sample Images
 
-1.  Login to *Initials***-Windows-ToolsVM** via RDP using the following
+1.  Login to **Initials-Windows-ToolsVM** via RDP using the following
     credentials:
     -   **Username** - NTNXLAB\\Administrator
-    -   **password** - nutanix/4u
+    -   **password** - ask your Instructor
 2.  Use this
     [link](http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip)
     to download the sample files to your Windows-ToolsVM. Once the
@@ -45,26 +45,21 @@ in the object store using your generated access key.
 
     ![](images/objects_08b.png)
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    Bucket names must be lower case and only contain letters, numbers,
-    periods and hyphens.
-
-    Additionally, all bucket names must be unique within a given Object
-    Store. Note that if you try to create a folder with an existing
-    bucket name (e.g. *your-name*-my-bucket), creation of the folder
-    will not succeed.
-    :::
+           Bucket names must be lower case and only contain letters, numbers,
+           periods and hyphens.
+       
+           Additionally, all bucket names must be unique within a given Object
+           Store. Note that if you try to create a folder with an existing
+           bucket name (e.g. *your-name*-my-bucket), creation of the folder
+           will not succeed.
 
     Creating a bucket in this fashion allows for self-service for
     entitled users, and is no different than a bucket created via the
     Prism Buckets UI.
 
-6.  Click into your *intials*-**test-bucket** bucket, and Click the
-    **+** and **Upload Objects**.
+6.  Click into your **intials*-**test-bucket** bucket, and Click the **+** and **Upload Objects**.
 
 7.  Click on **Select Folder**
 
@@ -89,7 +84,7 @@ action and application failures.
     A.txt)
 
 3.  In Objects Browser, upload the text file to your
-    *intials*-**test-bucket** bucket.
+    **intials*-**test-bucket** bucket.
 
 4.  Make changes to the text file (e.g. A.txt) in Notepad and save it
     with the same name, overwriting the original file.
@@ -100,7 +95,7 @@ action and application failures.
 6.  Back in Prism Cental \> Services \> Objects, click on **Object
     Stores**.
 
-7.  In Objects Browser of your *intials*-**test-bucket** bucket
+7.  In Objects Browser of your **intials*-**test-bucket** bucket
 
 8.  Select your **A.txt** file
 

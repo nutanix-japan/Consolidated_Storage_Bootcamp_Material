@@ -1,6 +1,8 @@
-# Objects: Creating Buckets, Users, and Access Control {#objects_buckets_users_access_control}
+# Objects: Creating Buckets, Users, and Access Control
 
-*The estimated time to complete this lab is 60 minutes.*
+!!!info
+
+       The estimated time to complete this lab is 60 minutes
 
 ## Overview
 
@@ -14,7 +16,7 @@ permissions to other users.
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services  > Objects
 
 3.  Click on **ntnx-objects** Objects Store
 
@@ -22,7 +24,7 @@ permissions to other users.
 
 5.  Click **Create Bucket**, and fill out the following fields:
 
-    -   **Name** - *your-name*-my-bucket
+    -   **Name** - **your-name**-my-bucket
     -   **Enable Versioning** - Checked
     -   **Multiprotocol Access** - disabled (selecting **Enable
         versioning** will disable this)
@@ -31,14 +33,10 @@ permissions to other users.
 
 6.  Click **Create**.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    Buckets created via Prism Central are owned by the Prism Central
-    admin.
-    :::
+           Buckets created via Prism Central are owned by the Prism Central
+           admin.
 
     If versioning is enabled, new versions can be uploaded of the same
     object for required changes, without losing the original data.
@@ -53,47 +51,33 @@ permissions to other users.
     where sensitive data is collected and stored. Examples include
     e-mails, account information, voice mails, and more.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    Note that if WORM is enabled on the bucket, this will supersede any
-    lifecycle policy.
-    :::
+           If WORM is enabled on the bucket, this will supersede any lifecycle policy.
 
-7.  Check the box next to your *your-name*-**my-bucket** bucket, and
-    click on **Actions** dropdown and choose **Configure WORM**
+7.  Check the box next to your *your-name*-**my-bucket** bucket, and click on **Actions** dropdown and choose **Configure WORM**
 
 8.  Check the box next to **Enable WORM** bucket,
 
 9.  Enter **1** month as the retention periodand click **Enable WORM**.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    You have the ability to define a WORM data retention period on a per
-    bucket basis.
-    :::
+           You have the ability to define a WORM data retention period on a per bucket basis.
 
 ## Buckets User Management
 
-In this exercise you will create generate access and secret keys to
-access the object store, that will be used throughout the lab.
+In this exercise you will create generate access and secret keys to access the object store, that will be used throughout the lab.
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services  > Objects
 
-3.  From the Objects UI, click on **Access Keys** and click **Add
-    People**.
+3.  From the Objects UI, click on **Access Keys** and click **Add People**.
 
     ![](images/objects_add_people.png)
 
-4.  Select **Add people not in a directory service** and enter your
-    e-mail address.
+4.  Select **Add people not in a directory service** and enter your e-mail address.
 
     ![](images/objects_add_people_02.png)
 
@@ -117,27 +101,22 @@ access the object store, that will be used throughout the lab.
 10. Repeat the process above for a second user, so that you have two
     pairs of keys.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note 
 
-    Keep the text files open so that you have the access and secret keys
-    readily available for future labs.
-    :::
-
+           Keep the text files open so that you have the access and secret keys
+           readily available for future labs.
 ## Adding Users to Buckets Share
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services > Objects
 
 3.  Click on **ntnx-objects** Objects Store
 
 4.  The Objects Store management will open in a new browser tab (if it
     not already open)
 
-5.  Click on *your-name*-**my-bucket** bucket, and click on **User
+5.  Click on **your-name**-**my-bucket** bucket, and click on **User
     Access**
 
 6.  Click on **Edit User Access** button
@@ -145,8 +124,6 @@ access the object store, that will be used throughout the lab.
     This is where you will be able to share your bucket with other
     users. You can configure read access (download), write access
     (upload), or both, on a per user basis.
-
-    ![](images/)
 
 7.  Add the user (email address)you created earlier, with *Read* and
     *Write* permissions

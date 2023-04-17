@@ -48,6 +48,19 @@ theme:
         icon: material/brightness-auto
         name: Switch to light mode
 
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to system preference
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -68,7 +81,12 @@ plugins:
 nav:
     - Home: index.md
     - Files:
-      - Files: files_smb_share/files_smb_share.md
-        
-        
+      - 'SMB Share': files_smb_share/files_smb_share.md
+      - 'NFS Share': files_nfs_export/files_nfs_export.md
+      - 'Blocking': files_file_blocking/files_file_blocking.md
+      - 'Multi-protocol': files_multiprotocol/files_multiprotocol.md
+      - 'Replication': files_replication/files_replication.md
+    - Objects:
+      - 'Buckets & UAC': objects_buckets_users_access_control/objects_buckets_users_access_control.md
+      - 'Versioning & UAC':  objects_versioning_access_control/objects_versioning_access_control
 

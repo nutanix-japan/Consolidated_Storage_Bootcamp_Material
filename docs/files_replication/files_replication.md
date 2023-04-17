@@ -1,18 +1,10 @@
-::: {#files_replication}
-::: title
-Smart DR:Files Replication
-:::
-:::
+---
+title: Files Replication
+---
 
-# Files: Smart DR
+!!!info
+        The estimated time to complete this lab is 60 minutes
 
-::: note
-::: title
-Note
-:::
-
-The estimated time to complete this lab is 60 minutes
-:::
 
 ## Overview
 
@@ -70,33 +62,25 @@ We will do the following:
 2.  Create a DR Files server *initials*-files-dr (1-VM Files Server)
 3.  Create a SMB Files share in your PROD Files server and populate the
     share with sample files
-4.  Configure Files Protection Policy in Prism Central\'s
-    `files_manager`{.interpreted-text role="ref"} and replicate
+4.  Configure Files Protection Policy in Prism Central's
+    [Files Manager](../files_manager/files_manager.md) and replicate
 5.  Failover, create new files in share and reverse-replicate
 6.  Failback and check contents
 
 Files version include new feature updates. At the time of writing this
 labs these were the required versions of the following software
 components:
+### Software Version
 
-  -----------------------------------------------------------------------
-  Software          Version
-  ----------------- -----------------------------------------------------
-  AOS               5.20.2
+- AOS               5.20.2
+- Prism Central     pc.2021.9.0.2
+- Files             4.0.0.2
+- Files Manager     2.0.0 (upgraded through LCM)
 
-  Prism Central     pc.2021.9.0.2
-
-  Files             4.0.0.2
-
-  Files Manager     2.0.0 (upgraded through LCM)
-  -----------------------------------------------------------------------
-
-Click here for instructions to enable and update
-`files_manager`{.interpreted-text role="ref"}
-
+Click here for instructions to enable and update  [Files Manager](../files_manager/files_manager.md)
 ### Create PROD Files Server
 
-1.  In **Prism \> File Server**, click **+ File Server**
+1.  In **Prism > File Server**, click **+ File Server**
 
 2.  Click **Continue** on *New File Server: Pre-check* window (if it
     appeares)
@@ -127,16 +111,12 @@ Click here for instructions to enable and update
 
 10. Select the **Primary - Managed** VLAN for the **Storage Network**.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    Ideally, two different networks should be selected for Client and
-    Storage network in production environments. But since this is a lab,
-    we will be only using one network.
-    :::
-
+            Ideally, two different networks should be selected for Client and
+            Storage network in production environments. But since this is a lab,
+            we will be only using one network.
+ 
 11. Click **Next**.
 
 12. Fill out the following fields:
@@ -159,7 +139,7 @@ Click here for instructions to enable and update
 
 14. Click **Create** to begin the Files deployment.
 
-15. Monitor deployment progress in **Prism \> Tasks**.
+15. Monitor deployment progress in **Prism > Tasks**.
 
     Deployment should take approximately 10 minutes. While it is
     deploying please proceed to next section.
@@ -174,12 +154,12 @@ Click here for instructions to enable and update
 2.  Fill out the following fields(make sure to manually configure Files
     server to 1 VM):
 
-    > -   **Name** - *initials*-files-dr (e.g. XYZ-files-dr)
-    > -   **Domain** - ntnxlab.local
-    > -   **File Server Size** - 1 TiB
+    -   **Name** - *initials*-files-dr (e.g. XYZ-files-dr)
+    -   **Domain** - ntnxlab.local
+    -   **File Server Size** - 1 TiB
 
 3.  Now you should have two Files Servers showing in Prism Element
-    **Prism \> File Server**
+    **Prism > File Server**
 
     ![](images/createfs_twofs.png)
 
@@ -188,8 +168,8 @@ Click here for instructions to enable and update
 In this section we will create a source files shares to serve as a
 source and then we will replicate this share subsequently.
 
-1.  In **Prism Element \> File Server**, click on your
-    *initials*-files-prod (e.g. XYZ-files-prod) File Server
+1.  In **Prism Element > File Server**, click on your
+    **initials**-files-prod (e.g. XYZ-files-prod) File Server
 
 2.  Click on **Launch Files Console** (this will open in a new tab)
 
@@ -197,7 +177,7 @@ source and then we will replicate this share subsequently.
 
 4.  Fill in the following details:
 
-    -   **Name** - *initials*-prod-share （e.g. XYZ-prod-share）
+    -   **Name** - **initials**-prod-share （e.g. XYZ-prod-share）
     -   **Primary Protocol Access** - SMB (confirm this to be SMB)
     -   Leave everything else as blank
 
@@ -207,9 +187,9 @@ source and then we will replicate this share subsequently.
 
 6.  In **Settings** section, select the following:
 
-    > -   Enable Self Service Restore
-    > -   Enable Compression
-    > -   Enable Access Based Enumeration (ABE)
+    -   Enable Self Service Restore
+    -   Enable Compression
+    -   Enable Access Based Enumeration (ABE)
 
     ![](images/createshare_settings.png)
 
@@ -221,23 +201,17 @@ source and then we will replicate this share subsequently.
 
 9.  Login to your Windows Tools VM with the following credentials
 
-    > -   **Username** - <administrator@ntnxlab.local>
-    > -   **Password** - nutanix/4u
+    - **Username** - <administrator@ntnxlab.local>
+    - **Password** - nutanix/4u
 
 10. Browse to the location of your PROD (Source) share (e.g.
-    `\\xyz-files-prod.ntnxlab.local\xyz-prod-share`)
+    ``\\xyz-files-prod.ntnxlab.local\xyz-prod-share``)
 
-    > ::: note
-    > ::: title
-    > Note
-    > :::
-    >
-    > You can find your PROD share location by selecting the Files Share
-    > in Prism Element and checking Share/Export details.
-    > :::
+    !!!note
+           You can find your PROD share location by selecting the Files Share
+           in Prism Element and checking Share/Export details.
 
-11. Download the following [Sample Zip
-    File](http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip)
+11. Download the following [Sample Zip File](http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip)
     and unzip it in your PROD share
 
     ![](images/createshare_explorer.png)
@@ -260,65 +234,36 @@ lets you protect file servers at the share-level.
 
 1.  Logon to Prism Central
 
-2.  Click on `bars`{.interpreted-text role="fa"} \> Services \> Files
+2.  Click on :fontawesome-solid-bars: > Services > Files
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    If Files Manager is not enabled in your Prism Central, you will need
-    to Enable Files using instruction in
-    `files_manager`{.interpreted-text role="ref"}
-    :::
+           If Files Manager is not enabled in your Prism Central, you will need
+           to Enable Files using instruction in [Files Manager](../files_manager/files_manager.md)
 
-    ![](images/pc_files.png)
+        　　![](images/pc_files.png)
 
-3.  In Files Manager, click on **Data Protection \> Polices \> + New
-    Policy**
+3.  In Files Manager, click on **Data Protection > Polices > + New Policy**
 
-    ::: note
-    ::: title
-    Note
-    :::
+4.  Select your **initials**-files-prod (e.g. XYZ-files-prod) as the **Primary Location (Source File Server)**
 
-    If you are unable to see Data Protection option, you will need to
-    upgrade Files Manager version to 2.x or above. Follow the
-    instructions in `files_manager_upgrade`{.interpreted-text
-    role="ref"} by using Nutanix LCM in Prism Central.
-    :::
+    !!!note
 
-4.  Select your *initials*-files-prod (e.g. XYZ-files-prod) as the
-    **Primary Location (Source File Server)**
-
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Selecting the source Files server will automatically select all the
-    shares within this files server to be protected
-    :::
-
-5.  Select your *initials*-files-dr (e.g. XYZ-files-dr) as the
-    **Recovery Location (Target File Server)**
+           Selecting the source Files server will automatically select all the shares within this files server to be protected
+    
+5.  Select your **initials**-files-dr (e.g. XYZ-files-dr) as the **Recovery Location (Target File Server)**
 
 6.  Select the **Recovery Point Objective (RPO)** as **10** minutes and
     **Start Immediately**. (this is the lowest you can set as of now)
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    You can ignore the following warning as the this is just a test for
-    Smart DR feature. In a customer environment the source and Target
-    Files servers will be in different AOS clusters.
-
-    **xyz-files-dr is on the same AOS cluster as the source. It is
-    recommended to have target file servers on a different AOS
-    cluster.**
-    :::
+    !!!note 
+           You can ignore the following warning as the this is just a test for
+           Smart DR feature. In a customer environment the source and Target
+           Files servers will be in different AOS clusters.
+       
+           **xyz-files-dr** is on the same AOS cluster as the source. It is
+           recommended to have target file servers on a different AOS
+           cluster.
 
 7.  Make sure your selection looks as follows:
 
@@ -328,58 +273,48 @@ lets you protect file servers at the share-level.
 
 9.  Fill in the following details in **Settings** section:
 
-    > -   **Name** - *initials*-files-repl-policy (e.g.
-    >     xyz-files-repl-policy)
-    > -   **Description** - Protection Policy for XYZ Prod to DR
-    >     Replication (Optional)
+    -   **Name** - *initials*-files-repl-policy (e.g.xyz-files-repl-policy)
+    -   **Description** - Protection Policy for XYZ Prod to DR Replication (Optional)
 
 10. Click on **Create**
 
 11. Monitor the Tasks until the policy is created and the policy should
-    show in the **Data Protection \> Polices \> + New Policy** in a few
+    show in the **Data Protection > Polices > + New Policy** in a few
     minutes
 
-    ![.. note::](images/smartdr_policyrpo.png)
+    ![](images/smartdr_policyrpo.png)
 
-    > Wait a few minutes until all the files are replicated and **RPO
-    > Compliant** will have a green-dot to indicate intial
-    > synchronization
+    Wait a few minutes until all the files are replicated and **RPO Compliant** will have a green-dot to indicate initial synchronization
 
-12. Go to **Data Protection \> Replication Jobs** and observe the
-    replication jobs and duration. The intial replication will take time
+12. Go to **Data Protection > Replication Jobs** and observe the
+    replication jobs and duration. The initial replication will take time
     based on the amount of data and network speeds. But the subsequent
     replications will be based on incremental changes only.
 
     ![](images/smartdr_repjobs.png)
 
-13. Go to **Data Protection \> Protected File Servers** to check the
-    Active and Standby File servers. (Active indicated by a green A)
+13. Go to **Data Protection > Protected File Servers** to check the Active and Standby File servers. (Active indicated by a green A)
 
-    > ![](images/smartdr_activefs.png)
+    ![](images/smartdr_activefs.png)
 
-14. Verify it shows the DR Files Server with the source PROD share (e.g.
-    `\\xyz-files-dr.ntnxlab.local\xyz-prod-share`)
+14. Verify it shows the DR Files Server with the source PROD share (e.g.``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``)
 
 ### Failover Share
 
-We have set up replication of a share between two Files servers. Now we
-are able to test failover of the share to the DR File server.
+We have set up replication of a share between two Files servers. Now we are able to test failover of the share to the DR File server.
 
 There are two failover methods:
 
--   Planned Failover - allows a reverse-replication to the source File
-    Server
--   Unplanned Failover - no reverse-replication (as an admin doesn\'t
-    know when the primary site will be operational again)
+-   Planned Failover - allows a reverse-replication to the source File Server
+-   Unplanned Failover - no reverse-replication (as an admin doesn't know when the primary site will be operational again)
 
 Both these methods are manually triggered by an administrator.
 
 In this lab we will test a Planned Failover
 
-1.  Go to **Prism Central \> Services \> Files** (if you are note
-    already on that page)
+1.  Go to **Prism Central > Services > Files** (if you are note already on that page)
 
-2.  Go to **Data Protection \> Protected File Servers**
+2.  Go to **Data Protection > Protected File Servers**
 
 3.  Click on **Failover** as shown here
 
@@ -390,16 +325,14 @@ In this lab we will test a Planned Failover
 5.  Select **Create a Reverse-Replication Policy** and fill in the
     following
 
-    \- **Recovery Point Objective (RPO)** - 10 minutes
-
-    :   -   **Policy Name** - Reverse-*initials*-files-repl-policy (e.g.
-            Reverse-xyz-files-repl-policy)
+    - **Recovery Point Objective (RPO)** - 10 minutes
+    -   **Policy Name** - Reverse-*initials*-files-repl-policy (e.g. Reverse-xyz-files-repl-policy)
 
     ![](images/failover_settings.png)
 
 6.  Click **Next**
 
-7.  In the **Active Directory and DNS Configuration** fill the following
+7.  In the **Active Directory and DNS Configuration** fill the following:
     (to ensure access to files after failover)
 
     -   **Username** - <administrator@ntnxlab.local>
@@ -414,9 +347,7 @@ In this lab we will test a Planned Failover
 
 10. Monitor the Events in Prism Central
 
-11. Once Faiover is completed, return to **Files \> Data Protection \>
-    Protected File Servers** in Prism Central and check the Active and
-    Standby File servers. (Active indicated by a green A)
+11. Once Failover is completed, return to **Files > Data Protection > Protected File Servers** in Prism Central and check the Active and Standby File servers. (Active indicated by a green A)
 
 12. Confirm that *initials*-files-dr (e.g. xyz-files-dr) server is now
     the active server
@@ -434,79 +365,64 @@ In this lab we will test a Planned Failover
 15. Browse to the location of your source share now hosted on PROD and
     DR Files server
 
-    -   Prod path - `\\xyz-files-prod.ntnxlab.local\xyz-prod-share`
-    -   DR path - `\\xyz-files-dr.ntnxlab.local\xyz-prod-share`
+    -   Prod path - ``\\xyz-files-prod.ntnxlab.local\xyz-prod-share``
+    -   DR path - ``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``
 
     ![](images/failover_repshare_prod.png)
 
-    This demonstrates that the users can access the share without having
-    the change the file server names providiing continuous aaccess to
-    the shares.
+     This demonstrates that the users can access the share without having the change the file server names providing continuous access to the shares.
 
 16. Logon to your AutoAD server and open DNS management (from Search
-    button \> type DNS )
+    button > type DNS )
 
     ![](images/failover_dns.png)
 
-    You can notice that both PROD and DR file servers have the same IP
-    address
+    You can notice that both PROD and DR file servers have the same IP address
 
-17. Go to **Data Protection \> Replication Jobs** and verify that the
-    source Files server is now *initials*-files-dr (e.g. xyz-files-dr)
-    server
+17. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now **initials**-files-dr (e.g. xyz-files-dr) server
 
     ![](images/failover_repjobs.png)
 
-18. Go to **Data Protection \> Policies** and verify a reverse
-    replication policy is present
+18. Go to **Data Protection > Policies** and verify a reverse replication policy is present
 
     ![](images/failover_reppolicy.png)
 
 19. The replication is now setup successfully
 
-20. Create some sample files in your share as shown here so Failback can
-    be tested
+20. Create some sample files in your share as shown here so Failback can be tested
 
     ![](images/failback_samplefiles.png)
 
-21. Wait for at least 10 minutes for the reverse replication schedule to
-    start
+21. Wait for at least 10 minutes for the reverse replication schedule to start
 
-22. Confirm at least one reverse replication schedule to PROD Files
-    server has successfully completed by going **Data Protection \>
-    Replication Jobs**
+22. Confirm at least one reverse replication schedule to PROD Files server has successfully completed by going **Data Protection > Replication Jobs**
 
 ### Failback Share
 
-In this section we will see how to failback a share to the Source site
-after the environment is recovered.
+In this section we will see how to failback a share to the Source site after the environment is recovered.
 
 In this lab we will test a Planned Failover
 
-1.  Go to **Prism Central \> Services \> Files** (if you are note
-    already on that page)
+1.  Go to **Prism Central > Services > Files** (if you are not already on that page)
 
-2.  Go to **Data Protection \> Protected File Servers**
+2.  Go to **Data Protection > Protected File Servers**
 
 3.  Click on **Failback** as shown here
 
     ![](images/failback_initial.png)
 
-4.  In the **Active Directory and DNS Configuration** fill the following
-    (to ensure access to files after failover)
+4.  In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
     -   **Username** - <administrator@ntnxlab.local>
     -   **Password** - nutanix/4u
     -   **Preferred Domain Controller** - ntnxlab.local
     -   **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
 
-5.  Select the **Use the same credentials as the Active Directory**
-    check-box (in our lab both the AD and DNS server are the same)
+5.  Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
 
 6.  Click on **Next**
 
-7.  Files now gives you a visual of the failed-back environment and
-    informs you that the Reverse Replciation policy will be deleted
+7.  Files now gives you a visual of the failed-back environment and informs you that the Reverse Replication policy will be deleted
 
     ![](images/failback_confirm.png)
 
@@ -514,40 +430,31 @@ In this lab we will test a Planned Failover
 
 9.  Monitor the Events in Prism Central
 
-10. Once the failover is done, go to your Windows Tools VM and logon to
-    the share hosted on PROD files server (e.g
-    `\\xyz-files-prod\xyz-prod-share\SampleData_Small\Sample Data` )
+10. Once the failover is done, go to your Windows Tools VM and logon to the share hosted on PROD files server (e.g
+    ``\\xyz-files-prod\xyz-prod-share\SampleData_Small\Sample Data`` )
 
-11. Logon to your AutoAD server once again and open DNS management (from
-    Search button \> type DNS )
+11. Logon to your AutoAD server once again and open DNS management (from Search button > type DNS )
 
     ![](images/failback_dns.png)
 
-    You can notice that the PROD file server has been reverted to the
-    previous IP address.
+    You can notice that the PROD file server has been reverted to the previous IP address.
 
-12. Logon to your AutoAD server once again and open DNS management (from
-    Search button \> type DNS )
+12. Logon to your AutoAD server once again and open DNS management (from Search button > type DNS )
 
     ![](images/failback_dns.png)
 
-    You can notice that the PROD file server has been reverted to the
-    previous IP address.
+    You can notice that the PROD file server has been reverted to the previous IP address.
 
 13. Note that the new files that were created when the share was on DR
     server are now present on the PROD server as well
 
     ![](images/failback_confirm_files.png)
 
-14. We have successfully failed back the share to the PROD site. Now
-    users can connect to the share as usual.
+14. We have successfully failed back the share to the PROD site. Now users can connect to the share as usual.
 
 ### Conclusion
 
-Nutanix Files Smart DR makes it easy for administrators to configure
-replication of shares between Nutanix Files servers without needing
-third-party integrations.
+Nutanix Files Smart DR makes it easy for administrators to configure replication of shares between Nutanix Files servers without needing third-party integrations.
 
-For information about Files Manager and Smart DR features, refer to this
-documentation
-[URL.](https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v2_0:fil-fm-dr-c.html)
+For information about Files Manager and Smart DR features, refer to this documentation
+[URL](https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v2_0:fil-fm-dr-c.html).
