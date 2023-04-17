@@ -1,6 +1,11 @@
-# Objects: Tiering {#objects_tiering}
+# Objects: Tiering 
 
-*The estimated time to complete this lab is 30 minutes.*
+!!!info
+        The estimated time to complete this lab is 45 minutes.
+
+
+!!!warning
+          You need a free AWS S3 account where you replicate S3 data to. You will create and replicate less than 50 MB of data in this section of lab which should not cost you anything. Please remember to clean up any data on the AWS side after finishing this lab.
 
 ## Overview
 
@@ -16,17 +21,16 @@ This will enable customers to do the following:
 -   Tier to third-party objects based cloud storage
 -   Reduce storage consumption and cost for storing data that are old
     and infrequently used
--   Take advantage of Nutanix Objects\' features to reduce cost on
+-   Take advantage of Nutanix Objects' features to reduce cost on
     destination S3 (AWS) PUT requests by grouping objects by application
     in a big chunk
--   Decouple the application from managing storage and have Nutanix\'s
+-   Decouple the application from managing storage and have Nutanix's
     proven HCI Storage features to effectively manage data
 -   Use industry standards for Objects like storage
 
 ## Possible Tiering Configurations
 
-Nutanix Objects is capable of tiering to any S3 compatible objects store
-provider.
+Nutanix Objects is capable of tiering to any S3 compatible objects store provider.
 
 ![](images/tieringdesign1.png)
 
@@ -64,11 +68,9 @@ At high level we will implement the following:
 -   Setup Endpoint in Object Store configuration
 -   Setup Lifecycle policies in Buckets configuration
 
-This lab requires applications provisioned as part of the
-`windows_tools_vm`{.interpreted-text role="ref"}.
+This lab requires applications provisioned as part of the Windows Tools VM. 
 
 **Google Chrome is recommended for this lab.**
-
 ### Creating AWS S3 Bucket as Tiering Destination
 
 In this section you will configure AWS S3 bucket, set up access
@@ -110,7 +112,7 @@ MB.
 1.  Go to your AWS IAM Management Console
     <https://console.aws.amazon.com/iamv2>
 
-2.  Select **Users \> Add User**
+2.  Select **Users > Add User**
 
 3.  Enter **lnb-bucket-user** as the user name
 
@@ -118,12 +120,11 @@ MB.
 
 5.  In the next window, select **Add user to group**
 
-6.  Since we don\'t have group yet, click on **Create group**
+6.  Since we don't have group yet, click on **Create group**
 
     ![](images/tiering3.png)
 
-7.  Enter **s3access** as the user group name (could be any name that is
-    easy to identify)
+7.  Enter **s3access** as the user group name (could be any name that is easy to identify)
 
 8.  In the **Filter Policies** input type **s3** and choose
     **AmazonS3FullAccess** as the policy. This provides all permissions.
@@ -147,14 +148,9 @@ MB.
 
 14. Download access and secret key CSV file
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!warning
 
-    Make sure to download this CSV file and store it securely, as it
-    will be only possible to do this once
-    :::
+              Make sure to download this CSV file and store it securely, as it  will be only possible to do this once
 
     ![](images/tiering6.png)
 
@@ -165,15 +161,13 @@ You have successfully setup access to your AWS S3 bucket
 ### Setup Endpoint in Object Store Configuration
 
 In this section you will setup endpoints for tiering from Nutanix
-Objects that you created in `objects_deploy`{.interpreted-text
-role="ref"} to AWS S3.
+Objects that has been pre-deployed for you to AWS S3.
 
 #### Configure Endpoint
 
 1.  Login into your Prism Central instance.
 
-2.  In Prism Central, select `bars`{.interpreted-text role="fa"} **\>
-    Services \> Objects**
+2.  In Prism Central, select :fontawesome-solid-bars: **> Services > Objects**
 
 3.  Choose your Objects Store
 
@@ -184,56 +178,44 @@ role="ref"} to AWS S3.
 
 5.  Select **Tiering Endpoint** and click on **Create**
 
-    If you are first person to create a tiering endpoint, click on **+
-    Add**
+    If you are first person to create a tiering endpoint, click on **+Add**
 
     ![](images/tiering8.png)
 
-6.  In the add enpoint wizard, enter the following details
+6.  In the add endpoint wizard, enter the following details
 
-    -   Name of the Endpoint - **AWS Tiering Endpoint** (give an easily
-        identifiable name)
+    -   Name of the Endpoint - **AWS Tiering Endpoint** (give an easily identifiable name)
     -   Endpoint Type - **Nutanix Objects**
-    -   Service Host - **s3.ap-southeast-2.amazonaws.com** (this will
-        change depending on your AWS region)
-    -   Bucket Name - **lnb-bucket** (this is the name of the bucket you
-        created in previous section in AWS)
-    -   Access Key - **access key from CSV you downloaded** in the
-        previous section
-    -   Secret Key - **secret key from CSV you downloaded** in the
-        previous section
+    -   Service Host - **s3.ap-southeast-2.amazonaws.com** (this will change depending on your AWS region)
+    -   Bucket Name - **lnb-bucket** (this is the name of the bucket you created in previous section in AWS)
+    -   Access Key - **access key from CSV you downloaded** in the previous section
+    -   Secret Key - **secret key from CSV you downloaded** in the previous section
     -   Skip SSL certificate validation - **Checked**
 
     ![](images/tiering9.png)
 
 7.  Click on **Save**
 
-8.  You will now be able to see the endpoint in your Object Store
-    configuration
+8.  You will now be able to see the endpoint in your Object Store configuration
 
     ![](images/tiering10.png)
 
 You have successfully setup a tiering endpoint which resides in AWS.
-
 #### Configure Lifecycle Policies
 
 Lifecycle policies allows to schedule tiering from source bucket to
 target bucket irrespective of the location.
 
 In this section we will create a lifecycle policy to tier data from
-Nutanix Object\'s bucket that you created in
-`objects_versioning_access_control`{.interpreted-text role="ref"} to the
+Nutanix Object 's bucket that you created in [Objects Versioning](../objects_versioning_access_control/objects_versioning_access_control.md) to the
 AWS bucket you created earlier.
 
-1.  In Prism Central, select `bars`{.interpreted-text role="fa"} **\>
-    Services \> Objects**
+1.  In Prism Central, select :fontawesome-solid-bars: **> Services > Objects**
 
 2.  Choose your Objects Store
 
-3.  Click your source bucket *your-name*-**my-bucket** (the one you
-    created in here
-    `objects_buckets_users_access_control`{.interpreted-text
-    role="ref"})
+3.  Click your source bucket **your-name-my-bucket** (the one you
+    created in here [Buckets & UAC](../objects_buckets_users_access_control/objects_buckets_users_access_control.md))
 
     ![](images/tiering11.png)
 
@@ -242,32 +224,26 @@ AWS bucket you created earlier.
     ![](images/tiering12.png)
 
 5.  Enter a meaningful name that you can identify, for example
-    **tier-to-aws-ap-southeast-2.amazonaws.com** which specifies the
-    region of tiered data
+    ``tier-to-aws-ap-southeast-2.amazonaws.com`` which specifies the region of tiered data
 
 6.  Choose **All Objects**
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!tip
 
-    Note that you are also able to use **tags** as an option to select
-    the objects to replicate. Make sure to explain this selection
-    feature to a end-user.
-    :::
-
+           Note that you are also able to use **tags** as an option to select
+           the objects to replicate. Make sure to explain this selection
+           feature to a end-user customer.
+   
     ![](images/tiering13.png)
 
 7.  Click on **Next**
 
 8.  Select **AWS Tiering Endpoint**
 
-9.  Set tiering to **1** days after objects creation date in the source
-    bucket
+9.  Set tiering to **1** days after objects creation date in the source bucket
 
 10. You can select expiration to **2** days as well in the destination
-    storage as an example. This is to make sure you don\'t run into a
+    storage as an example. This is to make sure you don't run into a
     huge bill in the public cloud for testing purposes.
 
 11. Click on **Add Action** and choose another expire Action
@@ -285,35 +261,24 @@ AWS bucket you created earlier.
 
 #### Verify Tiering
 
-In this section we will verify the tiering status in the source and
-destination side.
+In this section we will verify the tiering status in the source and destination side.
 
 1.  Since your source bucket is already populated with data the tiering
     will start after one day
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note 
 
-    If you are only doing Objects Tiering lab:
+           If you are only doing Objects Tiering lab:
+       
+           1.  Create your source bucket using the procedure in [Objects Versioning](../objects_versioning_access_control/objects_versioning_access_control.md)
+               
+           2.  Populate your source bucket with objects (data) using procedure in [CLI and Scripts](../objects_cli_scripts/objects_cli_scripts.md#uploading-multiple-files-to-buckets-with-python)
 
-    1.  Create your source bucket using the procedure in *Create Bucket
-        In Prism* section in
-        `objects_versioning_access_control`{.interpreted-text
-        role="ref"}
-    2.  Populate your source bucket with objects (data) using procedure
-        *Uploading Multiple Files to Buckets with Python)* in
-        `objects_cli_scripts`{.interpreted-text role="ref"}
-    :::
-
-2.  Once tiering is successful, you will see Tiering status on you
-    source bucket **your-name-my-bucket \> Summary**
+2.  Once tiering is successful, you will see Tiering status on your source bucket **your-name-my-bucket > Summary**
 
     ![](images/tiering16.png)
 
-3.  On the destination AWS **lnb-bucket** you will see data as follows:
-    note that this may be different for your bucket.
+3.  On the destination AWS **lnb-bucket** you will see data as follows: note that this may be different for your bucket.
 
     ![](images/tiering17.png)
 

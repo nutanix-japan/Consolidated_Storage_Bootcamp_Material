@@ -1,6 +1,7 @@
-# Objects: Using From CLI & Scripts {#objects_cli_scripts}
+# Objects: Using From CLI & Scripts
 
-*The estimated time to complete this lab is 60 minutes.*
+!!!info
+       The estimated time to complete this lab is 60 minutes.
 
 ## Overview
 
@@ -10,94 +11,98 @@ While tools like the Object Browser help to visualize how data is access
 within an object store, Buckets is primarily an object store service
 that is designed to be accessed and consumed over S3 APIs.
 
-Amazon\'s S3 (Simple Storage Service) is the largest public cloud
+Amazon's S3 (Simple Storage Service) is the largest public cloud
 storage service, and has subsequently become the de-facto standard
 object storage API due to developer and ISV adoption. Buckets provides
 an S3 compliant interface to allow for maximum portability, as well as
-support for existing \"cloud native\" applications.
+support for existing cloud native applications.
 
-In this exercise you will leverage `s3cmd` to access your buckets using
+In this exercise you will leverage ``s3cmd`` to access your buckets using
 the CLI.
 
-You will need the **Access Key** and **Secret Key** for the user created
-earlier in this lab.
+You will need the **Access Key** and **Secret Key** for the user created earlier in this lab.
 
 ### Setting up s3cmd (CLI)
 
 This section of the lab is done on using Linux Tools VM.
 
-If it is not already present in your HPOC, create Linux Tools VM using
-instructions in `linux_tools_vm`{.interpreted-text role="ref"}
-
-1.  Login to the *initials*-**Linux-ToolsVM**, with the following
+1.  Login to the **initials-Linux-ToolsVM**, with the following
     credentials
 
     -   **Username** - root
     -   **Password** - default nutanix password
 
-2.  Run `s3cmd --configure` and enter the following to configure access
-    to the Object Store:
+2.  Run the following command to configure access to the Object Store:
 
-    ::: note
-    ::: title
-    Note
-    :::
-    :::
+    !!!note
 
-    For anything not specified below, just hit enter to leave the
-    defaults. Do **NOT** set an encryption password and do **NOT** use
-    HTTPS protocol.
+           For anything not specified below, just hit enter to leave the defaults. Do **NOT** set an encryption password and do **NOT** use HTTPS protocol.
 
-    ``` bash
+
+    ```bash
     s3cmd --configure
-
-    - **Access Key**  - *Access Key*
-    - **Secret Key**  - *Secret Key*
-    - **Default Region [US]**  - us-east-1
-    - **S3 Endpoint [s3.amazonaws.com]**  - *OBJECT-STORE-IP*
-    - **DNS-style bucket+hostname:port template for accessing a bucket [%(bucket)s.s3.amazonaws.com]**  - *OBJECT-STORE-IP*\ :80
-    - **Encryption password** - Leave Blank
-    - **Path to GPG program [/usr/bin/gpg]**  - Leave Blank
-    - **Use HTTPS protocol [Yes]**  - No
-    - **HTTP Proxy server name**  - Leave Blank
-    - **Test access with supplied credentials?**  - Y (Yes)
     ```
+    The execution will be as follows: see tabs for template and a sample execution 
 
-3.  The output should look similar to this and match your environment:
+    === "Template Command Execution"
 
-    ``` bash
-    New settings:
-      Access Key: Ke2hEtehmOZoXYCrQnzUn_2EDD9Eqf0L
-      Secret Key: p6sxh_FhxEyIteslQJKfDlezKrtJro9C
-      Default Region: us-east-1
-      S3 Endpoint: 10.20.95.51
-      DNS-style bucket+hostname:port template for accessing a bucket: 10.20.95.51:80
-      Encryption password:
-      Path to GPG program: /usr/bin/gpg
-      Use HTTPS protocol: False
-      HTTP Proxy server name:
-      HTTP Proxy server port: 0
+        ``` { .text .no-copy }
+        s3cmd --configure
+        #
+        - Access Key  - **Access Key**
+        - Secret Key  - **Secret Key**
+        - Default Region [US]**  - us-east-1
+        - S3 Endpoint [s3.amazonaws.com]**  - *OBJECT-STORE-IP*
+        - DNS-style bucket+hostname:port template for accessing a bucket [%(bucket)s.s3.amazonaws.com]**  - *OBJECT-STORE-IP*\ :80
+        - Encryption password** - Leave Blank
+        - Path to GPG program [/usr/bin/gpg]**  - Leave Blank
+        - Use HTTPS protocol [Yes]**  - No
+        - HTTP Proxy server name**  - Leave Blank
+        
+        Test access with supplied credentials? [Y/n] y
+        Please wait, attempting to list all buckets...
+        Success. Your access key and secret key worked fine :-)
+    
+        Now verifying that encryption works...
+        Not configured. Never mind.
+    
+        Save settings? [y/N] y
+        Configuration saved to '/root/.s3cfg'
+        ```
 
-    Test access with supplied credentials? [Y/n] y
-    Please wait, attempting to list all buckets...
-    Success. Your access key and secret key worked fine :-)
+    === "Sample Command Execution"
 
-    Now verifying that encryption works...
-    Not configured. Never mind.
+        ``` { .text .no-copy }
+        s3cmd --configure
+        #
+        - Access Key: Ke2hEtehmOZoXYCrQnzUn_2EDD9Eqf0L
+        - Secret Key: p6sxh_FhxEyIteslQJKfDlezKrtJro9C
+        - Default Region: us-east-1
+        - S3 Endpoint: 10.20.95.51
+        - DNS-style bucket+hostname: port template for accessing a bucket: 10.20.95.51:80
+        - Encryption password:
+        - Path to GPG program: /usr/bin/gpg
+        - Use HTTPS protocol: False
+        - HTTP Proxy server name:
+    
+        Test access with supplied credentials? [Y/n] y
+        Please wait, attempting to list all buckets...
+        Success. Your access key and secret key worked fine :-)
+    
+        Now verifying that encryption works...
+        Not configured. Never mind.
+    
+        Save settings? [y/N] y
+        Configuration saved to '/root/.s3cfg'
+        ```
 
-    Save settings? [y/N] y
-    Configuration saved to '/root/.s3cfg'
-    ```
+3.  Type **Y** and press **Return** to save the configuration.
 
-4.  Type **Y** and press **Return** to save the configuration.
-
-5.  Type on Linux Tools VM `nano .s3cfg` then edit the value
-    *signature_v2 = True*
+4.  Type on Linux Tools VM `nano .s3cfg` then edit the value ``signature_v2 = True``
 
 ### Create A Bucket And Add Objects To It Using s3cmd (CLI)
 
-1.  Now let\'s use s3cmd to create a new bucket called
-    *your-name***-clibucket**.
+1.  Now let's use s3cmd to create a new bucket called **your-name-clibucket**.
 
 2.  From the same Linux command line, run the following command:
 
@@ -111,7 +116,7 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
     Bucket 's3://yourname-clibucket/' created
     ```
 
-4.  List your bucket with the **ls** command:
+4.  List your bucket with the ``ls`` command:
 
     ``` bash
     s3cmd ls
@@ -125,10 +130,9 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
     s3cmd ls | grep yourname
     ```
 
-7.  Now that we have a new bucket, let\'s upload some data to it.
+7.  Now that we have a new bucket, let's upload some data to it.
 
-8.  If you do not already have the Sample-Pictures.zip, download it to
-    your Linux-ToolsVM.
+8.  If you do not already have the Sample-Pictures.zip, download it to your Linux-ToolsVM.
 
     ``` bash
     curl https://peerresources.blob.core.windows.net/sample-data/SampleData_Small.zip -O -J -L
@@ -143,19 +147,9 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
     ls sample-pictures
     ```
 
-10. Run the following command to upload one of the images to your
-    bucket:
+10. Run the following command to upload one of the images to your bucket:
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Make sure to replace \$IMAGENAME with an image name listed from the
-    previous step
-    :::
-
-    ``` bash
+    ```bash title="Make sure to replace $IMAGENAME with an image name listed from the previous step"
     cd sample-pictures
     s3cmd put --acl-public --guess-mime-type $IMAGENAME s3://<your-bucket-name>/$IMAGENAME
     ```
@@ -163,10 +157,9 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
 11. You should see the following output:
 
     ``` bash
-    #example command and output 
-
     s3cmd put --acl-public --guess-mime-type yahoo-identity-provider-config.png s3://lb-cli-bucket/yahoo-identity-provider-config.png
-
+    ```
+    ``` { .bash .no-copy }
     upload: 'yahoo-identity-provider-config.png' -> 's3://lb-cli-bucket/yahoo-identity-provider-config.png'  [1 of 1]
     63937 of 63937   100% in    0s     4.51 MB/s  done
     Public URL of the object is: http://10.38.188.18/lb-clibucket/yahoo-identity-provider-config.png
@@ -192,7 +185,7 @@ While tools like the Objects Browser help to visualize how data is
 access within an object store, Nutanix Objects is primarily an object
 store service that is designed to be accessed and consumed over S3 APIs.
 
-Amazon Web Services\'s S3 (Simple Storage Service) is the largest public
+Amazon Web Services's S3 (Simple Storage Service) is the largest public
 cloud storage service, and has subsequently become the de-facto standard
 object storage API due to developer and ISV adoption. Objects provides
 an S3 compliant interface to allow for maximum portability, as well as
@@ -216,20 +209,16 @@ connection.
     **endpoint_ip**, **access_key_id**, and **secret_access_key** values
     before saving the script.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    If you are not comfortable with `vi` or alternative command line
-    text editors, you can modify the script in a GUI text editor then
-    paste the completed script into `vi`.
-
-    In `vi`, type `i` and then right-click to paste into the text file.
-
-    Press **Ctrl + C** then type `:wq` and press **Return** to save the
-    file.
-    :::
+           If you are not comfortable with `vi` or alternative command line
+           text editors, you can modify the script in a GUI text editor then
+           paste the completed script into `vi`.
+       
+           In `vi`, type `i` and then right-click to paste into the text file.
+       
+           Press **Ctrl + C** then type `:wq` and press **Return** to save the
+           file.
 
     ``` python
     #!/usr/bin/python
@@ -241,7 +230,7 @@ connection.
     endpoint_ip="OBJECT-STORE-IP" #Replace this value
     access_key_id="ACCESS-KEY" #Replace this value
     secret_access_key="SECRET-KEY" #Replace this value
-    endpoint_url= "https://"+ endpoint_ip +":443"
+    endpoint_url= "https://"+ endpoint_ip +":443" 
 
     session = boto3.session.Session()
     s3client = session.client(service_name="s3", aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key, endpoint_url=endpoint_url, verify=False)
@@ -252,13 +241,12 @@ connection.
     for b in response['Buckets']:
       print (b['Name'])
     ```
-
+    
 2.  Execute `python list-buckets.py` to run the script. Verify that the
     output lists any buckets you have created for using your first user
     account.
 
-3.  Using the previous script as a base, and the [Boto 3
-    documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-examples.html),
+3.  Using the previous script as a base, and the [Boto 3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-examples.html),
     can you modify the script to create a **new** bucket and then list
     all buckets?
 
@@ -327,9 +315,11 @@ connection.
     Execute the script and use the following command to verify that the
     sample files are available.
 
-    ``` bash
+    ```bash
     s3cmd ls s3://yourname-clibucket/
+    ```
 
+    ``` { .bash .no-copy }
     # example command and output
 
     s3cmd ls s3://lb-clibucket/

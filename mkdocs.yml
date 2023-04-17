@@ -39,6 +39,7 @@ theme:
   - search.highlight
   - search.suggest
   - toc.follow
+  - content.code.copy
   palette:
 
     #Palette toggle for automatic mode
@@ -88,5 +89,7 @@ nav:
       - 'Replication': files_replication/files_replication.md
     - Objects:
       - 'Buckets & UAC': objects_buckets_users_access_control/objects_buckets_users_access_control.md
-      - 'Versioning & UAC':  objects_versioning_access_control/objects_versioning_access_control
+      - 'Versioning':  objects_versioning_access_control/objects_versioning_access_control
+      - 'Access from CLI and Scripts': objects_cli_scripts/objects_cli_scripts.md
+      - 'Tiering': objects_tiering/objects_tiering.md
 
