@@ -1,6 +1,7 @@
-# Objects: Deploy {#objects_deploy}
+# Objects: Deploy
 
-*The estimated time to complete this lab is 60 minutes.*
+!!!note
+       The estimated time to complete this lab is 10 minutes
 
 ## Overview
 
@@ -29,47 +30,37 @@ S3-compatible applications.
 
 **What are the use cases for Nutanix Objects?**
 
--   
+-   DevOps
 
-    DevOps
+    -   Single global namespace for multi-geography collaboration for teams spread around the world
+    -   S3 support
+    -   Time-to-first-byte of 10ms or less
 
-    :   -   Single global namespace for multi-geography collaboration
-            for teams spread around the world
-        -   S3 support
-        -   Time-to-first-byte of 10ms or less
+-  Long Term Data Retention
 
--   
+    -   WORM compliance
+    -   Object versioning
+    -   Lifecycle policies
 
-    Long Term Data Retention
-
-    :   -   WORM compliance
-        -   Object versioning
-        -   Lifecycle policies
-
--   
-
-    Backup Target
-
-    :   -   Support for HYCU, Commvault, Veeam, and Veritas, with other
-            vendors on the roadmap.
-        -   Ability to support multiple backup clients simultaneously.
-        -   Ability to handle really small and really large backup files
-            simultaneously with a key-value store based metadata
-            structure and multi-part upload capabilities.
+-  Backup Target
+   
+    -   Support for HYCU, Commvault, Veeam, and Veritas, with other vendors on the roadmap.
+    -   Ability to support multiple backup clients simultaneously.
+    -   Ability to handle really small and really large backup files
+        simultaneously with a key-value store based metadata
+        structure and multi-part upload capabilities.
 
 **In this lab, you will walk through a Nutanix Objects deployment and
 learn how to create, access, and manage buckets.**
 
-For more information on Objects, please visit our website at
-<http://www.nutanix.com/products/objects> or send an e-mail to
-<objects@nutanix.com> to contact the Nutanix Objects team!
+For more information on Objects, please visit our [website](http://www.nutanix.com/products/objects) or send an [e-mail](objects@nutanix.com) to contact the Nutanix Objects team!
 
 ## Lab Setup
 
-This lab requires applications provisioned as part of the
-`windows_tools_vm`{.interpreted-text role="ref"}.
+This lab requires applications provisioned as part of the Windows Tools VM which is pre-deployed for you.
 
-**Google Chrome is recommended for this lab.**
+!!!note
+        Google Chrome is required for this lab.
 
 ## Getting Familiar with Object Storage
 
@@ -96,39 +87,32 @@ You will learn:
 
 1.  Login into your Prism Central instance.
 
-2.  In Prism Central, select `bars`{.interpreted-text role="fa"} **\>
-    Services \> Objects**.
+2.  In Prism Central, select :fontawesome-solid-bars: **> Services > Objects**.
 
     View the existing Object Stores. You will be using the
     **ntnx-objects** Object Store throughout this lab.
 
-3.  Select `bars`{.interpreted-text role="fa"} **\> Virtual
-    Infrastructure \> VMs**.
+3.  Select :fontawesome-solid-bars: **> Virtual
+    Infrastructure > VMs**.
 
     For the lab deployment, you will see 2 VMs, each preceded with the
     name of the object store.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!info "Objects VM Resource Requirements"
 
-    In a production environment, there would be at a least 5 VMs - 3
-    worker VMs (default) and 2 load balancers (envoy). In Medium and
-    Large deployments there would be additional worker and load balancer
-    VMs.
-    :::
+            In a production environment, there would be at a least 5 VMs - 3
+            worker VMs (default) and 2 load balancers (envoy). In Medium and
+            Large deployments there would be additional worker and load balancer
+            VMs.
 
-    For example, if the name of the object store is **ntnx-objects**,
-    there will be a VM with the name **ntnx-objects-envoy-1**.
+            For example, if the name of the object store is **ntnx-objects**,
+            there will be a VM with the name **ntnx-objects-envoy-1**.
 
-    +----------------+-------------------------------+---------------------+
-    | VM             | Purpose                       | vCPUs \| Memory     |
-    +================+===============================+=====================+
-    | > default-0    | > Kubernetes Node             | > 10 \| 32 GiB      |
-    +----------------+-------------------------------+---------------------+
-    | > envoy-0      | > Load Balancer / Endpoint    | > 2 \| 4 GiB        |
-    +----------------+-------------------------------+---------------------+
+            | VM             | Purpose                       | vCPUs | Memory     |
+            |----------------|-------------------------------|---------|-----------|
+            | default-0    |  Kubernetes Node             | 10 | 32 GiB      |
+            | envoy-0      |  Load Balancer / Endpoint    |  2 | 4 GiB        |
+      
 
 These VMs are deployed by the Microservices Platform (MSP), the
 Kubernetes-based platform on which multiple future Nutanix services will
@@ -169,22 +153,18 @@ running as part of the object-controller pod).
 In this exercise you will walk through the steps of creating an Object
 Store.
 
-```{=html}
-<strong><font color="red">You will not actually deploy the Object Store, but you will be able to see the workflow and how simple it is for users to deploy an Object Store.</font></strong>
-```
-::: note
-::: title
-Note
-:::
+!!!warning 
 
-In many use cases only a single object store is required. If global
-namespace isolation is required, for example if a Service Provider is
-providing object storage to multiple customers from the same cluster,
-then multiple object stores can be created.
-:::
+       You will not actually deploy the Object Store, but you will be able to see the workflow and how simple it is for users to deploy an Object Store.
 
-1.  In Prism Central, select `bars`{.interpreted-text role="fa"} **\>
-    Services \> Objects**, click **Create Object Store**.
+???info "Are you thinking of a Global namespace design?"
+
+       In many use cases only a single object store is required. If global
+       namespace isolation is required, for example if a Service Provider is
+       providing object storage to multiple customers from the same cluster,
+       then multiple object stores can be created.
+
+1.  In Prism Central, select :fontawesome-solid-bars: **>Services > Objects**, click **Create Object Store**.
 
     ![](images/buckets_01.png)
 
@@ -207,7 +187,7 @@ then multiple object stores can be created.
     static IPs (2 IPs required)
 
     Select two available IPs in your network (just ping a few IPs in
-    your cluster\'s subnet to check if they are avaialable or use a port
+    your cluster's subnet to check if they are avaialable or use a port
     scanner to determine this)
 
     ![](images/buckets_03.png)
@@ -220,7 +200,7 @@ then multiple object stores can be created.
     Object Store Storage Network static IPs (4 IPs required)
 
     Select four available IPs in your network (just ping a few IPs in
-    your cluster\'s subnet to check if they are avaialable or use a port
+    your cluster's subnet to check if they are avaialable or use a port
     scanner to determine this)
 
     ![](images/buckets_04.png)
@@ -236,7 +216,7 @@ then multiple object stores can be created.
     ![](images/buckets_05.png)
 
 13. **Do not** click on the Create Object Store button. The HPOC
-    doesn\'t have enough resources to be able to host another Objects
+    doesn't have enough resources to be able to host another Objects
     Store.
 
 ## Takeaways
@@ -246,6 +226,5 @@ What are the key things you should know about **Nutanix Objects**?
 -   Nutanix Objects provides a simple and scalable S3-compatible object
     storage solution, optimized for DevOps, Long Term Retention and
     Backup Target use cases.
--   Nutanix Objects can be deployed on an AHV cluster, with ESXi support
-    on the roadmap.
+-   Nutanix Objects can be deployed on an AHV and ESXi clusters on Nutanix.
 -   Nutanix Objects will be enabled and deployed from Prism Central.

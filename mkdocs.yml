@@ -96,4 +96,6 @@ nav:
     - 'Optional Labs':
       - 'Deploy Nutanix Files': files_deploy/files_deploy.md
       - 'Expand Files Cluster': files_expand_cluster/files_expand_cluster.md
+      - 'Files Manager': files_manager/files_manager.md
+      - 'Deploy Nutanix Objects': objects_deploy/objects_deploy.md
 

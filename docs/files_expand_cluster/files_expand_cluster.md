@@ -2,7 +2,7 @@
 
 ## Overview
 
-!!!info
+!!!warning
 
        This lab can only be done on a HPOC with more than 1 node. Single Node
        HPOC clusters cannot be used to run this lab.

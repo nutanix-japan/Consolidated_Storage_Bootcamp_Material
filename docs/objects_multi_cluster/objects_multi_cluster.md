@@ -21,13 +21,14 @@ cluster that meets the following criteria:
 -   Is running AOS 5.11.2+
 -   Located in same datacenter as primary cluster
 
-**Note: Multi-Cluster is not suitable for cross-WAN communication.**
+!!!warning
+          Multi-Cluster is not suitable for cross-WAN communication
 
 ## Lab Setup
 
-**In this lab, you will only walk through a Nutanix Objects
+In this lab, you will only walk through a Nutanix Objects
 Multi-Cluster feature assuming your Prism Central has two registered
-Prism Element clusters**
+Prism Element clusters
 
 ![](images/mc-07.png)
 
@@ -36,7 +37,7 @@ At high level we will implement the following:
 -   An Objects instance that utilizes the storage of two AOS clusters
 
 !!!note
-        **Google Chrome is required for this lab.**
+        Google Chrome is required for this lab.
 
 ### Setup Objects Multi-Cluster
 
@@ -87,8 +88,8 @@ Objects deployment.
     !!!note
 
            Secondary cluster storage will be made available within just a
-           couple of minutes after adding it to Multi-Cluster
-           
+           couple of minutes after adding it to Multi-Cluster.
+
 
     ![](images/mc-06.png)
 

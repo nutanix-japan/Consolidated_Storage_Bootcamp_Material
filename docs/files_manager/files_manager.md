@@ -1,9 +1,3 @@
-::: {#files_manager}
-::: title
-Files: Files Manager
-:::
-:::
-
 # Files: Files Manager
 
 Smart DR feature for Files share replication is activated and maintained
@@ -28,7 +22,7 @@ Enable the Files Manager service on PC
 
 2.  Click the collapsed menu icon
 
-3.  In the **Services** \> **Files**
+3.  In the **Services** > **Files**
 
     ![](images/files_manager.png)
 
@@ -42,17 +36,10 @@ Unable to see any new features (Data Protection)?
 
 Upgrading Files Manager in LCM might help. See the section below to
 upgrade Files Manager in LCM.
-
-::: {#files_manager_upgrade}
-::: title
-Files: Files Manager Upgrade
-:::
-:::
-
 ## Upgrading Files Manager
 
 Files Manger introduces new features and bug fixes with updates. For
-example, Files Manager version 2.0.0 inroduced Smart DR (Disaster
+example, Files Manager version 2.0.0 introduced Smart DR (Disaster
 Recover) feature.
 
 You can perform Files Manager updates using the Life-Cycle Manager
@@ -65,7 +52,7 @@ Management.
 
 2.  Select **Lcm** from the search result
 
-3.  In **Lcm**, click on **Inventory**
+3.  In **LCM**, click on **Inventory**
 
 4.  If **Inventory** doesn\'t show any existing software versions, click
     on **Perform Inventory**
@@ -74,16 +61,12 @@ Management.
 
 5.  Click on **Proceed** in the confirmation window
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!info
 
-    The Inventory operation may take up to 30 minutes
-    :::
+            The Inventory operation may take up to 30 minutes
 
-6.  Once the Inventory operation is finished, Click on **LCM \> Updates
-    \> Software** to check the available updates for software in your
+6.  Once the Inventory operation is finished, Click on **LCM > Updates
+    > Software** to check the available updates for software in your
     Nutanix clusters
 
     ![](images/lcm_inventory_result.png)
@@ -103,15 +86,11 @@ Management.
 
 10. Click on **Apply 1 Updates**
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    The number of updates to apply might vary from your choice of
-    software that you choose to upgrade. Since Files Manager is the only
-    software we are upgrading in this labs, so it is showing 1 update.
-    :::
+           The number of updates to apply might vary from your choice of
+           software that you choose to upgrade. Since Files Manager is the only
+           software we are upgrading in this labs, so it is showing 1 update.
 
 11. Confirm that the updates are succesful
 
@@ -125,11 +104,8 @@ Management.
 
     ![](images/files_manager_updated_version.png)
 
-14. Go back to **Prism Central** \> **Services** \> **Files**
+14. Go back to **Prism Central** > **Services** > **Files**
 
 15. Verify that the Data Protection features are present
 
     ![](images/files_manager_data_protection.png)
-
-16. You can now proceed with the `files_replication`{.interpreted-text
-    role="ref"} lab if required
