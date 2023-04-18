@@ -33,7 +33,7 @@ theme:
   - navigation.tracking
   - navigation.footer
   # - navigation.sections # leave this commented for sections
-  - navigation.expand
+  # - navigation.expand
   - navigation.top
   - navigation.integrate
   - search.highlight
@@ -78,18 +78,21 @@ markdown_extensions:
 plugins:
     - search
 
-
 nav:
     - Home: index.md
     - Files:
       - 'SMB Share': files_smb_share/files_smb_share.md
       - 'NFS Share': files_nfs_export/files_nfs_export.md
       - 'Blocking': files_file_blocking/files_file_blocking.md
-      - 'Multi-protocol': files_multiprotocol/files_multiprotocol.md
+      - 'Multiprotocol': files_multiprotocol/files_multiprotocol.md
       - 'Replication': files_replication/files_replication.md
     - Objects:
       - 'Buckets & UAC': objects_buckets_users_access_control/objects_buckets_users_access_control.md
       - 'Versioning':  objects_versioning_access_control/objects_versioning_access_control
       - 'Access from CLI and Scripts': objects_cli_scripts/objects_cli_scripts.md
       - 'Tiering': objects_tiering/objects_tiering.md
+      - 'Multiprotocol': objects_multiprotocol/objects_multiprotocol.md
+      - 'Multi-cluster': objects_multi_cluster/objects_multi_cluster.md
+    - 'Optional Labs':
+      - 'Deploy Nutanix Files': files_deploy/files_deploy.md
 

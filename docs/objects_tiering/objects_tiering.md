@@ -293,9 +293,9 @@ Tiering(Lifecycle Policies)**?
     object stores (cloud and on-premises)
 -   Tiering policies needs to configured at the source (provider) of the
     bucket
-    -   for example: Tiering from Nutanix Objects to AWS needs to be
+    -   For example: Tiering from Nutanix Objects to AWS needs to be
         configured at Nutanix PC
-    -   for example: Tiering from AWS S3 to AWS Glacier needs to be
+    -   For example: Tiering from AWS S3 to AWS Glacier needs to be
         configured at AWS Console
 -   Nutanix enables applications to store and tier data to any S3-based
     object storage without lock-in

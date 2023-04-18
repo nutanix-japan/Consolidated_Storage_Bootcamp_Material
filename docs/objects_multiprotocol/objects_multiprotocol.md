@@ -1,15 +1,15 @@
-# Objects: Multi-Protocol {#objects_multiprotocol}
+# Objects: Multiprotocol
 
 In this section, we will see how to create a bucket and let a NFS client
 access this to be able to do regular folder and files operations.
 
--   Objects multi-protocol is a new feature with Objects 3.3.1
--   Multi-protocol feature only works with a fresh install of Object
+-   Objects multiprotocol is a new feature with Objects 3.3.1
+-   Multiprotocol feature only works with a fresh install of Object
     3.3.1 onwards
-    -   Upgrading existing Objects 3.2.1 to 3.3.1 or above doesn\'t
+    -   Upgrading existing Objects 3.2.1 to 3.3.1 or above doesn't
         allow for this functionality (this is due to a MSP integration
         issue. Might be resolved in future)
--   Multi-protocol enabled bucket doesn\'t support versioning of objects
+-   Multiprotocol enabled bucket doesn't support versioning of objects
     that it hosts
 -   This lab uses a fresh install of Objects 3.4.0.2 - Objects
     multiprotocol feature is available as is
@@ -19,10 +19,10 @@ access this to be able to do regular folder and files operations.
 We will do the following in this lab:
 
 -   Configure NFS access to a specific NFS client (your
-    *Initials*-**Linux-ToolsVM**) for the objects store
+    **Initials-Linux-ToolsVM**) for the objects store
 -   Create bucket and specify NFS multiprotocol access
 -   Mount the bucket as a NFS share in the NFS client (your
-    *Initials*-**Linux-ToolsVM**)
+    **Initials*-Linux-ToolsVM**)
 -   Perform file and folder level operation in the NFS client
 -   Perform file and folder level operation in the objects browser
 
@@ -33,7 +33,7 @@ buckets using NFS3 protocol.
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services > Objects
 
 3.  Click on **ntnx-objects** Objects Store
 
@@ -41,7 +41,7 @@ buckets using NFS3 protocol.
 
 5.  Click on **NFS Clients Allowlist**
 
-6.  Click on \*\* Add Client\*\*
+6.  Click on **Add Client**
 
     ![](images/objects_nfs_allow.png)
 
@@ -50,16 +50,12 @@ buckets using NFS3 protocol.
 
     ![](images/objects_nfs_client.png)
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!note
 
-    You are also able to allow a range of clients by denoting the a CIDR
-    block
-
-    E.g. 10.42.32.192/`26` 10.42.4.128/`25`
-    :::
+           You are also able to allow a range of clients by denoting the a CIDR
+           block
+       
+           E.g. 10.42.32.192/`26` 10.42.4.128/`25`
 
 8.  Click on **+ Add** and **Save** at the bottom of the pop-up window
 
@@ -73,7 +69,7 @@ permissions to other users.
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services > Objects
 
 3.  Click on **ntnx-objects** Objects Store
 
@@ -88,15 +84,11 @@ permissions to other users.
 
 6.  For **Default Access Permissions** select in the following:
 
-    ::: note
-    ::: title
-    Note
-    :::
+    !!!warning
 
-    We are configuring all permissions and priveleges here. However in a
-    production environment you would be careful about giving the
-    appropriate permissions.
-    :::
+              We are configuring all permissions and priveleges here. However in a
+              production environment you would be careful about giving the
+              appropriate permissions.
 
     -   **Files**
         -   **Owner** - read, write, execute
@@ -114,26 +106,18 @@ permissions to other users.
 
 ## Buckets User Management
 
-::: note
-::: title
-Note
-:::
+!!!warning
 
-Perform these steps only if you **have not** created a user before and
-**have not** downloaded the access keys in the previous
-`objects_buckets_users_access_control`{.interpreted-text role="ref"}
-lab.
-:::
+          Perform these steps only if you **have not** created a user before and
+          **have not** downloaded the access keys in the previous [Buckets & UAC](../objects_buckets_users_access_control/objects_buckets_users_access_control.md) section.
 
-In this exercise you will create generate access and secret keys to
-access the object store, that will be used throughout the lab.
+In this exercise you will create generate access and secret keys to access the object store, that will be used throughout the lab.
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services > Objects
 
-3.  From the Objects UI, click on **Access Keys** and click **Add
-    People**.
+3.  From the Objects UI, click on **Access Keys** and click **Add People**.
 
     ![](images/objects_add_people.png)
 
@@ -148,7 +132,7 @@ access the object store, that will be used throughout the lab.
 
     ![](images/objects_add_people_04.png)
 
-7.  Click **Download Keys** to download a .txt file containing the
+7.  Click **Download Keys** to download a ``.txt`` file containing the
     **Access Key** and **Secret Key**.
 
     ![](images/buckets_add_people3.png)
@@ -159,21 +143,21 @@ access the object store, that will be used throughout the lab.
 
     ![](images/buckets_csv_file.png)
 
-## Adding Users to Buckets Share {#buckets_sharing}
+## Adding Users to Buckets Share
 
-In this section, we will add user to the *Intials*-multi bucket, so we
+In this section, we will add user to the **Intials-multi** bucket, so we
 can access the bucket to upload/create files and folders.
 
 1.  Go to Prism Central
 
-2.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+2.  Go to :fontawesome-solid-bars: > Services > Objects
 
 3.  Click on **ntnx-objects** Objects Store
 
 4.  The Objects Store management will open in a new browser tab (if it
     not already open)
 
-5.  Click on *Intials*-multi bucket, and click on **Share**
+5.  Click on **Intials-multi** bucket, and click on **Share**
 
     ![](images/buckets_share_option.png)
 
@@ -192,11 +176,8 @@ can access the bucket to upload/create files and folders.
 
 ## Accessing Bucket on NFS Client
 
-In this section we will mount the *Intials*-multi bucket as a NFSv3
-share on the *initials*-**Linux-ToolsVM** to create files and folders.
-
-If it is not already present in your HPOC, create Linux Tools VM using
-instructions in `linux_tools_vm`{.interpreted-text role="ref"}
+In this section we will mount the **Intials-multi** bucket as a NFSv3
+share on the **initials-Linux-ToolsVM** to create files and folders.
 
 1.  Login to the *Initials*-**Linux-ToolsVM**, with the following
     credentials
@@ -213,13 +194,13 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
 
 3.  Change user to centos
 
-    ``` bash
+    ```bash
     sudo su - centos
     ```
 
 4.  Edit the `/etc/fstab` file to include the following nfs mount
 
-    ``` bash
+    ```bash
     sudo vi /etc/fstab
     sudo mkdir -p /mnt/buckets
 
@@ -232,7 +213,7 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
 
 5.  Mount the bucket as a NFS share
 
-    ``` bash
+    ```bash
     mount /mnt/buckets
     ```
 
@@ -242,29 +223,32 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
     cd /mnt/buckets
     mkdir mydir1
     cd mydir1
-    #
+    ```
+    ``` bash
     for i in {1..10}; do echo "writing file$i .."; touch file$i.txt; echo "this is file$i" > file$i.txt; done
-
+    ```
+    ``` bash
     # list your files
-    ll
-
-    [centos@centos mydir1]$ ll
+    ls -l
+    ```
+    ``` {.bash .no-copy}
+    [mydir1]$ ll
     # output here
-     -rw-rw-r-- 1 centos centos   15 Feb 23 23:25 file10.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file1.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file2.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file3.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file4.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file5.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file6.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file7.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file8.txt
-     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file9.txt
+    -rw-rw-r-- 1 centos centos   15 Feb 23 23:25 file10.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file1.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file2.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file3.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file4.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file5.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file6.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file7.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file8.txt
+    -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file9.txt
     ```
 
 7.  Now go to the Objects browser GUI by going back to Prism Central
 
-8.  Go to `bars`{.interpreted-text role="fa"} \> Services \> Objects
+8.  Go to :fontawesome-solid-bars: > Services > Objects
 
 9.  Click on **ntnx-objects** Objects Store
 
@@ -287,14 +271,10 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
 
     ![](images/objects_list_multi_bucket.png)
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Although you see directories, these are mere objects. It is a mere
-    representation of a folder like structure in Objects Browser.
-    :::
+    !!!info
+       
+           Although you see directories, these are mere objects. It is a cosmetic
+           representation of a folder like structure in Objects Browser. However, if you analyse the buckets, these objects would be stored differently.
 
 15. Download one of the files, by selecting the file and selecting
     Download from the drop down menu.
@@ -312,11 +292,14 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
 
     ![](images/objects_browser_subdir1.png)
 
-19. Return to your *Initials*-**Linux-ToolsVM** and list the share to
-    see if newly created subdir1 is present
+19. Return to your **Initials-Linux-ToolsVM** and list the share to
+    see if newly created ``subdir1`` is present
 
-    ``` bash
-    [centos@centos mydir]$ ll
+    ```{ .text .no-copy }
+    [mydir]$ ll
+
+    # output here
+    #
     -rw-rw-r-- 1 centos centos   15 Feb 23 23:25 file10.txt
     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file1.txt
     -rw-rw-r-- 1 centos centos   14 Feb 23 23:25 file2.txt
@@ -335,14 +318,13 @@ instructions in `linux_tools_vm`{.interpreted-text role="ref"}
 20. Add a few more folders and files from the Objects browser side and
     check if it shows on the NFS client side.
 
-You have successfully completed this lab and tested multi-protocol
+You have successfully completed this lab and tested multiprotocol
 access to a bucket.
 
 ## Takeaways
 
--   Objects 3.3.x onwards allows multi-protocol access for objects
+-   Objects 3.3.x onwards allows multiprotocol access for objects
 -   This is recommended for read-heavy workloads with sequential
     accesses, E.g. Backup targets, log archives, large media files, etc.
     Access cannot be enabled or disabled once the bucket is created.
--   Administrators can easliy switch between access patterns (s3 or
-    NFSv3) to suit their requirements with managing objects
+-   Administrators can easily switch between access patterns (s3 or NFSv3) to suit their requirements with managing objects
