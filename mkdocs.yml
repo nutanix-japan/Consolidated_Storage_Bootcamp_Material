@@ -95,4 +95,5 @@ nav:
       - 'Multi-cluster': objects_multi_cluster/objects_multi_cluster.md
     - 'Optional Labs':
       - 'Deploy Nutanix Files': files_deploy/files_deploy.md
+      - 'Expand Files Cluster': files_expand_cluster/files_expand_cluster.md
 
