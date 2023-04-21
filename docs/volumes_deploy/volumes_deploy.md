@@ -1,60 +1,63 @@
 ---
-title: Volume Deploy
-author: gitauthor
+title: Volumes Deploy
+author: Gary Tang @ Nutanix
 ---
 
-# Heading1
+# Volumes
 
-This is where I will write my intro.
+## Volumes Setup
 
-## Heading 2
+### Check iSCSI Data Service IP
+1. Click the Cluster name in the upper left hand corner to check the iSCSI data service IP
 
-This is **where** I will ramble a bit more
+2. Close Cluster Details and proceed to Configure Guests
 
-Please go [here](https://www.facebook.com) to read more about my life
-### Heading 3
+![](images/vol1.png)
 
-This wi where I  will tell my story and bore everyone to death
+### Get the iSCSI iqn name from WinToolsVM
 
-![Purple](images/A1.png)
+1. Login to **initials-WinToolsVM** on your cluster with username "administrator" and your password. Click **Windows icon** from bottom left corner. Click the Search icon and enter **iscsi**. Click **iSCSI Initiator**.
+    
+    ![](images/vol2.png)
+   
+2. Click **Yes** to start iSCSI service 
+    
+    ![](images/vol3.png)
 
+3. Click the **Configuration** tab to find the **Initiator Name** as the iqn. Make a note of it for a later step.
+    
+    ![](images/vol4.png)
+   
+### Create a Volume Group (VG)
+1. Go to Prism Element, navigate to the Storage Dashboard, click **+ Volume Group** to create a new Volume Group.
+   
+2. In the Volume Group Window give the volume group a name **Intials-vg**, add 2 new disks and select default container, input size for each of the disk of 10 and click **Add**.
 
-execute the following commands
+3. Click **Save**.
+    ![](images/vol5.png)
 
-```bash
-ls -ltrh
-```
+### Connect Volumes Disks to Windows VM
 
-``` { python .no-copy }
-s = "Python syntax highlighting"
-print s
-```
+1. Find the VG you just created in **Storage Dashboard > Table > Volume Group**. Click on the VG and click **Update**. 
 
-```powershell
-Get-Date
-```
+2. Under **Client**, click **+ Add New Client**, put the iqn you found in your WinToolsVM in **Client IQN/IP Address** and click **Add**. The iqn will be selected to add as client.
 
-```yaml
-metadata:
-  name: gary
-  namespace: default
-```
+    ![](images/vol6.png)
 
-1. this is step 1
-2. this is step 2
-5. this is step 3
----
+3. Switch back to your WinToolsVM. In **iSCSI initiator properties** click on the **Targets** tab. Type in the iSCSI Data Service IP Address you found in Prism Element and click **Quick Connect**. You will see the target volume group we previously created. As we created 2 disks in the VG, you will see 2 targets discovered. 
 
-- this point 1
-- this is point 2
+    ![](images/vol7.png)
 
-???note 
-       This is a note
+4. Click **Connect**.
 
-!!!info
-        This is information
+!!!note 
+       Volumes does not require multipath I/O (MPIO) configuration on the client. Volumes provides highly available and high performance access to the iSCSI LUNs to clients natively.
 
-        Please go [here](https://www.facebook.com) to read more about my lif
+5. Click the WIndows Icon and search for **Create and format hard disk partitions**. Then you will go to **Disk Management MMC**.
 
-???tip "Do you like tips?" 
-       This is a tip
+6. From here you can see the 2 raw disks you created. You can now put the disks online, initialize, format and assign drive letters to them.
+   
+       ![](images/vol8.png)
+
+##Conclusion
+As part of the Nutanix Unified Storage family, Nutanix Volumes is an enterprise-class software-defined storage that exposes storage resources directly to guest operating systems or physical hosts using the iSCSI protocol. This lab shows how easy to setup and configure iSCSI connection from client and consume VGs from Nutanix Cloud Platform.
