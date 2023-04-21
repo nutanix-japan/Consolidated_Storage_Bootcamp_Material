@@ -40,6 +40,7 @@ theme:
   - search.suggest
   - toc.follow
   - content.code.copy
+  
   palette:
 
     #Palette toggle for automatic mode
@@ -98,4 +99,6 @@ nav:
       - 'Expand Files Cluster': files_expand_cluster/files_expand_cluster.md
       - 'Files Manager': files_manager/files_manager.md
       - 'Deploy Nutanix Objects': objects_deploy/objects_deploy.md
+    - 'Garys Pages':
+      - 'Volumes  Deploy': volumes_deploy/volumes_deploy.md
 
