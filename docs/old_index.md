@@ -24,43 +24,64 @@ Please ensure you read the whole lab before starting
 ## Agenda
 
 
-- Nutanix NUS Deployment
-    - File Server Creation
-    - Object Cluster Creation
-
-- NUS Management Access Control
-    - RBAC Management Setup for Files & Objects
-
-- Nutanix Files Management
-    - Create SMB Share
-    - Create NFS Export
-
-- Nutanix Objects Management
-    - Buckets and Users Management
-    - Versioning, Access Controls and Scripts
-
-- Nutanix Files Share Migration
-    - Create Migration Plan
-    - Start Migration & Update Migration
-
-- Nutanix Volumes Management
-    - Create and Present Volume Group to Server
-
-- Nutanix NUS Data Protection
+- Nutanix Files Labs
+    - Files: Create SMB Share
+    - Files: Create NFS Export
+    - Files: Selective File Blocking
     - Files: Smart DR
-    - Objects: Streaming Replication
 
-- Nutanix Data Lens
-    - File Server Monitoring
-    - Audit Trial
-    - Ransomware Protection
+- Nutanix File Analytics Labs
+    - File Analytics: Review Initial Scan
+    - File Analytics: Anomaly Rules
+    - File Analytics: Ransomware
 
-- Nutanix Files Life Cycle Management - Smart Tiering
+- Nutanix Objects Labs
+    - Objects: Creating Buckets & Users
+    - Objects: Versioning & Access Controls
+    - Objects: Using From CLI & Scripts
+    - Objects: Tiering
+    - Objects: Multi-protocol
+    - Objects: Multi-cluster
+
+- Bonus Labs
+    - Peer
+
+- Optional Labs
+    - Files: Deploy
+    - Files: Expand Cluster
+    - File Analytics: Deploy
+    - Objects: Deploy
+
+## What's New
+
+- Workshop updated for the following software versions:
+    - AOS 5.20.3.x & 
+    - PC pc.2022.4.0.1
+
+## Lab Agenda
+
+Nutanix Karbon deployed kubernetes clusters come with Prometheus pre-installed and ready to use. However, Grafana is not available by default. We will go through the following steps to enable and visualize the status of the kubernetes cluster.
+
+- Connect to Karbon deployed kubernetes cluster
+- Explore the ``ntnx-system`` namespace for monitoring and logging resources
+- Explore available Prometheus metrics
+- Deploy Grafana in ``ntnx-system`` namespace
+- Configure prometheus as a data source in Grafana
+- Configure a custom dashboard
+- Import a pre-configured dashboard
 
 ## Initial Setup
 
 - Take note of the *Passwords* being used.
 - Log into your virtual desktops (connection info below)
+
+
+## What's New
+
+-   Workshop uses for the following software versions:
+    -   AOS 5.20.2.1
+    -   Prism Central pc.2021.9.0.2
+    -   Calm 3.3.1
 
 ## Initial Setup
 
