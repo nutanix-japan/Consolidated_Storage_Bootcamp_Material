@@ -1,6 +1,6 @@
 #  Getting Started
 
-Welcome to the Nutanix Consolidated Storage Bootcamp for GSO offsite
+Welcome to the Nutanix Consolidated Storage Bootcamp for GSO offsite 2023.
 
 This workbook accompanies an instructor-led session that introduces Nutanix Files, File Analytics, Objects, and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
@@ -59,13 +59,8 @@ Please ensure you read the whole lab before starting
 
 ## Initial Setup
 
-- Take note of the *Passwords* being used.
-- Log into your virtual desktops (connection info below)
-
-## Initial Setup
-
--   Take note of the *Passwords* being used from you RX reservation
-    details
+-   Take note of the *Passwords* being used in this lab
+    -   Prism Element, Prism Central and CVMs password will be provided by instructor.
 -   Log into your virtual desktops (connection info below)
 -   Login to Global Protect VPN if you have access
 
