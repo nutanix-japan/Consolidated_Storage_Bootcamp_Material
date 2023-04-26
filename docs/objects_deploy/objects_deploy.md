@@ -1,8 +1,5 @@
 # Objects: Deploy
 
-!!!note
-       The estimated time to complete this lab is 10 minutes
-
 ## Overview
 
 Data is growing faster than ever before, and much of the new data
@@ -44,7 +41,7 @@ S3-compatible applications.
 
 -  Backup Target
    
-    -   Support for HYCU, Commvault, Veeam, and Veritas, with other vendors on the roadmap.
+    -   Support for HYCU, Commvault, Veeam, Veritas, and others that accept S3 as backup target.
     -   Ability to support multiple backup clients simultaneously.
     -   Ability to handle really small and really large backup files
         simultaneously with a key-value store based metadata
