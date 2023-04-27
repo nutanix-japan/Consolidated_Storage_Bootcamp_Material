@@ -24,9 +24,10 @@ Please ensure you read the whole lab before starting
 ## Agenda
 
 
-- Nutanix NUS Deployment
+- Initial Nutanix NUS Deployment
     - File Server Creation
     - Object Cluster Creation
+    - Volumes Deployment
 
 - NUS Management Access Control
     - RBAC Management Setup for Files & Objects
@@ -136,7 +137,9 @@ respect to the IP addresses and the services running at that IP address.
 
 Naming convention: 
 
-- **Cluster Name** - PHX-SPOC*XYZ*-A
+- **Cluster Name** - PHX-SPOC*XYZ*-*A*
+  - *XYZ* is the SPOC number
+  - *A* is the partition number
 - **Subnet** - 10.**38**.*XYZ*.0
 - **Cluster IP** - 10.**42**.*XYZ*.37
 

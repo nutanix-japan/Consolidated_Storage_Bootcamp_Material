@@ -2,6 +2,8 @@
 
 ## Overview
 
+In this exercise you will enable File Analytics and experience auditing & ransomware protection; and trigger a ransomware event.
+
 ## File Analytics Scan
 
 1.  In **Prism** \> **File Server** \> select your BootcampFS files
