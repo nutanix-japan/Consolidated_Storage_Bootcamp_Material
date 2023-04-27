@@ -150,16 +150,9 @@ running as part of the object-controller pod).
 In this exercise you will walk through the steps of creating an Object
 Store.
 
-!!!warning 
-
-       You will not actually deploy the Object Store, but you will be able to see the workflow and how simple it is for users to deploy an Object Store.
-
 ???info "Are you thinking of a Global namespace design?"
 
-       In many use cases only a single object store is required. If global
-       namespace isolation is required, for example if a Service Provider is
-       providing object storage to multiple customers from the same cluster,
-       then multiple object stores can be created.
+       Global Namespace is supported starting from Objects 4.0. We do not include this in this lab but feel free to reach out to the instructor to understand more.
 
 1.  In Prism Central, select :fontawesome-solid-bars: **>Services > Objects**, click **Create Object Store**.
 
@@ -169,8 +162,8 @@ Store.
 
 3.  Fill out the following fields:
 
-    -   **Object Store Name** - oss-*initials*
-    -   **Cluster** - your cluster (e.g. PHX-POCXXX)
+    -   **Object Store Name** - ntnx-objects-dr
+    -   **Cluster** - your cluster (e.g. PHX-SPOC*xyz*-*a*)
     -   **Worker nodes** - 1
     -   **Domain** - ntnxlab.com
 
@@ -194,10 +187,10 @@ Store.
 8.  In Public network settings choose **Primary Network**
 
 9.  Provide four available consecutive IP addresses in a range, for
-    Object Store Storage Network static IPs (4 IPs required)
+    Object Store Storage Network static IPs (1 IP required)
 
-    Select four available IPs in your network (just ping a few IPs in
-    your cluster's subnet to check if they are avaialable or use a port
+    Select one available IP in your network (just ping a few IPs in
+    your cluster's subnet to check if it is avaialable or use a port
     scanner to determine this)
 
     ![](images/buckets_04.png)
@@ -212,9 +205,7 @@ Store.
 
     ![](images/buckets_05.png)
 
-13. **Do not** click on the Create Object Store button. The HPOC
-    doesn't have enough resources to be able to host another Objects
-    Store.
+13. Click on **Create Object Store** to create a new Object Store.
 
 ## Takeaways
 
