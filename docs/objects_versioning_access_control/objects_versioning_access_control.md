@@ -24,7 +24,7 @@ in the object store using your generated access key.
 
 1.  From the Objects UI, Locate the **ntnx-objects** object store.
 
-    ![](images/objects_06.png)
+    ![](images/obj_01.png)
 
 2.  The objects browser will open in a new tab
 
@@ -34,7 +34,7 @@ in the object store using your generated access key.
     -   **Access Key** - *Generated When User Created*
     -   **Secret Key** - *Generated When User Created*
 
-    ![](images/objects_08.png)
+    ![](images/obj_02_.png)
 
 4.  Click the **+ Create Bucket**.
 
@@ -43,7 +43,7 @@ in the object store using your generated access key.
     -   **Bucket Name** - *intials*-**test-bucket**
     -   **Enable versioning** - checked
 
-    ![](images/objects_08b.png)
+    ![](images/obj_03.png)
 
     !!!note
 
@@ -63,7 +63,7 @@ in the object store using your generated access key.
 
 7.  Click on **Select Folder**
 
-    ![](images/objects_08c.png)
+    ![](images/obj_04.png)
 
 8.  Navigate to your downloads directory and find the Sample Pictures
     folder. Upload one or more pictures to your bucket.
@@ -103,7 +103,7 @@ action and application failures.
 
 10. You should be able to see the different versions of the file A.txt
 
-    ![](images/objects_09.png)
+    ![](images/obj_05.png)
 
 ## Takeaways
 

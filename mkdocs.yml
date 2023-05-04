@@ -81,25 +81,27 @@ plugins:
 
 nav:
     - Home: index.md
-    - Day 0 Operation:
+    - Initial NUS Deployment:
       - 'Deploy Nutanix Files': files_deploy/files_deploy.md
       - 'Deploy Nutanix Objects': objects_deploy/objects_deploy.md
+      - 'RBAC on Files and Objects': rbac/rbac.md
+    - Start Consuming Storage Services:
+      - 'Create SMB Share': files_smb_share/files_smb_share.md
       - 'Deploy Nutanix Volumes': volumes_deploy/volumes_deploy.md
-    - Files:
-      - 'SMB Share': files_smb_share/files_smb_share.md
-      - 'NFS Share': files_nfs_export/files_nfs_export.md
-      - 'Blocking': files_file_blocking/files_file_blocking.md
-      - 'Multiprotocol': files_multiprotocol/files_multiprotocol.md
       - 'Replication': files_replication/files_replication.md
-    - Objects:
-      - 'Buckets & UAC': objects_buckets_users_access_control/objects_buckets_users_access_control.md
-      - 'Versioning':  objects_versioning_access_control/objects_versioning_access_control
-      - 'Access from CLI and Scripts': objects_cli_scripts/objects_cli_scripts.md
+      - 'Buckets & Users Management': objects_buckets_users_access_control/objects_buckets_users_access_control.md
       - 'Tiering': objects_tiering/objects_tiering.md
-      - 'Multiprotocol': objects_multiprotocol/objects_multiprotocol.md
-      - 'Multi-cluster': objects_multi_cluster/objects_multi_cluster.md
+    - Migrating from existing File Share:
+      - 'Nutanix Files Share Migration': files_migrate/files_migrate.md
+    - Data Security Management:
+      - 'Deploy Data Lens': datalens_deploy/datalens_deploy.md
+      - 'Anomaly Detection': file_analytics_anomaly/file_analytics_anomaly.md
+      - 'Ransonware Protection': file_analytics_ransomware/file_analytics_ransomware.md
     - 'Optional Labs':
-      - 'Expand Files Cluster': files_expand_cluster/files_expand_cluster.md
-      - 'Files Manager': files_manager/files_manager.md
+      - 'Create NFS Share': files_nfs_export/files_nfs_export.md
+      - 'Expand Files Cluster (Not applicable to single node cluster)': files_expand_cluster/files_expand_cluster.md
+      - 'Enable Files Multiprotocol': files_multiprotocol/files_multiprotocol.md
+      - 'Access Objects from CLI and Scripts': objects_cli_scripts/objects_cli_scripts.md
+      - 'Objects Multi-cluster': objects_multi_cluster/objects_multi_cluster.md
 
 

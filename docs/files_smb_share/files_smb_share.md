@@ -164,3 +164,5 @@ In this exercise you will create and test a SMB share, used to support home dire
     over time, latency, throughput, and IOPS.
 
     ![](images/23.png)
+
+10. **Remove all the user group policy before goint to the next lab.**

@@ -128,7 +128,7 @@ You will use a Linux Tools VM as a client for your NFS Files export.
     ```
 
     ``` bash
-    [root@centos ~]# echo 'BootcampFS.ntnxlab.local:/xyz-logs /home/centos/filesmnt nfs4' >> /etc/fstab
+    [root@centos ~]# echo 'FSxyz-a-prod.ntnxlab.local:/xyz-logs /home/centos/filesmnt nfs4' >> /etc/fstab
     [root@centos ~]# mount /home/centos/filesmnt
     ```
 
