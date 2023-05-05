@@ -102,26 +102,24 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 12. Click on **Create**
 
-13. Monitor the Tasks until the policy is created and the policy should show in the **Data Protection > Polices > + New Policy** in a few minutes
+13. Monitor the Tasks until the policy is created and the policy should show in the **Data Protection > Polices** in a few minutes
 
-    ![](images/smartdr_policyrpo.png)
+    ![](images/SDR2.png)
 
     Wait a few minutes until all the files are replicated and **RPO Compliant** will have a green-dot to indicate initial synchronization
 
 14. Go to **Data Protection > Replication Jobs** and observe the
-    replication jobs and duration. The initial replication will take time
-    based on the amount of data and network speeds. But the subsequent
-    replications will be based on incremental changes only.
+    replication jobs and duration. The initial replication will take time based on the amount of data and network speeds. But the subsequent replications will be based on incremental changes only.
 
-    ![](images/smartdr_repjobs.png)
+    ![](images/SDR3.png)
 
 15. Go to **Data Protection > Protected File Servers** to check the Active and Standby File servers. (Active indicated by a green A)
 
-    ![](images/smartdr_activefs.png)
+    ![](images/SDR4.png)
 
 16. Verify it shows the DR Files Server with the source PROD share (e.g.``\\FSxyz-a-dr.ntnxlab.local\xyz-GSO``)
 
-### Failover Share
+## Failover Share
 
 We have set up replication of a share between two Files servers. Now we are able to test failover of the share to the DR File server.
 
@@ -140,17 +138,16 @@ In this lab we will test a Planned Failover
 
 3.  Click on **Failover** as shown here
 
-    ![](images/smartdr_failover.png)
+    ![](images/SDR5.png)
 
 4.  Select **Planned Failover**
 
-5.  Select **Create a Reverse-Replication Policy** and fill in the
-    following
+5.  Select **Create a Reverse-Replication Policy** and fill in the following
 
     - **Recovery Point Objective (RPO)** - 10 minutes
-    -   **Policy Name** - Reverse-*initials*-files-repl-policy (e.g. Reverse-xyz-files-repl-policy)
+    -   **Policy Name** - **Reverse-xyz-repl-policy** (e.g. Reverse-xyz-repl-policy)
 
-    ![](images/failover_settings.png)
+    ![](images/SDR6.png)
 
 6.  Click **Next**
 
@@ -159,8 +156,8 @@ In this lab we will test a Planned Failover
 
     -   **Username** - <administrator@ntnxlab.local>
     -   **Password** - nutanix/4u
-    -   **Preferred Domain Controller** - ntnxlab.local
-    -   **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+    -   **Preferred Domain Controller** - ntnxlab.local or leave blank
+    -   **Preferred Name Server** - 10.X.X.X or leave blank (Your AD IP address)
 
 8.  Select the **Use the same credentials as the Active Directory**
     check-box (in our lab both the AD and DNS server are the same)
@@ -171,26 +168,24 @@ In this lab we will test a Planned Failover
 
 11. Once Failover is completed, return to **Files > Data Protection > Protected File Servers** in Prism Central and check the Active and Standby File servers. (Active indicated by a green A)
 
-12. Confirm that *initials*-files-dr (e.g. xyz-files-dr) server is now
+12. Confirm that **FSxyz-a-dr** (e.g. **FS002-3-dr**) server is now
     the active server
 
-    ![](images/failover_confirm.png)
+    ![](images/SDR7.png)
 
-13. Return to your Windows Tools VM and access the failed over share in
-    Windows Explorer
+13. Return to your Windows Tools VM and access the failed over share in Windows Explorer
 
 14. Login to your Windows Tools VM with the following credentials
 
     -   **Username** - <administrator@ntnxlab.local>
     -   **Password** - nutanix/4u
 
-15. Browse to the location of your source share now hosted on PROD and
-    DR Files server
+15. Browse to the location of your source share now hosted on PROD and DR Files server, you will find that both File Servers point to the same location.
 
-    -   Prod path - ``\\xyz-files-prod.ntnxlab.local\xyz-prod-share``
-    -   DR path - ``\\xyz-files-dr.ntnxlab.local\xyz-prod-share``
+    -   Prod path - ``\\FSxyz-a-prod.ntnxlab.local\xyz-GSO``
+    -   DR path - ``\\FSxyz-a-dr.ntnxlab.local\xyz-GSO``
 
-    ![](images/failover_repshare_prod.png)
+    ![](images/SDR8.png)
 
      This demonstrates that the users can access the share without having the change the file server names providing continuous access to the shares.
 
@@ -203,7 +198,7 @@ In this lab we will test a Planned Failover
 
 17. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now **initials**-files-dr (e.g. xyz-files-dr) server
 
-    ![](images/failover_repjobs.png)
+    ![](images/SDR10.png)
 
 18. Go to **Data Protection > Policies** and verify a reverse replication policy is present
 
