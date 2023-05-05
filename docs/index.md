@@ -24,39 +24,33 @@ Please ensure you read the whole lab before starting
 ## Agenda
 
 
-- Initial Nutanix NUS Deployment
-    - File Server Creation
-    - Object Cluster Creation
-    - Volumes Deployment
+- Initial NUS Deployment
+    - File - Deploy Nutanix Files
+    - Object = Deploy Nutanix Objects
+    - Files & Objects - RBAC on Files and Objects
 
-- NUS Management Access Control
-    - RBAC Management Setup for Files & Objects
+- Start Consuming Storage Services
+    - Files - Create SMB Share
+    - Volumes - Deploy Nutanix Volumes
+    - Objects - Buckets & Users Management
 
-- Nutanix Files Management
-    - Create SMB Share
-    - Create NFS Export
+- Migrating from Existing File Shares
+    - Files - Share Migration
 
-- Nutanix Objects Management
-    - Buckets and Users Management
-    - Versioning, Access Controls and Scripts
+- Data Protection & Lifecycle Management
+    - Files - Replication
+    - Files - Tiering
 
-- Nutanix Files Share Migration
-    - Create Migration Plan
-    - Start Migration & Update Migration
-
-- Nutanix Volumes Management
-    - Create and Present Volume Group to Server
-
-- Nutanix NUS Data Protection
-    - Files: Smart DR
-    - Objects: Streaming Replication
-
-- Nutanix Data Lens
-    - File Server Monitoring
-    - Audit Trial
+- Data Lens - Data Security Management
+    - Deploy Data Lens
+    - Anomaly Detection
     - Ransomware Protection
 
-- Nutanix Files Life Cycle Management - Smart Tiering
+- Optional Labs
+    - Files - Create NFS Export
+    - Files - Expand Files Cluster
+    - Files - Enable Files Multiprotocol
+    - Objects - Access Objects from CLI and Scripts
 
 ## Initial Setup
 
