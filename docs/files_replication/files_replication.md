@@ -192,31 +192,21 @@ In this lab we will test a Planned Failover
 16. Logon to your AutoAD server and open DNS management (from Search
     button > type DNS )
 
-    ![](images/failover_dns.png)
+    ![](images/SDR9.png)
 
-    You can notice that both PROD and DR file servers have the same IP address
+    You can notice that both PROD and DR file servers point to the IP address of the DR File Server.
 
 17. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now **initials**-files-dr (e.g. xyz-files-dr) server
 
     ![](images/SDR10.png)
 
-18. Go to **Data Protection > Policies** and verify a reverse replication policy is present
+18. Go to **Data Protection > Policies** and verify a reverse replication policy is present, that means data is replicating from DR to production File Server now.
 
-    ![](images/failover_reppolicy.png)
+    ![](images/SDR11.png)
 
-19. The replication is now setup successfully
+## Failback Share
 
-20. Create some sample files in your share as shown here so Failback can be tested
-
-    ![](images/failback_samplefiles.png)
-
-21. Wait for at least 10 minutes for the reverse replication schedule to start
-
-22. Confirm at least one reverse replication schedule to PROD Files server has successfully completed by going **Data Protection > Replication Jobs**
-
-### Failback Share
-
-In this section we will see how to failback a share to the Source site after the environment is recovered.
+Continue from the previous lab, we will see how to failback a share to the Source site after the environment is recovered.
 
 In this lab we will test a Planned Failover
 
@@ -226,14 +216,12 @@ In this lab we will test a Planned Failover
 
 3.  Click on **Failback** as shown here
 
-    ![](images/failback_initial.png)
-
 4.  In the **Active Directory and DNS Configuration** fill the following (to ensure access to files after failover)
 
     -   **Username** - <administrator@ntnxlab.local>
     -   **Password** - nutanix/4u
-    -   **Preferred Domain Controller** - ntnxlab.local
-    -   **Preferred Name Server** - 10.X.X.41 (Your AD IP address)
+    -   **Preferred Domain Controller** - ntnxlab.local or leave blank
+    -   **Preferred Name Server** - Your AD IP address or leave blank
 
 5.  Select the **Use the same credentials as the Active Directory** check-box (in our lab both the AD and DNS server are the same)
 
@@ -241,37 +229,26 @@ In this lab we will test a Planned Failover
 
 7.  Files now gives you a visual of the failed-back environment and informs you that the Reverse Replication policy will be deleted
 
-    ![](images/failback_confirm.png)
+    ![](images/SDR12.png)
 
 8.  Click on **Failback**
 
 9.  Monitor the Events in Prism Central
 
 10. Once the failover is done, go to your Windows Tools VM and logon to the share hosted on PROD files server (e.g
-    ``\\xyz-files-prod\xyz-prod-share\SampleData_Small\Sample Data`` )
-
-11. Logon to your AutoAD server once again and open DNS management (from Search button > type DNS )
-
-    ![](images/failback_dns.png)
-
-    You can notice that the PROD file server has been reverted to the previous IP address.
+    ``\\FSxyz-a-prod\xyz-GSO`` )
 
 12. Logon to your AutoAD server once again and open DNS management (from Search button > type DNS )
 
-    ![](images/failback_dns.png)
+    ![](images/SDR13.png)
 
     You can notice that the PROD file server has been reverted to the previous IP address.
 
-13. Note that the new files that were created when the share was on DR
-    server are now present on the PROD server as well
-
-    ![](images/failback_confirm_files.png)
-
 14. We have successfully failed back the share to the PROD site. Now users can connect to the share as usual.
 
-### Conclusion
+### Takeaway
 
 Nutanix Files Smart DR makes it easy for administrators to configure replication of shares between Nutanix Files servers without needing third-party integrations.
 
 For information about Files Manager and Smart DR features, refer to this documentation
-[URL](https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v2_0:fil-fm-dr-c.html).
+[URL](https://portal.nutanix.com/page/documents/details?targetId=Files-Manager-v4_3:Files-Manager-v4_3).

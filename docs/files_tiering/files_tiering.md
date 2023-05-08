@@ -1,4 +1,4 @@
-# Objects: Tiering 
+# Files Smart Tiering 
 
 !!!info
         The estimated time to complete this lab is 45 minutes.
