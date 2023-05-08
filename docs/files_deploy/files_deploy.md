@@ -11,7 +11,7 @@
 
 2.  Fill out the following fields:
 
-    -   FS**XYZ**-**partition#**-dr (e.g. FS002-3-dr)
+    -   FS*XYZ*-*A*-dr (e.g. FS002-3-dr)
     -   **Domain** - ntnxlab.local
     -   **File Server Size** - 1 TiB
 
