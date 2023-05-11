@@ -96,7 +96,7 @@ nav:
       - 'Files - Tiering': files_tiering/files_tiering.md
     - Data Lens - Data Security Management:
       - 'Deploy Data Lens': datalens_deploy/datalens_deploy.md
-      - 'Anomaly Detection': file_analytics_anomaly/file_analytics_anomaly.md
+      - 'Anomaly Detection': datalens_anomaly/datalens_anomaly.md
       - 'Ransonware Protection': file_analytics_ransomware/file_analytics_ransomware.md
     - 'Optional Labs':
       - 'Files - Create NFS Share': files_nfs_export/files_nfs_export.md

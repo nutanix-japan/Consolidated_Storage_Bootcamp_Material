@@ -3,19 +3,19 @@
 
 In this exercise you will enable Data Lens and experience auditing & ransomware protection; and trigger a ransomware event.
 
-### Login to Data Lens
+## Login to Data Lens
 
 1. Connect to corp VPN, select the gateway without **(ST)**
    
 2. Go to https://datalens-qa.nutanix.com/ 
    
-3. Use your my portal account to login
+3. Your instructor will give you a my portal account to login
    
 4. Choose **Common Tenant** and then **Proceed**.
    
       ![](images/dl1.png)
 
-5. In the **Data Lens Global Dashboard**, go to **File Servers** and search the FQDN of your File Server Name.
+5. In the **Data Lens Global Dashboard**, go to **File Servers** and search the FQDN of your File Server Name (**FSxyz-a-prod**).
 
       ![](images/dl2.png)
 
@@ -24,6 +24,8 @@ In this exercise you will enable Data Lens and experience auditing & ransomware 
 
 
 6. Click the File Server Name to enter the Dashboard.
+
+## Basic Data Lens Operations
 
 7. Check the **Dashboard** page in your browser to see the usage for the File Server. 
    
