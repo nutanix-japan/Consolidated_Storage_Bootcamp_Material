@@ -1,6 +1,13 @@
 # Data Lens - Ransomware Protection
 
 ## Overview
+One of the core capability of Data Lens is the enhanced ransomware protection. Data Lens maintains a list of blocked signatures of file name or extension patterns of known ransomware variants and automatically applys the list to
+your file servers. An attack is prevented by locking the files
+when file extensions match with the blocked signature list.
+
+Moreover, the activity is bubbled into ransomware vulnerability
+dashboard reporting the client, user and the files impacted. In case of an attack, Data Lens performs remediation by alerting to self-service restore to restore data from a previous
+file version.
 
 ## Lab Setup
 
@@ -47,18 +54,38 @@ In this lab, we will simulate a ransomware attack using a ransomware simulator. 
 
 2.    Login to **WinToolsVM** using username : **administrator@ntnxlab.local**
 
-3.    Check the following 2 shares in **File Explorer**, you will see the same set of files in the 2 shares. We will use these 2 shares to compare the result with and without Data Lens ransomware protection.
+3.    Right click the **Powershell Icon** ![](images/powershellicon.png) and select **Run as Administrator**.
+
+4.    Check the following 2 shares in **File Explorer**, you will see the same set of files in the 2 shares. We will use these 2 shares to compare the result with and without Data Lens ransomware protection.
       - **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\**
       - **\\FSxyz-a-dr.ntnxlab.local\DLtest-dr\\**
+  
+5.    Run the script, which has some file creation and changing file type to both shares.
+            ```bash
+                  C:\Users\Administrator\Downloads\ransomware-test.ps1
+            ```
 
-4.    In **\\FSxyz-a-dr.ntnxlab.local\DLtest-dr\\**, double click **CashCat.exe**. It will start the ransomware simulator.
+6.    Check the share **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\**, you can see all files are .txt, meaning Data Lens is protecting against the operation. Check **\\FSxyz-a-dr.ntnxlab.local\DLtest-dr\\**, you will see files were created and modified without Data Lens' protection.
 
-5.    You will see the Simulator GUI pop up to ask for ransom, and all the .txt files got encrypted to another file type. Meaning attack was successful.
-            ![](images/dl6.png)
+7.    Wait until you receive email about ransomware attack alert.
+            ![](images/dl8.png)
 
-6.    Now do the same for **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\**, double click **CashCat.exe**. 
+            !!!note
+                  It may take up to 15 minutes to receive this email. You can proceed to other labs while you are waiting.
 
-7.    This time the Simulator GUI pop up again but you can notice that the .txt files were not encrypted. Meaning **Data Lens successfully blocked the attack!**
-            ![](images/dl7.png)
+8.    Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**, you can see the threats are recorded and the File Server is set to Read-Only mode automatically.
+            ![](images/dl9.png)
 
-8.    
+10.   Login to your WinToolsVM and go to **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\** from File Explorer, try to create a folder, it will show access denied as Data Lens set it to read-only.
+            ![](images/dl10.png)
+
+            !!!note
+                  Data Lens set the whole File Server to Read-Only mode. So you can use any other users to test on any shares in the same File Server. It should give you the same result.
+
+
+11.   Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**. Under **Blocked Entities**, click **Unblock** > **Confirm** to resume to read-write access.
+
+            !!!note
+                  You can always click the green circle ![](images/greencircle.png) to check the status of the tasks.
+
+12.   Come back to **Data Lens** sometimes later to check if it is done. Verify the access from your **WinToolsVM**.
