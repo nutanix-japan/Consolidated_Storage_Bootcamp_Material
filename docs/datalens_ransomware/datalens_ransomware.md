@@ -5,9 +5,7 @@ One of the core capability of Data Lens is the enhanced ransomware protection. D
 your file servers. An attack is prevented by locking the files
 when file extensions match with the blocked signature list.
 
-Moreover, the activity is bubbled into ransomware vulnerability
-dashboard reporting the client, user and the files impacted. In case of an attack, Data Lens performs remediation by alerting to self-service restore to restore data from a previous
-file version.
+Moreover, the activity is bubbled into ransomware vulnerability dashboard reporting the client, user and the files impacted. In case of an attack, Data Lens performs remediation by blocking clients that trigger the attack or set the File Server to read-only mode. It will also track the infected files and recommend the best snapshot to recover the data.
 
 ## Lab Setup
 

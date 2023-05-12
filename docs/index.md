@@ -37,14 +37,15 @@ Please ensure you read the whole lab before starting
 - Migrating from Existing File Shares
     - Files - Share Migration
 
-- Data Protection & Lifecycle Management
-    - Files - Replication
-    - Files - Tiering
-
 - Data Lens - Data Security Management
     - Deploy Data Lens
     - Anomaly Detection
     - Ransomware Protection
+
+- Data Protection & Lifecycle Management
+    - Files - Replication
+    - Files - Tiering
+
 
 - Optional Labs
     - Files - Create NFS Export
