@@ -9,7 +9,7 @@ Moreover, the activity is bubbled into ransomware vulnerability dashboard report
 
 ## Lab Setup
 
-In this lab, we will simulate a ransomware attack using a ransomware simulator. The simulator is called CashCat, is an open source simulator published on GitHub. You may find more information from <https://github.com/leeberg/CashCatRansomwareSimulator>
+In this lab, we will simulate a ransomware attack and verify how remediation works in Data Lens. 
 
 ## Login to Data Lens (if you are not already there)
 
