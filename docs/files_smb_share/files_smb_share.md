@@ -68,6 +68,8 @@ In this exercise you will create and test a SMB share, used to support home dire
 
     ![](images/16.png)
 
+9.  Go to File Server **FS*XYZ*-*A*-dr**, use the same step to create a SMB share with name : **DLtest-dr**
+
 ### Testing the Share
 
 1.  Connect to your *Initials***-ToolsVM** via RDP or console using

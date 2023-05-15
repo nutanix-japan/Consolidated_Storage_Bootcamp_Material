@@ -17,7 +17,7 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 2. In this menu, fill out the fields:
 
 
-    -   Put **Role Name**: **NUS User**
+    -   Put **Role Name**: **NUS View Only User**
     -   Expand **Object Store**, click **View Access**
     -   Expand **File Server**, click **View Access**
         ![](images/2.png)
@@ -66,13 +66,34 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 5. Click **Services**, you can only see **Files** and **Objects**
 
-6. Click **Files**, and click **FS*XYZ*-*A*-prod**
+    !!!note
+            You maybe able to see more services in Prism Central, but when you click in, you will see you have no permission to access.
 
+6. Click **Objects**, you can see only **ntnx-objects** can be accessed and the **Create Object Store** button is disappeared. Click **ntnx-objects**
 
+7. You can compare the GUI of **admin** and **user01@ntnxlab.local**, you will see **user01@ntnxlab.local** has only read-only access and cannot Create Bucket.
+    ![](images/8.png)
 
+8. Go back to your **admin** login's **Prism Central**.
 
+9. Select :fontawesome-solid-bars: **> Administration > Roles**, click **the checkbox next to NUS user** > **Actions** > **Update Role**
 
+10. Expand **Object Store**, click **Change** next to **Set customer permission**
 
+11. Check the tickbox of **Create Object Store**, then **Save**
+    ![](images/9.png)
 
+12. Go back to **user01@ntnxlab.local**'s Prism Central, refresh the page.
+
+13. Now go to **Objects**, you can see the **Create Object Store** button is appeared again.
+
+14. Now go to **Files**, you will only see **FS*xyz*-*a*-prod** in File Server, but you do not have right to launch the File Console.
+
+    !!!Tip
+            The launch PE console from PC and then launching File server page is permitted for Super Admin, Cluster Admin and user who has Prism Admin and Files Admin role 
 
 ## Takeaway
+
+By using role base access control, administrator can manage user access to Files and Objects, control access right according to File Server and Object Store with very granular control of the access right. 
+
+

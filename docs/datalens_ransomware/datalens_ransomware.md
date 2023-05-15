@@ -23,7 +23,7 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
    
       ![](images/dl1.png)
 
-5. In the **Data Lens Global Dashboard**, go to **File Servers** and search the FQDN of your File Server Name (**FSxyz-a-prod**).
+5. In the **Data Lens Global Dashboard**, go to **File Servers** and search the FQDN of your File Server Name (**FS*xyz*-*a*-prod**).
 
       ![](images/dl2.png)
 
@@ -47,29 +47,39 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
 
 ## Ransomware Protection Simulation
 
-1.    Go to **Settings** > **Update Signature List**, search for ***.satana** in the search box. If it is not in the signature list, click **Add** to add it, otherwise just click **Close**.
+1.    Go to **Settings** > **Update Signature List**, search for ****.satana*,*.AngryDuck** in the search box. If it is not in the signature list, click **Add** to add it, otherwise just click **Close**.
             ![](images/dl5.png)
 
 2.    Login to **WinToolsVM** using username : **administrator@ntnxlab.local**
 
-3.    Right click the **Powershell Icon** ![](images/powershellicon.png) and select **Run as Administrator**.
+3.    Check the following 2 shares in **File Explorer**, 
+      - **\\FS*XYZ-A*--prod.ntnxlab.local\DLtest-prod\\**
+      - **\\FS*XYZ-A*-dr.ntnxlab.local\DLtest-dr\\**
 
-4.    Check the following 2 shares in **File Explorer**, you will see the same set of files in the 2 shares. We will use these 2 shares to compare the result with and without Data Lens ransomware protection.
-      - **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\**
-      - **\\FSxyz-a-dr.ntnxlab.local\DLtest-dr\\**
-  
-5.    Run the script, which has some file creation and changing file type to both shares.
+4.    Copy all the files from **DLtest-prod** to **DLtest-dr**. We will use these 2 shares to compare the result with and without Data Lens ransomware protection.
+
+5.    Create a new file **ransomware_test.ps1** in Downloads, open the file and put the following content in the file. **Save** it.
+      ```bash
+      new-item \\fs002-3-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
+      Get-ChildItem \\fs002-3-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+      new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
+      Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+      ```
+
+6.    Right click the **Powershell Icon** ![](images/powershellicon.png) and select **Run as Administrator**.
+
+7.    Run the script, which has some file creation and changing file type to both shares.
             ```bash
-                  C:\Users\Administrator\Downloads\ransomware-test.ps1
+            C:\Users\Administrator\Downloads\ransomware_test.ps1
             ```
 
-6.    Check the share **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\**, you can see all files are .txt, meaning Data Lens is protecting against the operation. Check **\\FSxyz-a-dr.ntnxlab.local\DLtest-dr\\**, you will see files were created and modified without Data Lens' protection.
+8.    Check the share **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\**, you can see all files are .txt, meaning Data Lens is protecting against the operation of creating new or changing ransomware files according to the signature list. Check **\\FSxyz-a-dr.ntnxlab.local\DLtest-dr\\**, you will see files were created and modified without Data Lens' protection.
 
-7.    Wait until you receive email about ransomware attack alert.
+9.    Wait until you receive email about ransomware attack alert.
             ![](images/dl8.png)
 
-            !!!note
-                  It may take up to 15 minutes to receive this email. You can proceed to other labs while you are waiting.
+!!!note
+      It may take up to 15 minutes to receive this email. You can proceed to other labs while you are waiting.
 
 8.    Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**, you can see the threats are recorded and the File Server is set to Read-Only mode automatically.
             ![](images/dl9.png)
