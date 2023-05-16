@@ -2,15 +2,9 @@
 
 ## Overview
 
-In this exercise you will create and test a SMB share, used to support
-home directories, user profiles, and other unstructured file data such
-as departmental shares commonly accessed by Windows clients.
+In this exercise you will create and test a SMB share, used to support home directories, user profiles, and other unstructured file data such as departmental shares commonly accessed by Windows clients.
 
 ## Lab Setup
-
-This lab requires applications provisioned as part of the [Windows Tools](../tools_vms/windows_tools_vm.md)
-
-If you have not got this deployed, see the steps in [Windows Tools](../tools_vms/windows_tools_vm.md) to deploy Windows Tools VM before proceeding with the lab.
 
 1.  Connect to the Windows Tools VM via RDP or console
 2.  Download the [sample files](<https://peerresources.blob.core.windows.net/sample-data/SampleData_Small.zip>) for File Analytics to the Tools VM
@@ -19,7 +13,7 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
 
 ### Creating the Share
 
-1.  In **Prism Element > File Server**, click on your BootcampFS File Server
+1.  In **Prism Element > File Server**, click on your FS*XYZ*-*A*-prod File Server
 
 2.  Click on **Launch Files Console** 
     
@@ -31,13 +25,11 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
 
 4.  Fill out the following fields:
 
-    -   **Name** - *Initials*-Marketing (e.g. XYZ-Marketing)
-    -   **Description (Optional)** - Departmental share for marketing
-        team
+    -   **Name** - *Initials*-GSO (e.g. XYZ-GSO)
+    -   **Description (Optional)** - Departmental share for GSO team
     -   **Share Path (Optional)** - Leave blank. This field allows you
         to specify an existing path in which to create the nested share.
-    -   **Max Size (Optional)** - Leave blank. This field allows you to
-        set a hard quota for the individual share.
+    -   **Max Size (Optional)** - Leave blank. This field allows you to set a hard quota for the individual share.
     -   **Primary Protocol Access** - SMB
 
     ![](images/14.png)
@@ -76,6 +68,8 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
 
     ![](images/16.png)
 
+9.  Go to File Server **FS*XYZ*-*A*-dr**, use the same step to create a SMB share with name : **DLtest-dr**
+
 ### Testing the Share
 
 1.  Connect to your *Initials***-ToolsVM** via RDP or console using
@@ -87,15 +81,11 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
            domain. You could use any domain joined VM to complete the following
            steps.
 
-2.  Open `\\BootcampFS.ntnxlab.local\` in **File Explorer**.
+2.  Open `\\FS*XYZ*-*A*-prod.ntnxlab.local\` in **File Explorer**.
 
     ![](images/17.png)
 
-3.  Test accessing the Marketing share by extracting the
-    SampleData_Small.zip files downloaded in the previous step into the
-    share.
-
-    ![](images/18.png)
+3.  Test accessing the xyz-GSO share by creating a text file into the share.
 
     -   The **NTNXLAB\\Administrator** user was specified as a Files
         Administrator during deployment of the Files cluster, giving it
@@ -103,13 +93,13 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
     -   Managing access for other users is no different than any other
         SMB share.
 
-4.  Right-click **Marketing \> Properties**.
+4.  Right-click **xyz-GSO \> Properties**.
 
 5.  Select the **Security** tab and click **Advanced**.
 
     ![](images/19.png)
 
-6.  Select **Users (BootcampFS\\Users)** and click **Remove**.
+6.  Select **Users (FS*XYZ*-*A*-prod\\Users)** and click **Remove**.
 
 7.  Click **Add**.
 
@@ -131,25 +121,21 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
 
 10. Click **OK \> OK \> OK** to save the permission changes.
 
-    All users will now be able to create folders and files within the
-    Marketing share.
+    All users will now be able to create folders and files within the xyz-GSO share.
 
-    It is common for shares utilized by many people to leverage quotas
-    to ensure fair use of resources. Files offers the ability to set
-    either soft or hard quotas on a per share basis for either
+    It is common for shares utilized by many people to leverage quotas to ensure fair use of resources. Files offers the ability to set either soft or hard quotas on a per share basis for either
     individual users within Active Directory, or specific Active
     Directory Security Groups.
 
 ### Adding Share Level Quota
 
-1.  In **Prism Element \> File Server**, click on your BootcampFS File
-    Server
+1.  In **Prism Element \> File Server**, click on your FS*XYZ*-*A*-prod File Server
 
 2.  Click on **Launch Files Console**
 
     ![](images/13.png)
 
-3.  Select **Shares** \> **Initials-Marketing** share
+3.  Select **Shares** \> **xyz-GSO** share
 
     ![](images/21-1.png)
 
@@ -173,10 +159,12 @@ If you have not got this deployed, see the steps in [Windows Tools](../tools_vms
 8.  This will enforce quota limits on the shares for AD user group **SSP
     Developers** to stay within limit
 
-9.  With the *Initials*-Marketing \> **Summary** selected, review the
+9.  With the **xyz-GSO** \> **Summary** selected, review the
     **Capacity Summary**, **Performance Summary** and **Share
     Properties** tabs to understand the available on a per share basis,
     including the number of files & connections, storage utilization
     over time, latency, throughput, and IOPS.
 
     ![](images/23.png)
+
+10. **Remove all the user group policy before goint to the next lab.**

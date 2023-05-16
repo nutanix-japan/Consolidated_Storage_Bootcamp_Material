@@ -1,10 +1,10 @@
 #  Getting Started
 
-Welcome to the Nutanix Consolidated Storage Bootcamp for GSO offsite
+Welcome to the Nutanix Consolidated Storage Bootcamp for GSO offsite 2023.
 
-This workbook accompanies an instructor-led session that introduces Nutanix Files, File Analytics, Objects, and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+This workbook accompanies an instructor-led session that introduces Nutanix Files, Data Lens, Objects, Volumes and many common management tasks. Each section has a lesson to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
-Traditionally, file storage has been yet another silo within IT, introducing unnecessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files  delivers high performance, scalability, and rapid innovation through One Click management.
+Traditionally, SAN, NAS and object storage have created silos within IT, introducing unnecessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files  delivers high performance, scalability, and rapid innovation through One Click management.
 
 Please ensure you read the whole lab before starting
 
@@ -16,80 +16,50 @@ Please ensure you read the whole lab before starting
 
   - AOS 5.20.3
   - Prism Central pc.2021.9.0.4
-  - Files 4.0.0.2
-  - File Analytics 3.0.2
+  - Files 4.2.1.1
   - Objects Manager 3.4.0.2
   - Objects Service 3.4.0.2
-  - Optional lab updates
+  
 
 ## Agenda
 
 
-- Nutanix Files Labs
-    - Files: Create SMB Share
-    - Files: Create NFS Export
-    - Files: Selective File Blocking
-    - Files: Smart DR
+- Initial NUS Deployment
+    - File - Deploy Nutanix Files
+    - Object = Deploy Nutanix Objects
+    - Files & Objects - RBAC on Files and Objects
 
-- Nutanix File Analytics Labs
-    - File Analytics: Review Initial Scan
-    - File Analytics: Anomaly Rules
-    - File Analytics: Ransomware
+- Start Consuming Storage Services
+    - Files - Create SMB Share
+    - Volumes - Deploy Nutanix Volumes
+    - Objects - Buckets & Users Management
 
-- Nutanix Objects Labs
-    - Objects: Creating Buckets & Users
-    - Objects: Versioning & Access Controls
-    - Objects: Using From CLI & Scripts
-    - Objects: Tiering
-    - Objects: Multi-protocol
-    - Objects: Multi-cluster
+- Migrating from Existing File Shares
+    - Files - Share Migration
 
-- Bonus Labs
-    - Peer
+- Data Lens - Data Security Management
+    - Deploy Data Lens
+    - Anomaly Detection
+    - Ransomware Protection
+
+- Data Protection & Lifecycle Management
+    - Files - Replication
+    - Files - Tiering
+
 
 - Optional Labs
-    - Files: Deploy
-    - Files: Expand Cluster
-    - File Analytics: Deploy
-    - Objects: Deploy
-
-## What's New
-
-- Workshop updated for the following software versions:
-    - AOS 5.20.3.x & 
-    - PC pc.2022.4.0.1
-
-## Lab Agenda
-
-Nutanix Karbon deployed kubernetes clusters come with Prometheus pre-installed and ready to use. However, Grafana is not available by default. We will go through the following steps to enable and visualize the status of the kubernetes cluster.
-
-- Connect to Karbon deployed kubernetes cluster
-- Explore the ``ntnx-system`` namespace for monitoring and logging resources
-- Explore available Prometheus metrics
-- Deploy Grafana in ``ntnx-system`` namespace
-- Configure prometheus as a data source in Grafana
-- Configure a custom dashboard
-- Import a pre-configured dashboard
+    - Files - Create NFS Export
+    - Files - Expand Files Cluster
+    - Files - Enable Files Multiprotocol
+    - Objects - Access Objects from CLI and Scripts
 
 ## Initial Setup
 
-- Take note of the *Passwords* being used.
-- Log into your virtual desktops (connection info below)
-
-
-## What's New
-
--   Workshop uses for the following software versions:
-    -   AOS 5.20.2.1
-    -   Prism Central pc.2021.9.0.2
-    -   Calm 3.3.1
-
-## Initial Setup
-
--   Take note of the *Passwords* being used from you RX reservation
-    details
--   Log into your virtual desktops (connection info below)
--   Login to Global Protect VPN if you have access
+-   Take note of the *Passwords* being used in this lab
+    -   Prism Element, Prism Central, CVMs, PCVM password will be provided by instructor.
+    -   FSVM, all AD users share the same password of **nutanix/4u**
+-   Login to Global Protect VPN, select gateway without (ST). This is required to access Data Lens lab
+-   Log into your virtual desktops if required (connection info below)
 
 ## Cluster Assignment
 
@@ -147,31 +117,39 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
 |Secondary        | 10.42.*XYZ*.129/25  | *XYZ1*  | 10.42.*XYZ*.132-10.42.*XYZ*.253|
 
 
-#### Single Node HPOC Clusters
+#### Single Node HPOC Clusters (SPOC)
 
-For some workshops we are using Single Node Clusters (SNC). The reason
+For some workshops we are using Single Node Clusters (SPOC). The reason
 for this is to allow more people to have a dedicated cluster but still
 have enough free clusters for the bigger workshops including those for
 customers.
 
-The network in the SNC config is using a /26 network. This splits the
+The network in the SPOC config is using a /26 network. This splits the
 network address into four equal sizes that can be used for workshops.
 The below table describes the setup of the network in the four
 partitions. It provides essential information for the workshop with
 respect to the IP addresses and the services running at that IP address.
 
+Naming convention: 
+
+- **Cluster Name** - PHX-SPOC*XYZ*-*A*
+  - *XYZ* is the SPOC number
+  - *A* is the partition number
+- **Subnet** - 10.**38**.*XYZ*.0
+- **Cluster IP** - 10.**42**.*XYZ*.37
 
 |Partition 1     |Partition 2      | Partition 3      | Partition 4    | Service     |  Comment
 |--------------- |---------------  |----------------- |----------------- |------------- |---------------
-|10.38.x.1       |10.38.x.65        |10.38.x.129       |10.38.x.193       |Gateway          |     
-|10.38.x.5       |10.38.x.69        |10.38.x.133       |10.38.x.197       |AHV Host         |   
-|10.38.x.6       |10.38.x.70        |10.38.x.134      | 10.38.x.198       |CVM IP           |
+|10.38.x.1       |10.38.x.65        |10.38.x.129       |10.38.x.193      |Gateway           |     
+|10.38.x.5       |10.38.x.69        |10.38.x.133       |10.38.x.197      |AHV Host          |   
+|10.38.x.6       |10.38.x.70        |10.38.x.134       |10.38.x.198      |CVM IP            |
 |10.38.x.7       |10.38.x.71        |10.38.x.135       |10.38.x.199      | Cluster IP       |
 |10.38.x.8       |10.38.x.72        |10.38.x.136       |10.38.x.200      | Data Services IP |           
 |10.38.x.9       |10.38.x.73        |10.38.x.137       |10.38.x.201      | Prism Central IP |           
 |10.38.x.11      |10.38.x.75        |10.38.x.139       |10.38.x.203      | AutoDC IP(DC)    |
 |10.38.x.32-37   |10.38.x.96-101    |10.38.x.160-165   |10.38.x.224-229  | Objects 1        | 
-|10.38.x.38-58   |10.38.x.102-122   |10.38.x.166-186  | 10.38.x.230-250  | Primary          | 6 Free IPs for static assignment|
+|10.38.x.38-58   |10.38.x.102-122   |10.38.x.166-186   |10.38.x.230-250  | Primary          | 6 Free IPs for static assignment|
+|10.38.x.0       |10.38.x.64        |10.38.x.128       |10.38.x.192      | Subnet           | 
 
 
 ### Credentials

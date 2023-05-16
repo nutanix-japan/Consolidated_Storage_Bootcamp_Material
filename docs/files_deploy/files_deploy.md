@@ -2,65 +2,30 @@
 
 ## Deploy Files
 
-1.  In **Prism > File Server**, click **+ File Server** to open the
-    **New File Server Pre-Check** dialogue.
-
-    ![](images/1.png)
-
-    For the purpose of saving time, the Files has already been uploaded
-    to your cluster. Files binaries can be downloaded directly through
-    **Prism Element** > :material-cog-outline: > **Upgrade Software** menu (option to uploaded manually is present as well).
-
-    ![](images/2.png)
-
-    Additionally, the cluster's **Data Services** IP Address has
-    already been configured (*10.XX.YY.38*). In a Files cluster, storage
-    is presented to the Files VMs as a Volume Group via iSCSI, hence the
-    dependency on the Data Services IP.
+1.  In **Prism Element > File Server**, click **+ File Server** to open the
+    **Create File Server** dialogue.
 
     !!!note
 
-           If staging your own environment, the Data Services IP can be easily
-           configured by selecting :material-cog-outline: **> Cluster Details**, specifying the **iSCSI Data Services IP**, and
-           clicking **Save**. Currently, the Data Services IP must be in the
-           same subnet as your CVMs.
+           As we have deployed a file server in the cluster, it will use the current FS version to deploy the new file server. In a normal deployment if this is the first file server to create, you will need to go through a pre-check and select Files version from a list of available compatible versions. You can also choose to manually upload a File version to start the deployment.
 
-    Lastly Files will ensure that at least 1 network has been configured
-    on the cluster. A minimum of 2 networks are recommended to have
-    segmentation between the client side and storage side networks.
+2.  Fill out the following fields:
 
-2.  Click **Continue** on Pre-Check window if it appears
-
-    ![](images/3.png)
-
-3.  Fill out the following fields:
-
-    -   **Name** - **initials**-Files (e.g. XYZ-Files)
+    -   FS*XYZ*-*A*-dr (e.g. FS002-3-dr)
     -   **Domain** - ntnxlab.local
     -   **File Server Size** - 1 TiB
 
     ![](images/4.png)
 
-4.  Click **Next**.
+3.  Click **Next**.
 
-5.  Select the **Secondary - Managed** VLAN for the **Client Network**.
+5.  Select the **Primary - Managed** VLAN for the **Client Network**.
     
     Each Files VM will consume a single IP on the client network.
 
-    ???warning "Check here if you are using a Single Node HPOC (SPOC)"
-               
-        Make sure to use the **Primary - Managed** VLAN for the **Client Network**.
-
     !!!note
-
-           In the HPOC environment it is critical to use the secondary VLAN for
-           the client network if using separate client and storage networks.
-       
-           It is typically desirable in production environments to deploy Files
-           with dedicated virtual networks for client and storage traffic. When
-           using two networks, Files will, by design, disallow client traffic
-           the storage network, meaning VMs assigned to the primary network
-           will be unable to access shares.
+    
+           It is typically desirable in production environments to deploy Files with dedicated virtual networks for client and storage traffic. When using two networks, Files will, by design, disallow client traffic the storage network, meaning VMs assigned to the primary network will be unable to access shares.
 
    
     ???info "Check here for ESXi Hypervisor information"
@@ -100,7 +65,7 @@
     -   Select **Use NFS Protocol**
     -   **User Management and Authentication** - Unmanaged
     -   Select **Show NFS Advanced Options**
-    -   **NFS protocol version** - Enable NFSv4 by default for all
+    -   For 4-node HPOC only: **NFS protocol version** - Enable NFSv4 by default for all
         exports
 
     ![](images/9.png)
@@ -109,7 +74,7 @@
 
     !!!info
 
-            In un-managed mode, users are only identified by UID/GID. In Files 3.5, Files supports both NFSv3 and NFSv4.
+            In un-managed mode, users are only identified by UID/GID. Starting from Files 3.5, Files supports both NFSv3 and NFSv4.
 
 11. Click **Next**.
 
@@ -124,7 +89,10 @@
 
 13. Monitor deployment progress in **Prism > Tasks**.
 
-    Deployment should take approximately 10 minutes.
+    Deployment should take approximately 10 minutes. 
+
+    !!!note
+            You should start working on the next lab while the File Server is creating.
 
     ![](images/11.png)
 
@@ -138,13 +106,12 @@
       
           This can easily be corrected after deployment, without having to delete and redeploy the Files Server.
       
-          -   Within the **File Server** dropdown, select the file server
-              you deployed, and click **Update > Network Configuration**.
-              Modify the entry for *DNS Resolver IP*, and click **Next > Save**.
-          -   Click **DNS**. Update this page with the AutoAD FQDN
-              ``dc.ntnxlab.local`` (or customer-provided), Username and
-              Password of an Active Directory user with administrator
-              privileges, and click **Submit**.
+          -   **Launch File Console**, go to **Configuration > Authentication > Directory Services**
+          -   Click **Use SMB Protocol**, put **ntnxlab.local** in Active Directory Realm Name
+          -   Put administrator@ntnxlab.local and nutanix/4u as username and password
+          -   Select **Make this user a File Server admin**
+          
+    
 
 14. Go to **Prism > File Server** and select the *Initials***-Files**
     server and click **Protect**.

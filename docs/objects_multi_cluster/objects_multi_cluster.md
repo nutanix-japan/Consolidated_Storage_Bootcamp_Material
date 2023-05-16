@@ -24,6 +24,10 @@ cluster that meets the following criteria:
 !!!warning
           Multi-Cluster is not suitable for cross-WAN communication
 
+!!!note
+          Cross-WAN multi-cluster is supported with global namespace feature on Objects 4.0. Please reach out to the instructor for more detail.
+
+
 ## Lab Setup
 
 In this lab, you will only walk through a Nutanix Objects
