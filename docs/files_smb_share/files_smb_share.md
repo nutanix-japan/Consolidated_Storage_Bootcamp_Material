@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this exercise you will create and test a SMB share, used to support home directories, user profiles, and other unstructured file data such as departmental shares commonly accessed by Windows clients.
+In this exercise you will create and test a SMB share. SMB share are used to support home directories, user profiles, and other unstructured file data such as departmental shares commonly accessed by Windows clients.
 
 ## Lab Setup
 
@@ -72,7 +72,7 @@ In this exercise you will create and test a SMB share, used to support home dire
 
 ### Testing the Share
 
-1.  Connect to your *Initials***-ToolsVM** via RDP or console using
+1.  Connect to your *Initials***-WinToolsVM** via RDP or console using
     **NTNXLAB\\Administrator** user
 
     !!!note

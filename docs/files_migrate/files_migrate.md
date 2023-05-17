@@ -2,15 +2,17 @@
 
 ## Overview
 
-A lot of customers have existing file shares on existing NAS setup and which need to be migrated to Nutanix Files. A lot of time they will leverage free migration tools like robocopy to migrate SMB shares. The common challenges of using common tools are the slow migration speed and complicated management. 
+Many customers have existing file shares on existing NAS infrastructure that need to be migrated to Nutanix Files. A lot of time they will leverage free migration tools like robocopy to migrate SMB shares. The common challenges of using common tools are the migration speed and complex management. 
 
-That is way we start to support share migration feature from Files 4.0.2. This feature help customer to migrate existing SMB shares to Nutanix Files flawlessly while taking advantage of Nutnaix Files internal architeceture to provide robust and optimize migration solution.
+Starting from Nutanix Files 4.0.2, nutanix includes in-build migration tool. This feature will help customers migrate from existing SMB shares to Nutanix Files flawlessly by taking advantage of Nutnaix Files' internal architecture, providing a robust and optimize migration solution.
+
+Lets now explore the migration Tool
 
 ## Lab Preparation
 
-In your **WinTools VM**, we have a share **my_secret** shared as **M:** drive. We will use this as an existing share to migrate to Nutanix Files.
+In your **WinTools VM**, there is a share **my_secret** mapped under **M:** drive. We will use this as an existing share to migrate to a remote Nutanix Files.
 
-1. Connect to your *Initials***-ToolsVM** via RDP or console using **NTNXLAB\\Administrator** user
+1. Connect to your *Initials***-WinToolsVM** via RDP or console as **NTNXLAB\\Administrator** user
 2. Open **File Explorer** and go to **M:\** to check the existing share.
 3. Right click the folder **confidential** > **Security** > **Edit**
 4. Add **user01** to have **read access** to this folder.
@@ -62,10 +64,10 @@ In your **WinTools VM**, we have a share **my_secret** shared as **M:** drive. W
      migration.plan_status name=[planname used in step 5] verbose=true
      ```
 
-8. You may find the migration failed with the following reason, it is because the share contains user SID that cannot be found in the domain : 
+8. You may find the migration has failed with the following reason, this is because the share contains user SID that cannot be found in the domain : 
         ![](images/4.png)
 
-9. To solve this problem, we need to run the migration plan again but allow unknown user SIDs presence in the share : 
+9. To solve this problem, we need to run the migration plan again with an unknown user SIDs attribute in the share : 
      ```bash
      migration.plan_migrate name=[planname used in step 5] allow_unknown_sids=true
      ```
@@ -77,14 +79,14 @@ In your **WinTools VM**, we have a share **my_secret** shared as **M:** drive. W
         You should see the status to be succeeded this time.
         ![](images/5.png)
 
-11. Go back to the file explore of **WinTools VM**, right click the folder **confidential** and go to **Properties > Security**, you can see **user01** has **read** access to this folder. That means the permission is successfully migrated to the target share.
+11. Go back to the file explore of **WinTools VM**, right click the folder **confidential** and go to **Properties > Security**, you can see **user01** has **read** access to this folder. This means the permission has successfully migrated to the target share.
         ![](images/6.png)
 
 12. Now let's try to rename and delete some files and do a delta sync of the migration. Go to **WinTools VM > M: drive** in **file explorer**. Now do the following :
     - Delete the file **HPE GL Webinar - 20210729.pdf**
     - Rename folder **confidential** to **"Open To Public"**
 
-13. SSH to FSVM again, run the following command to start migration again and check the status afterwards.
+13. SSH to FSVM again, run the following command to start migration again and check for status.
      ```bash
         migration.plan_migrate name=[planname used in step 5] allow_unknown_sids=true
 

@@ -2,12 +2,14 @@
 
 ## Deploy Files
 
+In this section, we will be creating a Single Node File Server that will be used for File replication lab.
+
 1.  In **Prism Element > File Server**, click **+ File Server** to open the
     **Create File Server** dialogue.
 
     !!!note
 
-           As we have deployed a file server in the cluster, it will use the current FS version to deploy the new file server. In a normal deployment if this is the first file server to create, you will need to go through a pre-check and select Files version from a list of available compatible versions. You can also choose to manually upload a File version to start the deployment.
+           As we have already deployed a file server in this cluster, it will use the current FS version to deploy a new file server. In a normal deployment, if this is the first file server, you will need to go through a pre-check and select the Files version from a list of available compatible versions. You can also choose to manually upload a File version to start the deployment.
 
 2.  Fill out the following fields:
 
@@ -25,12 +27,12 @@
 
     !!!note
     
-           It is typically desirable in production environments to deploy Files with dedicated virtual networks for client and storage traffic. When using two networks, Files will, by design, disallow client traffic the storage network, meaning VMs assigned to the primary network will be unable to access shares.
+           It is typically desirable in production environments to deploy Files with dedicated virtual networks for client and storage traffic. When using two networks, Files will, by design, disallow client traffic in the storage network, meaning VMs assigned to the primary network will be unable to access shares.
 
    
     ???info "Check here for ESXi Hypervisor information"
            As this is an AHV managed network, configuration of individual IPs
-           is not necessary. In an ESXi environment, or using an unmanaged AHV
+           is not necessary. In an ESXi environment, or using an un-managed AHV
            network, you would specify the network details and available IPs as
            shown below.
        
@@ -50,7 +52,7 @@
 
 8.  Select the **Primary - Managed** VLAN for the Storage Network.
 
-    Each Files VM will consume a single IP on the storage network, plus 1 additional IP for the cluster.
+    Each Files VM will consume a single IP on the storage network, plus one additional IP for the cluster.
 
     ![](images/8.png)
 
@@ -78,7 +80,7 @@
 
 11. Click **Next**.
 
-    By default, Files will automatically create a Protection Domain to
+    By default, FILES will automatically create a Protection Domain to
     take daily snapshots of the Files cluster and retain the previous 2
     snapshots. After deployment, the snapshot schedule can be modified
     and remote replication sites can be defined.

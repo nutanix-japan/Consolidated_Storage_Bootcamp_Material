@@ -8,20 +8,20 @@ e-mail archives are all examples of unstructured data that can cause
 issues at scale using traditional file and block storage solutions.
 
 Unlike file or block storage, object storage is a data storage
-architecture designed for unstructured data at the petabyte scale.
+architecture designed for unstructured data at the Petabyte scale.
 Object storage manages data as objects, where each object contains the
 data itself, a variable amount of metadata, and a globally unique
 identifier. There is no filesystem overhead as there is in block and
 file storage, so it can be easily scaled out at a global level.
 
-Nutanix Objects is an S3-compatible object storage solution that
+Nutanix Objects is a S3-compatible object storage solution that
 leverages the underlying Nutanix storage fabric which allows it to
 benefit from features such as encryption, compression, and erasure
 coding (EC-X).
 
-Objects allows users to store petabytes of unstructured data on the
+Objects allow users to store petabytes of unstructured data on the
 Nutanix platform, with support for features such as WORM (write once,
-read many) and object versioning that are required for regulatory
+read many) that supports object versioning that is required for regulatory
 compliance, and easy integration with 3rd party backup software and
 S3-compatible applications.
 
@@ -47,7 +47,7 @@ S3-compatible applications.
         simultaneously with a key-value store based metadata
         structure and multi-part upload capabilities.
 
-**In this lab, you will walk through a Nutanix Objects deployment and
+**In this lab, we will walk through a Nutanix Objects deployment and
 learn how to create, access, and manage buckets.**
 
 For more information on Objects, please visit our [website](http://www.nutanix.com/products/objects) or send an [e-mail](objects@nutanix.com) to contact the Nutanix Objects team!

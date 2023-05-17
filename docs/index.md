@@ -1,14 +1,14 @@
 #  Getting Started
 
-Welcome to the Nutanix Consolidated Storage Bootcamp for GSO offsite 2023.
+Welcome to the Nutanix Consolidated Storage Bootcamp for CX offsite 2023.
 
-This workbook accompanies an instructor-led session that introduces Nutanix Files, Data Lens, Objects, Volumes and many common management tasks. Each section has a lesson to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+This workbook introduces Nutanix Files, Data Lens, Objects, Volumes and many common management tasks. Each section has a lesson to give you hands-on practice. The instructor is onsite to answers any additional questions that you may have.
 
-Traditionally, SAN, NAS and object storage have created silos within IT, introducing unnecessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files  delivers high performance, scalability, and rapid innovation through One Click management.
+Traditionally, SAN, NAS and object storage have created silos within IT, introducing un-necessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files delivers high performance, scalability, and rapid innovation through One Click management.
 
 Please ensure you read the whole lab before starting
 
-**In this lab you will step through managaging SMB shares and NFS exports, scale out the environment, and explore upcoming Files features. The lab will provide key considerations around deployment, configuration, and use cases.**
+**In this lab you will step through managing SMB shares and NFS exports, scale out the environment, and explore upcoming Files features. The lab will provide key considerations around deployment, configuration, and use cases.**
 
 ## What's New
 
@@ -50,7 +50,7 @@ Please ensure you read the whole lab before starting
 - Optional Labs
     - Files - Create NFS Export
     - Files - Expand Files Cluster
-    - Files - Enable Files Multiprotocol
+    - Files - Enable Files Multi-protocol
     - Objects - Access Objects from CLI and Scripts
 
 ## Initial Setup

@@ -5,6 +5,8 @@ author: Gary Tang @ Nutanix
 
 # Volumes
 
+In this section, we will create a Nutanix Volume and then using Windows VM to connect to the volume using iSCSI protocol.
+
 ## Volumes Setup
 
 ### Check iSCSI Data Service IP
@@ -38,9 +40,9 @@ author: Gary Tang @ Nutanix
 
 ### Connect Volumes Disks to Windows VM
 
-1. Find the VG you just created in **Storage Dashboard > Table > Volume Group**. Click on the VG and click **Update**. 
+1. Locate the VG you just created in **Storage Dashboard > Table > Volume Group**. Click on the VG and click **Update**. 
 
-2. Under **Client**, click **+ Add New Client**, put the iqn you found in your WinToolsVM in **Client IQN/IP Address** and click **Add**. The iqn will be selected to add as client.
+2. Under **Client**, click **+ Add New Client**, locate the iqn you identify in your WinToolsVM in **Client IQN/IP Address** and click **Add**. The iqn will be selected to add as client.
 
     ![](images/vol6.png)
 
