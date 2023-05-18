@@ -1,10 +1,10 @@
 #  Getting Started
 
-Welcome to the Nutanix Consolidated Storage Bootcamp for CX offsite 2023.
+Welcome to the Nutanix Unified Storage Bootcamp for CX offsite 2023.
 
-This workbook introduces Nutanix Files, Data Lens, Objects, Volumes and many common management tasks. Each section has a lesson to give you hands-on practice. The instructor is onsite to answers any additional questions that you may have.
+This lab introduces Nutanix Files, Data Lens, Objects, Volumes and many common management tasks. Each section is a lesson with hands-on practice. The instructor is onsite to answers any additional questions that you may have.
 
-Traditionally, SAN, NAS and object storage have created silos within IT, introducing un-necessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files delivers high performance, scalability, and rapid innovation through One Click management.
+Traditionally, SAN, NAS and object storage have created silos within the Datacentre. This introduces un-necessary complexity and the ability to scale and the lack of continuous innovation seen in SAN storage. Nutanix believes in eliminating silos in the Enterprise Cloud by approaching file storage as an app, i.e running as software define storage on top of a proven HCI core, Nutanix Files delivers high performance, scalability, and rapid innovation through One Click management.
 
 Please ensure you read the whole lab before starting
 
@@ -14,11 +14,11 @@ Please ensure you read the whole lab before starting
 
 - Workshop updated for the following software versions:
 
-  - AOS 5.20.3
-  - Prism Central pc.2021.9.0.4
-  - Files 4.2.1.1
-  - Objects Manager 3.4.0.2
-  - Objects Service 3.4.0.2
+  - AOS 6.5.2.5
+  - Prism Central pc.2022.6.0.3
+  - Files 4.3
+  - Objects Manager 3.6
+  - Objects Service 3.6
   
 
 ## Agenda
@@ -55,9 +55,8 @@ Please ensure you read the whole lab before starting
 
 ## Initial Setup
 
--   Take note of the *Passwords* being used in this lab
-    -   Prism Element, Prism Central, CVMs, PCVM password will be provided by instructor.
-    -   FSVM, all AD users share the same password of **nutanix/4u**
+-   Take note of the *Passwords* being used in this lab. Please refer to the HPOC lookup for credentials
+    -   Prism Element, Prism Central, CVMs, PCVM password will be available in the HPOC lookup.
 -   Login to Global Protect VPN, select gateway without (ST). This is required to access Data Lens lab
 -   Log into your virtual desktops if required (connection info below)
 
@@ -76,45 +75,6 @@ The instructor will inform the attendees their assigned clusters.
 Nutanix Workshops are intended to be run in the Nutanix Hosted POC
 environment. Your cluster will be provisioned with all necessary images,
 networks, and VMs required to complete the exercises.
-
-### Networking
-
-As we are able to provide three/four node clusters and single node
-clusters in the HPOC environment, we need to describe each sort of
-cluster separately. The clusters are setup and configured differently.
-
-#### Three/Four node HPOC clusters
-
-Three or four node Hosted POC clusters follow a standard naming
-convention:
-
--   **Cluster Name** - POC*XYZ*
--   **Subnet** - 10.**42**.*XYZ*.0
--   **Cluster IP** - 10.**42**.*XYZ*.37
-
-For example:
-
--   **Cluster Name** - POC055
--   **Subnet** - 10.42.55.0
--   **Cluster IP** - 10.42.55.37 for the VIP of the Cluster
-
-Throughout the Workshop there are multiple instances where you will need
-to substitute *XYZ* with the correct octet for your subnet, for example:
-
-| IP Address     |   Description |
-| -------------- | --------------- |
-| 10.42.*XYZ*.37 |  Nutanix Cluster Virtual IP   |
-| 10.42.*XYZ*.39 |  **PC** VM IP, Prism Central |
-| 10.42.*XYZ*.41  |  **DC** VM IP, NTNXLAB.local Domain Controller   |
-
-
-Each cluster is configured with 2 VLANs which can be used for VMs:
-
-
-|Network Name     | Address             | VLAN    | DHCP Scope|
-|-----------------| ------------------- |-------- | -----------|
-|Primary          | 10.42.*XYZ*.1/25    | 0       | 10.42.*XYZ*.50-10.42.*XYZ*.124|
-|Secondary        | 10.42.*XYZ*.129/25  | *XYZ1*  | 10.42.*XYZ*.132-10.42.*XYZ*.253|
 
 
 #### Single Node HPOC Clusters (SPOC)
@@ -206,16 +166,8 @@ Login to: <https://console.nutanix.com/x/labs>
 **Nutanix Employees** - Use your **NUTANIXDC** credentials
 **Non-Employees** - Use **Lab Access User** Credentials
 
-### Parallels VDI
 
-PHX Based Clusters Login to: <https://xld-uswest1.nutanix.com>
-
-RTP Based Clusters Login to: <https://xld-useast1.nutanix.com>
-
-**Nutanix Employees** - Use your **NUTANIXDC** credentials
-**Non-Employees** - Use **Lab Access User** Credentials
-
-### Employee Pulse Secure VPN
+### Employee Global Protect VPN
 
 Download the client:
 
@@ -241,9 +193,3 @@ For RTP:
 -   **Type** - Policy Secure (UAC) or Connection Server
 -   **Name** - X-Labs - RTP
 -   **Server URL** - xlv-useast1.nutanix.com
-
-## Nutanix Version Info
-
--   AOS 5.20.3.x & 
--   PC pc.2022.4.0.1
--   Calm 3.3.1
