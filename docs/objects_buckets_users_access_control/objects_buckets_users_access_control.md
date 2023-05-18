@@ -158,7 +158,7 @@ in the object store using your generated access key.
     -   **Access Key** - *Generated When User Created*
     -   **Secret Key** - *Generated When User Created*
 
-    ![](images/obj_02_.png)
+    ![](images/obj_02.png)
 
 4.  Click the **+ Create Bucket**.
 

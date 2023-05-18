@@ -44,9 +44,8 @@ The data protection process consists of the following procedures:
 
 We have already created File Server in the DR site and migrated files from existing share to xyz-GSO in the previous labs. We now will replicate the xyz-GSO share to the DR File Server.
 
-    !!!note
-
-            Make sure you have finished the labs of "Deploy Nutanix Files", "Create SMB Share" & "Share Migration" before this lab.
+!!!note
+        Make sure you have finished the labs of "Deploy Nutanix Files", "Create SMB Share" & "Share Migration" before this lab.
 
 
 
@@ -62,7 +61,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 2.  Click on :fontawesome-solid-bars: > Services > Files
 
-    !!!note
+    ???note "Can't see Files Manager?"
 
            If Files Manager is not enabled in your Prism Central, you will need
            to Enable Files using instruction in [Files Manager](../files_manager/files_manager.md)

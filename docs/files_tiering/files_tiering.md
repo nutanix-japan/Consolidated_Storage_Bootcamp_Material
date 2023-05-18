@@ -65,14 +65,16 @@ Objects that has been pre-deployed for you to AWS S3.
 8.  Click **Next** > **Generate Key** > **Download Key**
 
 9.  Once you download the key and open the key file, you will see information like this. Keep the secret key and access key for later session :
+    
+    ```bash title="Sample file only - do not copy"
+    Username: adminuser01@ntnxlab.local
 
-    ``Username: adminuser01@ntnxlab.local``
+    Access Key: PE_5lYhc5exAc-_gDzO2_xO8FGDdJg4_
 
-    ``Access Key: PE_5lYhc5exAc-_gDzO2_xO8FGDdJg4_``
+    Secret Key: fIRBeAzHNOE7sl3Wei88h_LFiL0KozKb
 
-    ``Secret Key: fIRBeAzHNOE7sl3Wei88h_LFiL0KozKb``
-
-    ``Display Name: Adminuser01``
+    Display Name: Adminuser01
+    ```
 
 10. Go back to **Prism Central**, click on :fontawesome-solid-bars: > **Services** > **Objects**
 
@@ -112,7 +114,7 @@ Objects that has been pre-deployed for you to AWS S3.
     ![](images/5.1.png)
     ![](images/5.2.png)
 
-8.  Once tiering location is configured, we can strat to set policy. Click **Set a Capacity Threshold**, you can set a capacity threshold so that tiering policy will only be run when the capacity usage is exceeded the percentage. For this lab, we do not set threshold so do not click **Set Capacsity Threshold** and keep **Manual** selected under **When to Tier**. Then click **Save**.
+8.  Once tiering location is configured, we can strat to set policy. Click **Set a Capacity Threshold**, you can set a capacity threshold so that tiering policy will only be run when the capacity usage is exceeded the percentage. For this lab, we do not set threshold so do not click **Set Capacity Threshold** and keep **Manual** selected under **When to Tier**. Then click **Save**.
 
 9.  Now click **Create a Tiering Policy**
 
