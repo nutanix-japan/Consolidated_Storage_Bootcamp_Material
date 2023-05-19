@@ -14,11 +14,13 @@ Please ensure you read the whole lab before starting
 
 - Workshop updated for the following software versions:
 
-  - AOS 5.20.3
-  - Prism Central pc.2021.9.0.4
-  - Files 4.2.1.1
-  - Objects Manager 3.4.0.2
-  - Objects Service 3.4.0.2
+  - AOS 6.5.2.5
+  - Prism Central pc.2022.6.0.3
+  - MSP 2.4.2.1
+  - Files 4.3
+  - Files Manager 4.3
+  - Objects Manager 3.6
+  - Objects Service 3.6
   
 
 ## Agenda
