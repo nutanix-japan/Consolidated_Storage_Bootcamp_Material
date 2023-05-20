@@ -42,10 +42,10 @@ The data protection process consists of the following procedures:
 
 ## Lab Setup
 
-We have already created File Server in the DR site and migrated files from existing share to xyz-GSO in the previous labs. We now will replicate the xyz-GSO share to the DR File Server.
+In the previos labs, We have already created File Server in the DR site and migrated files from existing share to xyz-GSO share. We will now replicate the xyz-GSO share to the DR File Server.
 
 !!!note
-        Make sure you have finished the labs of "Deploy Nutanix Files", "Create SMB Share" & "Share Migration" before this lab.
+        Make sure you have finished the lab section "Deploy Nutanix Files", "Create SMB Share" & "Share Migration" before attempting this section.
 
 
 

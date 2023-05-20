@@ -1,15 +1,23 @@
 # Data Lens - Deploy & Basic Configuration
 ## Overview
 
-In this exercise you will enable Data Lens and experience auditing & ransomware protection; and trigger a ransomware event.
+In this exercise you will explore Data Lens, auditing & ransomware protection features and trigger a ransomware event.
+
+
+!!!note
+        As we are using a Nutanix Dev environment, this lab is only available for **Employees**. You can skip this section if you are a Nutanix Partner.
+        Please **ONLY** use your registered server
+
+
+
 
 ## Login to Data Lens
 
-1. Connect to corp VPN, select the gateway without **(ST)**
+1. Connect to corp VPN gateway without **(ST)**
    
 2. Go to https://datalens-qa.nutanix.com/ 
    
-3. Your instructor will give you a my portal account to login
+3. Please use the Datalens/password credentials provided in the **HPOC lookup**.
    
 4. Choose **Common Tenant** and then **Proceed**.
    
@@ -33,9 +41,9 @@ In this exercise you will enable Data Lens and experience auditing & ransomware 
     
     ![](images/dl3.png)
 
-9. Here we will create a permission denial. Create a new directory called **RO** in the **XYZ-GSO** share
+9. Here we will create a permission denial. Create a new directory called **RO** in your **XYZ-GSO** share
 
-10. Create a text file in the **RO** directory with some text like "hello world" called **myfile.txt**
+10. Create a text file in the **RO** directory called **myfile.txt** with some text like "hello world"
 
 11. Go to the **Properties** of the **RO** folder and select the **Security** tab
 
@@ -43,7 +51,7 @@ In this exercise you will enable Data Lens and experience auditing & ransomware 
 
 13. Choose **Disable inheritance** and select the **Convert...** option
 
-14. Then add the **Everyone** permissions with the following:
+14. Then add the **Everyone** permissions with the following attributes:
 
      -   Read & Execute
      -   List folder contents
@@ -51,9 +59,9 @@ In this exercise you will enable Data Lens and experience auditing & ransomware 
    
      ![](images/43.png)
 
-1. Choose **OK**, **OK** and **OK** again
+15. Choose **OK**, **OK** and **OK** again
 
-2. Open a PowerShell window as a specific user
+16. Open a PowerShell window as a specific user
 
     -   Hold down **Shift** and **right click** on the **PowerShell
         icon** on the taskbar
@@ -61,18 +69,18 @@ In this exercise you will enable Data Lens and experience auditing & ransomware 
 
     ![](images/44.png)
 
-3. Enter the following
+17. Enter the following
 
     -   **User name**: devuser01
     -   **Password**: nutanix/4u
 
-4. Change Directories into the **xyz-GSO** share and the **RO** directory
+18. Change Directories to **RO** under the **xyz-GSO**
 
     ``` bash
     cd \\FSxyz-a-prod.ntnxlab.local\xyz-GSO\RO
     ```
 
-5. Execute the following commands, the first should succeed, the second should fail:
+19. Execute the following commands, the first should succeed, the second should fail:
 
     ``` bash
     more .\myfile.txt
@@ -81,12 +89,14 @@ In this exercise you will enable Data Lens and experience auditing & ransomware 
 
     ![](images/45.png)
 
-6. After a minute or so you should see **Permission Denials** in both the dashboard and the **Audit Trails** view. You may need to refresh your browser.
+20. After a minute or so you should see **Permission Denials** in both the dashboard and the **Audit Trails** view. (You may need to refresh your browser).
 
     ![](images/46.png)
 
 
 21. Refresh the **Dashboard** page to see the updates on **Top 5 active users**, **Top 5 accessed files** and **File Operations** panels.
 
-22. Click on your user under **Top 5 Active Users**. This will take you to the audit trail of the user. Or click on the **hamburger icon** then **Audit Trails** menu and search for either your user or a given file. You can use wildcards for your search, for example .txt. 
+22. Click on your user under **Top 5 Active Users**. This will take you to the audit trail of the user. Alternatively,  click on the **hamburger icon** then **Audit Trails** menu and search for either your user or a given file. You can use wildcards for your search, for example *.txt. 
+
+You may continue to explore the data lens dashboard.
 
