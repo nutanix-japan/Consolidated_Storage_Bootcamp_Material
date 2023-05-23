@@ -1,6 +1,8 @@
 # Data Lens - Deploy & Basic Configuration
 ## Overview
 
+In an era where massive scale is the norm, gaining insights and understanding the data that your infrastructure is hosting is critical. That is why Nutanix Data Lens provides deep insights, analytics, and greater visibility for your data on Nutanix Files. It also provides audit trails to track file access over time and ransomware protection to prevent against cyber attacks. Easy to use dashboards and customizable reporting provide deeper insight into the data. 
+
 In this exercise you will enable Data Lens and experience auditing & ransomware protection; and trigger a ransomware event.
 
 ## Login to Data Lens
