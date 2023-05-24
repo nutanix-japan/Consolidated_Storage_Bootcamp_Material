@@ -65,7 +65,7 @@ In this exercise, we will explore anomaly rules and trigger some events against 
 
 3.  Create TWO text files in the **RO** directory called **myfile01.txt** & **myfile02.txt** with some text.
 
-4.  Delete the TWP files. The creation and deletion of files should trigger the anomaly rules.
+4.  Delete the TWO files. The creation and deletion of files should trigger the anomaly rules.
 
 5. Continue on the next lab until you receive email warning about anomalies detected. 
         ![](images/dl4.png)

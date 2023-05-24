@@ -56,18 +56,30 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
 
 3.    Check the following 2 shares in **File Explorer**:
 
-      - ``FS*XYZ-A*--prod.ntnxlab.local\DLtest-prod``
+      - ``FS*XYZ-A*-prod.ntnxlab.local\DLtest-prod``
       - ``FS*XYZ-A*-dr.ntnxlab.local\DLtest-dr``
 
 4.    Copy all the files from **DLtest-prod** to **DLtest-dr**. We will use these TWO shares to compare the result with and without Data Lens ransomware protection.
 
 5.    Create a new file **ransomware_test.ps1** in Downloads, open the file and put the following content in the file. **Save** it.
-      ```bash
-      new-item \\fs002-3-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
-      Get-ChildItem \\fs002-3-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
-      new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
-      Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
-      ```
+    
+    === "Template commands"
+    
+        ```bash
+        new-item \\fsXYZ-a-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fsXYZ-a-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        ```
+    
+    === "Sample commands"
+    
+        ``` bash
+        new-item \\fs002-3-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fs002-3-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        ```
 
 6. Right click the :simple-powershell: (PowerShell icon) and select **Run as Administrator**.
 
