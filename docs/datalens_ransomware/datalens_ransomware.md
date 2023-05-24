@@ -68,8 +68,8 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
         ```bash
         new-item \\fsXYZ-a-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
         Get-ChildItem \\fsXYZ-a-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
-        new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
-        Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        new-item \\fsXYZ-a-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fsXYZ-a-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
         ```
     
     === "Sample commands"
@@ -109,9 +109,9 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
            Data Lens sets the whole File Server to Read-Only mode. You can use another users to test on any shares in the same File Server. It should give you the same result.
 
 
-11. Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**. Under **Blocked Entities**, click **Unblock** > **Confirm** to resume to read-write access.
+12. Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**. Under **Blocked Entities**, click **Unblock** > **Confirm** to resume to read-write access.
+    
+    !!!note
+             You can always click the green circle ![](images/greencircle.png) to check the status of the tasks.
 
-      !!!note
-            You can always click the green circle ![](images/greencircle.png) to check the status of the tasks.
-
-12.   Return to **Data Lens** sometimes later to check if it is done. Verify the access from your **WinToolsVM**.
+13.   Return to **Data Lens** sometimes later to check if it is done. Verify the access from your **WinToolsVM**.
