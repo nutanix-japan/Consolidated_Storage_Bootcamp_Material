@@ -180,6 +180,11 @@ Store.
     your cluster's subnet to check if they are avaialable or use a port
     scanner to determine this)
 
+
+    !!!warning 
+
+            Due to the lab network setup, some IPs maybe reserved but not in use that you cannot ping it but Objects does not allow you to use those IPs. If you see some errors aobut network in use, try to use other IP addresses.
+
     ![](images/buckets_03.png)
 
 7.  Click **Next**
