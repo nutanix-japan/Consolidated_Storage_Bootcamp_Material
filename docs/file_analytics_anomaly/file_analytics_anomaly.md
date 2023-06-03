@@ -1,26 +1,45 @@
-# File Analytics: Anomaly Rules {#file_analytics_anomaly}
+# File Analytics - Anomaly Detection
 
 ## Overview
 
+One of the major features that Data Lens have is the ability to identify abnormal behavior. It gives administrators a way to monitor analytics data for potential threats such as mass file deletion or perimission changes. When anomalies are detected based on administrator defined policies, alerts are sent to warn the administrator of the threat.
+
+In this exercise you will create anomaly rules and trigger events against the rules.
+
+## Login to File Analytics (If you are not already there)
+
+1.  Login to **Prism Element** \> **File Server** \> click the File Server **FS-XYZ-Prod** > **File Analytics**
+
+    ![](images/1.png)
+
 ## Define Anomaly Rules
 
-1.  Create two anomaly rules by going to **Define Anomaly Rules** from
-    under the `cog`{.interpreted-text role="fa"} gear icon
+1.  Create two anomaly rules by going to ![](images/gear.png) > **Define Anomaly Rules** 
 
     ![](images/39.png)
 
-2.  Create the first rule with the following settings:
+2.  Click **Configure SMTP to add recipients**, then fill in the following settings:
+    -   **Hostname Or IP Address**: smtp.sendgrid.net
+    -   **Port**: 587
+    -   **Security Mode**: STARTTLS
+    -   **User Name**: apikey
+    -   **Password**: 
+    -   **From Email Address**: noreply@nutanix.com
+    -   **Recipient Email Address**: [your email address]
 
-    -   **Events:** Delete
-    -   **Minimum Operation %:** 1
-    -   **Minimum Operation Count:** 10
-    -   **User:** All Users
-    -   **Type:** Hourly
-    -   **Interval:** 1
 
-3.  Choose **Save** for that anomaly table entry
+3.  Create the first rule with the following settings:
 
-4.  Choose **+ Configure new anomaly** and create a second rule with the
+    -   **Events:**: Delete
+    -   **Minimum Operation %:**: 1
+    -   **Minimum Operation Count:**: 10
+    -   **User:**: All Users
+    -   **Type:**: Hourly
+    -   **Interval:**: 1
+
+4.  Choose **Save** for that anomaly table entry
+
+5.  Choose **+ Configure new anomaly** and create a second rule with the
     following settings
 
     -   **Events**: Create
@@ -30,11 +49,11 @@
     -   **Type**: Hourly
     -   **Interval**: 1
 
-5.  Choose **Save** for that anomaly table entry
+6.  Choose **Save** for that anomaly table entry
 
     ![](images/40.png)
 
-6.  Select **Save** to exit the Define Anomaly Rules window
+7.  Select **Save** to exit the Define Anomaly Rules window
 
 ## Load Sample Data
 
