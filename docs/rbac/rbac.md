@@ -40,7 +40,7 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 4. In the right side, choose **File Server** as the Entity Type, then select **Individual entity**
 
-5. In the search box, find and select **FS*XYZ*-*A*-prod**
+5. In the search box, find and select **FS*XYZ*-PC**
 
 6. Choose **Object Store** as the Entity Type, in the search box. find and select **ntnx-objects**
     ![](images/6.png)
@@ -59,7 +59,7 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 2. Make sure you are on the page showing **Login with your Company ID**
 
-3. Login as user01@ntnxlab.local, and click Log In
+3. Login as **userXX@ntnxlab.local**, and click Log In
     ![](images/7.png)
 
 4. Click :fontawesome-solid-bars:, you will see the list of service is shorter.
@@ -87,12 +87,18 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 13. Now go to **Objects**, you can see the **Create Object Store** button is appeared again.
 
-14. Now go to **Files**, you will only see **FS*xyz*-*a*-prod** in File Server, but you do not have right to launch the File Console.
+14. Now go to **Files**, you will only see **FS*xyz*-PC** in File Server, click the tickbox next to **FS*xyz*-PC** and click **Actions**, you can see you cannot do any of them. It is because you have only view access and create share access. You do not have right to update any File Server settings.
 
     ![](images/10.png)
 
     !!!Tip
-            The launch PE console from PC and then launching File server page is permitted for Super Admin, Cluster Admin and user who has Prism Admin and Files Admin role 
+            If you are using PE deploy File Server, the launch PE console from PC and then launching File server page is permitted for Super Admin, Cluster Admin and user who has Prism Admin and Files Admin role 
+
+15. Now click **FS*xyz*-PC** to enter the file management console, you can view everything related to this File Server. 
+
+16. Click **Shares** > **Create a New Share**, follow the steps to create a share.
+
+17. Click **Data Management** > **Protection**, you have no right to configure anything from here.
 
 ## Takeaway
 

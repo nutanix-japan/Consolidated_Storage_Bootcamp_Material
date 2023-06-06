@@ -17,7 +17,7 @@ If File Analytics VM is already deployed, you may skip this lab and go to Anomal
 
 2.  Choose the Files Analytics latest software.
 
-    For the purpose of saving time, the File Analytics package has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
+    For the purpose of saving time, the File Analytics package 3.2.1 or latest version has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
 
     ![](images/31-1.png)
 
@@ -46,18 +46,17 @@ If File Analytics VM is already deployed, you may skip this lab and go to Anomal
 
 9.  Once deployed, In **Prism** \> **File Server**
 
-10. Select your file server *Initials*-Files (e.g. FS-XYZ-Prod) for which
-    you would like enable analytics and click **File Analytics**
+10. Select your file server **FS-XYZ-Prod** for which you would like enable analytics and click **File Analytics**
 
     ![](images/33.png)
 
     This will open in a new tab.
 
-11. On the Enable File Analytic, choose the audit data retention period
+11. On the Enable File Analytic, choose the audit data retention period as **Last 1 month**
     and the following credentials
 
     -   Active Directory Realm Name - ntnxlab.local
-    -   User Name - <administrator@ntnxlab.local>
+    -   User Name - ntnxlab\administrator
     -   Password - nutanix/4u
 
 12. Click on **Enable**

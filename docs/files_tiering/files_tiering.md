@@ -133,10 +133,11 @@ To speed up, we will verify the behavior by doing manual tiering in AFS CLI.
 
 1.  SSH to FSVM via FSVM's client network or CVM
 
-2.  Enter in CLI : ``afs``
-
-3.  Then : ``tiering.tier xyz-GSO file_paths="MLPA 8475.png"``
-
+2.  Enter in CLI and then tier the following file: 
+    ```bash
+        afs
+        tiering.tier xyz-GSO file_paths="MLPA 8475.png"
+    ```
     ![](images/7.png)
 
 4.  You can check the tiering status by ``tiering.status xyz-GSO file_paths="MLPA 8475.png``, you can see this file has a status Offline, showing that it is already tiered.
