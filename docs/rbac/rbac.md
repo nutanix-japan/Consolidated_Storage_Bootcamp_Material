@@ -2,11 +2,11 @@
 
 ## Overview
 
-XXX
+Cluster role-based access control (RBAC) feature enables a super-admin user to define different access right to Nutanix Files and Objects in Prism Central. Admin can choose default or customized role to assign to users to provide admin or view access to a particular Files or Objects entity. The access right can be assigned to File Server or Object Store level so different user can manage different FS or OSS according to the management requirement.
 
 ## Lab Setup
 
-The lab has been enabled with MSP on Prism Central which is a pre-requisite of using RBAC. In real deployment, you should first enable microservices infrastructure before starting this lab.
+The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC. In real deployment, you should first enable microservices infrastruture before starting this lab.
 
 ## Define Roles
 
@@ -17,16 +17,16 @@ The lab has been enabled with MSP on Prism Central which is a pre-requisite of u
 2. In this menu, fill out the fields:
 
 
-    -   Enter **Role Name**: **NUS View Only User**
-    -   Expand **Object Store**, select **View Access**
-    -   Expand **File Server**, select **View Access**
+    -   Put **Role Name**: **NUS View Only User**
+    -   Expand **Object Store**, click **View Access**
+    -   Expand **File Server**, click **View Access**
         ![](images/2.png)
     -   Click **Change** next to **Set custom permissions** in **File Server**
-    -   Select **Create File Server Share**, then click **Save**
+    -   Click **Create File Server Share**, then click **Save**
         ![](images/3.png)
     -   Click **Save**
 
-3. You will find **NUS user** showing in the Role.
+3. You will find **NUS user** is showing in the Role.
     ![](images/4.png)
 
 ## Assign Users to Roles
@@ -35,7 +35,7 @@ The lab has been enabled with MSP on Prism Central which is a pre-requisite of u
 
 2. Click **Action** > **Manage Assignment** > **Add New**
 
-3. In the **Search User** box, put **user01** and select **user01@ntnxlab.local**
+3. In the **Search User** box, put **userXX** and select **userXX@ntnxlab.local** (where XX is the assigned user number to you)
     ![](images/5.png)
 
 4. In the right side, choose **File Server** as the Entity Type, then select **Individual entity**
@@ -52,7 +52,7 @@ The lab has been enabled with MSP on Prism Central which is a pre-requisite of u
 
 ## Verify User Access Right
 
-1. Logout admin and log back in to **Prism Central**
+1. Logout from admin to **Prism Central**
 
     !!!note
             If you do not want to logout, you can use another browser or go to Incognito Mode of the browser so you can use different users to login at the same time.
@@ -71,7 +71,7 @@ The lab has been enabled with MSP on Prism Central which is a pre-requisite of u
 
 6. Click **Objects**, you can see only **ntnx-objects** can be accessed and the **Create Object Store** button is disappeared. Click **ntnx-objects**
 
-7. You can compare the GUI of **admin** and **user01@ntnxlab.local**, you will see **user01@ntnxlab.local** has only read-only access and cannot Create Bucket.
+7. You can compare the GUI of **admin** and **userXX@ntnxlab.local**, you will see **userXX@ntnxlab.local** has only read-only access and cannot Create Bucket.
     ![](images/8.png)
 
 8. Go back to your **admin** login's **Prism Central**.
@@ -88,6 +88,8 @@ The lab has been enabled with MSP on Prism Central which is a pre-requisite of u
 13. Now go to **Objects**, you can see the **Create Object Store** button is appeared again.
 
 14. Now go to **Files**, you will only see **FS*xyz*-*a*-prod** in File Server, but you do not have right to launch the File Console.
+
+    ![](images/10.png)
 
     !!!Tip
             The launch PE console from PC and then launching File server page is permitted for Super Admin, Cluster Admin and user who has Prism Admin and Files Admin role 

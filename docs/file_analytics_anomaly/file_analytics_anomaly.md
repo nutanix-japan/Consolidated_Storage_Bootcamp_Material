@@ -19,41 +19,44 @@ In this exercise you will create anomaly rules and trigger events against the ru
     ![](images/39.png)
 
 2.  Click **Configure SMTP to add recipients**, then fill in the following settings:
-    -   **Hostname Or IP Address**: smtp.sendgrid.net
-    -   **Port**: 587
-    -   **Security Mode**: STARTTLS
-    -   **User Name**: apikey
-    -   **Password**: 
-    -   **From Email Address**: noreply@nutanix.com
+    -   **Hostname Or IP Address**: 10.40.64.35
+    -   **Port**: 25
+    -   **Security Mode**: NONE
+    -   **From Email Address**: phx-infra01@xlabs.nutanix.com
     -   **Recipient Email Address**: [your email address]
 
+    ![](images/2.png)
 
-3.  Create the first rule with the following settings:
+3.  Click **Test** then **Save**.
+
+4.  Go to ![](images/gear.png) > **Define Anomaly Rules** again
+
+5.  Create the first rule with the following settings:
 
     -   **Events:**: Delete
     -   **Minimum Operation %:**: 1
-    -   **Minimum Operation Count:**: 10
+    -   **Minimum Operation Count:**: 1
     -   **User:**: All Users
     -   **Type:**: Hourly
     -   **Interval:**: 1
 
-4.  Choose **Save** for that anomaly table entry
+6.  Choose **Save** for that anomaly table entry
 
-5.  Choose **+ Configure new anomaly** and create a second rule with the
+7.  Choose **+ Configure new anomaly** and create a second rule with the
     following settings
 
     -   **Events**: Create
     -   **Minimum Operation %**: 1
-    -   **Minimum Operation Count**: 10
+    -   **Minimum Operation Count**: 1
     -   **User**: All Users
     -   **Type**: Hourly
     -   **Interval**: 1
 
-6.  Choose **Save** for that anomaly table entry
+8.  Choose **Save** for that anomaly table entry
 
     ![](images/40.png)
 
-7.  Select **Save** to exit the Define Anomaly Rules window
+9.  Select **Save** to exit the Define Anomaly Rules window
 
 ## Load Sample Data
 
@@ -68,11 +71,6 @@ In this exercise you will create anomaly rules and trigger events against the ru
 
 1.  While waiting for the Anomaly Alerts to populate we'll create a
     permission denial.
-
-    ::: note
-    ::: title
-    Note
-    :::
 
     The Anomaly engine runs every 30 minutes. While this setting is
     configurable from the File Analytics VM, modifying this variable is
@@ -116,17 +114,17 @@ In this exercise you will create anomaly rules and trigger events against the ru
 
 11. Change Directories into the Marketing share and the **RO** directory
 
-    > ``` bash
-    > cd \\xyz-files.ntnxlab.local\marketing\RO
-    > ```
+    ```bash
+        cd \\xyz-files.ntnxlab.local\marketing\RO
+    ```
 
 12. Execute the following commands, the first should succeed, the second
     should fail:
 
-    > ``` bash
-    > more .\myfile.txt
-    > rm .\myfile.txt
-    > ```
+    ``` bash
+        more .\myfile.txt
+        rm .\myfile.txt
+    ```
 
     ![](images/45.png)
 
@@ -135,11 +133,3 @@ In this exercise you will create anomaly rules and trigger events against the ru
     your browser.
 
     ![](images/46.png)
-
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The Capacity Trend dashboard panel updates every 24 hrs.
-    :::

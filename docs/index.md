@@ -39,15 +39,16 @@ Please ensure you read the whole lab before starting
 - Migrating from Existing File Shares
     - Files - Share Migration
 
-- Data Visibility & Intelligence (A) - Data Lens 
-    - Deploy Data Lens
-    - Anomaly Detection
-    - Ransomware Protection
+- Data Visibility & Intelligence - The lab will use either Data Lens or File Analytics, the instructor will let you know which lab you should do.
+    - Data Visibility & Intelligence (A) - Data Lens 
+        - Deploy Data Lens
+        - Anomaly Detection
+        - Ransomware Protection
 
-- Data Visibility & Intelligence (B) - File Analytics
-    - Enable File Analytics
-    - Anomaly Detection
-    - Ransomware Protection
+    - Data Visibility & Intelligence (B) - File Analytics
+        - Enable File Analytics
+        - Anomaly Detection
+        - Ransomware Protection
 
 - Data Protection & Lifecycle Management
     - Files - Replication
