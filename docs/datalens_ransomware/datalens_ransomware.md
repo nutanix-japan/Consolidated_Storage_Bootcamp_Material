@@ -1,11 +1,11 @@
 # Data Lens - Ransomware Protection
 
 ## Overview
-One of the core capability of Data Lens is the enhanced ransomware protection. Data Lens maintains a list of blocked signatures of file name or extension patterns of known ransomware variants and automatically applys the list to
+One of the core capability of Data Lens is the enhanced ransomware protection feature. Data Lens maintains a list of blocked signatures of file name or extension patterns of known ransomware variants and automatically applies the list to
 your file servers. An attack is prevented by locking the files
-when file extensions match with the blocked signature list.
+when file extensions matches in the blocked signature list.
 
-Moreover, the activity is bubbled into ransomware vulnerability dashboard reporting the client, user and the files impacted. In case of an attack, Data Lens performs remediation by blocking clients that trigger the attack or set the File Server to read-only mode. It will also track the infected files and recommend the best snapshot to recover the data.
+Furthermore, the activity is bubbled into ransomware vulnerability dashboard reporting the client, user and the files impacted. In case of an attack, Data Lens performs remediation by blocking clients that trigger the attack or set the File Server to read-only mode. It will also track the infected files and recommend the best snapshot to recover the data.
 
 ## Lab Setup
 
@@ -43,7 +43,7 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
 
 3. If **Ransomware Protection** is enabled, go to **Settings** > **Edit Policy Configuration**
 
-4.  From **Detech and Act on Ransomware Threats**, select **Make File Server Read-Only**. Put your email address in **Email Recipients**, then **Enable**.
+4.  From **Detect and Act on Ransomware Threats**, select **Make File Server Read-Only**. Put your email address in **Email Recipients**, then **Enable**.
       
     ![](images/dl4.png)
 
@@ -56,18 +56,30 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
 
 3.    Check the following 2 shares in **File Explorer**:
 
-      - ``FS*XYZ-A*--prod.ntnxlab.local\DLtest-prod``
+      - ``FS*XYZ-A*-prod.ntnxlab.local\DLtest-prod``
       - ``FS*XYZ-A*-dr.ntnxlab.local\DLtest-dr``
 
-4.    Copy all the files from **DLtest-prod** to **DLtest-dr**. We will use these 2 shares to compare the result with and without Data Lens ransomware protection.
+4.    Copy all the files from **DLtest-prod** to **DLtest-dr**. We will use these TWO shares to compare the result with and without Data Lens ransomware protection.
 
 5.    Create a new file **ransomware_test.ps1** in Downloads, open the file and put the following content in the file. **Save** it.
-      ```bash
-      new-item \\fs002-3-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
-      Get-ChildItem \\fs002-3-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
-      new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
-      Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
-      ```
+    
+    === "Template commands"
+    
+        ```bash
+        new-item \\fsXYZ-a-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fsXYZ-a-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        new-item \\fsXYZ-a-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fsXYZ-a-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        ```
+    
+    === "Sample commands"
+    
+        ``` bash
+        new-item \\fs002-3-prod.ntnxlab.local\DLtest-prod\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fs002-3-prod.ntnxlab.local\DLtest-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        new-item \\fs002-3-dr.ntnxlab.local\DLtest-dr\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\fs002-3-dr.ntnxlab.local\DLtest-dr\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        ```
 
 6. Right click the :simple-powershell: (PowerShell icon) and select **Run as Administrator**.
 
@@ -89,17 +101,17 @@ In this lab, we will simulate a ransomware attack and verify how remediation wor
    
       ![](images/dl9.png)
 
-11. Login to your WinToolsVM and go to **\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\** from File Explorer, try to create a folder, it will show access denied as Data Lens set it to read-only.
+11. Login to your WinToolsVM and go to **\\\FSxyz-a-prod.ntnxlab.local\DLtest-prod\\** from File Explorer; try to create a folder, you will see access denied as Data Lens has set it to read-only.
     
     ![](images/dl10.png)
     
     !!!note
-           Data Lens set the whole File Server to Read-Only mode. So you can use any other users to test on any shares in the same File Server. It should give you the same result.
+           Data Lens sets the whole File Server to Read-Only mode. You can use another users to test on any shares in the same File Server. It should give you the same result.
 
 
-11. Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**. Under **Blocked Entities**, click **Unblock** > **Confirm** to resume to read-write access.
+12. Go back to **Data Lens** > **FSxyz-a-prod.ntnxlab.local** > :fontawesome-solid-bars: > **Ransomware Protection**. Under **Blocked Entities**, click **Unblock** > **Confirm** to resume to read-write access.
+    
+    !!!note
+             You can always click the green circle ![](images/greencircle.png) to check the status of the tasks.
 
-      !!!note
-            You can always click the green circle ![](images/greencircle.png) to check the status of the tasks.
-
-12.   Come back to **Data Lens** sometimes later to check if it is done. Verify the access from your **WinToolsVM**.
+13.   Return to **Data Lens** sometimes later to check if it is done. Verify the access from your **WinToolsVM**.

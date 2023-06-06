@@ -61,13 +61,13 @@ In this exercise you will create anomaly rules and trigger events against the ru
 
 ## Trigger anomaly rules
 
-1.  While waiting for the Anomaly Alerts to populate we'll create a permission denial.
+1.  While waiting for the Anomaly Alerts to populate,  we'll create a permission denial.
 
 2.  Create a new directory called **RO** in the Marketing share
 
-3.  Create 2 text files in the **RO** directory with some text like "hello world" called **myfile01.txt** & **myfile02.txt**
+3.  Create TWO text files in the **RO** directory called **myfile01.txt** & **myfile02.txt** with some text.
 
-4.  Delete the 2 files. The creation and deletion of files should trigger the anomaly rules.
+4.  Delete the TWO files. The creation and deletion of files should trigger the anomaly rules.
 
 5. Continue on the next lab until you receive email warning about anomalies detected. 
         ![](images/dl4.png)

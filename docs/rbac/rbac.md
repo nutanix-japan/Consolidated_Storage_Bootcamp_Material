@@ -78,7 +78,7 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 9. Select :fontawesome-solid-bars: **> Administration > Roles**, click **the checkbox next to NUS user** > **Actions** > **Update Role**
 
-10. Expand **Object Store**, click **Change** next to **Set customer permission**
+10. Expand **Object Store**, click **Change** next to **Set custom permission**
 
 11. Check the tickbox of **Create Object Store**, then **Save**
     ![](images/9.png)
