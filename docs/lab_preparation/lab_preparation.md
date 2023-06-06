@@ -134,4 +134,49 @@
 5. Share my_secret as a share folder.
 6. Map my_secret as M:\ drive in the wintoolsVM
 
+# Troubleshooting
 
+## Data Lens is not updating with new Files operations
+
+To resolve the problem, you need to re-enable Data Lens for the FS:
+
+1. ssh to FSVM, restart minerva
+
+    ```bash
+        genesis stop minerva_nvm
+        cluster start
+    ```
+
+2. Go to Data Lens, search for your FS, click **disable** > **Disable Nutanix Data Lens**
+
+3. After finishing disable, find the FS in Data Lens, click the FS name to go to the dashboard page of the FS.
+
+4. Click the gear icon on the top right corner > **Manage Data**
+        ![](files/manage_data.png)
+
+5. Go to **File Server** tag > **delete the audit data** > **Confirm**
+        ![](files/delete_audit_data.png)
+
+6. After deletion completed, seach for your FS again, and click **Enable**
+
+
+
+## Have "Failed to fetch" Error when trying to set Smart DR policy in File Manager
+
+What you will see:
+  ![](files/fetch_issue.png)
+
+1. Resolve by doing this:
+
+    ```bash
+        docker exec -it files_manager /bin/bash
+        vi /etc/hosts 
+    ```
+
+2. Add this line in the hosts file.
+
+    ```bash
+        [PCIP] iam-proxy.ntnx-base
+    ```
+
+3. Check again if the fetching problem esists.

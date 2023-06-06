@@ -1,4 +1,4 @@
-# File Analytics: Deploy {#file_analytics_deploy}
+# Deploy File Analytics
 
 ## Overview
 
@@ -7,26 +7,17 @@ and scan the existing shares to build out the dashboard. You will also
 create anomaly alerts and view the audit details for your file server
 instance.
 
-::: note
-::: title
-Note
-:::
-
-If you are using HPOC/Single Node POC cluster, Files Analytics VM is
-already deployed for you based on the staging.
-:::
+If File Analytics VM is already deployed, you may skip this lab and go to Anomaly Detection to continue the exercise.
 
 ## Deploy File Analytics
 
-1.  In **Prism** \> **File Server** \> click **Deploy File Analytics**
+1.  Login to **Prism Element** \> **File Server** \> click **Deploy File Analytics**
 
     ![](images/31.png)
 
 2.  Choose the Files Analytics latest software.
 
-    For the purpose of saving time, the File Analytics 3.0 (or latest)
-    package has already been uploaded to your cluster. Files binaries
-    can be downloaded from the Nutanix Portal and uploaded manually.
+    For the purpose of saving time, the File Analytics package has already been uploaded to your cluster. Files binaries can be downloaded from the Nutanix Portal and uploaded manually.
 
     ![](images/31-1.png)
 
@@ -34,7 +25,7 @@ already deployed for you based on the staging.
 
 4.  Input the following details:
 
-    -   **Name** - *Intials*-FA
+    -   **Name** - FA
     -   **Server Size** - Small (can be Small or Large based on the
         number of files)
     -   **Storage Container** - Self Service Container
@@ -55,7 +46,7 @@ already deployed for you based on the staging.
 
 9.  Once deployed, In **Prism** \> **File Server**
 
-10. Select your file server *Initials*-Files (e.g. XYZ-Files) for which
+10. Select your file server *Initials*-Files (e.g. FS-XYZ-Prod) for which
     you would like enable analytics and click **File Analytics**
 
     ![](images/33.png)
@@ -74,4 +65,4 @@ already deployed for you based on the staging.
     ![](images/34.png)
 
 You have now successfully deployed Files Analytics VM and setup
-analytics for your files server *Initials*-Files.
+analytics for your files server **FS-XYZ-Prod**.

@@ -1,7 +1,9 @@
 # Data Lens - Anomaly Detection
 ## Overview
 
-In this exercise, we will explore anomaly rules and trigger some events against the rules.
+One of the major features that Data Lens have is the ability to identify abnormal behavior. It gives administrators a way to monitor analytics data for potential threats such as mass file deletion or perimission changes. When anomalies are detected based on administrator defined policies, alerts are sent to warn the administrator of the threat.
+
+In this exercise you will create anomaly rules and trigger events against the rules.
 
 ## Login to Data Lens (if you are not already there)
 

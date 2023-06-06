@@ -1,40 +1,62 @@
-# File Analytics: Anomaly Rules {#file_analytics_anomaly}
+# File Analytics - Anomaly Detection
 
 ## Overview
 
+One of the major features that Data Lens have is the ability to identify abnormal behavior. It gives administrators a way to monitor analytics data for potential threats such as mass file deletion or perimission changes. When anomalies are detected based on administrator defined policies, alerts are sent to warn the administrator of the threat.
+
+In this exercise you will create anomaly rules and trigger events against the rules.
+
+## Login to File Analytics (If you are not already there)
+
+1.  Login to **Prism Element** \> **File Server** \> click the File Server **FS-XYZ-Prod** > **File Analytics**
+
+    ![](images/1.png)
+
 ## Define Anomaly Rules
 
-1.  Create two anomaly rules by going to **Define Anomaly Rules** from
-    under the `cog`{.interpreted-text role="fa"} gear icon
+1.  Create two anomaly rules by going to ![](images/gear.png) > **Define Anomaly Rules** 
 
     ![](images/39.png)
 
-2.  Create the first rule with the following settings:
+2.  Click **Configure SMTP to add recipients**, then fill in the following settings:
+    -   **Hostname Or IP Address**: 10.40.64.35
+    -   **Port**: 25
+    -   **Security Mode**: NONE
+    -   **From Email Address**: phx-infra01@xlabs.nutanix.com
+    -   **Recipient Email Address**: [your email address]
 
-    -   **Events:** Delete
-    -   **Minimum Operation %:** 1
-    -   **Minimum Operation Count:** 10
-    -   **User:** All Users
-    -   **Type:** Hourly
-    -   **Interval:** 1
+    ![](images/2.png)
 
-3.  Choose **Save** for that anomaly table entry
+3.  Click **Test** then **Save**.
 
-4.  Choose **+ Configure new anomaly** and create a second rule with the
+4.  Go to ![](images/gear.png) > **Define Anomaly Rules** again
+
+5.  Create the first rule with the following settings:
+
+    -   **Events:**: Delete
+    -   **Minimum Operation %:**: 1
+    -   **Minimum Operation Count:**: 1
+    -   **User:**: All Users
+    -   **Type:**: Hourly
+    -   **Interval:**: 1
+
+6.  Choose **Save** for that anomaly table entry
+
+7.  Choose **+ Configure new anomaly** and create a second rule with the
     following settings
 
     -   **Events**: Create
     -   **Minimum Operation %**: 1
-    -   **Minimum Operation Count**: 10
+    -   **Minimum Operation Count**: 1
     -   **User**: All Users
     -   **Type**: Hourly
     -   **Interval**: 1
 
-5.  Choose **Save** for that anomaly table entry
+8.  Choose **Save** for that anomaly table entry
 
     ![](images/40.png)
 
-6.  Select **Save** to exit the Define Anomaly Rules window
+9.  Select **Save** to exit the Define Anomaly Rules window
 
 ## Load Sample Data
 
@@ -49,11 +71,6 @@
 
 1.  While waiting for the Anomaly Alerts to populate we'll create a
     permission denial.
-
-    ::: note
-    ::: title
-    Note
-    :::
 
     The Anomaly engine runs every 30 minutes. While this setting is
     configurable from the File Analytics VM, modifying this variable is
@@ -97,17 +114,17 @@
 
 11. Change Directories into the Marketing share and the **RO** directory
 
-    > ``` bash
-    > cd \\xyz-files.ntnxlab.local\marketing\RO
-    > ```
+    ```bash
+        cd \\xyz-files.ntnxlab.local\marketing\RO
+    ```
 
 12. Execute the following commands, the first should succeed, the second
     should fail:
 
-    > ``` bash
-    > more .\myfile.txt
-    > rm .\myfile.txt
-    > ```
+    ``` bash
+        more .\myfile.txt
+        rm .\myfile.txt
+    ```
 
     ![](images/45.png)
 
@@ -116,11 +133,3 @@
     your browser.
 
     ![](images/46.png)
-
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The Capacity Trend dashboard panel updates every 24 hrs.
-    :::

@@ -5,11 +5,8 @@ In this exercise you will explore Data Lens, auditing & ransomware protection fe
 
 
 !!!note
-        As we are using a Nutanix Dev environment, this lab is only available for **Employees**. You can skip this section if you are a Nutanix Partner.
+        As we are using a Nutanix Dev environment, this lab is only available for **Employees**. Please consult the instructor for assistence if you are a Nutanix customers or partners.
         Please **ONLY** use your registered server
-
-
-
 
 ## Login to Data Lens
 
