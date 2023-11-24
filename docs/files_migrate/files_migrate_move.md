@@ -64,9 +64,9 @@ A target file server has been provisioned for you. Refer to the lab lookup tool 
 5. Use **MP-userYY** (E.g. MP-user01) as the name of your migration plan
 
 !!!note
-        Another user using the same target file server might have already configured it. 
+       Another user using the same target file server might have already configured it. 
         
-        Select your target file server from the drop-down menu if it is already configured.
+       Select your target file server from the drop-down menu if it is already configured.
 
 If this is the first time to login and without source and target file server, do the following: 
 
@@ -126,7 +126,7 @@ Move UI will now present the wizard to configure the migration plan.
 9. Select the share > **Actions** > **Cutover**, the migration will be marked as completed
     
     !!!info
-            Cutover simply means that we can no longer re-sync from source to target.
+           Cutover simply means that we can no longer re-sync from source to target.
 
 Using Move multiple shares (from different sources and targets) can be managed from a single GUI.
 

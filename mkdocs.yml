@@ -83,33 +83,34 @@ plugins:
 
 nav:
     - Home: index.md
-    - Initial NUS Deployment:
-      - 'Files - Deploy Nutanix Files': files_deploy/files_deploy.md
-      - 'Objects - Deploy Nutanix Objects': objects_deploy/objects_deploy.md
-      - 'Files & Objects - RBAC on Files and Objects': rbac/rbac.md
-    - Start Consuming Storage Services:
-      - 'Files - Create SMB Share': files_smb_share/files_smb_share.md
-      - 'Volumes - Deploy Nutanix Volumes': volumes_deploy/volumes_deploy.md
-      - 'Objects - Buckets & Users Management': objects_buckets_users_access_control/objects_buckets_users_access_control.md
+    # - Initial NUS Deployment:
+    #   - 'Files - Deploy Nutanix Files': files_deploy/files_deploy.md
+    #   - 'Objects - Deploy Nutanix Objects': objects_deploy/objects_deploy.md
+    #   - 'Files & Objects - RBAC on Files and Objects': rbac/rbac.md
+    # - Start Consuming Storage Services:
+    #   - 'Files - Create SMB Share': files_smb_share/files_smb_share.md
+    #   - 'Volumes - Deploy Nutanix Volumes': volumes_deploy/volumes_deploy.md
+    #   - 'Objects - Buckets & Users Management': objects_buckets_users_access_control/objects_buckets_users_access_control.md
     - Migrating from existing File Share:
       # - 'Files - Share Migration': files_migrate/files_migrate.md
       - 'Move - Share Migration': files_migrate/files_migrate_move.md
     - Data Visibility & Intelligence (A) - Data Lens:
       - 'Deploy Data Lens': datalens_deploy/datalens_deploy.md
       - 'Anomaly Detection': datalens_anomaly/datalens_anomaly.md
-      - 'Ransonware Protection': datalens_ransomware/datalens_ransomware.md
-    - Data Visibility & Intelligence (B) - File Analytics:
-      - 'Enable File Analytics': file_analytics_deploy/file_analytics_deploy.md
-      - 'Anomaly Detection': file_analytics_anomaly/file_analytics_anomaly.md
-      - 'Ransonware Protection': file_analytics_ransomware/file_analytics_ransomware.md
+      - 'Ransomware Protection': datalens_ransomware/datalens_ransomware.md
+      - 'Permission Monitoring': datalens_permission_monitoring/datalens_permission_monitoring.md
+    # - Data Visibility & Intelligence (B) - File Analytics:
+    #   - 'Enable File Analytics': file_analytics_deploy/file_analytics_deploy.md
+    #   - 'Anomaly Detection': file_analytics_anomaly/file_analytics_anomaly.md
+    #   - 'Ransonware Protection': file_analytics_ransomware/file_analytics_ransomware.md
     - Data Protection and Lifecycle Management:
       - 'Files - Replication': files_replication/files_replication.md
       - 'Files - Tiering': files_tiering/files_tiering.md
-    - 'Optional Labs':
-      - 'Files - Create NFS Share': files_nfs_export/files_nfs_export.md
-      - 'Files - Expand Files Cluster (Not applicable to single node cluster)': files_expand_cluster/files_expand_cluster.md
-      - 'Files - Enable Files Multiprotocol': files_multiprotocol/files_multiprotocol.md
-      - 'Objects - Access Objects from CLI and Scripts': objects_cli_scripts/objects_cli_scripts.md
-      - 'Objects - Multi-cluster': objects_multi_cluster/objects_multi_cluster.md
+    # - 'Optional Labs':
+    #   - 'Files - Create NFS Share': files_nfs_export/files_nfs_export.md
+    #   - 'Files - Expand Files Cluster (Not applicable to single node cluster)': files_expand_cluster/files_expand_cluster.md
+    #   - 'Files - Enable Files Multiprotocol': files_multiprotocol/files_multiprotocol.md
+    #   - 'Objects - Access Objects from CLI and Scripts': objects_cli_scripts/objects_cli_scripts.md
+    #   - 'Objects - Multi-cluster': objects_multi_cluster/objects_multi_cluster.md
 
 
