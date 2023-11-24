@@ -92,7 +92,7 @@ nav:
       - 'Volumes - Deploy Nutanix Volumes': volumes_deploy/volumes_deploy.md
       - 'Objects - Buckets & Users Management': objects_buckets_users_access_control/objects_buckets_users_access_control.md
     - Migrating from existing File Share:
-      - 'Files - Share Migration': files_migrate/files_migrate.md
+      # - 'Files - Share Migration': files_migrate/files_migrate.md
       - 'Move - Share Migration': files_migrate/files_migrate_move.md
     - Data Visibility & Intelligence (A) - Data Lens:
       - 'Deploy Data Lens': datalens_deploy/datalens_deploy.md

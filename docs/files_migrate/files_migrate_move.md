@@ -6,7 +6,9 @@ Many customers have existing file shares on existing NAS infrastructure that nee
 
 Nutanix offers Nutanix Move tool which will enable migrating files to a new files server. Move also helps in moving virtual machines, but this lab will focus on Move's file migration capabilities.
 
-Lets now explore the Move Files Migration Tool
+Move also provides a Web UI which could be useful in managing migration of many shares. 
+
+Lets now explore the Move Files Migration Tool.
 
 ## Lab Preparation
 
