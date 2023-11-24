@@ -55,29 +55,29 @@ Reminder : Do not remove other groups in the list.
 
 2.	Map the **usershareYY** drive
 
-3.	Create at least 5 folders, you can also try to create some sub-folders to test the permission monitoring
+3. Create at least 5 folders, you can also try to create some sub-folders to test the permission monitoring
 
     !!!note
 
-            To test the five risk factors in Data Lens, set the folder permissions that match the following criteria:
+          To test the five risk factors in Data Lens, set the folder permissions that match the following criteria:
 
-            - Folders with control points - folders with non-inherited permission
-            - Folders with full control - folders with full control permissions to some users/groups
-            - Folders with modify access - folder with modify permissions to some users/groups
-            - Folders with open access - folders accessible by a wide number of users/groups
-            - Folders without admin access - folders without access to configure admin groups
+          - Folders with control points - folders with non-inherited permission
+          - Folders with full control - folders with full control permissions to some users/groups
+          - Folders with modify access - folder with modify permissions to some users/groups
+          - Folders with open access - folders accessible by a wide number of users/groups
+          - Folders without admin access - folders without access to configure admin groups
 
     !!!info
 
-            To change permission of the folders n your WinToolsVM, right click on **Properties > Security**
+          To change permission of the folders n your WinToolsVM, right click on **Properties > Security**
 
-            If existing permission needs to be removed, disable inheritance.
+          If existing permission needs to be removed, disable inheritance.
 
-            Go to **Properties > Security > Advanced > Disable inheritance**
+          Go to **Properties > Security > Advanced > Disable inheritance**
 
-            Choose to keep the existing permission or **remove all** and **add** again
+          Choose to keep the existing permission or **remove all** and **add** again
 
-            ![](images/5.png)
+          ![](images/5.png)
 
 ### Verify the result in Data Lens
 
