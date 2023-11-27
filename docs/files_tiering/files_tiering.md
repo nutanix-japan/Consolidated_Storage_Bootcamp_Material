@@ -134,24 +134,24 @@ To speed up, we will verify the behavior by doing manual tiering in AFS CLI.
 1.  SSH to FSVM via FSVM's client network or CVM
 
 2.  Enter in CLI and then tier the following file: 
+   
     ```bash
-        afs
-        tiering.tier xyz-GSO file_paths="MLPA 8475.png"
+    <afs> tiering.tier xyz-GSO file_paths="MLPA 8475.png"
     ```
     ![](images/7.png)
 
-4.  You can check the tiering status by ``tiering.status xyz-GSO file_paths="MLPA 8475.png``, you can see this file has a status Offline, showing that it is already tiered.
+3.  You can check the tiering status by ``tiering.status xyz-GSO file_paths="MLPA 8475.png``, you can see this file has a status Offline, showing that it is already tiered.
     
     !!!note 
            If you try to tier a file less than 64KB, you will find it was not tiered successfully.
 
     ![](images/8.png)
 
-5.  You can login to your **WintoolsVM** and check the share folder of **xyz-GSO**. You will see the tiered file with a **CROSS** on the file icon. That means this file only has a stub in the file share. The actual content is in object store target.
+4.  You can login to your **WintoolsVM** and check the share folder of **xyz-GSO**. You will see the tiered file with a **CROSS** on the file icon. That means this file only has a stub in the file share. The actual content is in object store target.
 
     ![](images/9.png)
 
-6.  Now right click the tiered file > **Open With** > **Paint**. You can do read access to a tiered file. 
+5.  Now right click the tiered file > **Open With** > **Paint**. You can do read access to a tiered file. 
 
 You have successfully tiered from Nutanix Files to Objects using Smart Tiering.
 

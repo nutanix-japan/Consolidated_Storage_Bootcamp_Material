@@ -17,7 +17,7 @@ In your **WinTools VM**, there is a share **my_secret** mapped under **M:** driv
 1. Connect to your *Initials***-WinToolsVM** (E.g User01-WinToolsVM) via RDP or console with the following credentials:
     
     - **Username** - ntnxlab\administrator	
-    - **Password** - default (refer to lab lookup tool)
+    - **Password** - default (refer to HPOC lookup tool)
    
 2. Download and extract the following [folder](http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip) (right-click and download) using Chrome browser or ``curl`` tool
 
@@ -37,7 +37,7 @@ In your **WinTools VM**, there is a share **my_secret** mapped under **M:** driv
 2. Under REST API access users, click “+ New User”
    
     - **Username** - ntnxlab\administrator	
-    - **Password** - default (refer to lab lookup tool) 
+    - **Password** - default (refer to HPOC lookup tool) 
   
 3. Click the check :material-check-circle: button to save it
 
@@ -47,15 +47,15 @@ In your **WinTools VM**, there is a share **my_secret** mapped under **M:** driv
 
 ### Adding Target File Server 
 
-A target file server has been provisioned for you. Refer to the lab lookup tool for target file server.
+A target file server has been provisioned for you. Refer to the HPOC lookup tool for target file server.
 
    
-1. In your **WinTools VM**, open Chrome browser and type the IP address(find the IP address from the lab lookup tool) of the Move VM 
+1. In your **WinTools VM**, open Chrome browser and type the IP address(find the IP address from the HPOC lookup tool) of the Move VM 
    
 2. Logon using the following credentials
    
     - **Username**: nutanix
-    - **Password**: default (refer to lab lookup tool)
+    - **Password**: default (refer to HPOC lookup tool)
   
 3. Choose Files as the **Migration Type**
    
@@ -77,7 +77,7 @@ If this is the first time to login and without source and target file server, do
     - **Name** - UserXX-Target (e.g User01-Target)
     - **FQDN Details/Address** -  POCXXX-X.ntnxlab.local (e.g.POC096-3.ntnxlab.local)
     - **Username** - ntnxlab\administrator	(this is the REST API access user)
-    - **Password** - default (refer to lab lookup tool)
+    - **Password** - default (refer to HPOC lookup tool)
   
 3. Click **Add**
    
@@ -90,7 +90,7 @@ If this is the first time to login and without source and target file server, do
     - **Name** - UserXX-Source (e.g User01-Source)
     - **FQDN Details/Address** -  X.X.X.X (IP address of your UserXX-WinToolsVM e.g. 10.42.81.116)
     - **Username** - ntnxlab\administrator	(this is the REST API access user)
-    - **Password** - default (refer to lab lookup tool)
+    - **Password** - default (refer to HPOC lookup tool)
      
     ![](images/3.png)
   

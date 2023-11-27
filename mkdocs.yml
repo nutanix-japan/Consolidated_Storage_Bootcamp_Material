@@ -83,14 +83,14 @@ plugins:
 
 nav:
     - Home: index.md
-    # - Initial NUS Deployment:
-    #   - 'Files - Deploy Nutanix Files': files_deploy/files_deploy.md
-    #   - 'Objects - Deploy Nutanix Objects': objects_deploy/objects_deploy.md
-    #   - 'Files & Objects - RBAC on Files and Objects': rbac/rbac.md
-    # - Start Consuming Storage Services:
-    #   - 'Files - Create SMB Share': files_smb_share/files_smb_share.md
-    #   - 'Volumes - Deploy Nutanix Volumes': volumes_deploy/volumes_deploy.md
-    #   - 'Objects - Buckets & Users Management': objects_buckets_users_access_control/objects_buckets_users_access_control.md
+    #- Initial NUS Deployment:
+      #- 'Files - Deploy Nutanix Files': files_deploy/files_deploy.md
+      #- 'Objects - Deploy Nutanix Objects': objects_deploy/objects_deploy.md
+      #- 'Files & Objects - RBAC on Files and Objects': rbac/rbac.md
+    #- Start Consuming Storage Services:
+      #- 'Files - Create SMB Share': files_smb_share/files_smb_share.md
+      #- 'Volumes - Deploy Nutanix Volumes': volumes_deploy/volumes_deploy.md
+      #- 'Objects - Buckets & Users Management': objects_buckets_users_access_control/objects_buckets_users_access_control.md
     - Migrating from existing File Share:
       # - 'Files - Share Migration': files_migrate/files_migrate.md
       - 'Move - Share Migration': files_migrate/files_migrate_move.md

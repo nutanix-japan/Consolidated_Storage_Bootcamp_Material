@@ -45,7 +45,7 @@ The data protection process consists of the following procedures:
 In the previos labs, We have already created File Server in the DR site and migrated files from existing share to xyz-GSO share. We will now replicate the xyz-GSO share to the DR File Server.
 
 !!!note
-        Make sure you have finished the lab section "Deploy Nutanix Files", "Create SMB Share" & "Share Migration" before attempting this section.
+        Make sure you have a **SMB Share** before attempting this section.
 
 
 
