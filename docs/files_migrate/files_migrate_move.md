@@ -12,7 +12,7 @@ Lets now explore the Move Files Migration Tool.
 
 ## Lab Preparation
 
-In your **WinTools VM**, there is a share **my_secret** mapped under **M:** drive. We will use this as an existing share to migrate to a remote Nutanix Files.
+We will download a zip file, extract it and use this a source share.
 
 1. Connect to your *Initials***-WinToolsVM** (E.g User01-WinToolsVM) via RDP or console with the following credentials:
     
