@@ -35,7 +35,7 @@ We will download a zip file, extract it and use this a source share.
 
 1. In File Console, Configuration > Manage Roles 
    
-2. Under REST API access users, click “+ New User”
+2. Under REST API access users, click **+ New User**
    
     - **Username** - ntnxlab\administrator	
     - **Password** - default (refer to HPOC lookup tool) 
