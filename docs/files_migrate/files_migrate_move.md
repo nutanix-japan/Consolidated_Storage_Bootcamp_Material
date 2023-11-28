@@ -22,13 +22,14 @@ We will download a zip file, extract it and use this a source share.
 2. Download and extract the following [folder](http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip) (right-click and download) using Chrome browser or ``curl`` tool
 
 3. Right click on the extracted folder **Properties > Sharing**
+4. Click on **Advanced Sharing**
    
-4. Select the **Share this folder** check box
+5. Select the **Share this folder** check box
    
     ![](images/1.png)
    
-5. Click on **Apply**
-6. Click on **OK**
+6. Click on **Apply**
+7. Click on **OK**
 
 ## Setup Files Server API Permissions
 
