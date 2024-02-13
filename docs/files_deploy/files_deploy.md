@@ -29,6 +29,7 @@
 
    
     ???info "Check here for ESXi Hypervisor information"
+
            As this is an AHV managed network, configuration of individual IPs
            is not necessary. In an ESXi environment, or using an unmanaged AHV
            network, you would specify the network details and available IPs as
@@ -42,9 +43,10 @@
     IP** (e.g. 10.XX.YY.41)). Leave the default (cluster) NTP Server.
 
     !!!danger
-             In order for the Files cluster to successfully find and join the NTNXLAB.local domain it is critical that the DNS Resolver IP is set to the Domain Controller VM IP FOR YOUR CLUSTER. By default, this field is set to the primary Name Server IP configured for the Nutanix cluster, this value is incorrect and will not work.
+    
+            In order for the Files cluster to successfully find and join the NTNXLAB.local domain it is critical that the DNS Resolver IP is set to the Domain Controller VM IP for your cluster. By default, this field is set to the primary Name Server IP configured for the Nutanix cluster, this value is incorrect and will not work.
 
-             ![](images/7.png)
+            ![](images/7.png)
 
 7.  Click **Next**.
 
