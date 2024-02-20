@@ -50,8 +50,6 @@ S3-compatible applications.
 **In this lab, we will walk through a Nutanix Objects deployment and
 learn how to create, access, and manage buckets.**
 
-For more information on Objects, please visit our [website](http://www.nutanix.com/products/objects) or send an [e-mail](objects@nutanix.com) to contact the Nutanix Objects team!
-
 ## Lab Setup
 
 This lab requires applications provisioned as part of the Windows Tools VM which is pre-deployed for you.
@@ -154,32 +152,41 @@ Store.
 
        Global Namespace is supported starting from Objects 4.0. We do not include this in this lab but feel free to reach out to the instructor to understand more.
 
-1.  In Prism Central, select :fontawesome-solid-bars: **>Services > Objects**, click **Create Object Store**.
+1.  In **Prism Central**, click **Infrastructure > Objects**, 
+
+    ![](images/buckets_00_1.png)
+
+2.  click **Create Object Store**.
 
     ![](images/buckets_01.png)
 
-2.  Review the prerequisites and click **Continue**.
+3.  Review the prerequisites and click **Continue**.
 
-3.  Fill out the following fields:
+4.  Fill out the following fields:
 
     -   **Object Store Name** - ntnx-objects-dr
     -   **Cluster** - your cluster (e.g. PHX-SPOC*xyz*-*a*)
     -   **Worker nodes** - 1
-    -   **Domain** - ntnxlab.com
 
     ![](images/buckets_02.png)
 
-4.  Click **Next**.
+    !!!note
+            Starting from 4.2, once microservices infrastructure (CMSP) was enabled in Prism Central, all objects clusters will be deployed at the sub domain of Prism Central. That is why by default **prism-central.cluster.local** is selected as the domain of the deployment.
+            You can always add additional domains for the object store after the deployment is completed.
 
-5.  In Storage network settings choose **Primary Network**
+5.  Click **Next**.
 
-6.  Provide two available IP addresses for Object Store Storage Network
+6.  In Storage network settings choose **Primary Network**
+
+7.  Provide two available IP addresses for Object Store Storage Network
     static IPs (2 IPs required)
 
     Select two available IPs in your network (just ping a few IPs in
     your cluster's subnet to check if they are avaialable or use a port
     scanner to determine this)
 
+    !!!note
+            Do not use IP addresses that is in the DHCP range, you can go to Prism Element > Network Configuration to check the IP range used for IP address management.
 
     !!!warning 
 
@@ -191,7 +198,7 @@ Store.
 
 8.  In Public network settings choose **Primary Network**
 
-9.  Provide four available consecutive IP addresses in a range, for
+9.  Provide one available consecutive IP addresses in a range, for
     Object Store Storage Network static IPs (1 IP required)
 
     Select one available IP in your network (just ping a few IPs in
@@ -209,6 +216,9 @@ Store.
     are run
 
     ![](images/buckets_05.png)
+
+    !!!note
+            If there are some errors showing in the validation check, you can download the log to check the error messages.
 
 13. Click on **Create Object Store** to create a new Object Store.
 

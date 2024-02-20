@@ -53,6 +53,7 @@ Please ensure you read the whole lab before starting
 - Data Protection & Lifecycle Management
     - Files - Replication
     - Files - Tiering
+    - Objects - Replication
 
 
 - Optional Labs
