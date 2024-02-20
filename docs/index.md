@@ -1,8 +1,10 @@
 #  Getting Started
 
-Welcome to the Nutanix Unified Storage Bootcamp for CX offsite 2023.
+Welcome to the Nutanix Unified Storage APJ TTT workshop 2024.
 
 This lab introduces Nutanix Files, Data Lens, Objects, Volumes and many common management tasks. Each section is a lesson with hands-on practice. The instructor is onsite to answers any additional questions that you may have.
+
+The goal of this workshop is to adequate you with the relevant techniques to conduct similar training to your partners in your own country. 
 
 Traditionally, SAN, NAS and object storage have created silos within the Datacentre. This introduces un-necessary complexity and the ability to scale and the lack of continuous innovation seen in SAN storage. Nutanix believes in eliminating silos in the Enterprise Cloud by approaching file storage as an app, i.e running as software define storage on top of a proven HCI core, Nutanix Files delivers high performance, scalability, and rapid innovation through One Click management.
 
