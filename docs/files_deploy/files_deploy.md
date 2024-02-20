@@ -2,34 +2,31 @@
 
 ## Deploy Files
 
-1.  In **Prism Element > File Server**, click **+ File Server** to open the
+1.  In **Prism Central > Files**, click **+ File Server** to open the
     **Create File Server** dialogue.
 
     !!!note
 
-           As we have deployed a file server in the cluster, it will use the current FS version to deploy the new file server. In a normal deployment if this is the first file server to create, you will need to go through a pre-check and select Files version from a list of available compatible versions. You can also choose to manually upload a File version to start the deployment.
+           Before deploying File Server in PC, you need to go to LCM to **perform inventory** one time to get the latest version of File Server in PC.
 
-2.  Fill out the following fields:
+2.  Select your cluster and 4.4.0.1 as the File Server Version, then click **Proceed**.
+      ![](images/pc0.png)
+
+3.  Fill out the following fields:
 
     -   FS*XYZ*-*A*-dr (e.g. FS002-3-dr)
     -   **Domain** - ntnxlab.local
     -   **File Server Size** - 1 TiB
 
-    ![](images/4.png)
+    ![](images/pc1.png)
 
-3.  Click **Next**.
+4.  Click **Next**.
 
 5.  Select the **Primary - Managed** VLAN for the **Client Network**.
     
     Each Files VM will consume a single IP on the client network.
 
-    !!!note
-    
-           It is typically desirable in production environments to deploy Files with dedicated virtual networks for client and storage traffic. When using two networks, Files will, by design, disallow client traffic the storage network, meaning VMs assigned to the primary network will be unable to access shares.
-
-   
     ???info "Check here for ESXi Hypervisor information"
-
            As this is an AHV managed network, configuration of individual IPs
            is not necessary. In an ESXi environment, or using an unmanaged AHV
            network, you would specify the network details and available IPs as
@@ -37,92 +34,51 @@
        
            ![](images/6.png)
     
-
-6.  Specify your cluster's **Domain Controller** VM IP (look for
-    **AutoAD** VM IP address in Prism Element) as the **DNS Resolver
-    IP** (e.g. 10.XX.YY.41)). Leave the default (cluster) NTP Server.
-
-    !!!danger
-    
-            In order for the Files cluster to successfully find and join the NTNXLAB.local domain it is critical that the DNS Resolver IP is set to the Domain Controller VM IP for your cluster. By default, this field is set to the primary Name Server IP configured for the Nutanix cluster, this value is incorrect and will not work.
-
-            ![](images/7.png)
-
 7.  Click **Next**.
 
 8.  Select the **Primary - Managed** VLAN for the Storage Network.
 
     Each Files VM will consume a single IP on the storage network, plus 1 additional IP for the cluster.
 
-    ![](images/8.png)
-
 9.  Click **Next**.
 
-10. Fill out the following fields:
+10. Leave the DNS servers and NTP servers as default and click **Next**.
+
+11. Check the configuration again and click **Create** to start deploying a File Server.
+
+    !!!note
+    
+           PC deployed File Server do not support PD based replication and snapshot, so we do not need to set PD snapshot schedule.
+
+
+12. After the file server is created, click the name from **PC > Files > File Servers** to go to the file management console.
+
+13. Go to **Configuration > Authenication**
+14. Click **Use SMB Protocol** and fill out the following fields:
 
     -   Select **Use SMB Protocol**
     -   **Username** - <administrator@ntnxlab.local>
     -   **Password** - nutanix/4u
     -   Select **Make this user a File Server admin**
-    -   Select **Use NFS Protocol**
+
+15. Click **Use NFS Protocol**
     -   **User Management and Authentication** - Unmanaged
     -   Select **Show NFS Advanced Options**
-    -   For 4-node HPOC only: **NFS protocol version** - Enable NFSv4 by default for all
-        exports
+    -   Click **Enable NFSv3 by default for all exports**
 
-    ![](images/9.png)
-
-    ![](images/9-1.png)
+    ![](images/pc2.png)
 
     !!!info
 
-            In un-managed mode, users are only identified by UID/GID. Starting from Files 3.5, Files supports both NFSv3 and NFSv4.
+            In un-managed mode, users are only identified by UID/GID. 
 
-11. Click **Next**.
+16.  Click **Update**.
 
-    By default, Files will automatically create a Protection Domain to
-    take daily snapshots of the Files cluster and retain the previous 2
-    snapshots. After deployment, the snapshot schedule can be modified
-    and remote replication sites can be defined.
-
-    ![](images/10.png)
-
-12. Click **Create** to begin the Files deployment.
-
-13. Monitor deployment progress in **Prism > Tasks**.
-
-    Deployment should take approximately 10 minutes. 
-
-    !!!note
-            You should start working on the next lab while the File Server is creating.
-
-    ![](images/11.png)
-
-    ???tip "Having trouble with File Server not joining Active Directory?"
-
-          If you accidentally did not configure Files to use the Active Directory domain controller (AutoAD or customer-provided) as the DNS server, after deploying the File Server you will get the following errors.
-      
-          -   DNS 'NS' records not found for *domain*
-          -   Failed to lookup IP address of *domain*. Please verify the
-              domain name, DNS configuration and network connectivity.
-      
-          This can easily be corrected after deployment, without having to delete and redeploy the Files Server.
-      
-          -   **Launch File Console**, go to **Configuration > Authentication > Directory Services**
-          -   Click **Use SMB Protocol**, put **ntnxlab.local** in Active Directory Realm Name
-          -   Put administrator@ntnxlab.local and nutanix/4u as username and password
-          -   Select **Make this user a File Server admin**
-          
+17. Go to **Data Management > Protection** and then **Self Service Restore**
     
+    ![](images/pc3.png)
 
-14. Go to **Prism > File Server** and select the **FS*XYZ*-*A*-dr**
-    server and click **Protect**.
-
-    ![](images/12.png)
-
-15. Observe the default Self Service Restore schedules, this feature controls the snapshot schedule for Windows\' Previous Versions functionality. Supporting Previous Versions allows end users to roll back changes to files without engaging storage or backup administrators. Note these local snapshots do not protect the file server cluster from local failures and that replication of the entire file server cluster can be performed to remote Nutanix clusters. Click **Close**.
-
-    ![](images/13.png)
+18. Observe the default Self Service Restore schedules, this feature controls the snapshot schedule for Windows\' Previous Versions functionality. Supporting Previous Versions allows end users to roll back changes to files without engaging storage or backup administrators. Note these local snapshots do not protect the file server cluster from local failures and that replication of the entire file server cluster can be performed to remote Nutanix clusters.
 
 ## Takeaways
 

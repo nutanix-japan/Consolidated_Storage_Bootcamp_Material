@@ -42,10 +42,10 @@ The data protection process consists of the following procedures:
 
 ## Lab Setup
 
-In the previos labs, We have already created File Server in the DR site and migrated files from existing share to xyz-GSO share. We will now replicate the xyz-GSO share to the DR File Server.
+We have already created File Server in the DR site and migrated files from existing share to xyz-GSO in the previous labs. We now will replicate the xyz-GSO share to the DR File Server.
 
 !!!note
-        Make sure you have a **SMB Share** before attempting this section.
+        Make sure you have finished the labs of "Deploy Nutanix Files", "Create SMB Share" & "Share Migration" before this lab.
 
 
 
@@ -59,14 +59,11 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 1.  Logon to **Prism Central**
 
-2.  Click on :fontawesome-solid-bars: > Services > Files
+2.  Click on **Infrastructure** to see the pull down list then select **Files** under **Unified Storage**
 
-    ???note "Can't see Files Manager?"
+    ???note "Can't see Files?"
 
-           If Files Manager is not enabled in your Prism Central, you will need
-           to Enable Files using instruction in [Files Manager](../files_manager/files_manager.md)
-
-        　　![](images/pc_files.png)
+           If Files is not showing in your Prism Central, you will need to deploy Files Manager using LCM in PC
 
 3.  In Files Manager, click on **Data Protection > Polices > + New Policy**
 
@@ -78,9 +75,14 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
            Selecting the source Files server will automatically select all the shares within this files server to be protected
     
-7.  Select your **FS*xyz*-*a*-dr** (e.g. FS002-3-dr) as the **Recovery Location (Target File Server)**
+7.  Select **Local AZ** as the PC, then select your **FS*xyz*-*a*-dr** (e.g. FS002-3-dr) as the **Target File Server**
 
-8.  Select the **Recovery Point Objective (RPO)** as **2** minutes and
+    !!!note
+
+           Starting from Files 4.4, Files supports Smart DR with multiple PCs. If your setup is with Files Servers managed by different PC, connect the two PC's Availability Zone before setting up the Smart DR replication policy.
+
+
+8.  Select the **Replication Frequency** as **1** minutes and
     **Start Immediately**. (this is the lowest you can set as of now)
 
     !!!note 

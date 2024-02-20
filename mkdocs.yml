@@ -106,6 +106,7 @@ nav:
     - Data Protection and Lifecycle Management:
       - 'Files - Replication': files_replication/files_replication.md
       - 'Files - Tiering': files_tiering/files_tiering.md
+      - 'Objects - Replication': objects_replication/objects_replication.md
     - 'Optional Labs':
       - 'Files - Create NFS Share': files_nfs_export/files_nfs_export.md
       - 'Files - Expand Files Cluster (Not applicable to single node cluster)': files_expand_cluster/files_expand_cluster.md
