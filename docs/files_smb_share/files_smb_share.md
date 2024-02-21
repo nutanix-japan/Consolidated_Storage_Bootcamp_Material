@@ -13,7 +13,7 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
 
 ### Creating the Share
 
-1.  In **Prism Element > File Server**, click on your FS*XYZ*-*A*-prod File Server
+1.  In **Prism Element > File Server**, click on your **FS*XYZ*-#-prod** File Server
 
 2.  Click on **Launch Files Console** 
     
@@ -25,7 +25,7 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
 
 4.  Fill out the following fields:
 
-    -   **Name** - *Initials*-GSO (e.g. XYZ-GSO)
+    -   **Name** - usershareXX (e.g. usershare01)
     -   **Description (Optional)** - Departmental share for GSO team
     -   **Share Path (Optional)** - Leave blank. This field allows you
         to specify an existing path in which to create the nested share.
@@ -68,7 +68,7 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
 
     ![](images/16.png)
 
-9.  Go to File Server **FS*XYZ*-*A*-dr**, use the same step to create a SMB share with name : **DLtest-dr**
+9.  Use the same step to create a SMB share with name : **ransomwaretestXX** (e.g. ransomwaretest01) 
 
 ### Testing the Share
 
@@ -81,11 +81,11 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
            domain. You could use any domain joined VM to complete the following
            steps.
 
-2.  Open `\\FS*XYZ*-*A*-prod.ntnxlab.local\` in **File Explorer**.
+2.  Open `\\FS*XYZ*-#-prod.ntnxlab.local\` in **File Explorer**.
 
     ![](images/17.png)
 
-3.  Test accessing the xyz-GSO share by creating a text file into the share.
+3.  Test accessing the **usershareXX** (where XX is your username) share by creating a text file into the share.
 
     -   The **NTNXLAB\\Administrator** user was specified as a Files
         Administrator during deployment of the Files cluster, giving it
@@ -93,13 +93,13 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
     -   Managing access for other users is no different than any other
         SMB share.
 
-4.  Right-click **xyz-GSO \> Properties**.
+4.  Right-click **usershareXX \> Properties**.
 
 5.  Select the **Security** tab and click **Advanced**.
 
     ![](images/19.png)
 
-6.  Select **Users (FS*XYZ*-*A*-prod\\Users)** and click **Remove**.
+6.  Select **Users (FS*XYZ*-#-prod\\Users)** and click **Remove**.
 
 7.  Click **Add**.
 
@@ -135,7 +135,7 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
 
     ![](images/13.png)
 
-3.  Select **Shares** \> **xyz-GSO** share
+3.  Select **Shares** \> **usershareXX** (where XX is your username share)
 
     ![](images/21-1.png)
 
@@ -159,7 +159,7 @@ In this exercise you will create and test a SMB share. SMB share are used to sup
 8.  This will enforce quota limits on the shares for AD user group **SSP
     Developers** to stay within limit
 
-9.  With the **xyz-GSO** \> **Summary** selected, review the
+9.  With the **usershareXX** (where XX is your username) \> **Summary** selected, review the
     **Capacity Summary**, **Performance Summary** and **Share
     Properties** tabs to understand the available on a per share basis,
     including the number of files & connections, storage utilization

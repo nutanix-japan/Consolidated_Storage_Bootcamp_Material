@@ -8,7 +8,7 @@ In this exercise you will create anomaly rules and trigger events against the ru
 
 ## Login to File Analytics (If you are not already there)
 
-1.  Login to **Prism Element** \> **File Server** \> click the File Server **FS-XYZ-Prod** > **File Analytics**
+1.  Login to **Prism Element** \> **File Server** \> click the File Server **FS*XYZ*-#-prod** > **File Analytics**
 
     ![](images/1.png)
 
@@ -60,12 +60,11 @@ In this exercise you will create anomaly rules and trigger events against the ru
 
 ## Load Sample Data
 
-1.  Go to the Sample Data folder in the Marketing share and copy, then
-    paste that folder to the same share.
+1.  Go to the folder **usershareXX** and copy and paste all the files and folders in the same share.
 
     ![](images/42.png)
 
-2.  Now delete the original Sample Data folder.
+2.  Now delete the copied files.
 
 ## Cause Error Condition
 
@@ -77,7 +76,7 @@ In this exercise you will create anomaly rules and trigger events against the ru
     outside the scope of this lab.
     :::
 
-2.  Create a new directory called **RO** in the Marketing share
+2.  Create a new directory called **RO** in the same share
 
 3.  Create a text file in the **RO** directory with some text like
     "hello world" called **myfile.txt**
@@ -112,10 +111,10 @@ In this exercise you will create anomaly rules and trigger events against the ru
     -   **User name**: devuser01
     -   **Password**: nutanix/4u
 
-11. Change Directories into the Marketing share and the **RO** directory
+11. Change Directories into the share share and the **RO** directory
 
     ```bash
-        cd \\xyz-files.ntnxlab.local\marketing\RO
+        cd \\FSXYZ-#-prod.ntnxlab.local\usershareXX\RO
     ```
 
 12. Execute the following commands, the first should succeed, the second
@@ -133,3 +132,5 @@ In this exercise you will create anomaly rules and trigger events against the ru
     your browser.
 
     ![](images/46.png)
+
+14. You can try different operations in the share and check the audit trail in File Analytics.

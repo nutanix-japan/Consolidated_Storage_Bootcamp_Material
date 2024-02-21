@@ -59,7 +59,7 @@ Objects that has been pre-deployed for you to AWS S3.
 6.  Click **Add**
     ![](images/2.png)
 
-7.  Search for **adminuser01** as the user and click the checkbox next to it.
+7.  Search for **adminuserXX** as the user and click the checkbox next to it where XX is the user number assigned to you.
     ![](images/3.png)
 
 8.  Click **Next** > **Generate Key** > **Download Key**
@@ -114,7 +114,7 @@ Objects that has been pre-deployed for you to AWS S3.
     ![](images/5.1.png)
     ![](images/5.2.png)
 
-8.  Once tiering location is configured, we can strat to set policy. Click **Set a Capacity Threshold**, you can set a capacity threshold so that tiering policy will only be run when the capacity usage is exceeded the percentage. For this lab, we do not set threshold so do not click **Set Capacity Threshold** and keep **Manual** selected under **When to Tier**. Then click **Save**.
+8.  Once tiering location is configured, we can start to set policy. Click **Set a Capacity Threshold**, you can set a capacity threshold so that tiering policy will only be run when the capacity usage is exceeded the percentage. For this lab, we do not set threshold so do not click **Set Capacity Threshold** and keep **Manual** selected under **When to Tier**. Then click **Save**.
 
 9.  Now click **Create a Tiering Policy**
 
@@ -131,27 +131,32 @@ Objects that has been pre-deployed for you to AWS S3.
 
 To speed up, we will verify the behavior by doing manual tiering in AFS CLI.
 
-1.  SSH to FSVM via FSVM's client network or CVM
+1.  Go to usershareXX, find a file and record the file path.
+2.  SSH to FSVM via FSVM's client network or CVM
 
-2.  Enter in CLI and then tier the following file: 
-   
+3.  Enter in CLI and then tier the following file: 
     ```bash
-    <afs> tiering.tier xyz-GSO file_paths="MLPA 8475.png"
+        afs
+        tiering.tier usershareXX file_paths="file path you recorded"
     ```
     ![](images/7.png)
 
-3.  You can check the tiering status by ``tiering.status xyz-GSO file_paths="MLPA 8475.png``, you can see this file has a status Offline, showing that it is already tiered.
+4.  You can check the tiering status by the following command, you can see this file has a status Offline, showing that it is already tiered.
     
+    ```bash
+        tiering.status usershareXX file_paths="file path you recorded"
+    ```
+
     !!!note 
            If you try to tier a file less than 64KB, you will find it was not tiered successfully.
 
     ![](images/8.png)
 
-4.  You can login to your **WintoolsVM** and check the share folder of **xyz-GSO**. You will see the tiered file with a **CROSS** on the file icon. That means this file only has a stub in the file share. The actual content is in object store target.
+5.  You can login to your **WintoolsVM** and check the share folder of **usershareXX**. You will see the tiered file with a **CROSS** on the file icon. That means this file only has a stub in the file share. The actual content is in object store target.
 
     ![](images/9.png)
 
-5.  Now right click the tiered file > **Open With** > **Paint**. You can do read access to a tiered file. 
+6.  Now right click the tiered file > **Open With** > **Paint**. You can do read access to a tiered file. 
 
 You have successfully tiered from Nutanix Files to Objects using Smart Tiering.
 

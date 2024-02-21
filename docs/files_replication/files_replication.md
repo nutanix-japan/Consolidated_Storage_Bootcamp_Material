@@ -59,36 +59,34 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
 1.  Logon to **Prism Central**
 
-2.  Click on **Infrastructure** to see the pull down list then select **Files** under **Unified Storage**
+2.  Click on :fontawesome-solid-bars: > Services > Files
 
-    ???note "Can't see Files?"
+    ???note "Can't see Files Manager?"
 
-           If Files is not showing in your Prism Central, you will need to deploy Files Manager using LCM in PC
+           If Files Manager is not enabled in your Prism Central, you will need
+           to Enable Files using instruction in [Files Manager](../files_manager/files_manager.md)
+
+        　　![](images/pc_files.png)
 
 3.  In Files Manager, click on **Data Protection > Polices > + New Policy**
 
-4.  Select your **FS*xyz*-*a*-prod** (e.g. FS002-3-prod) as the **Primary Location (Source File Server)**
+4.  Select your **FS*XYZ*-#-prod** as the **Primary Location (Source File Server)**
 
-5.  Select **xyz-GSO** as **the Shares to be protected**
+5.  Select **usershareXX** as **the Shares to be protected**
 
     !!!note
 
            Selecting the source Files server will automatically select all the shares within this files server to be protected
     
-7.  Select **Local AZ** as the PC, then select your **FS*xyz*-*a*-dr** (e.g. FS002-3-dr) as the **Target File Server**
+7.  Select your **FS*XYZ*-#-dr** (e.g. FS002-3-dr) as the **Recovery Location (Target File Server)**
 
-    !!!note
-
-           Starting from Files 4.4, Files supports Smart DR with multiple PCs. If your setup is with Files Servers managed by different PC, connect the two PC's Availability Zone before setting up the Smart DR replication policy.
-
-
-8.  Select the **Replication Frequency** as **1** minutes and
+8.  Select the **Recovery Point Objective (RPO)** as **2** minutes and
     **Start Immediately**. (this is the lowest you can set as of now)
 
     !!!note 
            You can ignore the following warning as the this is just a test for Smart DR feature. In a customer environment the source and Target Files servers will be in different AOS clusters.
        
-           **FS*xyz*-*a*-dr** is on the same AOS cluster as the source. It is recommended to have target file servers on a different AOS cluster.
+           FSXYZ-#-dr is on the same AOS cluster as the source. It is recommended to have target file servers on a different AOS cluster.
 
 9.  Make sure your selection looks as follows:
 
@@ -118,7 +116,7 @@ The Files Manager provides the Smart DR service for Nutanix Files, which lets yo
 
     ![](images/SDR4.png)
 
-16. Verify it shows the DR Files Server with the source PROD share (e.g.``\\FSxyz-a-dr.ntnxlab.local\xyz-GSO``)
+16. Verify it shows the DR Files Server with the source PROD share (e.g.**\\FS*XYZ*-#*-dr.ntnxlab.local\usershareXX**)
 
 ## Failover Share
 
@@ -169,7 +167,7 @@ In this lab we will test a Planned Failover
 
 11. Once Failover is completed, return to **Files > Data Protection > Protected File Servers** in Prism Central and check the Active and Standby File servers. (Active indicated by a green A)
 
-12. Confirm that **FSxyz-a-dr** (e.g. **FS002-3-dr**) server is now
+12. Confirm that **FS*XYZ*-#-dr** (e.g. **FS002-3-dr**) server is now
     the active server
 
     ![](images/SDR7.png)
@@ -183,8 +181,8 @@ In this lab we will test a Planned Failover
 
 15. Browse to the location of your source share now hosted on PROD and DR Files server, you will find that both File Servers point to the same location.
 
-    -   Prod path - ``\\FSxyz-a-prod.ntnxlab.local\xyz-GSO``
-    -   DR path - ``\\FSxyz-a-dr.ntnxlab.local\xyz-GSO``
+    -   Prod path - **\\FS*XYZ*-#-prod.ntnxlab.local\usershareXX**
+    -   DR path - **\\FS*XYZ*-#-dr.ntnxlab.local\usershareXX**
 
     ![](images/SDR8.png)
 
@@ -197,7 +195,7 @@ In this lab we will test a Planned Failover
 
     You can notice that both PROD and DR file servers point to the IP address of the DR File Server.
 
-17. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now **initials**-files-dr (e.g. xyz-files-dr) server
+17. Go to **Data Protection > Replication Jobs** and verify that the source Files server is now **FS*XYZ*-#-dr** server
 
     ![](images/SDR10.png)
 
@@ -237,7 +235,7 @@ In this lab we will test a Planned Failover
 9.  Monitor the Events in Prism Central
 
 10. Once the failover is done, go to your Windows Tools VM and logon to the share hosted on PROD files server (e.g
-    ``\\FSxyz-a-prod\xyz-GSO`` )
+    **\\FS*XYZ*-#-prod\usershareXX** )
 
 12. Logon to your AutoAD server once again and open DNS management (from Search button > type DNS )
 
