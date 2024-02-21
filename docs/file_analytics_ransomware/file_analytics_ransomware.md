@@ -7,7 +7,7 @@ and trigger a ransomware event.
 
 1.  In Prism Element, go File Server
 
-2.  Select your **FSxyz-prod** file server and click on File Analytics
+2.  Select your **FS*XYZ*-#-prod** file server and click on File Analytics
 
     ![](images/ransomware_connect.png)
 
@@ -31,12 +31,12 @@ and trigger a ransomware event.
 6.  Login to **WinToolsVM** using username : **administrator@ntnxlab.local**
 
 7.  Check the following share in **File Explorer**: 
-      - ``FS*XYZ-A*-prod.ntnxlab.local\UserXX-prod``
+      - **FS*XYZ*-#-prod.ntnxlab.local\ransomwaretestXX**
 
 8.  Create a new file **ransomware_test.ps1** in Downloads, open the file and put the following content in the file. **Save** it.
       ```bash
-        new-item \\FSxyz-prod.ntnxlab.local\UserXX-prod\IamAngry.AngryDuck -ItemType file
-        Get-ChildItem \\FSxyz-prod.ntnxlab.local\UserXX-prod\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
+        new-item \\FSXYZ-#-prod.ntnxlab.local\ransomwaretestXX\IamAngry.AngryDuck -ItemType file
+        Get-ChildItem \\FSXYZ-#-prod.ntnxlab.local\ransomwaretestXX\*.txt | Rename-Item -NewName { $_.Name -replace '.txt','.satana' }
       ```
 
 6. Right click the :simple-powershell: (PowerShell icon) and select **Run as Administrator**.
@@ -47,7 +47,7 @@ and trigger a ransomware event.
     C:\Users\Administrator\Downloads\ransomware_test.ps1
     ```
 
-9.   Check the share ``FSxyz-prod.ntnxlab.local\UserXX-prod,`` you can see all files are .txt, meaning File Analytics is protecting against the operation of creating new or changing ransomware files according to the signature list.
+9.   Check the share **FS*XYZ*-#-prod.ntnxlab.local\ransomwaretestXX**, you can see all files are .txt, meaning File Analytics is protecting against the operation of creating new or changing ransomware files according to the signature list.
 
 10. Wait until you receive email about ransomware attack alert.
 

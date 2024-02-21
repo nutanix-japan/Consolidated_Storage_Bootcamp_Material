@@ -40,7 +40,7 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 4. In the right side, choose **File Server** as the Entity Type, then select **Individual entity**
 
-5. In the search box, find and select **FS*XYZ*-PC**
+5. In the search box, find and select **FS*XYZ*-#-prod**
 
 6. Choose **Object Store** as the Entity Type, in the search box. find and select **ntnx-objects**
     ![](images/6.png)
@@ -78,23 +78,23 @@ The lab has enabled MSP on Prism Central which is a pre-requisite of using RBAC.
 
 9. Select :fontawesome-solid-bars: **> Administration > Roles**, click **the checkbox next to NUS user** > **Actions** > **Update Role**
 
-10. Expand **Object Store**, click **Change** next to **Set custom permission**
+10. Expand **Object Store**, click **Change** next to **Set customer permission**
 
 11. Check the tickbox of **Create Object Store**, then **Save**
     ![](images/9.png)
 
-12. Go back to **user01@ntnxlab.local**'s Prism Central, refresh the page.
+12. Go back to **userXX@ntnxlab.local**'s Prism Central, refresh the page.
 
 13. Now go to **Objects**, you can see the **Create Object Store** button is appeared again.
 
-14. Now go to **Files**, you will only see **FS*xyz*-PC** in File Server, click the tickbox next to **FS*xyz*-PC** and click **Actions**, you can see you cannot do any of them. It is because you have only view access and create share access. You do not have right to update any File Server settings.
+14. Now go to **Files**, you will only see **FS*xyz*-#-prod** in File Server, click the tickbox next to **FS*xyz*-#-prod** and click **Actions**, you can see you cannot do any of them. It is because you have only view access and create share access. You do not have right to update any File Server settings.
 
     ![](images/10.png)
 
     !!!Tip
             If you are using PE deploy File Server, the launch PE console from PC and then launching File server page is permitted for Super Admin, Cluster Admin and user who has Prism Admin and Files Admin role 
 
-15. Now click **FS*xyz*-PC** to enter the file management console, you can view everything related to this File Server. 
+15. Now click **FS*xyz*-#-prod** to enter the file management console, you can view everything related to this File Server. 
 
 16. Click **Shares** > **Create a New Share**, follow the steps to create a share.
 
